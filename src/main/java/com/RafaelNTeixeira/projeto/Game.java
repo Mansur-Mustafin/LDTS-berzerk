@@ -7,12 +7,20 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
     private TerminalScreen screen;
 
-    private Arena arena = new Arena(80, 40);
+    private Arena arena = new Arena(100, 30);
+
+    private List<Wall> walls = new ArrayList<>();
 
     public Game() throws IOException {
 
@@ -48,6 +56,7 @@ public class Game {
         }
 
     }
+
 
 
 }

@@ -7,6 +7,11 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,19 +22,30 @@ public class Arena {
 
     private final Hero hero;
 
-    private List<Wall> walls;
+    private List<Wall> walls = new ArrayList<>();
 
-    private List<Wall> createWalls() {
-        List<Wall> walls = new ArrayList<>();
-        for (int c = 0; c < width; c++) {
-            walls.add(new Wall(c, 0));
-            walls.add(new Wall(c, height - 1));
+    private void createWalls() {
+
+        InputStream istream = ClassLoader.getSystemResourceAsStream("level4.txt");
+        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(istreamreader);
+
+        try {
+            int i = 0;
+            for (String line; (line = reader.readLine()) != null; i++) {
+                int j = 0;
+                for (char c: line.toCharArray()) {
+                    if(c == 'w'){
+                        walls.add(new Wall(j, i));
+                    }
+                    j++;
+                }
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        for (int r = 1; r < height - 1; r++) {
-            walls.add(new Wall(0, r));
-            walls.add(new Wall(width - 1, r));
-        }
-        return walls;
+
     }
 
     private List<Monster> monsters;
@@ -45,8 +61,9 @@ public class Arena {
     public Arena(int x, int y) {
         width = x;
         height = y;
-        hero = new Hero(x / 2, y / 2);
-        this.walls = createWalls();
+        hero = new Hero(5, y / 2);
+
+        createWalls();
         this.monsters = createMonster();
     }
 
@@ -107,7 +124,7 @@ public class Arena {
     }
 
     public void draw(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#000099"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
         hero.draw(graphics);
         for (Wall wall : walls)
@@ -131,5 +148,6 @@ public class Arena {
     public void setWidth(int width) {
         this.width = width;
     }
+
 
 }
