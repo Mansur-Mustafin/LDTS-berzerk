@@ -7,15 +7,14 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
+import com.googlecode.lanterna.screen.Screen;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Arena {
     private int height;
@@ -72,27 +71,42 @@ public class Arena {
         return true;
     }
 
-    public void moveMonster() {
-        for (Monster monster : monsters) {
-            Position position = monster.move();
+    public Timer timer_for_Monsters;
 
-            while(!canMonsterMove(position)){
-                position = monster.move();
+
+    public void moveMonster(Screen screen, TextGraphics graphics) {
+        timer_for_Monsters = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run(){
+                for (Monster monster : monsters) {
+                    Position position;
+                    while(!canMonsterMove(position = monster.move())){}
+                    monster.setPosition(position);
+                }
+                screen.clear();
+                draw(graphics);
+                try {
+                    screen.refresh();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
-            monster.position.setX(position.getX());
-            monster.position.setY(position.getY());
-        }
+        };
+        timer_for_Monsters.schedule(task, 10,800);
     }
 
     public void moveHero(Position position) {
         if (canHeroMove(position)) {
             verifyMonsterCollisions(position);
             hero.setPosition(position);
-            moveMonster();
+            // era aqui move Monsters
         }
     }
 
     public void processKey(KeyStroke key) {
+        //moveMonster();
         if (key.getKeyType() == KeyType.ArrowUp) moveHero(hero.moveUp());
         if (key.getKeyType() == KeyType.ArrowDown) moveHero(hero.moveDown());
         if (key.getKeyType() == KeyType.ArrowLeft) moveHero(hero.moveLeft());
@@ -111,11 +125,9 @@ public class Arena {
 
 
     private void createWalls() {
-
         InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(istreamreader);
-
         try {
             int i = 0;
             for (String line; (line = reader.readLine()) != null; i++) {
@@ -126,12 +138,10 @@ public class Arena {
                     }
                     j++;
                 }
-                System.out.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 

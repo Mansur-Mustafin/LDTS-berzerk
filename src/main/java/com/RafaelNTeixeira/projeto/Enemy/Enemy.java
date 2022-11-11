@@ -23,6 +23,10 @@ public abstract class Enemy extends Element {
         graphics.putString(new TerminalPosition(position.getX(),position.getY()),"M");
     }
 
+    public void setPosition(Position position){
+        this.position = position;
+    }
+
     protected abstract MoveStrategy generateMoveStrategy();
 
     public Position move(){
