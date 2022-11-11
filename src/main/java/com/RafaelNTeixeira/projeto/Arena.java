@@ -1,5 +1,6 @@
 package com.RafaelNTeixeira.projeto;
 
+import com.RafaelNTeixeira.projeto.Enemy.Monster;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -72,15 +73,14 @@ public class Arena {
     }
 
     public void moveMonster() {
-        Random random = new Random();
         for (Monster monster : monsters) {
-            int x = random.nextInt(3) - 1;
-            int y = random.nextInt(3) - 1;
-            Position position = new Position(monster.position.getX() + x, monster.position.getY() + y);
-            if (canMonsterMove(position)) {
-                monster.position.setX(position.getX());
-                monster.position.setY(position.getY());
+            Position position = monster.move();
+
+            while(!canMonsterMove(position)){
+                position = monster.move();
             }
+            monster.position.setX(position.getX());
+            monster.position.setY(position.getY());
         }
     }
 
@@ -111,7 +111,6 @@ public class Arena {
 
 
     private void createWalls() {
-        //List<Wall> walls = new ArrayList<>();
 
         InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
@@ -134,10 +133,6 @@ public class Arena {
         }
 
     }
-
-
-
-
 
 
     public int getHeight() {
