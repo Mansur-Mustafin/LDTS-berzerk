@@ -1,20 +1,20 @@
 package com.RafaelNTeixeira.projeto;
 
+import com.RafaelNTeixeira.projeto.Enemy.Monster;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
+import com.googlecode.lanterna.screen.Screen;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Arena {
     private int height;
@@ -24,29 +24,6 @@ public class Arena {
 
     private List<Wall> walls = new ArrayList<>();
 
-    private void createWalls() {
-
-        InputStream istream = ClassLoader.getSystemResourceAsStream("level4.txt");
-        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(istreamreader);
-
-        try {
-            int i = 0;
-            for (String line; (line = reader.readLine()) != null; i++) {
-                int j = 0;
-                for (char c: line.toCharArray()) {
-                    if(c == 'w'){
-                        walls.add(new Wall(j, i));
-                    }
-                    j++;
-                }
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     private List<Monster> monsters;
 
@@ -61,8 +38,7 @@ public class Arena {
     public Arena(int x, int y) {
         width = x;
         height = y;
-        hero = new Hero(5, y / 2);
-
+        hero = new Hero(x / 2, y / 2);
         createWalls();
         this.monsters = createMonster();
     }
@@ -95,28 +71,42 @@ public class Arena {
         return true;
     }
 
-    public void moveMonster() {
-        Random random = new Random();
-        for (Monster monster : monsters) {
-            int x = random.nextInt(3) - 1;
-            int y = random.nextInt(3) - 1;
-            Position position = new Position(monster.position.getX() + x, monster.position.getY() + y);
-            if (canMonsterMove(position)) {
-                monster.position.setX(position.getX());
-                monster.position.setY(position.getY());
+    public Timer timer_for_Monsters;
+
+
+    public void moveMonster(Screen screen, TextGraphics graphics) {
+        timer_for_Monsters = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run(){
+                for (Monster monster : monsters) {
+                    Position position;
+                    while(!canMonsterMove(position = monster.move())){}
+                    monster.setPosition(position);
+                }
+                screen.clear();
+                draw(graphics);
+                try {
+                    screen.refresh();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
-        }
+        };
+        timer_for_Monsters.schedule(task, 10,800);
     }
 
     public void moveHero(Position position) {
         if (canHeroMove(position)) {
             verifyMonsterCollisions(position);
             hero.setPosition(position);
-            moveMonster();
+            // era aqui move Monsters
         }
     }
 
     public void processKey(KeyStroke key) {
+        //moveMonster();
         if (key.getKeyType() == KeyType.ArrowUp) moveHero(hero.moveUp());
         if (key.getKeyType() == KeyType.ArrowDown) moveHero(hero.moveDown());
         if (key.getKeyType() == KeyType.ArrowLeft) moveHero(hero.moveLeft());
@@ -133,6 +123,28 @@ public class Arena {
             monster.draw(graphics);
     }
 
+
+    private void createWalls() {
+        InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
+        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(istreamreader);
+        try {
+            int i = 0;
+            for (String line; (line = reader.readLine()) != null; i++) {
+                int j = 0;
+                for (char c: line.toCharArray()) {
+                    if(c == 'w'){
+                        walls.add(new Wall(j, i));
+                    }
+                    j++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public int getHeight() {
         return height;
     }
@@ -148,6 +160,5 @@ public class Arena {
     public void setWidth(int width) {
         this.width = width;
     }
-
 
 }

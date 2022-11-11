@@ -3,24 +3,17 @@ package com.RafaelNTeixeira.projeto;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
+import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Game {
     private TerminalScreen screen;
 
     private Arena arena = new Arena(100, 30);
-
-    private List<Wall> walls = new ArrayList<>();
 
     public Game() throws IOException {
 
@@ -45,18 +38,21 @@ public class Game {
     }
 
     public void run() throws IOException {
+        arena.moveMonster(screen, screen.newTextGraphics());
         while(true){
             draw();
             KeyStroke key = screen.readInput();
             if(key.getKeyType() == KeyType.Character && key.getCharacter() == 'q'){
+                arena.timer_for_Monsters.cancel();
+                arena.timer_for_Monsters.purge();
                 screen.close();
             }
-            if(key.getKeyType() == KeyType.EOF) break;
+            if(key.getKeyType() == KeyType.EOF){
+                arena.timer_for_Monsters.cancel();
+                arena.timer_for_Monsters.purge();
+                break;
+            }
             arena.processKey(key);
         }
-
     }
-
-
-
 }
