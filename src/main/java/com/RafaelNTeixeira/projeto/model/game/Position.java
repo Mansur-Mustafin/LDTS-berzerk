@@ -1,4 +1,4 @@
-package com.RafaelNTeixeira.projeto;
+package com.RafaelNTeixeira.projeto.model.game;
 
 public class Position {
     private int x;

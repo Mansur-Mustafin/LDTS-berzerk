@@ -1,8 +1,8 @@
-package com.RafaelNTeixeira.projeto.Enemy;
+package com.RafaelNTeixeira.projeto.model.game.elements.Enemy;
 
-import com.RafaelNTeixeira.projeto.Element;
-import com.RafaelNTeixeira.projeto.Enemy.Move.MoveStrategy;
-import com.RafaelNTeixeira.projeto.Position;
+import com.RafaelNTeixeira.projeto.model.game.elements.Element;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy;
+import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;

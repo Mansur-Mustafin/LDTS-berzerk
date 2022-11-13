@@ -1,6 +1,7 @@
-package com.RafaelNTeixeira.projeto;
+package com.RafaelNTeixeira.projeto.model.game.arena;
 
-import com.RafaelNTeixeira.projeto.Enemy.Monster;
+import com.RafaelNTeixeira.projeto.model.game.Position;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -8,6 +9,8 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
+import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 
 import java.io.BufferedReader;
 import java.io.IOException;

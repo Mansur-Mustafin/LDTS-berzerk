@@ -1,6 +1,6 @@
-package com.RafaelNTeixeira.projeto.Enemy.Move;
+package com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move;
 
-import com.RafaelNTeixeira.projeto.Position;
+import com.RafaelNTeixeira.projeto.model.game.Position;
 
 import java.util.Random;
 
