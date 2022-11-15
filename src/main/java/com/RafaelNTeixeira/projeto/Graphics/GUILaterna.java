@@ -30,7 +30,6 @@ public class GUILaterna implements GUI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -99,5 +98,4 @@ public class GUILaterna implements GUI {
 
         return ACTION.NONE;
     }
-
 }
