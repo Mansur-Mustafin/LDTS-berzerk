@@ -28,7 +28,6 @@ public class HeroController extends GameController {
         moveHero(getModel().getHero().moveDown());
     }
 
-
     private boolean canHeroMove(Position position) {
         if (position.getX() < 0) return false;
         if (position.getY() < 0) return false;
@@ -62,5 +61,6 @@ public class HeroController extends GameController {
         if (action == GUI.ACTION.RIGHT) moveHeroRight();
         if (action == GUI.ACTION.DOWN) moveHeroDown();
         if (action == GUI.ACTION.LEFT) moveHeroLeft();
+        if(action == GUI.ACTION.NONE);
     }
 }

@@ -84,7 +84,7 @@ public class GUILaterna implements GUI {
     }
 
     public ACTION getNextAction() throws IOException {
-        KeyStroke keyStroke = screen.readInput();
+        KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
 
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.EXIT;

@@ -30,6 +30,8 @@ public class MenuController extends Controller<Menu> {
             case EXIT:
                 game.setState(null);
                 break;
+            case NONE:
+                break;
         }
     }
 }

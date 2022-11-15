@@ -36,5 +36,4 @@ public class MonsterController extends GameController {
             this.lastMovement = time;
         }
     }
-
 }
