@@ -8,8 +8,11 @@ import com.RafaelNTeixeira.projeto.model.game.Position;
 
 public class Hero extends Element {
 
+    private int energy;
+
     public Hero(int x, int y) {
         super(x,y);
+        energy = 10;
     }
 
     public Hero() {
@@ -32,11 +35,22 @@ public class Hero extends Element {
         this.position.setY(y);
     }
 
+    public void decreaseEnergy() {
+        this.energy--;
+    }
+
+    public void setEnergy(int x ){
+        energy = x;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
     public void draw(TextGraphics graphics) {
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(),
-                position.getY()), "X");
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
     }
 
     public Position moveUp() {
@@ -60,6 +74,9 @@ public class Hero extends Element {
         this.position.setX(position_new.getX());
     }
 
+    public Position getPosition(){
+        return position;
+    }
 
 
 }

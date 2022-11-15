@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.RafaelNTeixeira.projeto'
+group 'com.ProjectLDTS.projeto'
 version '1.0-SNAPSHOT'
 
 repositories {

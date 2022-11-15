@@ -1,5 +1,6 @@
 package com.RafaelNTeixeira.projeto.model.game.arena;
 
+import com.RafaelNTeixeira.projeto.Graphics.GUILaterna;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.googlecode.lanterna.TerminalPosition;
@@ -27,7 +28,6 @@ public class Arena {
 
     private List<Wall> walls = new ArrayList<>();
 
-
     private List<Monster> monsters;
 
     private List<Monster> createMonster() {
@@ -46,85 +46,6 @@ public class Arena {
         this.monsters = createMonster();
     }
 
-    private boolean canHeroMove(Position position) {
-        if (position.getX() < 0) return false;
-        if (position.getY() < 0) return false;
-        if (position.getX() > width - 1) return false;
-        if (position.getY() > height - 1) return false;
-
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(position)) return false;
-
-        return true;
-    }
-
-    public void verifyMonsterCollisions(Position position) {
-        for (int i = 0; i < monsters.size(); i++) {
-            if (monsters.get(i).position.equals(position)) {
-                System.out.println("You died");
-                System.exit(0);
-            }
-        }
-    }
-
-    public boolean canMonsterMove(Position position) {
-        if (position.getX() < 0 || position.getY() < 0 || position.getX() > width - 1 || position.getY() > height - 1)
-            return false;
-        for (Wall wall : walls) if (wall.getPosition().equals(position)) return false;
-        return true;
-    }
-
-    public Timer timer_for_Monsters;
-
-
-    public void moveMonster(Screen screen, TextGraphics graphics) {
-        timer_for_Monsters = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run(){
-                for (Monster monster : monsters) {
-                    Position position;
-                    while(!canMonsterMove(position = monster.move())){}
-                    monster.setPosition(position);
-                }
-                screen.clear();
-                draw(graphics);
-                try {
-                    screen.refresh();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }
-        };
-        timer_for_Monsters.schedule(task, 10,800);
-    }
-
-    public void moveHero(Position position) {
-        if (canHeroMove(position)) {
-            verifyMonsterCollisions(position);
-            hero.setPosition(position);
-            // era aqui move Monsters
-        }
-    }
-
-    public void processKey(KeyStroke key) {
-        //moveMonster();
-        if (key.getKeyType() == KeyType.ArrowUp) moveHero(hero.moveUp());
-        if (key.getKeyType() == KeyType.ArrowDown) moveHero(hero.moveDown());
-        if (key.getKeyType() == KeyType.ArrowLeft) moveHero(hero.moveLeft());
-        if (key.getKeyType() == KeyType.ArrowRight) moveHero(hero.moveRight());
-    }
-
-    public void draw(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#000000"));
-        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
-        hero.draw(graphics);
-        for (Wall wall : walls)
-            wall.draw(graphics);
-        for (Monster monster : monsters)
-            monster.draw(graphics);
-    }
 
 
     private void createWalls() {
@@ -147,21 +68,23 @@ public class Arena {
         }
     }
 
+    public Hero getHero(){
+        return hero;
+    }
 
+    public List<Wall> getWalls(){
+        return walls;
+    }
+
+    public List<Monster> getMonsters(){
+        return monsters;
+    }
     public int getHeight() {
         return height;
     }
 
-    public void setHeight(int width) {
-        this.width = width;
-    }
-
     public int getWidth() {
         return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 
 }

@@ -27,6 +27,10 @@ public abstract class Enemy extends Element {
         this.position = position;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
     protected abstract MoveStrategy generateMoveStrategy();
 
     public Position move(){
