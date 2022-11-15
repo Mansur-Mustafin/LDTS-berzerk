@@ -12,15 +12,17 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Game {
-    private GUILaterna gui;
+    private final GUILaterna gui;
     private State state;
 
-    public Game() throws IOException {
-        state = new MenuState(new Menu());
-        gui = new GUILaterna(100, 30);
+    public Game() throws IOException, FontFormatException, URISyntaxException {
+        this.gui = new GUILaterna(90, 30);
+        this.state = new MenuState(new Menu());
     }
 
     public void setState(State state) {
