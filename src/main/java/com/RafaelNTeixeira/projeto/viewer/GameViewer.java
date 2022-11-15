@@ -16,6 +16,7 @@ public class GameViewer extends Viewer<Arena> {
     public void drawElements(GUI gui) {
         drawElements(gui, getModel().getWalls(), new WallViewer());
         drawElements(gui, getModel().getMonsters(), new MonsterViewer());
+        drawElements(gui, getModel().getKings(), new KingViewer());
         drawElement(gui, getModel().getHero(), new HeroViewer());
 
         gui.drawText(new Position(0, 0), "Energy: " + getModel().getHero().getEnergy(), "#FFD700");

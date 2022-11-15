@@ -4,15 +4,16 @@ import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 
 import java.io.IOException;
 
-public class MonsterController extends GameController {
+public class EnemyController extends GameController {
     private long lastMovement;
 
-    public MonsterController(Arena arena) {
+    public EnemyController(Arena arena) {
         super(arena);
         this.lastMovement = 0;
     }
@@ -32,6 +33,11 @@ public class MonsterController extends GameController {
                 Position position;
                 while(!canMonsterMove(position = monster.move())){}
                 monster.setPosition(position);
+            }
+            for (King king : getModel().getKings()) {
+                Position position;
+                while(!canMonsterMove(position = king.move())){}
+                king.setPosition(position);
             }
             this.lastMovement = time;
         }
