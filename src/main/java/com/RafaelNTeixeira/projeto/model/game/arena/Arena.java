@@ -28,24 +28,35 @@ public class Arena {
 
     private List<Wall> walls = new ArrayList<>();
 
-    private List<Monster> monsters;
-
-    private List<Monster> createMonster() {
-        Random random = new Random();
-        ArrayList<Monster> monsters = new ArrayList<>();
-        for (int i = 0; i < 15; i++)
-            monsters.add(new Monster(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1));
-        return monsters;
-    }
+    private List<Monster> monsters = new ArrayList<>();
 
     public Arena(int x, int y) {
         width = x;
         height = y;
         hero = new Hero(x / 2, y / 2);
         createWalls();
-        this.monsters = createMonster();
+        createMonster();
     }
 
+    private void createMonster() {
+        InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
+        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(istreamreader);
+        try {
+            int i = 0;
+            for (String line; (line = reader.readLine()) != null; i++) {
+                int j = 0;
+                for (char c: line.toCharArray()) {
+                    if(c == 'm'){
+                        monsters.add(new Monster(j, i));
+                    }
+                    j++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     private void createWalls() {

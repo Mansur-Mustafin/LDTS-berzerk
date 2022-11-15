@@ -131,5 +131,4 @@ public class GUILaterna implements GUI {
 
         return ACTION.NONE;
     }
-
 }
