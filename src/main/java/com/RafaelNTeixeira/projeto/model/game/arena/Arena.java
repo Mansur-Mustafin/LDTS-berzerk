@@ -35,31 +35,12 @@ public class Arena {
         height = y;
         hero = new Hero(x / 2, y / 2);
         createWalls();
-        createMonster();
-        createKings();
+        createEnemyes();
     }
 
-    private void createKings(){
-        InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
-        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(istreamreader);
-        try {
-            int i = 0;
-            for (String line; (line = reader.readLine()) != null; i++) {
-                int j = 0;
-                for (char c: line.toCharArray()) {
-                    if(c == 'k'){
-                        kings.add(new King(j, i));
-                    }
-                    j++;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    private void createMonster() {
+
+    private void createEnemyes() {
         InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(istreamreader);
@@ -70,6 +51,9 @@ public class Arena {
                 for (char c: line.toCharArray()) {
                     if(c == 'm'){
                         monsters.add(new Monster(j, i));
+                    }
+                    if(c == 'k'){
+                        kings.add(new King(j, i));
                     }
                     j++;
                 }

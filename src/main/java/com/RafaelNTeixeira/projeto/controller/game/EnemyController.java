@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class EnemyController extends GameController {
     private long lastMovement;
+    private Position position_hero;
 
     public EnemyController(Arena arena) {
         super(arena);

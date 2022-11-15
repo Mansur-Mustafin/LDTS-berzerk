@@ -3,6 +3,7 @@ package com.RafaelNTeixeira.projeto;
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.States.State;
+import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;

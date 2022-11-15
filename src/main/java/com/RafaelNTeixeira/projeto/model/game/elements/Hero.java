@@ -35,8 +35,8 @@ public class Hero extends Element {
         this.position.setY(y);
     }
 
-    public void decreaseEnergy() {
-        this.energy--;
+    public void decreaseEnergy(int x) {
+        this.energy -= x;
     }
 
     public void setEnergy(int x ){
