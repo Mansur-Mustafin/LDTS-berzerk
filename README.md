@@ -66,14 +66,14 @@
 > - There are now more classes and instances to manage, but still in a reasonable number.
 
 ### CODE SMELLS E SUGESTÕES DE REFACTORING
-- _(Descrever 3 a 5 code smells que identificamos na nossa implementação atual e sugerir formas de o código pode ser refactured de forma a removê-las. Cada uma deve ser descrita na sua subsecção própria)_ </br>
+- _(Descrever 3 a 5 code smells que identificamos na nossa implementação atual e sugerir formas de como o código pode ser refactured de forma a removê-las. Cada uma deve ser descrita na sua subsecção própria)_ </br>
 
 > - **Exemplo de implementação:** </br>
 > #### DATA CLASS
 > -The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. > - This is problematic because […].
 > -A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
 
-> ### TESTING
+### TESTING
 > - Screenshot of coverage report.
 > - Link to mutation testing report.
 
