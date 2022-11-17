@@ -1,31 +1,31 @@
 # L12GR05 - BERSERK
 
 ## DESCRIÇÃO DO JOGO
-> ___
+> 
 > O projeto consiste na recriação de um jogo Atari 2D conhecido como Berserk. Neste jogo, um único jogador portador de uma arma terá que enfrentrar diversos robôs ao longo de diversos níveis.
 > A cada eliminação, será atribuída uma pontuação que será incrementada à pontuação total do jogador e quando este é eliminado, terá a chance de entrar numa LeaderBoard.
-> ___
+> 
 > 
 ### COMPOSIÇÃO DO GRUPO:
-> ___
+> 
 > **Este projeto foi desenvolvido pelos elementos:**
 > - > Mansur (up
 > - >Ian Beltrão (up
 > - >Rafael Teixeira (up202108831@up.pt)
-> ___
+> 
 
 ## **FEATURES IMPLEMENTADAS**
-> ___
+> 
 > **Conseguimos implementar:**
 >
 > - > Uma movimentação dos enimigos mais fluida e automática
 > - > A utilização de mapas criados manualmente com auxílio de um sistema de registo de paredes
 > - > A criação de um Menu com um Start e Exit funcionávei
 > - > Utilização de uma font externa
-> ___
+> 
 
 ## **FEATURES PLANEADAS**
-> ___
+> 
 > **Pretendemos implementar:**
 > 
 > - > Um sistema de pontuação. A cada eliminação a pontuação do jogador aumenta
@@ -35,26 +35,25 @@
 > - > Destruir balas que colidem
 > - > Um novo objetivo de jogo em que o jogador necessita de obrigatoriamente obter uma chave e eliminar todos os inimigos antes de conseguir abrir as portas para os outros níveis
 > - > Inserir uma logo e designs de botões criados manualmente
-> ___
+> 
 ## **DESIGN**
-___
 _(Colocar UML aqui)_ </br>
-___
+
 > **CASO A EXPLICAR:** </br> _(Exemplo: THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE)_
-> ___
+
 >
 > ### Problema em contexto 
 > > _(Descrição do contexto do design e o problema que motivou a instanciação da sua pattern. Colocar links para as linhas de código relevantes da implementação da pattern)_ </br>
 > 
 > >**Exemplo:** </br>
 > >There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
-> ___
+> 
 > ### Pattern 
 > > _(Identificar a design pattern a ser aplicada, a razão de ser aplicada e o porquê de ser uma boa implementação considerando o contexto do design e o problema enfrentado)_ </br>
 > 
 > >**Exemplo:** </br>
 > > We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
->___
+>
 > ### Implementação
 > >* *(Mostrar como as funções, operações e associações das patterns foram mapeadas para o design concreto das classes. Ilustrar com um diagrama UML com links para as linhas de código relevantes)* * </br>
 >
@@ -67,7 +66,7 @@ ___
 > >    - [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
 > >    - [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
 > >    - [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
-> ___
+> 
 > 
 > ### Consequências
 > >(Benefícios e responsabilidades da pattern após a instanciação da pattern, comparando estas consequências com outras soluções alternativas)* * </br>
@@ -78,26 +77,25 @@ ___
 > > The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags. </br>
 > > We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior. </br>
 > > There are now more classes and instances to manage, but still in a reasonable number. </br>
-> ___
+> 
 ### CODE SMELLS E SUGESTÕES DE REFACTORING
-> ___
+> 
 >_(Descrever 3 a 5 code smells que identificamos na nossa implementação atual e sugerir formas de como o código pode ser refactured de forma a removê-las. Cada uma deve ser descrita na sua subsecção própria)_ </br>
-> ___
+> 
 > **Exemplo de implementação:** </br>
 >> #### DATA CLASS
 > -The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. > - This is problematic because […].
 > -A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
-> ___
+> 
 ### TESTING
-___
 _(Screenshot of coverage report)_ </br>
 ___
 _(Link to mutation testing report.)_
 ___
 
 ### SELF-EVALUATION
-> ___
+> 
 > Mansur: </br>
 >  Ian: </br>
 > Rafael: </br>
-> ___
+> 
