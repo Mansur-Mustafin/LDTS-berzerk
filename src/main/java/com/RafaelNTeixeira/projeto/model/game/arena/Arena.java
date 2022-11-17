@@ -58,7 +58,6 @@ public class Arena {
         }
     }
 
-
     private void createWalls() {
         InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
