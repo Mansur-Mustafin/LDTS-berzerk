@@ -1,8 +1,8 @@
 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww              wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 w                               w                                                                  w
-w                               w                                                                  w
+w               k               w                                                                  w
 w                               w                                                   m              w
-w               m               w                                m                                 w
+w               m               w         k                      m                                 w
 w                               w                                                                  w
 w                               w                                                                  w
 wwwwwwwwwwwwwwwwwwww            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww                     k            w
@@ -20,11 +20,11 @@ w              w       k        w                              w                
 w              w                                               w                                   w
 w              w                                               w                                   w
 w              w                                               w                                   w
-w              w                                               w                         m         w
+w              w                                               w            k            m         w
 w      m       w                                               w                                   w
 w              w                                               w                                   w
 w              w                      h                        w                m                  w
-w              w                                               w                                   w
+w       k      w                                               w                                   w
 w              w                                               w                                   w
 w              w                                               w                                   w
 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww

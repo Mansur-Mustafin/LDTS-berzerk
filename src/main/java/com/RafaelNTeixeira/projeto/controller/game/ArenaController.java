@@ -27,6 +27,8 @@ public class ArenaController extends GameController {
         }
         else {
             heroController.step(game, action, time);
+            EnemyController.setPosition_hero(getModel().getHero().position);
+            EnemyController.setWalls(getModel().getWalls());
             EnemyController.step(game, action, time);
         }
     }

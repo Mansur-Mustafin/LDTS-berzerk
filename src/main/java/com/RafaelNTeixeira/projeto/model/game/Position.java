@@ -22,6 +22,12 @@ public class Position {
     public void setY(int y) {
         this.y = y;
     }
+    public Position add(Position position){
+        return new Position(this.x + position.x,this.y + position.y);
+    }
+    public double getDistance(Position pos2){
+        return Math.sqrt((pos2.x-x)*(pos2.x-x) + (pos2.y-y)*(pos2.y-y));
+    }
 
     @Override
     public boolean equals(Object o) {

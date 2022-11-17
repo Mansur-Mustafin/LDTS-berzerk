@@ -25,7 +25,7 @@ public class Arena {
     private int height;
     private int width;
 
-    private final Hero hero;
+    private Hero hero;
 
     private List<Wall> walls = new ArrayList<>();
     private List<Monster> monsters = new ArrayList<>();
@@ -33,12 +33,31 @@ public class Arena {
     public Arena(int x, int y) {
         width = x;
         height = y;
-        hero = new Hero(x / 2, y / 2);
+        createHero();
         createWalls();
         createEnemyes();
     }
 
-
+    private void createHero(){
+        InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
+        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(istreamreader);
+        try {
+            int i = 0;
+            for (String line; (line = reader.readLine()) != null; i++) {
+                int j = 0;
+                for (char c: line.toCharArray()) {
+                    if(c == 'h'){
+                        hero = new Hero(j,i);
+                        break;
+                    }
+                    j++;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void createEnemyes() {
         InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
