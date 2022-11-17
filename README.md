@@ -16,7 +16,8 @@
 
 > - Uma movimentação dos enimigos mais fluida e automática
 > - A utilização de mapas criados manualmente com auxílio de um sistema de registo de paredes
-> - A criação de um Menu com um Start e Exit funcionáveis
+> - A criação de um Menu com um Start e Exit funcionávei
+> - Utilização de uma font externa
 
 ## **FEATURES PLANEADAS**
 > **Pretendemos implementar:**
@@ -27,6 +28,7 @@
 > - Diferentes tipos de enimigos
 > - Destruir balas que colidem
 > - Um novo objetivo de jogo em que o jogador necessita de obrigatoriamente obter uma chave e eliminar todos os inimigos antes de conseguir abrir as portas para os outros níveis
+> - Inserir uma logo e designs de botões criados manualmente
 
 ## **DESIGN**
 **CASO A EXPLICAR** </br>
@@ -77,9 +79,6 @@
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-> **Example**:
-
-> - John Doe: 40%
-> - Jane Doe: 60%
+> Mansur:
+> Ian: 
+> Rafael: 
