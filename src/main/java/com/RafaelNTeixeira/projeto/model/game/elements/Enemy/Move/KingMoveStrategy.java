@@ -15,7 +15,7 @@ public class KingMoveStrategy implements MoveStrategy{
     }
 
     boolean canMove(Position position){
-        if (position.getX() < 0 || position.getY() < 0 || position.getX() > 99 || position.getY() > 29)
+        if (position.getX() < 0 || position.getY() < 0 || position.getX() > 99 || position.getY() > 59)
             return false;
         return true;
     }
@@ -37,14 +37,14 @@ public class KingMoveStrategy implements MoveStrategy{
         steps.add(new Position(1,1)); steps.add(new Position(-1,1));
         steps.add(new Position(1,-1)); steps.add(new Position(-1,-1));
 
-        boolean[][]  used = new boolean[100][30];
-        Position[][] parent = new Position[100][30];
-        int[][]  distance = new int[100][30];
+        boolean[][]  used = new boolean[100][60];
+        Position[][] parent = new Position[100][60];
+        int[][]  distance = new int[100][60];
         Queue<Position> q = new LinkedList<Position>();
         q.add(position);
 
         for(int i = 0; i < 100; i++){
-            for(int j = 0; j < 30; j++){
+            for(int j = 0; j < 60; j++){
                 used[i][j] = false;
             }
         }

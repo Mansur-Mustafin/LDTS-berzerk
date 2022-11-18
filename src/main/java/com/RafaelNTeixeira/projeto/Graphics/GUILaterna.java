@@ -125,9 +125,10 @@ public class GUILaterna implements GUI {
 
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
+
         if (keyStroke == null) return ACTION.NONE;
 
-        if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.EXIT;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'e') return ACTION.EXIT ;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
 
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
