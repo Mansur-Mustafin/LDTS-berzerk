@@ -27,10 +27,12 @@ class WallViewerTest extends Specification {
         WallViewer x = new WallViewer()
 
         when:
+        //x.draw(new Wall(0,0), gui)
         x.draw(wall, gui)
 
         then:
         1 * gui.drawWall(wall.getPosition())
+        //1 * gui.drawWall(new Wall(0,0).getPosition())
 
     }
 }
