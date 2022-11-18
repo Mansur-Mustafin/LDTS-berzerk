@@ -12,6 +12,6 @@ public class ViewerArenaTest {
 
     @BeforeEach
     void setUp() {
-        arena = new Arena()
+
     }
 }
