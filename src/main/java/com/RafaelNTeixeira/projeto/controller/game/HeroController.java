@@ -43,6 +43,11 @@ public class HeroController extends GameController {
     public void verifyMonsterCollisions(Position position) {
         for (int i = 0; i < getModel().getMonsters().size(); i++) {
             if (getModel().getMonsters().get(i).position.equals(position)) {
+                getModel().getHero().decreaseEnergy(5);
+            }
+        }
+        for (int i = 0; i < getModel().getKings().size(); i++) {
+            if (getModel().getKings().get(i).position.equals(position)) {
                 getModel().getHero().setEnergy(0);
             }
         }

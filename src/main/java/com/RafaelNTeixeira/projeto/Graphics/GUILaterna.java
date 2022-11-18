@@ -60,7 +60,7 @@ public class GUILaterna implements GUI {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 15);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 10);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
@@ -87,6 +87,14 @@ public class GUILaterna implements GUI {
         graphics.setForegroundColor(TextColor.Factory.fromString("#CC0000"));
         graphics.enableModifiers(SGR.BORDERED);
         graphics.putString(new TerminalPosition(position.getX(),position.getY()),"M");
+    }
+
+    @Override
+    public void drawKing(Position position){
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setForegroundColor(TextColor.Factory.fromString("#A52D93"));
+        graphics.enableModifiers(SGR.BORDERED);
+        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"K");
     }
     @Override
     public void drawText(Position position, String text, String color){
@@ -117,9 +125,10 @@ public class GUILaterna implements GUI {
 
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
+
         if (keyStroke == null) return ACTION.NONE;
 
-        if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.EXIT;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'e') return ACTION.EXIT ;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
 
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;

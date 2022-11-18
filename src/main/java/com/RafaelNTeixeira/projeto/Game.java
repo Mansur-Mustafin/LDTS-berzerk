@@ -3,6 +3,7 @@ package com.RafaelNTeixeira.projeto;
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.States.State;
+import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -21,7 +22,7 @@ public class Game {
     private State state;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-        this.gui = new GUILaterna(90, 30);
+        this.gui = new GUILaterna(100, 60);
         this.state = new MenuState(new Menu());
     }
 

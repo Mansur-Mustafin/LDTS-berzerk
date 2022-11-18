@@ -1,4 +1,4 @@
-package com.RafaelNTeixeira.projeto.Graphics.Viewer.Viewer;
+package viewer;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;

@@ -11,7 +11,10 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     testImplementation 'org.mockito:mockito-core:3.7.7'
+=======
+>>>>>>> 534d24ac4d8591f05a532347b4598a5bb75f2076
     implementation 'org.codehaus.groovy:groovy-all:3.0.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
