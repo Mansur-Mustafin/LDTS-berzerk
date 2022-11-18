@@ -5,9 +5,13 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Wall
 import spock.lang.Specification
 
 class ArenaTest extends Specification{
-    private Arena arena = new Arena(50, 50)
-    private List<Wall> wall_list = new ArrayList<Wall>()
+    private def arena
+    private def wall_list
 
+    def setup() {
+        arena = new Arena(50, 50)
+        wall_list = new ArrayList<Wall>()
+    }
 
     void 'Creation Arena'() {
         when:
@@ -19,17 +23,7 @@ class ArenaTest extends Specification{
         y == 50
     }
 
-    void 'Arena Walls' () {
-        given:
-        wall_list = arena.getWalls()
 
-        when:
-        Arena arena1 = new Arena(50, 50)
-
-
-        then:
-        arena1.getWalls() == wall_list
-    }
 
 
 }
