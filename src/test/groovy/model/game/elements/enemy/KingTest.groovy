@@ -1,0 +1,34 @@
+package model.game.elements.enemy
+
+import com.RafaelNTeixeira.projeto.model.game.Position
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.KingMoveStrategy
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy
+import spock.lang.Specification
+
+class KingTest extends Specification{
+
+    def 'Constructor'() {
+        given:
+        King king = new King(10, 10)
+        Position pos = new Position(10, 10)
+
+        when:
+        Position pos1 = king.getPosition()
+
+        then:
+        pos == pos1
+    }
+
+    def 'Move Strategy'() {
+        given:
+        King king = new King(10, 10)
+
+        when:
+        MoveStrategy moveStrategy = king.generateMoveStrategy()
+
+        then:
+        moveStrategy.getClass() == new KingMoveStrategy().getClass()
+
+    }
+}
