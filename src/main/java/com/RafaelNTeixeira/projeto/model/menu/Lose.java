@@ -1,13 +1,13 @@
-package com.RafaelNTeixeira.projeto.model.pause;
+package com.RafaelNTeixeira.projeto.model.menu;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Pause {
+public class Lose {
     private final List<String> entries;
     private int currentEntry = 0;
-    public Pause() {
-        this.entries = Arrays.asList("Continue", "Exit", "New game");
+    public Lose() {
+        this.entries = Arrays.asList("Press enter");
     }
 
     public void nextEntry() {
@@ -30,15 +30,9 @@ public class Pause {
         return currentEntry == i;
     }
 
-    public boolean isSelectedExit() {
-        return isSelected(1);
-    }
-
-    public boolean isSelectedContinue() {
+    public boolean isSelectedEnter() {
         return isSelected(0);
     }
-
-    public boolean isSelectedNewGame() {return isSelected(2);}
 
     public int getNumberEntries() {
         return this.entries.size();

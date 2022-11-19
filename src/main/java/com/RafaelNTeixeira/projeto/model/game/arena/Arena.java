@@ -51,23 +51,6 @@ public class Arena {
                     if(c == 'm'){
                         monsters.add(new Monster(j, i));
                     }
-                    j++;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void createWalls() {
-        InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
-        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(istreamreader);
-        try {
-            int i = 0;
-            for (String line; (line = reader.readLine()) != null; i++) {
-                int j = 0;
-                for (char c: line.toCharArray()) {
                     if(c == 'k'){
                         kings.add(new King(j, i));
                     }

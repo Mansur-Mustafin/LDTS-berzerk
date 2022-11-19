@@ -1,11 +1,8 @@
 package com.RafaelNTeixeira.projeto.States;
 
 import com.RafaelNTeixeira.projeto.controller.Controller;
-import com.RafaelNTeixeira.projeto.controller.menu.MenuController;
-import com.RafaelNTeixeira.projeto.controller.pause.PauseController;
-import com.RafaelNTeixeira.projeto.model.menu.Menu;
-import com.RafaelNTeixeira.projeto.model.pause.Pause;
-import com.RafaelNTeixeira.projeto.viewer.MenuViewer;
+import com.RafaelNTeixeira.projeto.controller.menu.PauseController;
+import com.RafaelNTeixeira.projeto.model.menu.Pause;
 import com.RafaelNTeixeira.projeto.viewer.PauseViewer;
 import com.RafaelNTeixeira.projeto.viewer.Viewer;
 

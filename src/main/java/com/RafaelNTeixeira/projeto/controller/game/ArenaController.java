@@ -2,11 +2,13 @@ package com.RafaelNTeixeira.projeto.controller.game;
 
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
+import com.RafaelNTeixeira.projeto.States.LoseState;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.States.PauseState;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
-import com.RafaelNTeixeira.projeto.model.pause.Pause;
+import com.RafaelNTeixeira.projeto.model.menu.Pause;
 
 import java.io.IOException;
 
@@ -22,11 +24,13 @@ public class ArenaController extends GameController {
     }
 
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getHero().getEnergy() <= 0)
+        if (action == GUI.ACTION.QUIT) {
             game.setState(new MenuState(new Menu()));
-        else if(action == GUI.ACTION.EXIT){
+        }else if(getModel().getHero().getEnergy() <= 0){
+            game.setState(new LoseState(new Lose()));
+        }else if(action == GUI.ACTION.EXIT){
             game.setState(null);
-        } else if(action == GUI.ACTION.PAUSE){
+        }else if(action == GUI.ACTION.PAUSE){
             game.setOldState(game.getState());
             game.setState(new PauseState(new Pause()));
         }
