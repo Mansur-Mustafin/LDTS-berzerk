@@ -51,7 +51,6 @@ public class Arena {
                     if(c == 'm'){
                         monsters.add(new Monster(j, i));
                     }
-<<<<<<< HEAD
                     j++;
                 }
             }
@@ -69,11 +68,9 @@ public class Arena {
             for (String line; (line = reader.readLine()) != null; i++) {
                 int j = 0;
                 for (char c: line.toCharArray()) {
-=======
                     if(c == 'k'){
                         kings.add(new King(j, i));
                     }
->>>>>>> 534d24ac4d8591f05a532347b4598a5bb75f2076
                     if(c == 'w'){
                         walls.add(new Wall(j, i));
                     }

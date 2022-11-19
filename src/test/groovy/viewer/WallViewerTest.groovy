@@ -1,3 +1,5 @@
+package viewer
+
 import com.RafaelNTeixeira.projeto.Graphics.GUI
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
