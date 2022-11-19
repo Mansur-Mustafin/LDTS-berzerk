@@ -18,10 +18,14 @@
 > 
 > **Conseguimos implementar:**
 >
-> - > Uma movimentação dos enimigos mais fluida e automática
-> - > A utilização de mapas criados manualmente com auxílio de um sistema de registo de paredes
-> - > A criação de um Menu com um Start e Exit funcionávei
-> - > Utilização de uma font externa
+> - > Menu - Quando o jogo é incializado, um menu contendo as opções Play e Quit é mostrado.
+> - > Pause - Durante o jogo é possível dar pause e um menu com as opções Continue, New Game, Exit, Exit to Menu é mostrado 
+> - > Inimigos - Existem 2 tipos de inimigos no jogo, o Monster e o King.
+> - > Movimentação King- O inimigo King possui movimentação inteligente(desvia de paredes e encontra menor caminho até o hero)
+> - > Criação de mapas - Conseguimos utilizar mapas criados manualmente com auxílio de um sistema de registo de paredes e posição de início de inimigos.
+> - > Fonte externa - Utilizamos uma fonte externa no jogo.
+> - > Contagem de energia - O jogador tem uma quantidade de energia, que diminui toda vez que se choca com um monstro
+> - > Game Over - Quando a energia do jogador se esgota, uma tela de Game Over é mostrada com a opção de seguir para o Menu
 > 
 
 
