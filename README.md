@@ -9,8 +9,8 @@
 ### COMPOSIÇÃO DO GRUPO:
 > 
 > **Este projeto foi desenvolvido pelos elementos:**
-> - > Mansur (up
-> - >Ian Beltrão (up
+> - > Mansur (up202102355@up.pt)
+> - >Ian Beltrão (up202102360@up.pt)
 > - >Rafael Teixeira (up202108831@up.pt)
 > 
 
