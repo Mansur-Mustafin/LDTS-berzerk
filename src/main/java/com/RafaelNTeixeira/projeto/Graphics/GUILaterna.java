@@ -126,6 +126,7 @@ public class GUILaterna implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
 
+
         if (keyStroke == null) return ACTION.NONE;
 
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'e') return ACTION.EXIT ;
@@ -138,6 +139,7 @@ public class GUILaterna implements GUI {
 
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
+        if(keyStroke.getKeyType() == KeyType.Escape) return ACTION.PAUSE;
         return ACTION.NONE;
     }
 }
