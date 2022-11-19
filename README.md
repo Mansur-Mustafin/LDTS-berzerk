@@ -18,7 +18,7 @@
 > 
 > **Conseguimos implementar:**
 >
-> - > Menu - Quando o jogo é incializado, um menu contendo as opções Play e Quit é mostrado.
+> - > Menu - Quando o jogo é inicializado, um menu contendo as opções Play e Quit é mostrado.
 > - > Pause - Durante o jogo é possível dar pause e um menu com as opções Continue, New Game, Exit, Exit to Menu é mostrado 
 > - > Inimigos - Existem 2 tipos de inimigos no jogo, o Monster e o King, cada um com uma diferente adoção de movimento e inflição de dano ao jogador
 > - > Movimentação King - O inimigo King possui movimentação inteligente (desvia de paredes e encontra menor caminho até o hero)
