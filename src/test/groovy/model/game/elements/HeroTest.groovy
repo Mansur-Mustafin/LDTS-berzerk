@@ -69,7 +69,7 @@ class HeroTest extends Specification{
         Hero hero1 = new Hero()
 
         when:
-        hero.decreaseEnergy()
+        hero.decreaseEnergy(1)
         hero1.setEnergy(5)
 
         then:

@@ -13,7 +13,7 @@ import java.util.List;
 
 public abstract class Enemy extends Element {
 
-    private final MoveStrategy moveStrategy;
+    private MoveStrategy moveStrategy;
 
     public Enemy(int x, int y) {
         super(x,y);
@@ -24,6 +24,12 @@ public abstract class Enemy extends Element {
         graphics.setForegroundColor(TextColor.Factory.fromString("#CC0000"));
         graphics.enableModifiers(SGR.BORDERED);
         graphics.putString(new TerminalPosition(position.getX(),position.getY()),"M");
+    }
+
+    public MoveStrategy getMoveStrategy() {return moveStrategy;}
+
+    public void setMoveStrategy(MoveStrategy strategy){
+        moveStrategy = strategy;
     }
 
     public void setPosition(Position position){
