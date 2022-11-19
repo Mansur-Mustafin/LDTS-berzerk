@@ -10,8 +10,8 @@
 > 
 > **Este projeto foi desenvolvido pelos elementos:**
 > - > Mansur (up
-> - >Ian Beltrão (up
-> - >Rafael Teixeira (up202108831@up.pt)
+> - > Ian Beltrão (up
+> - > Rafael Teixeira (up202108831@up.pt)
 > 
 
 ## **FEATURES IMPLEMENTADAS**
@@ -19,9 +19,14 @@
 > **Conseguimos implementar:**
 >
 > - > Uma movimentação dos enimigos mais fluida e automática
-> - > A utilização de mapas criados manualmente com auxílio de um sistema de registo de paredes
-> - > A criação de um Menu com um Start e Exit funcionávei
 > - > Utilização de uma font externa
+> - > A criação de um tipo de enimigo mais inteligente capaz de tomar o caminho mais próximo até ao jogador
+> - > A criação de enimigos com diferentes tipos de movimentação e danos infligidos ao jogador
+> - > A implementação de um sistema de vidas
+> - > A utilização de mapas criados manualmente com auxílio de um sistema de registo de paredes
+> - > A criação de um Menu com um Start e Exit funcionáveis
+> - > A possibilidade de pausar o jogo. Aqui é aberta uma janela com as opções de retomar, recomeçar, sair do jogo ou dirigir para menu
+> - > A criação de uma janela GameOver quando o jogador é eliminado, demonstrando a pontuação total final adquirida
 > 
 
 ## **FEATURES PLANEADAS**
