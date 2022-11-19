@@ -20,14 +20,25 @@ import java.net.URISyntaxException;
 public class Game {
     private final GUILaterna gui;
     private State state;
+    private State oldState;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new GUILaterna(100, 60);
         this.state = new MenuState(new Menu());
     }
 
+    public void setOldState(State oldState) {
+        this.oldState = oldState;
+    }
+    public State getState(){
+        return state;
+    }
+
     public void setState(State state) {
         this.state = state;
+    }
+    public State getOldState(){
+        return oldState;
     }
 
     public void run() throws IOException {

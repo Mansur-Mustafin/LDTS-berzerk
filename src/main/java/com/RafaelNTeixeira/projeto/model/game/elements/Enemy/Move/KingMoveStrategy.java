@@ -39,7 +39,7 @@ public class KingMoveStrategy implements MoveStrategy{
 
         boolean[][]  used = new boolean[100][60];
         Position[][] parent = new Position[100][60];
-        int[][]  distance = new int[100][60];
+        //int[][]  distance = new int[100][60];
         Queue<Position> q = new LinkedList<Position>();
         q.add(position);
 
@@ -49,7 +49,7 @@ public class KingMoveStrategy implements MoveStrategy{
             }
         }
 
-        distance[position.getX()][position.getY()] = 0;
+        //distance[position.getX()][position.getY()] = 0;
         used[position.getX()][position.getY()] = true;
 
         while(!q.isEmpty()){
@@ -59,7 +59,7 @@ public class KingMoveStrategy implements MoveStrategy{
                 if(canMove(tmp2) ){
                     if(!conteins(walls, tmp2)){
                         if(!used[tmp2.getX()][tmp2.getY()]){
-                            distance[tmp2.getX()][tmp2.getY()] = distance[tmp.getX()][tmp.getY()] + 1;
+                            //distance[tmp2.getX()][tmp2.getY()] = distance[tmp.getX()][tmp.getY()] + 1;
                             used[tmp2.getX()][tmp2.getY()] = true;
                             q.add(tmp2);
                             parent[tmp2.getX()][tmp2.getY()] = new Position(tmp.getX(), tmp.getY());

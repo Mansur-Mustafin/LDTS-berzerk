@@ -3,8 +3,10 @@ package com.RafaelNTeixeira.projeto.controller.game;
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.States.MenuState;
+import com.RafaelNTeixeira.projeto.States.PauseState;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
+import com.RafaelNTeixeira.projeto.model.pause.Pause;
 
 import java.io.IOException;
 
@@ -24,6 +26,9 @@ public class ArenaController extends GameController {
             game.setState(new MenuState(new Menu()));
         else if(action == GUI.ACTION.EXIT){
             game.setState(null);
+        } else if(action == GUI.ACTION.PAUSE){
+            game.setOldState(game.getState());
+            game.setState(new PauseState(new Pause()));
         }
         else {
             heroController.step(game, action, time);

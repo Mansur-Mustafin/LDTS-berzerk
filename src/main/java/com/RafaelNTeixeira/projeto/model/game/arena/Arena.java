@@ -81,7 +81,6 @@ public class Arena {
     public int getHeight() {
         return height;
     }
-
     public int getWidth() {
         return width;
     }
