@@ -3,19 +3,22 @@ package com.RafaelNTeixeira.projeto;
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.States.State;
-import com.RafaelNTeixeira.projeto.model.game.Position;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
+import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
+import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
-import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+
 
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
     private final GUILaterna gui;
@@ -23,9 +26,12 @@ public class Game {
     private State oldState;
 
 
+
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new GUILaterna(100, 60);
         this.state = new MenuState(new Menu());
+
+
     }
 
     public void setOldState(State oldState) {
@@ -41,6 +47,8 @@ public class Game {
     public State getOldState(){
         return oldState;
     }
+
+
 
     public void run() throws IOException {
         int frameTime = 1000 / 50;

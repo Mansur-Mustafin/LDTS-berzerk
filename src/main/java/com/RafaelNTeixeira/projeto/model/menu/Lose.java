@@ -1,5 +1,7 @@
 package com.RafaelNTeixeira.projeto.model.menu;
 
+import com.RafaelNTeixeira.projeto.States.LeaderBoard;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class Lose {
     private final List<String> entries;
     private int currentEntry = 0;
     public Lose() {
-        this.entries = Arrays.asList("Press enter");
+        this.entries = Arrays.asList("Menu", "Leader Board");
     }
 
     public void nextEntry() {
@@ -30,10 +32,12 @@ public class Lose {
         return currentEntry == i;
     }
 
-    public boolean isSelectedEnter() {
+    public boolean isSelectedMenu() {
         return isSelected(0);
     }
-
+    public boolean isSelectedLeaderBoard() {
+        return isSelected(1);
+    }
     public int getNumberEntries() {
         return this.entries.size();
     }

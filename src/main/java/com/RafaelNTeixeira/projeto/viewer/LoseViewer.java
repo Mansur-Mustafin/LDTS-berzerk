@@ -18,7 +18,7 @@ public class LoseViewer extends Viewer<Lose> {
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
-                    new Position(44, 34 + i),
+                    new Position(44, 34 + i + 1),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
     }
