@@ -14,7 +14,7 @@ public class LoseViewer extends Viewer<Lose> {
     public void drawElements(GUI gui) {
         gui.drawText(new Position(45, 28), "You LOSE!", "#FFFFFF");
 
-        gui.drawText(new Position(42, 31), "Youe Score: 999", "#FFFFFF");
+        gui.drawText(new Position(42, 31), "Your Score: 999", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
