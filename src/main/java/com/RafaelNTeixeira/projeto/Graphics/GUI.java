@@ -1,12 +1,13 @@
 package com.RafaelNTeixeira.projeto.Graphics;
 
 import com.RafaelNTeixeira.projeto.model.game.Position;
+import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 
 public interface GUI {
 
-    ACTION getNextAction() throws IOException;
+    KeyStroke getNextAction() throws IOException;
 
     void drawHero(Position position);
 
@@ -24,5 +25,5 @@ public interface GUI {
 
     void close() throws IOException;
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, EXIT, PAUSE}
+    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, EXIT, PAUSE, CHAR}
 }

@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.viewer.Viewer;
+import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 
@@ -28,8 +29,8 @@ public abstract class State<T> {
     }
 
     public void step(Game game, GUI gui, long time) throws IOException {
-        GUI.ACTION action = gui.getNextAction();
-        controller.step(game, action, time);
+        KeyStroke key = gui.getNextAction();
+        controller.step(game, key, time);
         viewer.draw(gui);
     }
 }

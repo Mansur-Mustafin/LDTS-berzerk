@@ -123,23 +123,9 @@ public class GUILaterna implements GUI {
         return screen.readInput();
     }
 
-    public ACTION getNextAction() throws IOException {
+    public KeyStroke getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
 
-
-        if (keyStroke == null) return ACTION.NONE;
-
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'e') return ACTION.EXIT ;
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
-
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.RIGHT;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return ACTION.LEFT;
-
-        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-
-        if(keyStroke.getKeyType() == KeyType.Escape) return ACTION.PAUSE;
-        return ACTION.NONE;
+        return keyStroke;
     }
 }

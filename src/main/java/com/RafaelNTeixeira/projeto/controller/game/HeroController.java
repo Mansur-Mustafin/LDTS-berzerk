@@ -5,6 +5,8 @@ import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 
 public class HeroController extends GameController {
 
@@ -61,11 +63,11 @@ public class HeroController extends GameController {
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) {
-        if (action == GUI.ACTION.UP) moveHeroUp();
-        if (action == GUI.ACTION.RIGHT) moveHeroRight();
-        if (action == GUI.ACTION.DOWN) moveHeroDown();
-        if (action == GUI.ACTION.LEFT) moveHeroLeft();
-        if(action == GUI.ACTION.NONE);
+    public void step(Game game, KeyStroke key, long time) {
+        if(key == null){return;}
+        if (key.getKeyType() == KeyType.ArrowUp) moveHeroUp();
+        if (key.getKeyType() == KeyType.ArrowRight) moveHeroRight();
+        if (key.getKeyType() == KeyType.ArrowDown) moveHeroDown();
+        if (key.getKeyType() == KeyType.ArrowLeft) moveHeroLeft();
     }
 }

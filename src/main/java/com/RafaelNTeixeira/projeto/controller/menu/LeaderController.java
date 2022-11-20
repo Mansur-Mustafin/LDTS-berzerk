@@ -7,6 +7,7 @@ import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
+import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 
@@ -16,16 +17,19 @@ public class LeaderController extends Controller<Leader> {
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action) {
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if(key == null){
+            return;
+        }
+        switch (key.getKeyType()) {
 
-            case SELECT:
+            case Enter:
                 if(getModel().isSelectedEnter()) game.setState(new MenuState(new Menu()));
                 break;
-            case EXIT:
-                game.setState(null);
-                break;
-            case NONE:
+            case Character:
+                if(key.getCharacter() == 'e'){
+                    game.setState(null);
+                }
                 break;
         }
     }
