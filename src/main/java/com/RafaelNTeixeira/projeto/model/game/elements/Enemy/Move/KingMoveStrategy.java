@@ -20,7 +20,7 @@ public class KingMoveStrategy implements MoveStrategy{
         return true;
     }
 
-    boolean contains(List<Wall> walls, Position position){
+    boolean conteins(List<Wall> walls, Position position){
         for(Wall w: walls){
             if(w.getPosition().getX() == position.getX() && w.getPosition().getY() == position.getY()){
                 return true;
@@ -57,7 +57,7 @@ public class KingMoveStrategy implements MoveStrategy{
             for(Position step : steps){
                 Position tmp2 = tmp.add(step);
                 if(canMove(tmp2) ){
-                    if(!contains(walls, tmp2)){
+                    if(!conteins(walls, tmp2)){
                         if(!used[tmp2.getX()][tmp2.getY()]){
                             //distance[tmp2.getX()][tmp2.getY()] = distance[tmp.getX()][tmp.getY()] + 1;
                             used[tmp2.getX()][tmp2.getY()] = true;

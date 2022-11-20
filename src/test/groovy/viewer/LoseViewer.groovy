@@ -16,7 +16,7 @@ class LoseViewer extends Specification {
         position = Mock(Position.class)
     }
 
-    def 'Color and text check on You Lose Meni and You Lose Draw'() {
+    def 'Color and text check on You Lose Menu and You Lose Draw'() {
         given:
         com.RafaelNTeixeira.projeto.viewer.LoseViewer lose_viewer = new com.RafaelNTeixeira.projeto.viewer.LoseViewer(lose)
         String color = "#FFFFFF"
