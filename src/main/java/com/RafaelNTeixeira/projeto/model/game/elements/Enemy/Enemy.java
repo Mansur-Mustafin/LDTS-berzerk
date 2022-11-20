@@ -15,6 +15,7 @@ public abstract class Enemy extends Element {
 
     private MoveStrategy moveStrategy;
 
+
     public Enemy(int x, int y) {
         super(x,y);
         this.moveStrategy = generateMoveStrategy();

@@ -12,7 +12,7 @@ public class LoseViewer extends Viewer<Lose> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(45, 28), "You LOSE!", "#FFFFFF");
+        gui.drawText(new Position(45, 28), "Game Over", "#FFFFFF");
 
         gui.drawText(new Position(42, 31), "Youe Score: 999", "#FFFFFF");
 

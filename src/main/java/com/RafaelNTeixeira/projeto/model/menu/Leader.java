@@ -18,7 +18,7 @@ public class Leader {
     private List<String> entries;
 
     private int currentEntry = 0;
-    public Leader() {
+    public Leader() throws IOException {
         this.entries = Arrays.asList("Press enter to Back Menu");
 
         InputStream istream = ClassLoader.getSystemResourceAsStream("Leaders");
@@ -29,8 +29,8 @@ public class Leader {
             while((line = reader.readLine()) != null){
                 String[] words = line.split("\\s");
                 Player p = new Player (words[0], words[1]);
-                if(players.contains(p)){
-                    players.get(players.indexOf(p)).setScore(words[1]);
+                if(Contains(players, p)){
+                    players.get(Index(players, p)).setScore(words[1]);
                 }else{
                     players.add(p);
                 }
@@ -38,9 +38,27 @@ public class Leader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        reader.close();
         Collections.sort(players, new SortByScore());
     }
+
+    public int Index(List<Player> lst, Player p){
+        for(int i = 0; i < lst.size(); i++){
+            if(lst.get(i).getName().equals(p.getName())){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public boolean Contains(List<Player> lst, Player p ){
+        for(Player player : lst){
+            if(player.getName().equals(p.getName())){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getNumberOfplayers(){
         return players.size();
     }
@@ -57,10 +75,8 @@ public class Leader {
 }
 
 class SortByScore implements Comparator<Player> {
-    // Used for sorting in ascending order of ID
     public int compare(Player a, Player b)
     {
         return Integer.parseInt(b.getScore()) - Integer.parseInt(a.getScore());
     }
 }
-

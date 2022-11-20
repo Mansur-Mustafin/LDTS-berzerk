@@ -7,7 +7,9 @@ import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Enemy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.KingMoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,7 +41,7 @@ public class EnemyController extends GameController {
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) throws IOException {
+    public void step(Game game, KeyStroke key, long time) throws IOException {
         if (time - lastMovement > 500) {
             for (Monster monster : getModel().getMonsters()) {
                 Position position;
@@ -51,6 +53,9 @@ public class EnemyController extends GameController {
             }
 
             for (King king : getModel().getKings()) {
+                if(king.position.getDistance(position_hero) < 20){
+                    king.setMoveStrategy(new KingMoveStrategy());
+                }
                 Position position = king.move(position_hero ,walls );
                 king.setPosition(position);
                 if(position.equals(getModel().getHero().position)){

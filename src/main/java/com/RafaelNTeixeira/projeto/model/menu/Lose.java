@@ -9,7 +9,7 @@ public class Lose {
     private final List<String> entries;
     private int currentEntry = 0;
     public Lose() {
-        this.entries = Arrays.asList("Menu", "Leader Board");
+        this.entries = Arrays.asList("Menu", "Leader Board", "Add Score to LeaderBoard");
     }
 
     public void nextEntry() {
@@ -37,6 +37,9 @@ public class Lose {
     }
     public boolean isSelectedLeaderBoard() {
         return isSelected(1);
+    }
+    public boolean isSelectedAddToLeaderBoard(){
+        return isSelected(2);
     }
     public int getNumberEntries() {
         return this.entries.size();

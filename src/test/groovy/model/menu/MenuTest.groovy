@@ -22,7 +22,7 @@ class MenuTest extends Specification{
         Menu menu = new Menu()
         String entryStart = "Start"
         String entryExit = "Exit"
-        int n = 2
+        int n = 3
 
         when:
         int entry_n = menu.getNumberEntries()
@@ -50,5 +50,4 @@ class MenuTest extends Specification{
         then:
         f1 && f2
     }
-
 }
