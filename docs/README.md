@@ -5,29 +5,30 @@
 > O projeto consiste na recriação de um jogo Atari 2D conhecido como Berserk. Neste jogo, um único jogador portador de uma arma terá que enfrentrar diversos robôs ao longo de diversos níveis.
 > A cada eliminação, será atribuída uma pontuação que será incrementada à pontuação total do jogador e quando este é eliminado, terá a chance de entrar numa LeaderBoard.
 > 
-> 
+>
+
 ### COMPOSIÇÃO DO GRUPO:
 > 
 > **Este projeto foi desenvolvido pelos elementos:**
-> - > Mansur (up
-> - > Ian Beltrão (up
+> - > Mansur (up202102355@up.pt)
+> - > Ian Beltrão (up202102360@up.pt)
 > - > Rafael Teixeira (up202108831@up.pt)
 > 
 
-## **FEATURES IMPLEMENTADAS**
+## FEATURES IMPLEMENTADAS
 > 
 > **Conseguimos implementar:**
 >
-> - > Uma movimentação dos enimigos mais fluida e automática
-> - > Utilização de uma font externa
-> - > A criação de um tipo de enimigo mais inteligente capaz de tomar o caminho mais próximo até ao jogador
-> - > A criação de enimigos com diferentes tipos de movimentação e danos infligidos ao jogador
-> - > A implementação de um sistema de vidas
-> - > A utilização de mapas criados manualmente com auxílio de um sistema de registo de paredes
-> - > A criação de um Menu com um Start e Exit funcionáveis
-> - > A possibilidade de pausar o jogo. Aqui é aberta uma janela com as opções de retomar, recomeçar, sair do jogo ou dirigir para menu
-> - > A criação de uma janela GameOver quando o jogador é eliminado, demonstrando a pontuação total final adquirida
+> - > Menu - Quando o jogo é inicializado, um menu contendo as opções Play e Quit é mostrado.
+> - > Pause - Durante o jogo é possível dar pause e um menu com as opções Continue, New Game, Exit, Exit to Menu é mostrado 
+> - > Inimigos - Existem 2 tipos de inimigos no jogo, o Monster e o King, cada um com uma diferente adoção de movimento e inflição de dano ao jogador
+> - > Movimentação King - O inimigo King possui movimentação inteligente (desvia de paredes e encontra menor caminho até o hero)
+> - > Criação de mapas - Conseguimos utilizar mapas criados manualmente com o auxílio de um sistema de registo de paredes e posição de início de inimigos
+> - > Fonte externa - Utilizamos uma fonte externa no jogo
+> - > Contagem de energia - O jogador tem uma quantidade de energia, que diminui toda vez que entra em contacto com um monstro
+> - > Game Over - Quando a energia do jogador se esgota, uma tela de Game Over é mostrada com a opção de seguir para o Menu
 > 
+
 
 ## **FEATURES PLANEADAS**
 > 
@@ -83,6 +84,7 @@ _(Colocar UML aqui)_ </br>
 > > We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior. </br>
 > > There are now more classes and instances to manage, but still in a reasonable number. </br>
 > 
+
 ### CODE SMELLS E SUGESTÕES DE REFACTORING
 > 
 >_(Descrever 3 a 5 code smells que identificamos na nossa implementação atual e sugerir formas de como o código pode ser refactured de forma a removê-las. Cada uma deve ser descrita na sua subsecção própria)_ </br>
@@ -92,6 +94,7 @@ _(Colocar UML aqui)_ </br>
 > -The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. > - This is problematic because […].
 > -A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
 > 
+
 ### TESTING
 _(Screenshot of coverage report)_ </br>
 ___
