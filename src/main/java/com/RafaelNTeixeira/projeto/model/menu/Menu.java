@@ -9,7 +9,7 @@ public class Menu {
     private int currentEntry = 0;
 
     public Menu() {
-        this.entries = Arrays.asList("Start", "Exit", "Leader Board");
+        this.entries = Arrays.asList("Start", "Exit", "Leader Board", "Instructions");
     }
 
     public void nextEntry() {
@@ -38,6 +38,9 @@ public class Menu {
 
     public boolean isSelectedStart() {
         return isSelected(0);
+    }
+
+    public boolean isSelectedInstructions() {return isSelected(3);
     }
 
     public boolean isSelectedLeaderBoard() {
