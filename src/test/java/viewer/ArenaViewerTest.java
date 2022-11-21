@@ -28,25 +28,4 @@ public class ArenaViewerTest {
         gui = Mockito.mock(GUI.class);
     }
 
-    @Test
-    void CheckDrawAllEntities() {
-        List<Wall> walls = arena.getWalls();
-        List<Monster> monsters = arena.getMonsters();
-        hero = arena.getHero();
-        List<King> kings = arena.getKings();
-
-        for (Wall wall : walls) {
-            Mockito.verify(gui, Mockito.times(0)).drawWall(wall.getPosition());
-        }
-
-        for (Monster monster : monsters) {
-            Mockito.verify(gui, Mockito.times(0)).drawMonster(monster.getPosition());
-        }
-
-        for (King king : kings) {
-            Mockito.verify(gui, Mockito.times(0)).drawKing(king.getPosition());
-        }
-
-        Mockito.verify(gui, Mockito.times(0)).drawHero(hero.getPosition());
-    }
 }

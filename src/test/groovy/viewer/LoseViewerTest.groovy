@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.Graphics.GUI
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.Lose
+import com.RafaelNTeixeira.projeto.viewer.LoseViewer
 import spock.lang.Specification
 
 class LoseViewerTest extends Specification {
@@ -17,6 +18,17 @@ class LoseViewerTest extends Specification {
         position = Mock(Position.class)
     }
 
+    def 'Color and text check on You Lose Menu and You Lose Draw'() {
+        given:
+        def lose_viewer = new LoseViewer(new Lose())
+        def gui = Mock(GUILaterna.class)
+
+        when:
+        lose_viewer.drawElements(gui)
+
+        then:
+        5 * gui.drawText(_,_,_)
+    }
 
 
     def 'Switch of Colors on Lose Menu'() {
