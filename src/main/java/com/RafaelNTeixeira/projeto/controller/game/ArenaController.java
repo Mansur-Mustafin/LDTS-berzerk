@@ -34,16 +34,18 @@ public class ArenaController extends GameController {
             if(getModel().getHero().getEnergy() <= 0){
                 game.setState(new LoseState(new Lose()));
             }
+
         } else {
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
                 game.setState(new MenuState(new Menu()));
                 return;
             }
-            if (getModel().getHero().getEnergy() <= 0) {
+            if (this.getModel().getHero().getEnergy() <= 0) {
                 game.setState(new LoseState(new Lose()));
             }
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
                 game.setState(null);
+                return;
             }
             if (key.getKeyType() == KeyType.Escape) {
                 game.setOldState(game.getState());

@@ -5,45 +5,75 @@ import com.RafaelNTeixeira.projeto.Graphics.GUI
 import com.RafaelNTeixeira.projeto.States.MenuState
 import com.RafaelNTeixeira.projeto.controller.game.ArenaController
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
+import com.RafaelNTeixeira.projeto.model.game.elements.Hero
+import com.RafaelNTeixeira.projeto.model.menu.Menu
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
+import org.mockito.Mockito
 import spock.lang.Specification
 
 class ArenaControllerTest extends Specification{
     private def arena
     private def Acontrol
+    private def game
+    private def key
+    private def time
+    private def arenaController
     def setup(){
         arena = Mock(Arena.class)
         Acontrol = new ArenaController(arena)
+         game = Mock(Game.class)
+         key = Mock(KeyStroke.class)
+         time = 5000
+        arenaController = new ArenaController(new Arena(100,60))
     }
 
     def 'test step QUIT'(){
         given:
-        def game = Mock(Game.class)
-        def key = Mock(KeyStroke.class)
-        def time = 5000
-        def menuState = Mock(MenuState.class);
-        key.getKeyType() >> KeyType.Character;
+        key.getKeyType() >> KeyType.Character ;
         key.getCharacter() >> 'q';
 
         when:
-
         Acontrol.step(game, key, time)
 
         then:
-        1 * game.setState(menuState.class)
+        1 * game.setState(_)
     }
 
-    def 'test step null'(){
+    def 'test step EXIT'(){
         given:
-        def game = Mock(Game.class)
-        def key = null
-        def time = 5000
-        def menuState = Mock(MenuState.class);
+        key.getKeyType() >> KeyType.Character;
+        key.getCharacter() >> 'e';
 
         when:
-        Acontrol.step(game, key, time)
+        arenaController.step(game, key, time)
+
         then:
-        true
+        1 * game.setState(_)
+    }
+
+    def 'test step < erergy'(){
+        given:
+        key.getKeyType() >> KeyType.Character;
+        key.getCharacter() >> 'x';
+        arenaController.getModel().getHero().setEnergy(-10);
+
+        when:
+        arenaController.step(game, key, time)
+
+        then:
+        1 * game.setState(_)
+    }
+
+    def 'test step Escape'(){
+        given:
+        key.getKeyType() >> KeyType.Escape ;
+
+        when:
+        arenaController.step(game, key, time)
+
+        then:
+        1 * game.setState(_)
+        1 * game.setOldState(_)
     }
 }
