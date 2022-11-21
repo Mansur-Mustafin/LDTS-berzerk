@@ -15,8 +15,8 @@ import com.googlecode.lanterna.input.KeyType;
 import java.io.IOException;
 
 public class ArenaController extends GameController {
-    private final HeroController heroController;
-    private final EnemyController EnemyController;
+    private HeroController heroController;
+    private EnemyController EnemyController;
 
     public ArenaController(Arena arena) {
         super(arena);
@@ -57,5 +57,12 @@ public class ArenaController extends GameController {
                 EnemyController.step(game, key, time);
             }
         }
+    }
+
+    public void setEnemyController(EnemyController e){
+        EnemyController = e;
+    }
+    public void setHeroController(HeroController h){
+        heroController = h;
     }
 }
