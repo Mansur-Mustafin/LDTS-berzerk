@@ -17,24 +17,30 @@ class GameStateTest extends Specification{
     def 'Get Viewer'(){
         given:
         GameState gameState = new GameState(arena)
-        GameViewer gameViewer = new GameViewer(arena)
+        GameViewer gameViewer = gameState.getViewer()
 
         when:
-        GameViewer gameViewer1 = gameState.getViewer()
+        int height = gameViewer.getModel().getHeight()
+        int width = gameViewer.getModel().getWidth()
 
         then:
-        gameViewer.getModel() == gameViewer1.getModel()
+        height == 50
+        width == 50
+
     }
 
     def 'Get controller'() {
         given:
         GameState gameState = new GameState(arena)
-        ArenaController arenaController = new ArenaController(arena)
+        ArenaController arenaController = gameState.getController()
 
         when:
-        ArenaController controller = gameState.getController()
+        int height = arenaController.getModel().getHeight()
+        int width = arenaController.getModel().getWidth()
 
         then:
-        controller.getModel() == arenaController.getModel()
+        height == 50
+        width == 50
+
     }
 }

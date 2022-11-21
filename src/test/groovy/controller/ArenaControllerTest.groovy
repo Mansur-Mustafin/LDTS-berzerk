@@ -10,7 +10,7 @@ import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 
 class ArenaControllerTest extends Specification{
-    private def arena
+    /*private def arena
     private def Acontrol
     def setup(){
         arena = Mock(Arena.class)
@@ -45,5 +45,5 @@ class ArenaControllerTest extends Specification{
         Acontrol.step(game, key, time)
         then:
         true
-    }
+    }*/
 }
