@@ -36,6 +36,7 @@ public class Arena {
         createElements();
     }
 
+
     private void createElements(){
         InputStream istream = ClassLoader.getSystemResourceAsStream("level1.txt");
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);

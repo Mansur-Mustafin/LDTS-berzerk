@@ -1,49 +1,68 @@
-package controller
+package com.RafaelNTeixeira.projeto.controller.game;
 
-import com.RafaelNTeixeira.projeto.Game
-import com.RafaelNTeixeira.projeto.Graphics.GUI
-import com.RafaelNTeixeira.projeto.States.MenuState
-import com.RafaelNTeixeira.projeto.controller.game.ArenaController
-import com.RafaelNTeixeira.projeto.model.game.arena.Arena
-import com.googlecode.lanterna.input.KeyStroke
-import com.googlecode.lanterna.input.KeyType
-import spock.lang.Specification
+import com.RafaelNTeixeira.projeto.Game;
+import com.RafaelNTeixeira.projeto.Graphics.GUI;
+import com.RafaelNTeixeira.projeto.States.LoseState;
+import com.RafaelNTeixeira.projeto.States.MenuState;
+import com.RafaelNTeixeira.projeto.States.PauseState;
+import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+import com.RafaelNTeixeira.projeto.model.menu.Lose;
+import com.RafaelNTeixeira.projeto.model.menu.Menu;
+import com.RafaelNTeixeira.projeto.model.menu.Pause;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 
-class ArenaControllerTest extends Specification{
-    /*private def arena
-    private def Acontrol
-    def setup(){
-        arena = Mock(Arena.class)
-        Acontrol = new ArenaController(arena)
+import java.io.IOException;
+
+public class ArenaController extends GameController {
+    private HeroController heroController;
+    private EnemyController EnemyController;
+
+    public ArenaController(Arena arena) {
+        super(arena);
+
+        this.heroController = new HeroController(arena);
+        this.EnemyController = new EnemyController(arena);
     }
 
-    def 'test step QUIT'(){
-        given:
-        def game = Mock(Game.class)
-        def key = Mock(KeyStroke.class)
-        def time = 5000
-        def menuState = Mock(MenuState.class);
-        key.getKeyType() >> KeyType.Character;
-        key.getCharacter() >> 'q';
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if (key == null) {
+            heroController.step(game, key, time);
+            EnemyController.setPosition_hero(getModel().getHero().position);
+            EnemyController.setWalls(getModel().getWalls());
+            EnemyController.step(game, key, time);
+            if(getModel().getHero().getEnergy() <= 0){
+                game.setState(new LoseState(new Lose()));
+            }
 
-        when:
-
-        Acontrol.step(game, key, time)
-
-        then:
-        1 * game.setState(menuState.class)
+        } else {
+            if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
+                game.setState(new MenuState(new Menu()));
+                return;
+            }
+            if (this.getModel().getHero().getEnergy() <= 0) {
+                game.setState(new LoseState(new Lose()));
+            }
+            if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
+                game.setState(null);
+                return;
+            }
+            if (key.getKeyType() == KeyType.Escape) {
+                game.setOldState(game.getState());
+                game.setState(new PauseState(new Pause()));
+            } else {
+                heroController.step(game, key, time);
+                EnemyController.setPosition_hero(getModel().getHero().position);
+                EnemyController.setWalls(getModel().getWalls());
+                EnemyController.step(game, key, time);
+            }
+        }
     }
 
-    def 'test step null'(){
-        given:
-        def game = Mock(Game.class)
-        def key = null
-        def time = 5000
-        def menuState = Mock(MenuState.class);
-
-        when:
-        Acontrol.step(game, key, time)
-        then:
-        true
-    }*/
+    public void setEnemyController(EnemyController e){
+        EnemyController = e;
+    }
+    public void setHeroController(HeroController h){
+        heroController = h;
+    }
 }
