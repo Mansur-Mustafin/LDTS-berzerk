@@ -8,7 +8,7 @@ import com.RafaelNTeixeira.projeto.viewer.MenuViewer
 import spock.lang.Specification
 import viewer.LoseViewerTest
 
-class MenuStateClass extends Specification{
+class MenuStateTest extends Specification{
 
     private def menu
 
