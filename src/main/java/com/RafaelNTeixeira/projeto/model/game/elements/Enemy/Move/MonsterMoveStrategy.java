@@ -13,6 +13,5 @@ public class MonsterMoveStrategy implements MoveStrategy{
         int x = random.nextInt(3) - 1;
         int y = random.nextInt(3) - 1;
         return new Position(position.getX() + x, position.getY() + y);
-
     }
 }

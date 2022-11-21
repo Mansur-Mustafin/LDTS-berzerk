@@ -37,6 +37,7 @@ public class ArenaController extends GameController {
         } else {
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
                 game.setState(new MenuState(new Menu()));
+                return;
             }
             if (getModel().getHero().getEnergy() <= 0) {
                 game.setState(new LoseState(new Lose()));

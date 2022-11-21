@@ -29,7 +29,7 @@ class ArenaTest extends Specification{
 
     def 'Get hero'() {
         given:
-        Hero hero = new Hero(38, 25)
+        Hero hero = new Hero(17, 52)
 
         when:
         Hero hero1 = arena.getHero()
@@ -40,7 +40,7 @@ class ArenaTest extends Specification{
 
     def 'Get King'() {
         given:
-        Position pos = new Position(16, 2)
+        Position pos = new Position(84, 5)
         Position pos1 = new Position(17, 2)
         List<King> kingList= arena.getKings()
         boolean flag = false
@@ -84,7 +84,7 @@ class ArenaTest extends Specification{
 
     def 'getMonsters'() {
         given:
-        Position pos = new Position(16, 4)
+        Position pos = new Position(44, 12)
         Position pos1 = new Position(1, 1)
         List<Monster> monsterList= arena.getMonsters()
         boolean flag = false
@@ -92,6 +92,7 @@ class ArenaTest extends Specification{
 
         when:
         for (Monster m : monsterList) {
+
             if(m.getPosition() == pos) {
                 flag = true
             }
@@ -103,8 +104,4 @@ class ArenaTest extends Specification{
         then:
         flag && flag2
     }
-
-
-
-
 }

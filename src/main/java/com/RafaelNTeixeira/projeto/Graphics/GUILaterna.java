@@ -81,6 +81,7 @@ public class GUILaterna implements GUI {
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(), position.getY()), "w");
     }
+
     @Override
     public void drawMonster(Position position){
         TextGraphics graphics = screen.newTextGraphics();

@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.KingMoveStrategy
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.NotMovingStrategy
 import spock.lang.Specification
 
 class KingTest extends Specification{
@@ -28,7 +29,7 @@ class KingTest extends Specification{
         MoveStrategy moveStrategy = king.generateMoveStrategy()
 
         then:
-        moveStrategy.getClass() == new KingMoveStrategy().getClass()
+        moveStrategy.getClass() == new NotMovingStrategy().getClass()
 
     }
 }
