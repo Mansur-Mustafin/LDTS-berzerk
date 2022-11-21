@@ -6,7 +6,7 @@ import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.Lose
 import spock.lang.Specification
 
-class LoseViewer extends Specification {
+class LoseViewerTest extends Specification {
     private def gui
     private def lose
     private def position

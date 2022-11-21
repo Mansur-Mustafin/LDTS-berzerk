@@ -5,7 +5,7 @@ import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.Menu
 import spock.lang.Specification
 
-class MenuViewer extends Specification {
+class MenuViewerTest extends Specification {
     private def gui
     private def menu
     private def position

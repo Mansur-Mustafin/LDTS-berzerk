@@ -1,0 +1,46 @@
+package state
+
+import com.RafaelNTeixeira.projeto.States.AddLeaderState
+import com.RafaelNTeixeira.projeto.States.GameState
+import com.RafaelNTeixeira.projeto.controller.game.ArenaController
+import com.RafaelNTeixeira.projeto.controller.menu.AddLeaderController
+import com.RafaelNTeixeira.projeto.model.game.arena.Arena
+import com.RafaelNTeixeira.projeto.model.menu.AddLeader
+import com.RafaelNTeixeira.projeto.viewer.AddLeaderViewer
+import com.RafaelNTeixeira.projeto.viewer.GameViewer
+import spock.lang.Specification
+
+class AddLeaderStateTest extends Specification{
+    private def addLeader
+
+    def setup() {
+        addLeader = new AddLeader()
+    }
+
+    def 'Get Viewer'(){
+        given:
+        AddLeaderState leaderState = new AddLeaderState(addLeader)
+        AddLeaderViewer viewer = new AddLeaderViewer(addLeader)
+
+        when:
+        AddLeaderViewer leaderViewer = leaderState.getViewer()
+        int x = leaderViewer.getModel().getNumberEntries()
+
+        then:
+        x == viewer.getModel().getNumberEntries()
+    }
+
+    def 'Get controller'() {
+        given:
+        AddLeaderState leaderState = new AddLeaderState(addLeader)
+        AddLeaderController leaderController = leaderState.getController()
+
+        when:
+        int x = leaderController.getModel().getNumberEntries()
+
+        then:
+        x == 2
+
+    }
+
+}

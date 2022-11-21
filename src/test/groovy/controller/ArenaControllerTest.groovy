@@ -27,9 +27,9 @@ class ArenaControllerTest extends Specification{
     def setup(){
         arena = Mock(Arena.class)
         Acontrol = new ArenaController(arena)
-         game = Mock(Game.class)
-         key = Mock(KeyStroke.class)
-         time = 5000
+        game = Mock(Game.class)
+        key = Mock(KeyStroke.class)
+        time = 5000
         arenaController = new ArenaController(new Arena(100,60))
         e_c = Mock(EnemyController.class)
         h_c  =Mock(HeroController.class)
