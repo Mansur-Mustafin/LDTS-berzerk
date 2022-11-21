@@ -18,6 +18,7 @@ class InstructionsStateTest extends Specification{
         InstructionsState instructionsState = new InstructionsState(instructionsModel)
         InstructionViewer viewer = new InstructionViewer(instructionsModel)
 
+
         when:
         InstructionViewer instructionViewer = instructionsState.getViewer()
         int x = instructionViewer.getModel().getNumberEntries()
