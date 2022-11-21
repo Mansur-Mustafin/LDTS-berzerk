@@ -1,5 +1,6 @@
 package viewer
 
+import com.RafaelNTeixeira.projeto.Graphics.GUI
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.Lose
@@ -16,20 +17,7 @@ class LoseViewer extends Specification {
         position = Mock(Position.class)
     }
 
-    def 'Color and text check on You Lose Menu and You Lose Draw'() {
-        given:
-        com.RafaelNTeixeira.projeto.viewer.LoseViewer lose_viewer = new com.RafaelNTeixeira.projeto.viewer.LoseViewer(lose)
-        String color = "#FFFFFF"
-        String text = "You LOSE!"
 
-        when:
-        lose_viewer.drawElements(gui)
-
-        then:
-        color == "#FFFFFF"
-        text == "You LOSE!"
-        0 * gui.drawText(position,text, color)
-    }
 
     def 'Switch of Colors on Lose Menu'() {
         given:
