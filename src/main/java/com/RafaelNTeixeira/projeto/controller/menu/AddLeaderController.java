@@ -1,15 +1,10 @@
 package com.RafaelNTeixeira.projeto.controller.menu;
 
 import com.RafaelNTeixeira.projeto.Game;
-import com.RafaelNTeixeira.projeto.Graphics.GUI;
-import com.RafaelNTeixeira.projeto.States.AddLeaderState;
-import com.RafaelNTeixeira.projeto.States.LeaderBoard;
-import com.RafaelNTeixeira.projeto.States.MenuState;
+import com.RafaelNTeixeira.projeto.States.LeaderBoardState;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
-import com.RafaelNTeixeira.projeto.model.menu.Lose;
-import com.RafaelNTeixeira.projeto.model.menu.Menu;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
@@ -27,7 +22,7 @@ public class AddLeaderController extends Controller<AddLeader> {
         }
         if (key.getKeyType() == KeyType.Enter) {
             getModel().addScore();
-            game.setState(new LeaderBoard(new Leader()));
+            game.setState(new LeaderBoardState(new Leader()));
         }
         if(key.getKeyType() == KeyType.Character){
             getModel().addChar(key.getCharacter());

@@ -20,13 +20,14 @@ class AddLeaderStateTest extends Specification{
     def 'Get Viewer'(){
         given:
         AddLeaderState leaderState = new AddLeaderState(addLeader)
-        AddLeaderViewer leaderViewer = leaderState.getViewer()
+        AddLeaderViewer viewer = new AddLeaderViewer(addLeader)
 
         when:
+        AddLeaderViewer leaderViewer = leaderState.getViewer()
         int x = leaderViewer.getModel().getNumberEntries()
 
         then:
-        x == 2
+        x == viewer.getModel().getNumberEntries()
     }
 
     def 'Get controller'() {

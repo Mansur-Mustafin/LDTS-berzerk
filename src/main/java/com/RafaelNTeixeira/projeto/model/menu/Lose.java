@@ -1,7 +1,5 @@
 package com.RafaelNTeixeira.projeto.model.menu;
 
-import com.RafaelNTeixeira.projeto.States.LeaderBoard;
-
 import java.util.Arrays;
 import java.util.List;
 

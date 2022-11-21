@@ -2,16 +2,13 @@ package com.RafaelNTeixeira.projeto.States;
 
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.controller.menu.LeaderController;
-import com.RafaelNTeixeira.projeto.controller.menu.LoseController;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
-import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.viewer.LeaderViewer;
-import com.RafaelNTeixeira.projeto.viewer.LoseViewer;
 import com.RafaelNTeixeira.projeto.viewer.Viewer;
 
 
-public class LeaderBoard extends State<Leader>{
-    public LeaderBoard(Leader model) {
+public class LeaderBoardState extends State<Leader>{
+    public LeaderBoardState(Leader model) {
         super(model);
     }
 

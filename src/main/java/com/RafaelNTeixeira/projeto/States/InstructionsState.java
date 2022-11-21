@@ -7,8 +7,8 @@ import com.RafaelNTeixeira.projeto.viewer.InstructionViewer;
 import com.RafaelNTeixeira.projeto.viewer.Viewer;
 
 
-public class Instructions extends State<Instruction> {
-    public Instructions(Instruction model) {
+public class InstructionsState extends State<Instruction> {
+    public InstructionsState(Instruction model) {
         super(model);
     }
 
