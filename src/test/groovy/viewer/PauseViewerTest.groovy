@@ -28,7 +28,7 @@ class PauseViewerTest extends Specification {
 
         then:
         (text == "Pause") && (color == "#FFFFFF")
-        0 * gui.drawText(position,text, color)
+        0 * gui.drawText(position, text, color)
     }
 
     def 'Switch of Colors on Pause Menu'() {
@@ -38,7 +38,7 @@ class PauseViewerTest extends Specification {
 
         when:
         for (int i = 0; i < pause_menu.getNumberEntries(); i++) {
-            gui.drawText(position, pause_menu.getEntry(i), pause_menu.isSelected(i) ? color1 : color2);
+            gui.drawText(position, pause_menu.getNumberEntries(), pause_menu.isSelected(i) ? color1 : color2);
         }
 
         then:
