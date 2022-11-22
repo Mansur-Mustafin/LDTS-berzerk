@@ -43,13 +43,13 @@
 &nbsp;
 
 # GAME
-> <pre>                                              MENU                                                           </pre>      
+> <pre>                                                  MENU                                                 </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/f9f76b0b3150cddd306c023bdc599f1e5d6f31b4/docs/Screenshots/Menu.png)
-> <pre>                                           PAUSE MENU                                                        </pre>      
+> <pre>                                               PAUSE MENU                                              </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/PauseMenu.png)
-> <pre>                                           LEADERBOARD                                                        </pre>      
+> <pre>                                              LEADERBOARD                                              </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/f9f76b0b3150cddd306c023bdc599f1e5d6f31b4/docs/Screenshots/LeaderBoard.png)
-> <pre>                                           INSTRUCTIONS                                                       </pre>      
+> <pre>                                             INSTRUCTIONS                                               </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/f9f76b0b3150cddd306c023bdc599f1e5d6f31b4/docs/Screenshots/Instructions.png)
 >
 &nbsp;
