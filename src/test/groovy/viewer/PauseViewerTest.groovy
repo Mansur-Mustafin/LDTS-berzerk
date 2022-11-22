@@ -17,31 +17,14 @@ class PauseViewerTest extends Specification {
         position = Mock(Position.class)
     }
 
-    def 'Pause Draw and text and color check'() {
+    def 'Pause Text Draw'() {
         given:
-        PauseViewer pause_viewer = new PauseViewer(pause_menu)
-        String text = "Pause"
-        String color = "#FFFFFF"
+        def pause_viewer = new PauseViewer(new Pause())
 
         when:
         pause_viewer.drawElements(gui)
 
         then:
-        (text == "Pause") && (color == "#FFFFFF")
-        0 * gui.drawText(position, text, color)
-    }
-
-    def 'Switch of Colors on Pause Menu'() {
-        given:
-        String color1 = "#FFD700"
-        String color2 = "#FFFFFF"
-
-        when:
-        for (int i = 0; i < pause_menu.getNumberEntries(); i++) {
-            gui.drawText(position, pause_menu.getNumberEntries(), pause_menu.isSelected(i) ? color1 : color2);
-        }
-
-        then:
-        (color1 == "#FFD700") && (color2 == "#FFFFFF")
+        5 * gui.drawText(_, _, _)
     }
 }

@@ -10,8 +10,6 @@ public class LeaderViewer extends Viewer<Leader>{
         super(lose);
     }
 
-
-
     @Override
     public void drawElements(GUI gui) {
         gui.drawText(new Position(45, 4), "Leader Board", "#FFFFFF");
