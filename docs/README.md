@@ -44,7 +44,7 @@
 > 
 
 ## CHARACTERS 
-![img]
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Characters/HERO.png)
 
 ## **DESIGN**
 _(Colocar UML aqui)_ </br>
