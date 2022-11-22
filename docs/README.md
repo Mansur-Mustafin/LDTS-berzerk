@@ -70,14 +70,15 @@
 
 ## DESIGN
 _(Colocar UML aqui)_ </br>
+&nbsp;
 
-> **BASIC CODE ORGANIZATION** </br>
+### BASIC CODE ORGANIZATION </br>
 >
 > ### Problem in Context
 > > Without an appropriate structure, it would be very hard and confusing to change and develop the code </br>
 > 
 > ### Pattern 
-> > We used the Model-View-Controller (MVC) pattern, allowing us to divide the application in three parts, separating the logical part from the displaying. That allows better code readability and easier bug fixing. </br>
+> > We used the Model-View-Controller (MVC) pattern, allowing us to divide the application in three parts, separating the logical part from the displaying. That allows better code readability and easier bug fixing </br>
 >
 > ### Implementation
 > > The following figure shows the implementation of this pattern: </br>
@@ -94,14 +95,15 @@ _(Colocar UML aqui)_ </br>
 > > It’s always the same process to add a new feature: create model, view and controller for that
 >
 &nbsp;
+&nbsp;
 
-> **CHANGING GAME STATE** </br>
+### CHANGING GAME STATE </br>
 >
 > ### Problem in Context
-> > When creating different types of menus and trying to change between them and the game we realized that our application had various states and we needed to easily switch between them.
+> > When creating different types of menus and trying to change between them and the game we realized that our application had various states and we needed to easily switch between them
 > 
 > ### Pattern 
-> > The best solution to this problem is applying the State Pattern. With this pattern we can separate the states in individual classes and change its behavior depending on its internal state. </br>
+> > The best solution to this problem is applying the State Pattern. With this pattern we can separate the states in individual classes and change its behavior depending on its internal state </br>
 >
 > ### Implementation
 > > The following figure shows how we implemented this pattern: </br>
@@ -115,7 +117,7 @@ _(Colocar UML aqui)_ </br>
 > >    - [LoseState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LoseState.java)
 > >    - [MenuState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/MenuState.java)
 > >    - [PauseState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/PauseState.java)   
- > >    - [State](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/State.java)   
+> >    - [State](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/State.java)   
 > 
 > ### Consequences
 > The use of the State Pattern in the current design allows the following benefits:
@@ -124,7 +126,10 @@ _(Colocar UML aqui)_ </br>
 >
 &nbsp;
 
-___
+
+
+
+
 _(TEMPLATE FOR NEW IMPLEMENTATIONS)_
 > **CASO A EXPLICAR:** </br> _(Exemplo: THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE)_
 
