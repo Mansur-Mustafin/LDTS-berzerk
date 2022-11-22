@@ -42,6 +42,10 @@
 > - > Um novo objetivo de jogo em que o jogador necessita de obrigatoriamente obter uma chave e eliminar todos os inimigos antes de conseguir abrir as portas para os outros níveis
 > - > Inserir uma logo e designs de botões criados manualmente
 > 
+
+## CHARACTERS 
+![img]
+
 ## **DESIGN**
 _(Colocar UML aqui)_ </br>
 
