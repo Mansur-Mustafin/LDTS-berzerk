@@ -17,7 +17,7 @@ class WallViewerTest extends Specification {
 
     def 'Wall Draw' () {
         given:
-        WallViewer wall_viewer = new WallViewer()
+        def wall_viewer = new WallViewer()
 
         when:
         wall_viewer.draw(wall, gui)

@@ -8,31 +8,22 @@ import spock.lang.Specification
 
 class LeaderViewerTest extends Specification {
     private def gui
-    private def leaderboard
     private def position
 
     void setup() {
         gui = Mock(GUILaterna.class)
-        leaderboard = Mock(Leader.class)
         position = Mock(Position.class)
     }
 
-    def 'Color and text check on LeaderBoard Table and LeaderBoard Draw'() {
+    def 'LeaderBoard Text Draw'() {
         given:
-        LeaderViewer leader_viewer = new LeaderViewer(leaderboard)
-        String color1 = "#FFFFFF"
-        String text1 = "Leader Board"
-        String color2 = "#FFD700"
-        String text2 = "Press ENTER to get Menu"
+        def leader_viewer = new LeaderViewer(new Leader())
+        def gui = Mock(GUILaterna.class)
 
         when:
         leader_viewer.drawElements(gui)
 
         then:
-        (color1 == "#FFFFFF") && (color2 == "#FFD700")
-        (text1 == "Leader Board") && (text2 == "Press ENTER to get Menu")
-
-        0 * gui.drawText(position, text1, color1)
-        0 * gui.drawText(position, text2, color2)
+        22 * gui.drawText(_,_,_)
     }
 }
