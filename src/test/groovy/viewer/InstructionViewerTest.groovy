@@ -26,6 +26,6 @@ class InstructionViewerTest extends Specification {
         leader_viewer.drawElements(gui)
 
         then:
-        46 * gui.drawText(_,_,_)
+        16 * gui.drawText(_,_,_)
     }
 }

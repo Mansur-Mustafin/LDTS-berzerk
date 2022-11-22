@@ -8,7 +8,7 @@ public class Instruction {
     private final List<String> entries;
     private int currentEntry = 0;
     public Instruction() throws IOException {
-        this.entries = Arrays.asList("Press Enter to go back to the Menu");
+        this.entries = Arrays.asList("Press Enter to go back to the menu");
     }
 
     public String getEntry(int i) {

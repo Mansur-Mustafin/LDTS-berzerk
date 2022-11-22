@@ -12,23 +12,23 @@ public class LeaderViewer extends Viewer<Leader>{
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(45, 4), "Leader Board", "#FFFFFF");
+        gui.drawText(new Position(10, 4), "leader board", "#FFFFFF");
 
         for (int i = 0; i < 10 && i < getModel().getNumberOfplayers() ; i++) {
             String str = getModel().getPlayers().get(i).getName();
 
             gui.drawText(
-                    new Position(35, 14 + i),
+                    new Position(5, 7 + i),
                     str,
                     "#FFFFFF");
 
             gui.drawText(
-                    new Position(35  + 30 , 14 + i ),
+                    new Position(5  + 20 , 7 + i ),
                     getModel().getPlayers().get(i).getScore(),
                     "#FFFFFF");
 
         }
-        gui.drawText(new Position(40, 57), "Press ENTER to get Menu", "#FFD700");
+        gui.drawText(new Position(6, 22), "press enter to get menu", "#FFD700");
 
     }
 }

@@ -7,7 +7,7 @@ public class Lose {
     private final List<String> entries;
     private int currentEntry = 0;
     public Lose() {
-        this.entries = Arrays.asList("Menu", "Leader Board", "Add Score to LeaderBoard");
+        this.entries = Arrays.asList("menu", "Leader Board", "Add Score to LeaderBoard");
     }
 
     public void nextEntry() {
