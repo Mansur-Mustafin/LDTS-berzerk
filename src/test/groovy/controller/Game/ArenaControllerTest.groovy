@@ -1,4 +1,4 @@
-package controller
+package controller.Game
 
 import com.RafaelNTeixeira.projeto.Game
 import com.RafaelNTeixeira.projeto.Graphics.GUI

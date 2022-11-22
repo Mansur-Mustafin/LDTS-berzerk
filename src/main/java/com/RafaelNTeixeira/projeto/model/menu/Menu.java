@@ -42,7 +42,9 @@ public class Menu {
 
     public boolean isSelectedInstructions() {return isSelected(3);
     }
-
+    public int getCurrentEntry(){
+        return currentEntry;
+    }
     public boolean isSelectedLeaderBoard() {
         return isSelected(2);
     }

@@ -39,7 +39,9 @@ public class Pause {
     }
 
     public boolean isSelectedNewGame() {return isSelected(1);}
-
+    public int getCurrentEntry(){
+        return currentEntry;
+    }
     public boolean isSelectedGoToMenu() {return isSelected(3);}
 
     public int getNumberEntries() {

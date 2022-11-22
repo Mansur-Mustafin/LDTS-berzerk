@@ -6,13 +6,6 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 import java.util.*;
 
 public class KingMoveStrategy implements MoveStrategy{
-    int good_function(int x){
-        if(Math.abs(x) < 2){
-            return x;
-        }else{
-            return 2;
-        }
-    }
 
     boolean canMove(Position position){
         if (position.getX() < 0 || position.getY() < 0 || position.getX() > 99 || position.getY() > 59)

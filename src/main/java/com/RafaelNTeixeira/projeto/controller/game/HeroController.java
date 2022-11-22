@@ -70,4 +70,5 @@ public class HeroController extends GameController {
         if (key.getKeyType() == KeyType.ArrowDown) moveHeroDown();
         if (key.getKeyType() == KeyType.ArrowLeft) moveHeroLeft();
     }
+
 }

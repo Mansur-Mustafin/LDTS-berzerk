@@ -29,7 +29,9 @@ public class Lose {
     public boolean isSelected(int i) {
         return currentEntry == i;
     }
-
+    public int getCurrentEntry(){
+        return currentEntry;
+    }
     public boolean isSelectedMenu() {
         return isSelected(0);
     }

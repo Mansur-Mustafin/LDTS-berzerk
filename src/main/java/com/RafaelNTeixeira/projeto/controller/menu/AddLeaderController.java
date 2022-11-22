@@ -17,6 +17,7 @@ public class AddLeaderController extends Controller<AddLeader> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
+
         if(key == null){
             return;
         }
