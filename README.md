@@ -57,6 +57,7 @@ ___
 &nbsp;
 &nbsp;
 ## CODE COVERAGE
-_(Colocar JPEG de Code Coverage)_ </br>
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Code%20Coverage.png) </br>
+___
 _(Colocar link para  o relatório de mutation testing)_
 ___
