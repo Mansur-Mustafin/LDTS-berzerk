@@ -1,7 +1,5 @@
 package com.RafaelNTeixeira.projeto.model.game.elements.Enemy;
 
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.KingMoveStrategy;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MonsterMoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.NotMovingStrategy;
 

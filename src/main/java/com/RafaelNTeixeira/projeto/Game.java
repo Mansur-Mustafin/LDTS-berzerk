@@ -47,7 +47,6 @@ public class Game {
     }
 
 
-
     public void run() throws IOException {
         int frameTime = 1000 / 50;
 

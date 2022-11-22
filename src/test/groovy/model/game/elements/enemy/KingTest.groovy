@@ -2,7 +2,6 @@ package model.game.elements.enemy
 
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.KingMoveStrategy
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.NotMovingStrategy
 import spock.lang.Specification

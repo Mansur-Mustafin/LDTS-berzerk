@@ -1,13 +1,10 @@
 package model.game.elements.enemy
 
 import com.RafaelNTeixeira.projeto.model.game.Position
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Enemy
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.KingMoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MonsterMoveStrategy
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.BFSMoveStrategy
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.RandomMoveStrategy
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Hero
-import com.RafaelNTeixeira.projeto.model.game.elements.Wall
 import com.googlecode.lanterna.graphics.TextGraphics
 import spock.lang.Specification
 
@@ -67,7 +64,7 @@ class EnemyTest extends Specification{
 
         given:
         Monster monster = new Monster(10, 10)
-        MoveStrategy moveStrategy = new MonsterMoveStrategy()
+        MoveStrategy moveStrategy = new RandomMoveStrategy()
 
         when:
         MoveStrategy moveStrategy1 = monster.getMoveStrategy()
@@ -82,13 +79,13 @@ class EnemyTest extends Specification{
     def 'Set move strategy'() {
         given:
         Monster monster = new Monster(10, 10)
-        MoveStrategy moveStrategy = new KingMoveStrategy()
+        MoveStrategy moveStrategy = new BFSMoveStrategy()
 
         when:
         monster.setMoveStrategy(moveStrategy)
 
         then:
-        monster.getMoveStrategy().getClass() == new KingMoveStrategy().getClass()
+        monster.getMoveStrategy().getClass() == new BFSMoveStrategy().getClass()
 
 
     }

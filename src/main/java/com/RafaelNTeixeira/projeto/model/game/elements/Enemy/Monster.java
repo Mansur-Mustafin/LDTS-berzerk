@@ -1,6 +1,6 @@
 package com.RafaelNTeixeira.projeto.model.game.elements.Enemy;
 
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MonsterMoveStrategy;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.RandomMoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy;
 
 public class Monster extends Enemy{
@@ -10,7 +10,7 @@ public class Monster extends Enemy{
 
     @Override
     protected MoveStrategy generateMoveStrategy(){
-        return new MonsterMoveStrategy();
+        return new RandomMoveStrategy();
     }
 
 }

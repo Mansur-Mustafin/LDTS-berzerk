@@ -1,13 +1,10 @@
 package com.RafaelNTeixeira.projeto.controller.game;
 
 import com.RafaelNTeixeira.projeto.Game;
-import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Enemy;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.KingMoveStrategy;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.BFSMoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 import com.googlecode.lanterna.input.KeyStroke;
 
@@ -43,7 +40,7 @@ public class EnemyController extends GameController {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (time - lastMovement > 500) {
-            for (Monster monster : getModel().getMonsters()) {
+            for (Enemy monster : getModel().getMonsters()) {
                 Position position;
                 while(!canMonsterMove(position = monster.move(position_hero, walls))){}
                 monster.setPosition(position);
@@ -52,9 +49,9 @@ public class EnemyController extends GameController {
                 }
             }
 
-            for (King king : getModel().getKings()) {
+            for (Enemy king : getModel().getKings()) {
                 if(king.position.getDistance(position_hero) < 20){
-                    king.setMoveStrategy(new KingMoveStrategy());
+                    king.setMoveStrategy(new BFSMoveStrategy());
                 }
                 Position position = king.move(position_hero ,walls );
                 king.setPosition(position);

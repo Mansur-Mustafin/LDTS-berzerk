@@ -6,7 +6,7 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 import java.util.List;
 import java.util.Random;
 
-public class MonsterMoveStrategy implements MoveStrategy{
+public class RandomMoveStrategy implements MoveStrategy{
     @Override
     public Position move(Position position, Position position_hero , List<Wall> walls){
         Random random = new Random();
