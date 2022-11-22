@@ -2,7 +2,7 @@
 
 ## GAME DESCRIPTION
 > 
-> The project consists in the creation of a 2D arcade game based on Atari's Berzerk game. The game consists in one player and different enemies. The player has a gun and has to pass trough the monsters to get to the next level. The monsters have different types of movement and characteristics depending on it's type.
+> This project is based on the creation of a 2D Atari arcade game called Berzerk. The game consists of different enemies that have different types of movements and characteristics depending on their type and a player that carries a gun to kill the monsters so that he can proceed to the following levels
 > The player has an energy attribute that decreases every time he takes a hit. When his energy gets to 0, the game ends.
 > After each monster killed, the player's score increases and after the game is over he can enter a LeaderBoard.
 > 
