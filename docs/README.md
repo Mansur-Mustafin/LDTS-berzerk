@@ -42,6 +42,10 @@
 > - > Um novo objetivo de jogo em que o jogador necessita de obrigatoriamente obter uma chave e eliminar todos os inimigos antes de conseguir abrir as portas para os outros níveis
 > - > Inserir uma logo e designs de botões criados manualmente
 > 
+
+## CHARACTERS 
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Characters/HERO.png)
+
 ## **DESIGN**
 _(Colocar UML aqui)_ </br>
 
