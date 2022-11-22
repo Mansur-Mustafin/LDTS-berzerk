@@ -19,7 +19,6 @@
 
 ## IMPLEMENTED FEATURES
 > 
->
 > - > Menu - When the game is initialized, a menu containing the options Play, Leader Board, Instructions and Exit is displayed
 > - > Pause - It's possible to pause the game. When the game is paused, a menu containing the options Continue, New game, Exit and Exit to Menu is displayed
 > - > Enemies - There are 2 types of enemies in the game: Monster and King
@@ -33,7 +32,7 @@
 > 
 &nbsp;
 
-## **FEATURES PLANEADAS**
+## PLANNED FEATURES
 > 
 > **We pretend to implement:**
 > 
@@ -69,9 +68,64 @@
 > 
 &nbsp;
 
-## **DESIGN**
+## DESIGN
 _(Colocar UML aqui)_ </br>
 
+> **BASIC CODE ORGANIZATION** </br>
+>
+> ### Problem in Context
+> > Without an appropriate structure, it would be very hard and confusing to change and develop the code </br>
+> 
+> ### Pattern 
+> > We used the Model-View-Controller (MVC) pattern, allowing us to divide the application in three parts, separating the logical part from the displaying. That allows better code readability and easier bug fixing. </br>
+>
+> ### Implementation
+> > The following figure shows the implementation of this pattern: </br>
+> > ![img]sadasdsa  _(Image of the MVC)_ </br>
+> 
+> > Packages can be found in:
+> >    - [CONTROLLER](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/controller)
+> >    - [MODEL](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/model)
+> >    - [VIEWER](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/viewer)
+> 
+> ### Consequences
+> The use of the MVC Pattern in the current design allows the following benefits:
+> > The code is more readable and easier to work with
+> > It’s always the same process to add a new feature: create model, view and controller for that
+>
+&nbsp;
+
+> **CHANGING GAME STATE** </br>
+>
+> ### Problem in Context
+> > When creating different types of menus and trying to change between them and the game we realized that our application had various states and we needed to easily switch between them.
+> 
+> ### Pattern 
+> > The best solution to this problem is applying the State Pattern. With this pattern we can separate the states in individual classes and change its behavior depending on its internal state. </br>
+>
+> ### Implementation
+> > The following figure shows how we implemented this pattern: </br>
+> > ![img]sadasdsa  _(Image of the State)_ </br>
+> 
+> > Packages can be found in:
+> >    - [AddLEaderState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/AddLeaderState.java)
+> >    - [GameState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/GameState.java)
+> >    - [InstructionsState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/InstructionsState.java)
+> >    - [LeaderBoardState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LeaderBoardState.java)
+> >    - [LoseState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LoseState.java)
+> >    - [MenuState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/MenuState.java)
+> >    - [PauseState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/PauseState.java)   
+ > >    - [State](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/State.java)   
+> 
+> ### Consequences
+> The use of the State Pattern in the current design allows the following benefits:
+> > Organizing the code in various explicit state classes allowing better readability
+> > Much easier to introduce new states to the application, without having to change several state classes
+>
+&nbsp;
+
+___
+_(TEMPLATE FOR NEW IMPLEMENTATIONS)_
 > **CASO A EXPLICAR:** </br> _(Exemplo: THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE)_
 
 >
@@ -123,6 +177,11 @@ _(Colocar UML aqui)_ </br>
 > -A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
 > 
 &nbsp;
+
+
+
+
+
 
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
