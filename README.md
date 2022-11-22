@@ -28,7 +28,7 @@
 > - > External font - We can use our own font in the game
 > - > Energy counting - The player has an ammount of energy that decreases every time he has contact with an enemy
 > - > Game Over - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leader Board is displayed
-> - > Characters - We designed the carachters manually
+> - > Characters - We designed the characters manually
 > - > Instructions - In the menu the player has the option to se an instructions screen
 > 
 &nbsp;
