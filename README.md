@@ -6,6 +6,7 @@
 > A cada eliminação, será atribuída uma pontuação que será incrementada à pontuação total do jogador e quando este é eliminado, terá a chance de entrar numa LeaderBoard.
 > 
 &nbsp;
+
 ### COMPOSIÇÃO DO GRUPO:
 > 
 > **Este projeto foi desenvolvido pelos elementos:**
@@ -14,6 +15,7 @@
 > - > Rafael Teixeira (up202108831@up.pt)
 > 
 &nbsp;
+
 ## FEATURES IMPLEMENTADAS
 > 
 > **Conseguimos implementar:**
@@ -30,7 +32,7 @@
 > - > Instruções - Ao entrar no Menu, o jogador tem a hipótese de verificar os comandos do jogo
 > 
 &nbsp;
-&nbsp;
+
 ## CHARACTERS 
 > <pre>       HERO                          KING                      MONSTER       </pre>       
 >
@@ -39,23 +41,24 @@
 > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Characters/MONSTER.png)
 > 
 &nbsp;
-## GAME 
-> <pre>                                                MENU                                 </pre>      
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Menu.png)
-> <pre>                                              PAUSE MENU                             </pre>      
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Pause.png)
-> <pre>                                              LEADERBOARD                            </pre>      
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Leaderboard.png)
-> <pre>                                              INSTRUCTIONS                           </pre>      
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Instructions.png)
-> 
+
+# GAME
+> <pre>                                                           MENU                                                              </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/f9f76b0b3150cddd306c023bdc599f1e5d6f31b4/docs/Screenshots/Menu.png)
+> <pre>                                                          PAUSE MENU                                                        </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/PauseMenu.png)
+> <pre>                                                          LEADERBOARD                                                        </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/f9f76b0b3150cddd306c023bdc599f1e5d6f31b4/docs/Screenshots/LeaderBoard.png)
+> <pre>                                                         INSTRUCTIONS                                                        </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/f9f76b0b3150cddd306c023bdc599f1e5d6f31b4/docs/Screenshots/Instructions.png)
+>
 &nbsp;
-&nbsp;
+
 ## UML DIAGRAM
 _(Colocar UML aqui)_ </br>
 ___
 &nbsp;
-&nbsp;
+
 ## CODE COVERAGE
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Code%20Coverage.png) </br>
 ___
