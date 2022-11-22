@@ -5,7 +5,7 @@
 > O projeto consiste na recriação de um jogo Atari 2D conhecido como Berserk. Neste jogo, um único jogador portador de uma arma terá que enfrentrar diversos robôs ao longo de diversos níveis.
 > A cada eliminação, será atribuída uma pontuação que será incrementada à pontuação total do jogador e quando este é eliminado, terá a chance de entrar numa LeaderBoard.
 > 
->
+&nbsp;
 
 ### COMPOSIÇÃO DO GRUPO:
 > 
@@ -14,21 +14,24 @@
 > - > Ian Beltrão (up202102360@up.pt)
 > - > Rafael Teixeira (up202108831@up.pt)
 > 
+&nbsp;
 
 ## FEATURES IMPLEMENTADAS
 > 
 > **Conseguimos implementar:**
 >
-> - > Menu - Quando o jogo é inicializado, um menu contendo as opções Play e Quit é mostrado.
+> - > Menu - Quando o jogo é inicializado, um menu contendo as opções Play, Leader Board, Instruction e Exit é mostrado.
 > - > Pause - Durante o jogo é possível dar pause e um menu com as opções Continue, New Game, Exit, Exit to Menu é mostrado 
 > - > Inimigos - Existem 2 tipos de inimigos no jogo, o Monster e o King, cada um com uma diferente adoção de movimento e inflição de dano ao jogador
 > - > Movimentação King - O inimigo King possui movimentação inteligente (desvia de paredes e encontra menor caminho até o hero)
 > - > Criação de mapas - Conseguimos utilizar mapas criados manualmente com o auxílio de um sistema de registo de paredes e posição de início de inimigos
 > - > Fonte externa - Utilizamos uma fonte externa no jogo
 > - > Contagem de energia - O jogador tem uma quantidade de energia, que diminui toda vez que entra em contacto com um monstro
-> - > Game Over - Quando a energia do jogador se esgota, uma tela de Game Over é mostrada com a opção de seguir para o Menu
+> - > Game Over - Quando a energia do jogador se esgota, uma tela de Game Over é mostrada com as opções de seguir para o Menu, ver a Leader Board ou adicionar o seu nome à LeaderBoard
+> - > Personagens - Esboçamos personagens manualmente
+> - > Instruções - Ao entrar no Menu, o jogador tem a hipótese de verificar os comandos do jogo
 > 
-
+&nbsp;
 
 ## **FEATURES PLANEADAS**
 > 
@@ -41,10 +44,30 @@
 > - > Destruir balas que colidem
 > - > Um novo objetivo de jogo em que o jogador necessita de obrigatoriamente obter uma chave e eliminar todos os inimigos antes de conseguir abrir as portas para os outros níveis
 > - > Inserir uma logo e designs de botões criados manualmente
-> 
+> - > Inserir um sistema de som. Já adicionamos os ficheiros .wav ao repositório mas ainda não os implementamos
+>
+&nbsp;
 
 ## CHARACTERS 
-![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Characters/HERO.png)
+> <pre>       HERO                                                 KING                                         MONSTER       </pre>       
+>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Characters/HERO.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+> ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Characters/KING.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+> ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Characters/MONSTER.png)
+> 
+&nbsp;
+
+## GAME 
+> <pre>                                                           MENU                                                              </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Menu.png)
+> <pre>                                                          PAUSE MENU                                                        </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Pause.png)
+> <pre>                                                          LEADERBOARD                                                        </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Leaderboard.png)
+> <pre>                                                         INSTRUCTIONS                                                        </pre>      
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Instructions.png)
+> 
+&nbsp;
 
 ## **DESIGN**
 _(Colocar UML aqui)_ </br>
@@ -88,6 +111,7 @@ _(Colocar UML aqui)_ </br>
 > > We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior. </br>
 > > There are now more classes and instances to manage, but still in a reasonable number. </br>
 > 
+&nbsp;
 
 ### CODE SMELLS E SUGESTÕES DE REFACTORING
 > 
@@ -98,12 +122,14 @@ _(Colocar UML aqui)_ </br>
 > -The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. > - This is problematic because […].
 > -A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
 > 
+&nbsp;
 
 ### TESTING
-_(Screenshot of coverage report)_ </br>
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Code%20Coverage.png) </br>
 ___
 _(Link to mutation testing report.)_
 ___
+&nbsp;
 
 ### SELF-EVALUATION
 > 
