@@ -40,13 +40,13 @@
 > 
 &nbsp;
 ## GAME 
-> <pre>                                                           MENU                                                              </pre>      
+> <pre>                                     MENU                                                              </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Menu.png)
-> <pre>                                                          PAUSE MENU                                                        </pre>      
+> <pre>                                   PAUSE MENU                                                        </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Pause.png)
-> <pre>                                                          LEADERBOARD                                                        </pre>      
+> <pre>                                  LEADERBOARD                                                        </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Leaderboard.png)
-> <pre>                                                         INSTRUCTIONS                                                        </pre>      
+> <pre>                                  INSTRUCTIONS                                                        </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Instructions.png)
 > 
 &nbsp;
