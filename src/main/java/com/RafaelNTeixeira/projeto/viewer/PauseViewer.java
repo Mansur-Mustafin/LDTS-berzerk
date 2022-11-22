@@ -11,11 +11,11 @@ public class PauseViewer extends Viewer<Pause> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(48, 28), "Pause", "#FFFFFF");
+        gui.drawText(new Position(12, 12), "pause", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
-                    new Position(48, 30 + i),
+                    new Position(12, 14 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
     }

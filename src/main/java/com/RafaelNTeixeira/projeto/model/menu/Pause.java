@@ -7,7 +7,7 @@ public class Pause {
     private final List<String> entries;
     private int currentEntry = 0;
     public Pause() {
-        this.entries = Arrays.asList("Continue","New game", "Exit", "Exit to Menu");
+        this.entries = Arrays.asList("Continue","New game", "Exit", "Exit to menu");
     }
 
     public void nextEntry() {

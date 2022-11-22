@@ -29,6 +29,9 @@ public class AddLeaderController extends Controller<AddLeader> {
             getModel().addChar(key.getCharacter());
         }
         if(key.getKeyType() == KeyType.Backspace){
+            if(getModel().getName().length() == 0){
+                return;
+            }
             getModel().delChar();
         }
     }

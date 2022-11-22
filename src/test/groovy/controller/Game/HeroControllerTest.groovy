@@ -108,7 +108,7 @@ class HeroControllerTest extends Specification{
     def 'test Monster Collision -10'(){
 
         when:
-        heroController.verifyMonsterCollisions(new Position(84, 5))
+        heroController.verifyMonsterCollisions(new Position(3,4))
 
         then:
         0 == heroController.getModel().getHero().getEnergy()
@@ -117,7 +117,7 @@ class HeroControllerTest extends Specification{
     def 'test Monster Collision -5'(){
 
         when:
-        heroController.verifyMonsterCollisions(new Position(44, 12))
+        heroController.verifyMonsterCollisions(new Position(8, 9))
 
         then:
         5 == heroController.getModel().getHero().getEnergy()
@@ -128,7 +128,7 @@ class HeroControllerTest extends Specification{
         Position p = new Position(heroController.getModel().getHero().getPosition().getX(), heroController.getModel().getHero().getPosition().getY())
 
         when:
-        heroController.moveHero(new Position(0,0))
+        heroController.moveHero(new Position(1,1))
 
         then:
         heroController.getModel().getHero().getPosition().getX() == p.getX()
@@ -140,11 +140,11 @@ class HeroControllerTest extends Specification{
         Position p = new Position(heroController.getModel().getHero().getPosition().getX(), heroController.getModel().getHero().getPosition().getY())
 
         when:
-        heroController.moveHero(new Position(44, 12))
+        heroController.moveHero(new Position(8, 9))
 
         then:
-        heroController.getModel().getHero().getPosition().getX() == 44
-        heroController.getModel().getHero().getPosition().getY() == 12
+        heroController.getModel().getHero().getPosition().getX() == 8
+        heroController.getModel().getHero().getPosition().getY() == 9
         5 == heroController.getModel().getHero().getEnergy()
     }
 

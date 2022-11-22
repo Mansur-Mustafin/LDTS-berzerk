@@ -13,7 +13,7 @@ public class AddLeader {
 
     private String Name = new String();
     public AddLeader() {
-        this.entries = Arrays.asList("Menu", "Leader Board");
+        this.entries = Arrays.asList("menu", "leader board");
     }
 
     public void nextEntry() {

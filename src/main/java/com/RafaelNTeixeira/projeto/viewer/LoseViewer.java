@@ -12,13 +12,13 @@ public class LoseViewer extends Viewer<Lose> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(45, 28), "Game Over", "#FFFFFF");
+        gui.drawText(new Position(10, 10), "game over", "#FFFFFF");
 
-        gui.drawText(new Position(42, 31), "Your Score: 999", "#FFFFFF");
+        gui.drawText(new Position(8, 11), "your score: 999", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++)
             gui.drawText(
-                    new Position(44, 34 + i + 1),
+                    new Position(12 - i*3, 13 + i + 1),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
     }

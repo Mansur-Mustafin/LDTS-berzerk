@@ -12,10 +12,10 @@ public class AddLeaderViewer extends Viewer<AddLeader>{
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(45, 28), "Enter your name:", "#FFFFFF");
+        gui.drawText(new Position(5,12 ), "Enter your name:", "#FFFFFF");
 
-        gui.drawText(new Position(42, 31), "Your Score: 999", "#FFFFFF");
+        gui.drawText(new Position(5, 10), "Your Score: 999", "#FFFFFF");
 
-        gui.drawText(new Position(42, 33), getModel().getName(), "#FFFFFF");
+        gui.drawText(new Position(22, 12), getModel().getName(), "#FFFFFF");
     }
 }
