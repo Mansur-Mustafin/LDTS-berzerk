@@ -111,7 +111,7 @@ class HeroControllerTest extends Specification{
         heroController.verifyMonsterCollisions(new Position(3,4))
 
         then:
-        5 == heroController.getModel().getHero().getEnergy()
+        10 == heroController.getModel().getHero().getEnergy()
     }
 
     def 'test Monster Collision -3'(){
@@ -120,7 +120,7 @@ class HeroControllerTest extends Specification{
         heroController.verifyMonsterCollisions(new Position(8, 9))
 
         then:
-        7 == heroController.getModel().getHero().getEnergy()
+        12 == heroController.getModel().getHero().getEnergy()
     }
 
     def 'test move Hero'(){
@@ -145,7 +145,7 @@ class HeroControllerTest extends Specification{
         then:
         heroController.getModel().getHero().getPosition().getX() == 8
         heroController.getModel().getHero().getPosition().getY() == 9
-        7 == heroController.getModel().getHero().getEnergy()
+        12 == heroController.getModel().getHero().getEnergy()
     }
 
     def 'test step UP'(){

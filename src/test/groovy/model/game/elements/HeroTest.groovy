@@ -29,7 +29,7 @@ class HeroTest extends Specification{
         p == position
         x == 50
         y == 30
-        e == 10
+        e == 15
     }
 
     def 'Hero with empty constructor' () {
@@ -73,7 +73,7 @@ class HeroTest extends Specification{
         hero1.setEnergy(5)
 
         then:
-        hero.getEnergy() == 9
+        hero.getEnergy() == 14
         hero1.getEnergy() == 5
     }
 

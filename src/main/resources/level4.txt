@@ -2,10 +2,10 @@
 wwwwwwwwwwwwww      wwwwwwwwwwwwww
 w               h   www          w
 w    wwwwwwwwwwwwwwwww    ww  k  w
-w    wwww  k   wwwwww     w      w
-w    ww         wwww     w       w
-w    w   m       ww     w   m    w
-w                      w         w
+w    wwww  k   wwwwww    ww      w
+w    ww         wwww    ww       w
+w    w   m       ww    ww   m    w
+w                     ww         w
 wwwwwwwwwwwwwwwwwwwwwww          w
 w             wwwwww             w
 w     k      wwwwwwww            w
@@ -15,9 +15,9 @@ w          ww  k w   ww          w
      m    ww  m  w    ww    m    w
 w          ww    w   ww          w
 wwwwwww     ww   w               w
-wwwwwwww      ww   wwwwwwwwwwwwwwww
+wwwwwwww     ww    wwwwwwwwwwwwwww
 w      m      ww    wwwwwwwwwwwwww
-w              ww     wwwwwwwwwwww
+w             www     wwwwwwwwwwww
 w   k     wwwwwwww               w
 w      wwwwwwwwwww         m     w
 w     wwwwwwwwwwww    m          w

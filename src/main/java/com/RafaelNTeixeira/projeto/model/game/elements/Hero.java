@@ -12,7 +12,7 @@ public class Hero extends Element {
 
     public Hero(int x, int y) {
         super(x,y);
-        energy = 10;
+        energy = 15;
     }
 
     public Hero() {

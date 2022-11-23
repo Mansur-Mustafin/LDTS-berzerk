@@ -31,7 +31,6 @@ public class HeroController extends GameController {
     }
 
     private boolean canHeroMove(Position position) {
-        if (position.getY() < 1) return false;
 
         for (Wall wall : getModel().getWalls())
             if (wall.getPosition().equals(position)) return false;

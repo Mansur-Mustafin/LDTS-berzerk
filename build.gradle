@@ -7,12 +7,12 @@ plugins {
 group 'com.ProjectLDTS.projeto'
 version '1.0-SNAPSHOT'
 
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-
     testImplementation 'org.mockito:mockito-core:3.7.7'
     implementation 'org.codehaus.groovy:groovy-all:3.0.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
@@ -28,4 +28,7 @@ test {
 
 pitest {
     junit5PluginVersion = '0.12'
+    pitestVersion = '1.6.7'
+    excludedClasses = ['Application', 'Game']
+    excludedTestClasses = ['GameTest']
 }
