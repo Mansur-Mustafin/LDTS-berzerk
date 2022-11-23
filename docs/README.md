@@ -110,7 +110,7 @@ _(Colocar UML aqui)_ </br>
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/State.png) </br>
 > 
 > > Packages can be found in:
-> >    - [AddLEaderState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/AddLeaderState.java)
+> >    - [AddLeaderState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/AddLeaderState.java)
 > >    - [GameState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/GameState.java)
 > >    - [InstructionsState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/InstructionsState.java)
 > >    - [LeaderBoardState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LeaderBoardState.java)
@@ -129,37 +129,22 @@ _(Colocar UML aqui)_ </br>
 
 
 
-
-_(TEMPLATE FOR NEW IMPLEMENTATIONS)_
-> **CASO A EXPLICAR:** </br> _(Exemplo: THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE)_
+### CREATING AND MOVING ENEMIES </br> 
 
 >
-> ### Problema em contexto 
-> > _(Descrição do contexto do design e o problema que motivou a instanciação da sua pattern. Colocar links para as linhas de código relevantes da implementação da pattern)_ </br>
+> ### Problem in Context
+> > When we decided that we wanted more than one type of enemy and that they would have different attributes and movement, we realized that we needed an efficient way to create and move them. </br>
 > 
-> >**Exemplo:** </br>
-> >There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+> ### Patterns 
+> > The solution we found to this problem was applying two different patterns combined: Strategy pattern and Factory pattern. The combination of the two patterns allows us to easily create different types of enemies with an initial moving strategy and then depending on game conditions change their move strategy. </br>
 > 
-> ### Pattern 
-> > _(Identificar a design pattern a ser aplicada, a razão de ser aplicada e o porquê de ser uma boa implementação considerando o contexto do design e o problema enfrentado)_ </br>
-> 
-> >**Exemplo:** </br>
-> > We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+> ### Implementation
+> > The following figure shows how we implemented the patterns: </br>
+> > Factory Pattern: </br>
+> > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Factory.png) </br>
+> > Strategy Pattern: </br>
+> > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Strategy.png) </br> 
 >
-> ### Implementação
-> >* *(Mostrar como as funções, operações e associações das patterns foram mapeadas para o design concreto das classes. Ilustrar com um diagrama UML com links para as linhas de código relevantes)* * </br>
->
-> > **Exemplo:** </br>
-> >  - The following figure shows how the pattern’s roles were mapped to the application classes.
-> ![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
-> These classes can be found in the following files:
-> >    - [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-> >    - [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-> >    - [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-> >    - [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-> >    - [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
-> 
-> 
 > ### Consequências
 > >(Benefícios e responsabilidades da pattern após a instanciação da pattern, comparando estas consequências com outras soluções alternativas)* * </br>
 >
