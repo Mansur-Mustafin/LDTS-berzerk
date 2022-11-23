@@ -9,8 +9,8 @@ public interface GUI {
 
     KeyStroke getNextAction() throws IOException;
 
+    void drawHeart(Position position);
     void drawHero(Position position);
-
     void drawWall(Position position);
 
     void drawMonster(Position position);

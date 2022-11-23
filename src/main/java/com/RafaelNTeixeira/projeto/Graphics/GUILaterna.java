@@ -97,6 +97,15 @@ public class GUILaterna implements GUI {
         graphics.enableModifiers(SGR.BORDERED);
         graphics.putString(new TerminalPosition(position.getX(),position.getY()),"K");
     }
+
+    @Override
+    public void drawHeart(Position position){
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FF0000"));
+        graphics.enableModifiers(SGR.BORDERED);
+        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"J");
+    }
+
     @Override
     public void drawText(Position position, String text, String color){
         TextGraphics tg = screen.newTextGraphics();

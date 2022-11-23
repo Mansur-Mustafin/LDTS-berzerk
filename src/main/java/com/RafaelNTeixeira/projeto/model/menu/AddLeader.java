@@ -63,7 +63,11 @@ public class AddLeader {
         PrintWriter out = null;
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/Leaders", true)));
-            out.println(Name + " 999");
+            if(Name.isEmpty()){
+                out.println("Noname" + " 999");
+            }else {
+                out.println( Name + " 999");
+            }
         } catch (IOException e) {
             System.err.println(e);
         } finally {
