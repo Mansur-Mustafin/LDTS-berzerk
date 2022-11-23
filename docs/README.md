@@ -82,7 +82,7 @@ _(Colocar UML aqui)_ </br>
 >
 > ### Implementation
 > > The following figure shows the implementation of this pattern: </br>
-> > ![img]sadasdsa  _(Image of the MVC)_ </br>
+> > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/MVC.png) </br>
 > 
 > > Packages can be found in:
 > >    - [CONTROLLER](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/controller)
@@ -107,7 +107,7 @@ _(Colocar UML aqui)_ </br>
 >
 > ### Implementation
 > > The following figure shows how we implemented this pattern: </br>
-> > ![img]sadasdsa  _(Image of the State)_ </br>
+> > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/State.png) </br>
 > 
 > > Packages can be found in:
 > >    - [AddLEaderState](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/AddLeaderState.java)
