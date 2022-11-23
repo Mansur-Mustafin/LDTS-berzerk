@@ -101,8 +101,8 @@ _(Colocar UML aqui)_ </br>
 > 
 > ### Consequences
 > The use of the MVC Pattern in the current design allows the following benefits:
-> > The code is more readable and easier to work with
-> > It’s always the same process to add a new feature: create model, view and controller for that
+> - > The code is more readable and easier to work with
+> - > It’s always the same process to add a new feature: create model, view and controller for that
 >
 &nbsp;
 &nbsp;
@@ -132,8 +132,8 @@ _(Colocar UML aqui)_ </br>
 > 
 > ### Consequences
 > The use of the State Pattern in the current design allows the following benefits:
-> > Organizing the code in various explicit state classes allowing better readability
-> > Much easier to introduce new states to the application, without having to change several state classes
+> - > Organizing the code in various explicit state classes allowing better readability
+> - > Much easier to introduce new states to the application, without having to change several state classes
 >
 &nbsp;
 
@@ -168,27 +168,12 @@ _(Colocar UML aqui)_ </br>
 > 
 > ### Consequences
 > The use of the State and Factory patterns in the current design allows the following benefits:
-> > It’s easy to create new types of enemies and different moving strategies without having to make changes to the main code
-> > We can change enemy moving strategy during the game
-> > The use of strategies is separated from its creation 
-> > Eliminates conditional statements
+> - > It’s easy to create new types of enemies and different moving strategies without having to make changes to the main code
+> - > We can change enemy moving strategy during the game
+> - > The use of strategies is separated from its creation 
+> - > Eliminates conditional statements
 >
 &nbsp;
-
-### CODE SMELLS E SUGESTÕES DE REFACTORING
-> 
->_(Descrever 3 a 5 code smells que identificamos na nossa implementação atual e sugerir formas de como o código pode ser refactured de forma a removê-las. Cada uma deve ser descrita na sua subsecção própria)_ </br>
-> 
-> **Exemplo de implementação:** </br>
->> #### DATA CLASS
-> -The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. > - This is problematic because […].
-> -A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
-> 
-&nbsp;
-
-
-
-
 
 
 ### TESTING
