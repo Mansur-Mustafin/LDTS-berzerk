@@ -11,6 +11,10 @@ public interface GUI {
 
     void drawHeart(Position position);
     void drawHero(Position position);
+<<<<<<< HEAD
+=======
+    void drawHeart(Position position);
+>>>>>>> 3c815b62600149b7c90ce86830c5a795d940f8d4
     void drawWall(Position position);
 
     void drawMonster(Position position);
