@@ -27,15 +27,24 @@ public class ArenaController extends GameController {
         this.EnemyController = new EnemyController(arena);
     }
 
-    //public void checkLevel(Position position, int lvl){
-
-    //}
+    public boolean checkNextLvl(Position position){
+        int x = getModel().getHero().getPosition().getX();
+        int y = getModel().getHero().getPosition().getY();
+        if(x > 33 || y > 24 || x < 0 || y < 0){
+            return true;
+        }
+        return false;
+    }
 
 
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) {
             heroController.step(game, key, time);
-            if(getModel().getHero().getPosition().getX() > 33 || getModel().getHero().getPosition().getY() > 24){
+            if(checkNextLvl(getModel().getHero().getPosition())){
+                if(getModel().getlLevel() == 4){
+                    game.setState(new MenuState(new Menu()));
+                    return;
+                }
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
             }
             EnemyController.setPosition_hero(getModel().getHero().position);
