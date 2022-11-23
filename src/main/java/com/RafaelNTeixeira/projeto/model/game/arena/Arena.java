@@ -16,25 +16,37 @@ public class Arena {
     private int height;
     private int width;
 
+    private int level;
     private Hero hero;
 
     private List<Wall> walls = new ArrayList<>();
     private List<Monster> monsters = new ArrayList<>();
     private List<King> kings = new ArrayList<>();
-    public Arena(int x, int y) {
+    public Arena(int x, int y, int lvl) {
+
         width = x;
         height = y;
+        level = lvl;
         createElements();
     }
 
 
     private void createElements(){
-        InputStream istream = ClassLoader.getSystemResourceAsStream("level4.txt");
+        StringBuilder str = new StringBuilder();
+        str.append("level");
+        str.append(level);
+        str.append(".txt");
+
+        String arenaPath = str.toString();
+        System.out.println(arenaPath);
+
+        InputStream istream = ClassLoader.getSystemResourceAsStream(arenaPath);
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(istreamreader);
         try {
             int i = 0;
             for (String line; (line = reader.readLine()) != null; i++) {
+                System.out.println(line);
                 int j = 0;
                 for (char c: line.toCharArray()) {
                     if(c == 'h'){
@@ -57,7 +69,9 @@ public class Arena {
         }
     }
 
-
+    public int getlLevel(){
+        return level;
+    }
     public Hero getHero(){
         return hero;
     }

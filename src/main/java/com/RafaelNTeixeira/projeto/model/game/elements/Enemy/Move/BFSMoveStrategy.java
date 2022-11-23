@@ -24,6 +24,11 @@ public class BFSMoveStrategy implements MoveStrategy{
 
     @Override
     public Position move(Position position, Position position_hero , List<Wall> walls){
+
+        if(position.equals(position_hero)){
+            return position;
+        }
+
         List<Position> steps = new ArrayList<Position>() ;
         steps.add(new Position(1,0)); steps.add(new Position(-1,0));
         steps.add(new Position(0,-1)); steps.add(new Position(0,1));

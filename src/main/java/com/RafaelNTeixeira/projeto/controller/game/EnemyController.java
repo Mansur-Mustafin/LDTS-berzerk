@@ -45,7 +45,7 @@ public class EnemyController extends GameController {
                 while(!canMonsterMove(position = monster.move(position_hero, walls))){}
                 monster.setPosition(position);
                 if(position.equals(getModel().getHero().position)){
-                    getModel().getHero().decreaseEnergy(5);
+                    getModel().getHero().decreaseEnergy(3);
                 }
             }
 
@@ -56,7 +56,7 @@ public class EnemyController extends GameController {
                 Position position = king.move(position_hero ,walls );
                 king.setPosition(position);
                 if(position.equals(getModel().getHero().position)){
-                    getModel().getHero().decreaseEnergy(10);
+                    getModel().getHero().decreaseEnergy(5);
                 }
             }
             this.lastMovement = time;

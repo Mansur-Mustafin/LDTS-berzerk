@@ -15,7 +15,7 @@ class EnemyControllerTest extends Specification{
     private def time
 
     def setup(){
-        a = new Arena(100,60)
+        a = new Arena(34,24,1)
         enemyController = new EnemyController(a)
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)

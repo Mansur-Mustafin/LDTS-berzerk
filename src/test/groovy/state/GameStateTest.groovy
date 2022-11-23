@@ -11,7 +11,7 @@ class GameStateTest extends Specification{
     private def arena
 
     def setup() {
-        arena = new Arena(50, 50)
+        arena = new Arena(50, 50, 1)
     }
 
     def 'Get Viewer'(){

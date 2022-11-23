@@ -32,7 +32,7 @@ public class PauseController extends Controller<Pause> {
             case Enter:
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedContinue()) game.setState(game.getOldState());
-                if(getModel().isSelectedNewGame()) game.setState(new GameState(new Arena(100, 60)));
+                if(getModel().isSelectedNewGame()) game.setState(new GameState(new Arena(34, 24, 1)));
                 if(getModel().isSelectedGoToMenu()) game.setState(new MenuState(new Menu()));
                 break;
             case Character:

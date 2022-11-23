@@ -2,9 +2,11 @@ package com.RafaelNTeixeira.projeto.controller.game;
 
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
+import com.RafaelNTeixeira.projeto.States.GameState;
 import com.RafaelNTeixeira.projeto.States.LoseState;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.States.PauseState;
+import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
@@ -25,16 +27,23 @@ public class ArenaController extends GameController {
         this.EnemyController = new EnemyController(arena);
     }
 
+    //public void checkLevel(Position position, int lvl){
+
+    //}
+
+
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) {
             heroController.step(game, key, time);
+            if(getModel().getHero().getPosition().getX() > 33 || getModel().getHero().getPosition().getY() > 24){
+                game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
+            }
             EnemyController.setPosition_hero(getModel().getHero().position);
             EnemyController.setWalls(getModel().getWalls());
             EnemyController.step(game, key, time);
             if(getModel().getHero().getEnergy() <= 0){
                 game.setState(new LoseState(new Lose()));
             }
-
         } else {
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
                 game.setState(new MenuState(new Menu()));

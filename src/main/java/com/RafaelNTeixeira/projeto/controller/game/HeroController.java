@@ -31,10 +31,7 @@ public class HeroController extends GameController {
     }
 
     private boolean canHeroMove(Position position) {
-        //if (position.getX() < 0) return false;
-        //if (position.getY() < 0) return false;
-        //if (position.getX() > getModel().getWidth() - 1) return false;
-        //if (position.getY() > getModel().getHeight() - 1) return false;
+        if (position.getY() < 1) return false;
 
         for (Wall wall : getModel().getWalls())
             if (wall.getPosition().equals(position)) return false;
@@ -45,12 +42,12 @@ public class HeroController extends GameController {
     public void verifyMonsterCollisions(Position position) {
         for (int i = 0; i < getModel().getMonsters().size(); i++) {
             if (getModel().getMonsters().get(i).position.equals(position)) {
-                getModel().getHero().decreaseEnergy(5);
+                getModel().getHero().decreaseEnergy(3);
             }
         }
         for (int i = 0; i < getModel().getKings().size(); i++) {
             if (getModel().getKings().get(i).position.equals(position)) {
-                getModel().getHero().setEnergy(0);
+                getModel().getHero().decreaseEnergy(5);
             }
         }
     }
@@ -70,5 +67,4 @@ public class HeroController extends GameController {
         if (key.getKeyType() == KeyType.ArrowDown) moveHeroDown();
         if (key.getKeyType() == KeyType.ArrowLeft) moveHeroLeft();
     }
-
 }

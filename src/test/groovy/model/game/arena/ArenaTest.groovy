@@ -13,7 +13,7 @@ class ArenaTest extends Specification{
     private def wall_list
 
     def setup() {
-        arena = new Arena(50, 50)
+        arena = new Arena(50, 50, 1)
         wall_list = new ArrayList<Wall>()
     }
 

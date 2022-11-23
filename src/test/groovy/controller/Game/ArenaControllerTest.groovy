@@ -30,9 +30,9 @@ class ArenaControllerTest extends Specification{
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
-        arenaController = new ArenaController(new Arena(100,60))
+        arenaController = new ArenaController(new Arena(34,24,1))
         e_c = Mock(EnemyController.class)
-        h_c  =Mock(HeroController.class)
+        h_c  = Mock(HeroController.class)
 
     }
 

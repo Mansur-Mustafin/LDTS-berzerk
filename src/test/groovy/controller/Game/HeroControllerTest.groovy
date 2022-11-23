@@ -17,7 +17,7 @@ class HeroControllerTest extends Specification{
     private def heroController
 
     def setup(){
-        arena = new Arena(100,60)
+        arena = new Arena(34,24,1)
         heroController = new HeroController(arena)
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
@@ -26,8 +26,8 @@ class HeroControllerTest extends Specification{
 
     def 'test Cons' (){
         expect:
-        heroController.getModel().getWidth() == 100
-        heroController.getModel().getHeight() == 60
+        heroController.getModel().getWidth() == 34
+        heroController.getModel().getHeight() == 24
     }
 
     def 'test MoveHeroLeft'(){
@@ -105,22 +105,22 @@ class HeroControllerTest extends Specification{
         energy == heroController.getModel().getHero().getEnergy()
     }
 
-    def 'test Monster Collision -10'(){
+    def 'test Monster Collision -5'(){
 
         when:
         heroController.verifyMonsterCollisions(new Position(3,4))
 
         then:
-        0 == heroController.getModel().getHero().getEnergy()
+        5 == heroController.getModel().getHero().getEnergy()
     }
 
-    def 'test Monster Collision -5'(){
+    def 'test Monster Collision -3'(){
 
         when:
         heroController.verifyMonsterCollisions(new Position(8, 9))
 
         then:
-        5 == heroController.getModel().getHero().getEnergy()
+        7 == heroController.getModel().getHero().getEnergy()
     }
 
     def 'test move Hero'(){
@@ -145,7 +145,7 @@ class HeroControllerTest extends Specification{
         then:
         heroController.getModel().getHero().getPosition().getX() == 8
         heroController.getModel().getHero().getPosition().getY() == 9
-        5 == heroController.getModel().getHero().getEnergy()
+        7 == heroController.getModel().getHero().getEnergy()
     }
 
     def 'test step UP'(){
