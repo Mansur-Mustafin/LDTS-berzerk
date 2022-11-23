@@ -2,7 +2,7 @@
 
 ## GAME DESCRIPTION
 > 
-> This project is based on the creation of a 2D Atari arcade game called Berzerk. The game consists of different enemies that have different types of movements and characteristics depending on their type and a player that carries a gun to kill the monsters so that he can proceed to the following levels
+> This project is based on the creation of a 2D Atari arcade game called `Berzerk`. The game consists of different enemies that have different types of movements and characteristics depending on their type and a player that carries a gun to kill the monsters so that he can proceed to the following levels
 > The player has an energy attribute that decreases every time he takes a hit. When his energy gets to 0, the game ends.
 > After each monster killed, the player's score increases and after the game is over he can enter a LeaderBoard.
 > 
@@ -19,17 +19,16 @@
 
 ## IMPLEMENTED FEATURES
 > 
->
-> - > Menu - When the game is initialized, a menu containing the options Play, Leader Board, Instructions and Exit is displayed
-> - > Pause - It's possible to pause the game. When the game is paused, a menu containing the options Continue, New game, Exit and Exit to Menu is displayed
-> - > Enemies - There are 2 types of enemies in the game: Monster and King
-> - > King movementation - King has an inteligent movementation (finds the shortest way to hero by dodging walls)
-> - > Map creation - We are able to use custom made maps with the support of a wall and enemies tracking system
-> - > External font - We can use our own font in the game
-> - > Energy counting - The player has an ammount of energy that decreases every time he has contact with an enemy
-> - > Game Over - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leader Board is displayed
-> - > Characters - We designed the characters manually
-> - > Instructions - In the menu the player has the option to se an instructions screen
+> - `MENU` - When the game is initialized, a menu containing the options Play, Leader Board, Instructions and Exit is displayed
+> - `PAUSE` - It's possible to pause the game. When the game is paused, a menu containing the options Continue, New game, Exit and Exit to Menu is displayed
+> - `ENEMIES` - There are 2 types of enemies in the game: Monster and King
+> - `KING MOVIMENTATION` - King has an inteligent movementation (finds the shortest way to hero by dodging walls)
+> - `MAP CREATION` - We are able to use custom made maps with the support of a wall and enemies tracking system
+> - `EXTERNAL FONT` - We can use our own font in the game
+> - `HEALTH BAR` - The player has an ammount of health that decreases every time he has contact with an enemy
+> - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leader Board is displayed
+> - `CHARACTERS` - We designed the characters manually
+> - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
 > 
 &nbsp;
 
