@@ -66,9 +66,15 @@
 > <pre>                                                         INSTRUCTIONS                                                        </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Instructions.png)
 > 
-> <pre>                                                        GAMEPLAY                                                              </pre>      
+> <pre>                                                           GAMEPLAY                                                           </pre>      
 > 
->
+> ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Gameplay.gif)
+> <pre>                                                       ENEMY INTELIGENCE                                                      </pre>      
+> 
+> ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Inteligent%20Enemies.gif)
+> <pre>                                                         TAKING DAMAGE                                                        </pre>      
+> 
+> ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Taking%20Damage.gif)
 &nbsp;
 
 ## DESIGN
@@ -95,8 +101,8 @@ _(Colocar UML aqui)_ </br>
 > 
 > ### Consequences
 > The use of the MVC Pattern in the current design allows the following benefits:
-> > The code is more readable and easier to work with
-> > It’s always the same process to add a new feature: create model, view and controller for that
+> - > The code is more readable and easier to work with
+> - > It’s always the same process to add a new feature: create model, view and controller for that
 >
 &nbsp;
 &nbsp;
@@ -126,8 +132,8 @@ _(Colocar UML aqui)_ </br>
 > 
 > ### Consequences
 > The use of the State Pattern in the current design allows the following benefits:
-> > Organizing the code in various explicit state classes allowing better readability
-> > Much easier to introduce new states to the application, without having to change several state classes
+> - > Organizing the code in various explicit state classes allowing better readability
+> - > Much easier to introduce new states to the application, without having to change several state classes
 >
 &nbsp;
 
@@ -151,32 +157,23 @@ _(Colocar UML aqui)_ </br>
 > > Strategy Pattern: </br>
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Strategy.png) </br> 
 >
-> ### Consequências
-> >(Benefícios e responsabilidades da pattern após a instanciação da pattern, comparando estas consequências com outras soluções alternativas)* * </br>
+> > Packages can be found in:
+> >    - [MoveStrategy](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/MoveStrategy.java)
+> >    - [NotMovingStrategy](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/NotMovingStrategy.java)
+> >    - [RandomMoveStrategy](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/RandomMoveStrategy.java)
+> >    - [BFSMoveStrategy](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/BFSMovingStrategy.java)
+> >    - [Enemy](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Enemy.java)
+> >    - [King](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/King.java)
+> >    - [Monster](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Monster.java)
+> 
+> ### Consequences
+> The use of the State and Factory patterns in the current design allows the following benefits:
+> - > It’s easy to create new types of enemies and different moving strategies without having to make changes to the main code
+> - > We can change enemy moving strategy during the game
+> - > The use of strategies is separated from its creation 
+> - > Eliminates conditional statements
 >
-> >**Exemplo:** </br>
->>
-> > The use of the State Pattern in the current design allows the following benefits: </br>
-> > The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags. </br>
-> > We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior. </br>
-> > There are now more classes and instances to manage, but still in a reasonable number. </br>
-> 
 &nbsp;
-
-### CODE SMELLS E SUGESTÕES DE REFACTORING
-> 
->_(Descrever 3 a 5 code smells que identificamos na nossa implementação atual e sugerir formas de como o código pode ser refactured de forma a removê-las. Cada uma deve ser descrita na sua subsecção própria)_ </br>
-> 
-> **Exemplo de implementação:** </br>
->> #### DATA CLASS
-> -The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. > - This is problematic because […].
-> -A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
-> 
-&nbsp;
-
-
-
-
 
 
 ### TESTING
@@ -188,7 +185,7 @@ ___
 
 ### SELF-EVALUATION
 > 
-> Mansur: </br>
->  Ian: </br>
-> Rafael: </br>
+> Mansur: 33.3%</br>
+> Ian: 33.3%</br>
+> Rafael: 33.3%</br>
 > 
