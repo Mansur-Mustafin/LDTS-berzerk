@@ -66,6 +66,9 @@
 > <pre>                                                         INSTRUCTIONS                                                        </pre>      
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Instructions.png)
 > 
+> <pre>                                                        GAMEPLAY                                                              </pre>      
+> 
+>
 &nbsp;
 
 ## DESIGN
@@ -82,6 +85,7 @@ _(Colocar UML aqui)_ </br>
 >
 > ### Implementation
 > > The following figure shows the implementation of this pattern: </br>
+>
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/MVC.png) </br>
 > 
 > > Packages can be found in:
@@ -107,6 +111,7 @@ _(Colocar UML aqui)_ </br>
 >
 > ### Implementation
 > > The following figure shows how we implemented this pattern: </br>
+>
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/State.png) </br>
 > 
 > > Packages can be found in:
@@ -140,6 +145,7 @@ _(Colocar UML aqui)_ </br>
 > 
 > ### Implementation
 > > The following figure shows how we implemented the patterns: </br>
+>
 > > Factory Pattern: </br>
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Factory.png) </br>
 > > Strategy Pattern: </br>
