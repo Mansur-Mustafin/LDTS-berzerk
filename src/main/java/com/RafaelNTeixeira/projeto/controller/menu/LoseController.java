@@ -31,7 +31,7 @@ public class LoseController extends Controller<Lose> {
             case Enter:
                 if(getModel().isSelectedMenu()) game.setState(new MenuState(new Menu()));
                 if(getModel().isSelectedLeaderBoard()) game.setState(new LeaderBoardState( new Leader()));
-                if(getModel().isSelectedAddToLeaderBoard()) game.setState(new AddLeaderState(new AddLeader()));
+                if(getModel().isSelectedAddToLeaderBoard()) game.setState(new AddLeaderState(new AddLeader(getModel().getScore())));
                 break;
             case Character:
                 if(key.getCharacter() == 'e'){

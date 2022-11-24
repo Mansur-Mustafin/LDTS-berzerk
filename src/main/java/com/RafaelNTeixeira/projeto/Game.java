@@ -25,7 +25,7 @@ public class Game {
     private State state;
     private State oldState;
 
-
+    protected int Score = 0;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new GUILaterna(34, 24);
@@ -46,6 +46,15 @@ public class Game {
         return oldState;
     }
 
+    public void setScore(int Score){
+        this.Score = Score;
+    }
+    public int getScore(){
+        return Score;
+    }
+    public void incrementScore(){
+        Score++;
+    }
 
     public void run() throws IOException {
         int frameTime = 1000 / 50;

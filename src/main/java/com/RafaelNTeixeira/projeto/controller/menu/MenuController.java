@@ -32,7 +32,10 @@ public class MenuController extends Controller<Menu> {
                 break;
             case Enter:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedStart()) game.setState(new GameState(new Arena(34, 24, 1)));
+                if (getModel().isSelectedStart()){
+                    game.setState(new GameState(new Arena(34, 24, 1)));
+                    game.setScore(0);
+                }
                 if (getModel().isSelectedLeaderBoard()) game.setState(new LeaderBoardState( new Leader()));
                 if (getModel().isSelectedInstructions()) game.setState(new InstructionsState((new Instruction())));
                 break;

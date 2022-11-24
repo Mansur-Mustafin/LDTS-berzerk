@@ -19,7 +19,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui, getModel().getKings(), new KingViewer());
         drawElement(gui, getModel().getHero(), new HeroViewer());
 
-        gui.drawText(new Position(0, 0), "Health: " , "#FFD700");
+        gui.drawText(new Position(0, 0), Integer.toString(getModel().getScore()) , "#FFD700");
         for(int i = 0; i < getModel().getHero().getEnergy() ; i++ ){
             gui.drawHeart(new Position(8 + i, 0));
         }

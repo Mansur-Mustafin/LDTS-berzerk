@@ -14,7 +14,7 @@ public class AddLeaderViewer extends Viewer<AddLeader>{
     public void drawElements(GUI gui) {
         gui.drawText(new Position(5,12 ), "Enter your name:", "#FFFFFF");
 
-        gui.drawText(new Position(5, 10), "Your Score: 999", "#FFFFFF");
+        gui.drawText(new Position(5, 10), "Your Score: " + getModel().getScore(), "#FFFFFF");
 
         gui.drawText(new Position(22, 12), getModel().getName(), "#FFFFFF");
     }

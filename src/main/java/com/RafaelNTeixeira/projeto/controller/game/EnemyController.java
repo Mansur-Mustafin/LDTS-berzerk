@@ -40,6 +40,10 @@ public class EnemyController extends GameController {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (time - lastMovement > 500) {
+
+            game.incrementScore();
+            getModel().setScore(game.getScore());
+
             for (Enemy monster : getModel().getMonsters()) {
                 Position position;
                 while(!canMonsterMove(position = monster.move(position_hero, walls))){}

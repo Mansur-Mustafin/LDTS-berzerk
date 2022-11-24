@@ -51,7 +51,7 @@ public class ArenaController extends GameController {
             EnemyController.setWalls(getModel().getWalls());
             EnemyController.step(game, key, time);
             if(getModel().getHero().getEnergy() <= 0){
-                game.setState(new LoseState(new Lose()));
+                game.setState(new LoseState(new Lose(game.getScore())));
             }
         } else {
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
@@ -59,7 +59,7 @@ public class ArenaController extends GameController {
                 return;
             }
             if (this.getModel().getHero().getEnergy() <= 0) {
-                game.setState(new LoseState(new Lose()));
+                game.setState(new LoseState(new Lose(game.getScore())));
             }
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
                 game.setState(null);
@@ -76,6 +76,7 @@ public class ArenaController extends GameController {
             }
         }
     }
+
 
     public void setEnemyController(EnemyController e){
         EnemyController = e;

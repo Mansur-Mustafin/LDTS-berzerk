@@ -22,6 +22,7 @@ public class Arena {
     private List<Wall> walls = new ArrayList<>();
     private List<Monster> monsters = new ArrayList<>();
     private List<King> kings = new ArrayList<>();
+    private int Score ;
     public Arena(int x, int y, int lvl) {
 
         width = x;
@@ -69,6 +70,7 @@ public class Arena {
         }
     }
 
+
     public int getlLevel(){
         return level;
     }
@@ -91,4 +93,11 @@ public class Arena {
         return width;
     }
 
+    public int getScore() {
+        return Score;
+    }
+
+    public void setScore(int score) {
+        Score = score;
+    }
 }

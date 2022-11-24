@@ -25,6 +25,7 @@ public class LeaderController extends Controller<Leader> {
 
             case Enter:
                 if(getModel().isSelectedEnter()) game.setState(new MenuState(new Menu()));
+                game.setScore(0);
                 break;
             case Character:
                 if(key.getCharacter() == 'e'){

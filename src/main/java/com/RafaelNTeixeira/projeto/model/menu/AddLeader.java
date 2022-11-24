@@ -12,8 +12,10 @@ public class AddLeader {
     private int currentEntry = 0;
 
     private String Name = new String();
-    public AddLeader() {
+    private int Score = 999;
+    public AddLeader(int Score) {
         this.entries = Arrays.asList("menu", "leader board");
+        this.Score = Score;
     }
 
     public void nextEntry() {
@@ -42,7 +44,7 @@ public class AddLeader {
     public String getName(){
         return Name;
     }
-
+    public int getScore(){return Score;}
     public boolean isSelected(int i) {
         return currentEntry == i;
     }
@@ -66,7 +68,7 @@ public class AddLeader {
             if(Name.isEmpty()){
                 out.println("Noname" + " 999");
             }else {
-                out.println( Name + " 999");
+                out.println( Name + " " + Score);
             }
         } catch (IOException e) {
             System.err.println(e);

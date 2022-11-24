@@ -6,8 +6,11 @@ import java.util.List;
 public class Lose {
     private final List<String> entries;
     private int currentEntry = 0;
-    public Lose() {
+
+    private int Score;
+    public Lose(int Score) {
         this.entries = Arrays.asList("menu", "Leader Board", "Add Score to LeaderBoard");
+        this.Score = Score;
     }
 
     public void nextEntry() {
@@ -25,7 +28,7 @@ public class Lose {
     public String getEntry(int i) {
         return entries.get(i);
     }
-
+    public int getScore(){return Score;}
     public boolean isSelected(int i) {
         return currentEntry == i;
     }
