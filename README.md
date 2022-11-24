@@ -64,7 +64,7 @@
 &nbsp;
 
 ## UML DIAGRAM
-_(Colocar UML aqui)_ </br>
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/UML.png) </br>
 ___
 &nbsp;
 
