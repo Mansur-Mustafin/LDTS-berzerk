@@ -42,5 +42,4 @@ class GameTest extends Specification{
         o instanceof LoseState
     }
 
-
 }
