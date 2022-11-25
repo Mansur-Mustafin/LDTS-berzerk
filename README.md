@@ -70,6 +70,11 @@ ___
 
 ## CODE COVERAGE
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
-___
-_(Colocar link para  o relatório de mutation testing)_
-___
+&nbsp;
+
+### SELF-EVALUATION
+> 
+> Mansur: 33.3%</br>
+> Ian: 33.3%</br>
+> Rafael: 33.3%</br>
+> 
