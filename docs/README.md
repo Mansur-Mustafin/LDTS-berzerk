@@ -185,9 +185,6 @@
 
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
-___
-_(Link to mutation testing report.)_
-___
 &nbsp;
 
 ### SELF-EVALUATION
