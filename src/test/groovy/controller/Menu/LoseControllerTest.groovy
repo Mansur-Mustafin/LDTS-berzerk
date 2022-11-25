@@ -20,7 +20,7 @@ class LoseControllerTest extends Specification{
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
-        loseController = new LoseController(new Lose())
+        loseController = new LoseController(new Lose(10))
     }
 
     def 'test key = null'(){

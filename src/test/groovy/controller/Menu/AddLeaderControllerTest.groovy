@@ -18,7 +18,7 @@ class AddLeaderControllerTest extends Specification{
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
-        leaderController = new AddLeaderController(new AddLeader())
+        leaderController = new AddLeaderController(new AddLeader(10))
     }
 
     def 'test key = null'(){

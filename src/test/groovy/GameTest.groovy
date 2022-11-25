@@ -26,7 +26,7 @@ class GameTest extends Specification{
     def 'Changing states'() {
         given:
         Game game = new Game()
-        Lose lose = new Lose()
+        Lose lose = new Lose(10)
         Arena aa = Mock(Arena.class)
         GameState gameState = new GameState(aa)
         LoseState loseState = new LoseState(lose)
@@ -40,6 +40,7 @@ class GameTest extends Specification{
         then:
         s instanceof GameState
         o instanceof LoseState
+        lose.getScore() == 10
     }
 
 }

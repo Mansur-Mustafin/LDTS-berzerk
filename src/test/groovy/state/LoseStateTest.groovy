@@ -11,7 +11,7 @@ class LoseStateTest extends Specification{
     private def lose
 
     def setup() {
-        lose = new Lose()
+        lose = new Lose(10)
     }
 
     def 'Get viewer'() {

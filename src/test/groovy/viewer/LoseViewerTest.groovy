@@ -18,7 +18,7 @@ class LoseViewerTest extends Specification {
 
     def 'You Lose Text Draw'() {
         given:
-        def lose_viewer = new LoseViewer(new Lose())
+        def lose_viewer = new LoseViewer(new Lose(10))
         def gui = Mock(GUILaterna.class)
 
         when:

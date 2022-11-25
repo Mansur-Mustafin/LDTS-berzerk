@@ -17,7 +17,7 @@ class AddLeaderViewerTest extends Specification {
 
     def 'Add to LeaderBoard Text Draw'() {
         given:
-        def add_leader_viewer = new AddLeaderViewer(new AddLeader())
+        def add_leader_viewer = new AddLeaderViewer(new AddLeader(10))
         def gui = Mock(GUILaterna.class)
 
         when:

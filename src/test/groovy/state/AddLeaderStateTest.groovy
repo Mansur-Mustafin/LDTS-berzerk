@@ -14,7 +14,7 @@ class AddLeaderStateTest extends Specification{
     private def addLeader
 
     def setup() {
-        addLeader = new AddLeader()
+        addLeader = new AddLeader(10)
     }
 
     def 'Get Viewer'(){
