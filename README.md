@@ -31,7 +31,7 @@
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
 > 
 &nbsp;
-                                                                                                     |           |
+                                                                                                                
 ## GAME ELEMENTS 
 > <pre>       HERO                      KING                      MONSTER                      BULLET       </pre>       
 >
