@@ -47,7 +47,7 @@
 >
 &nbsp;
 
-## CHARACTERS                                                                                                                    |
+## CHARACTERS                                                                                                                    
 <pre>       HERO                                KING                                MONSTER                               BULLET       </pre>       
 
 >&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/HERO.png)
