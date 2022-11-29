@@ -2,8 +2,9 @@
 
 ## GAME DESCRIPTION
 > 
-> This project is based on the creation of a 2D Atari arcade game called `Berzerk`. The game consists of different enemies that have different types of movements and characteristics depending on their type and a player that carries a gun to kill the monsters so that he can proceed to the following levels
-> The player has an energy attribute that decreases every time he takes a hit. When his energy gets to 0, the game ends.
+> This project is based on the creation of a 2D Atari arcade game called `Berzerk`. The game consists of different enemies that have different types of movements and characteristics depending on their type and a player that carries a gun to kill the monsters so that he can proceed to the following levels.
+>
+> The player has a health bar attribute that decreases every time he takes a hit. When he loses all his hearts, the game ends.
 > After each monster killed, the player's score increases and after the game is over he can enter a LeaderBoard.
 > 
 &nbsp;
@@ -25,6 +26,7 @@
 > - `KING MOVIMENTATION` - King has an inteligent movementation (finds the shortest way to hero by dodging walls)
 > - `MAP CREATION` - We are able to use custom made maps with the support of a wall and enemies tracking system
 > - `EXTERNAL FONT` - We can use our own font in the game
+> - `TRACKING SCORE` - We are able to keep track of the score based on the time the player is alive
 > - `HEALTH BAR` - The player has an ammount of health that decreases every time he has contact with an enemy
 > - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leader Board is displayed
 > - `CHARACTERS` - We designed the characters manually
@@ -56,19 +58,11 @@
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Gameplay.gif)
 >
 > <pre>                                        ENEMY INTELIGENCE                                            </pre>      
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/EnemyInteligence.gif)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Enemy%20Inteligence.gif)
 >
 > <pre>                                          TAKING DAMAGE                                              </pre>      
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/TakingDamage.gif)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Taking%20Damage.gif)
 >
-&nbsp;
-
-## UML DIAGRAM
-![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/UML.png) </br>
-&nbsp;
-
-## CODE COVERAGE
-![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
 &nbsp;
 
 ### SELF-EVALUATION
