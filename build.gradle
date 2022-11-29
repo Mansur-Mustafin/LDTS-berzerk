@@ -1,10 +1,11 @@
 plugins {
     id 'java'
     id 'groovy'
+    id 'application'
     id 'info.solidsoft.pitest' version '1.6.0'
 }
 
-group 'com.ProjectLDTS.projeto'
+group 'com.RafaelNTeixeira.projeto'
 version '1.0-SNAPSHOT'
 
 
@@ -29,6 +30,9 @@ test {
 pitest {
     junit5PluginVersion = '0.12'
     pitestVersion = '1.6.7'
-    excludedClasses = ['Application', 'Game']
-    excludedTestClasses = ['GameTest']
+    verbose = true
+    excludedClasses = ['com.RafaelNTeixeira.projeto.Application']
+    excludedTestClasses = ['com.RafaelNTeixeira.projeto.GameTest']
 }
+
+mainClassName = 'com.RafaelNTeixeira.projeto.Application'
