@@ -65,14 +65,6 @@
 >
 &nbsp;
 
-## UML DIAGRAM
-![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/UML.png) </br>
-&nbsp;
-
-## CODE COVERAGE
-![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
-&nbsp;
-
 ### SELF-EVALUATION
 > 
 > Mansur: 33.3%</br>
