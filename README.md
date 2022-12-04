@@ -32,7 +32,7 @@
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
 > - `BULLETS` - The player can shoot bullets
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
-> - `SCORE` - The player has the option to return to the previous level or advance to the next 
+> - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > 
 &nbsp;
                                                                                                                 
