@@ -1,0 +1,60 @@
+package com.RafaelNTeixeira.projeto.model.sounds;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+import java.io.File;
+import java.net.URL;
+
+public class SoundTrack {
+
+    private Clip sound;
+
+    public SoundTrack(String sound) {
+        this.sound = loadSound(sound);
+    }
+
+    private Clip loadSound(String sound) throws NullPointerException {
+        try {
+            String path = new File(System.getProperty("user.dir")).getPath();
+            File soundFile = new File(path+sound);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip soundClip = AudioSystem.getClip();
+            soundClip.open(audioInputStream);
+            FloatControl control = (FloatControl) soundClip.getControl(FloatControl.Type.MASTER_GAIN);
+            control.setValue(-25.0f);
+            return soundClip;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Clip getSound() {return sound;}
+
+    public void setSound(Clip sound) {this.sound = sound;}
+
+    public boolean isPlaying() {return sound.isRunning();}
+
+    public void stop() {sound.stop();}
+
+    public void play() {
+        sound.setMicrosecondPosition(0);
+        sound.start();
+    }
+
+    public void playLoop() {
+        sound.setMicrosecondPosition(0);
+        sound.start();
+        sound.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
