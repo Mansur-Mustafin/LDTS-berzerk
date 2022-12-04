@@ -39,7 +39,6 @@ public class Arena {
         str.append(".txt");
 
         String arenaPath = str.toString();
-        System.out.println(arenaPath);
 
         InputStream istream = ClassLoader.getSystemResourceAsStream(arenaPath);
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
@@ -47,7 +46,6 @@ public class Arena {
         try {
             int i = 0;
             for (String line; (line = reader.readLine()) != null; i++) {
-                System.out.println(line);
                 int j = 0;
                 for (char c: line.toCharArray()) {
                     if(c == 'h'){

@@ -17,13 +17,13 @@ public class InstructionViewer extends Viewer<Instruction> {
         gui.drawText(new Position(0, 6), "||                             ||", "#E9FFDB");
         gui.drawText(new Position(0, 7), "||       gameplay CONTROLS:    ||", "#E9FFDB");
         gui.drawText(new Position(0, 8), "||                             ||", "#E9FFDB");
-        gui.drawText(new Position(0, 9), "||  UP ARROW --> mOVE UPWARDS  ||", "#E9FFDB");
+        gui.drawText(new Position(0, 9), "||      W --> mOVE UPWARDS     ||", "#E9FFDB");
         gui.drawText(new Position(0, 10), "||                             ||", "#E9FFDB");
-        gui.drawText(new Position(0, 11), "||DOWN ARROW --> mOVE DOWNWARDS||", "#E9FFDB");
+        gui.drawText(new Position(0, 11), "||      S --> mOVE DOWNWARDS   ||", "#E9FFDB");
         gui.drawText(new Position(0, 12), "||                             ||", "#E9FFDB");
-        gui.drawText(new Position(0, 13), "|| RIGHT ARROW --> mOVE RIGHT  ||", "#E9FFDB");
+        gui.drawText(new Position(0, 13), "||      D --> mOVE RIGHT       ||", "#E9FFDB");
         gui.drawText(new Position(0, 14), "||                             ||", "#E9FFDB");
-        gui.drawText(new Position(0, 15), "||  LEFT ARROW --> mOVE LEFT   ||", "#E9FFDB");
+        gui.drawText(new Position(0, 15), "||      A --> mOVE LEFT        ||", "#E9FFDB");
         gui.drawText(new Position(0, 16), "||                             ||", "#E9FFDB");
         gui.drawText(new Position(0, 17), "[]=============================[]", "#E9FFDB");
 
