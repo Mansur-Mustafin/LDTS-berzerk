@@ -3,16 +3,16 @@ package com.RafaelNTeixeira.projeto.viewer;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
-import com.RafaelNTeixeira.projeto.model.menu.Pause;
+import com.RafaelNTeixeira.projeto.model.menu.Win;
 
-public class LoseViewer extends Viewer<Lose> {
-    public LoseViewer(Lose lose) {
-        super(lose);
+public class WinViewer extends Viewer<Win>{
+    public WinViewer(Win win) {
+        super(win);
     }
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(10, 10), "game over", "#ff0000");
+        gui.drawText(new Position(10, 10), "you win", "#FFD700");
 
         gui.drawText(new Position(8, 11), "your score:" + getModel().getScore(), "#FFFFFF");
 
@@ -23,4 +23,3 @@ public class LoseViewer extends Viewer<Lose> {
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
     }
 }
-
