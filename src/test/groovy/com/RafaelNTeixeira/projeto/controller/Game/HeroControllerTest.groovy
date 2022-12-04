@@ -151,7 +151,8 @@ class HeroControllerTest extends Specification{
     def 'test step UP'(){
         given:
         Position p = new Position(heroController.getModel().getHero().getPosition().getX(), heroController.getModel().getHero().getPosition().getY())
-        key.getKeyType() >> KeyType.ArrowUp ;
+        key.getKeyType() >> KeyType.Character ;
+        key.getCharacter() >> 'w';
 
         when:
         heroController.step(game,  key,  time)
@@ -164,7 +165,8 @@ class HeroControllerTest extends Specification{
     def 'test step Down'(){
         given:
         Position p = new Position(heroController.getModel().getHero().getPosition().getX(), heroController.getModel().getHero().getPosition().getY())
-        key.getKeyType() >> KeyType.ArrowDown ;
+        key.getKeyType() >> KeyType.Character ;
+        key.getCharacter() >> 's';
 
         when:
         heroController.step(game,  key,  time)
@@ -177,7 +179,8 @@ class HeroControllerTest extends Specification{
     def 'test step Left'(){
         given:
         Position p = new Position(heroController.getModel().getHero().getPosition().getX(), heroController.getModel().getHero().getPosition().getY())
-        key.getKeyType() >> KeyType.ArrowLeft ;
+        key.getKeyType() >> KeyType.Character ;
+        key.getCharacter() >> 'a';
 
         when:
         heroController.step(game,  key,  time)
@@ -190,7 +193,8 @@ class HeroControllerTest extends Specification{
     def 'test step Right'(){
         given:
         Position p = new Position(heroController.getModel().getHero().getPosition().getX(), heroController.getModel().getHero().getPosition().getY())
-        key.getKeyType() >> KeyType.ArrowRight ;
+        key.getKeyType() >> KeyType.Character ;
+        key.getCharacter() >> 'd';
 
         when:
         heroController.step(game,  key,  time)
