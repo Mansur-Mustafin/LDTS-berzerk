@@ -2,15 +2,13 @@ package com.RafaelNTeixeira.projeto.controller.game;
 
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
-import com.RafaelNTeixeira.projeto.States.GameState;
-import com.RafaelNTeixeira.projeto.States.LoseState;
-import com.RafaelNTeixeira.projeto.States.MenuState;
-import com.RafaelNTeixeira.projeto.States.PauseState;
+import com.RafaelNTeixeira.projeto.States.*;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 import com.RafaelNTeixeira.projeto.model.menu.Pause;
+import com.RafaelNTeixeira.projeto.model.menu.Win;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
@@ -51,7 +49,7 @@ public class ArenaController extends GameController {
             heroController.step(game, key, time);
             if(checkNextLvl(getModel().getHero().getPosition())){
                 if(getModel().getlLevel() == 4){
-                    game.setState(new MenuState(new Menu()));
+                    game.setState(new WinState(new Win(game.getScore())));
                     return;
                 }
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
