@@ -12,7 +12,9 @@ public class WinViewer extends Viewer<Win>{
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(10, 10), "you win", "#FFD700");
+        gui.drawText(new Position(13, 7), "you win!", "#FFD700");
+        gui.drawText(new Position(5, 9), "i think you can do better", "#FFFFFF");
+        gui.drawText(new Position(10, 10), "let's try again!", "#FFFFFF");
 
         gui.drawText(new Position(8, 11), "your score:" + getModel().getScore(), "#FFFFFF");
 
