@@ -55,12 +55,10 @@ public class ArenaController extends GameController {
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
             }
 
-            if(checkNextLvl(getModel().getHero().getPosition())){
-                if(getModel().getlLevel() == 4){
-                    game.setState(new MenuState(new Menu()));
-                    return;
-                }
-                game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
+            if(checkPrevLvl(getModel().getHero().getPosition())){
+
+                game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() - 1)));
+
             }
 
             EnemyController.setPosition_hero(getModel().getHero().position);
