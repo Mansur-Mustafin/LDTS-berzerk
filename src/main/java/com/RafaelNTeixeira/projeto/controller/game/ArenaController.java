@@ -30,7 +30,16 @@ public class ArenaController extends GameController {
     public boolean checkNextLvl(Position position){
         int x = getModel().getHero().getPosition().getX();
         int y = getModel().getHero().getPosition().getY();
-        if(x > 33 || y > 24 || x < 0 || y < 0){
+        if(x > 33 || y > 24){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkPrevLvl(Position position){
+        int x = getModel().getHero().getPosition().getX();
+        int y = getModel().getHero().getPosition().getY();
+        if(x < 0 || y < 0){
             return true;
         }
         return false;
@@ -47,6 +56,13 @@ public class ArenaController extends GameController {
                 }
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
             }
+
+            if(checkPrevLvl(getModel().getHero().getPosition())){
+
+                game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() - 1)));
+
+            }
+
             EnemyController.setPosition_hero(getModel().getHero().position);
             EnemyController.setWalls(getModel().getWalls());
             EnemyController.step(game, key, time);

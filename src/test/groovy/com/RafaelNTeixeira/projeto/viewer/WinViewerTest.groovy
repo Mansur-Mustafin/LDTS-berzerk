@@ -24,6 +24,6 @@ class WinViewerTest extends Specification{
         win_viewer.drawElements(gui)
 
         then:
-        5 * gui.drawText(_,_,_)
+        7 * gui.drawText(_,_,_)
     }
 }
