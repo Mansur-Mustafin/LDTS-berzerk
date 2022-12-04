@@ -6,6 +6,8 @@ import com.RafaelNTeixeira.projeto.States.LeaderBoardState;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.menu.*;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
@@ -14,6 +16,8 @@ import java.io.IOException;
 public class LoseController extends Controller<Lose> {
     public LoseController(Lose lose) {
         super(lose);
+        SoundControl.getInstance().stopAll();
+        SoundControl.getInstance().start(Sound.MENUMUSIC);
     }
 
     @Override

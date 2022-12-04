@@ -71,10 +71,14 @@ public class ArenaController extends GameController {
             }
         } else {
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
+                SoundControl.getInstance().stopAll();
+                SoundControl.getInstance().start(Sound.MENUMUSIC);
                 game.setState(new MenuState(new Menu()));
                 return;
             }
             if (this.getModel().getHero().getEnergy() <= 0) {
+                SoundControl.getInstance().stopAll();
+                SoundControl.getInstance().start(Sound.MENUMUSIC);
                 game.setState(new LoseState(new Lose(game.getScore())));
             }
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {

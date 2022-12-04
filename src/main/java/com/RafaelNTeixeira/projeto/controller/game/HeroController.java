@@ -49,8 +49,8 @@ public class HeroController extends GameController {
         }
         for (int i = 0; i < getModel().getKings().size(); i++) {
             if (getModel().getKings().get(i).position.equals(position)) {
-                getModel().getHero().decreaseEnergy(5);
                 SoundControl.getInstance().start(Sound.HERODEATH);
+                getModel().getHero().decreaseEnergy(5);
             }
         }
     }
