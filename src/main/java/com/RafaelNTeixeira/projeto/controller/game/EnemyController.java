@@ -6,6 +6,8 @@ import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Enemy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.BFSMoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
@@ -49,6 +51,7 @@ public class EnemyController extends GameController {
                 while(!canMonsterMove(position = monster.move(position_hero, walls))){}
                 monster.setPosition(position);
                 if(position.equals(getModel().getHero().position)){
+                    SoundControl.getInstance().start(Sound.HERODEATH);
                     getModel().getHero().decreaseEnergy(3);
                 }
             }
@@ -60,6 +63,7 @@ public class EnemyController extends GameController {
                 Position position = king.move(position_hero ,walls );
                 king.setPosition(position);
                 if(position.equals(getModel().getHero().position)){
+                    SoundControl.getInstance().start(Sound.HERODEATH);
                     getModel().getHero().decreaseEnergy(5);
                 }
             }
