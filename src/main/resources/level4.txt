@@ -11,8 +11,8 @@ w             wwwwww             w
 w     k      wwwwwwww            w
 w           www    www           w
 w          ww  k w   ww          w
-          ww     w    ww         w
-     m    ww  m  w    ww    m    w
+w         ww     w    ww         w
+w    m    ww  m  w    ww    m    w
 w          ww    w   ww          w
 wwwwwww     ww   w               w
 wwwwwwww     ww    wwwwwwwwwwwwwww
@@ -22,4 +22,4 @@ w   k     wwwwwwww               w
 w      wwwwwwwwwww         m     w
 w     wwwwwwwwwwww    m          w
 w                k               w
-wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwww  wwwwwwwwwwwwwwwwwwwwwwwwww
