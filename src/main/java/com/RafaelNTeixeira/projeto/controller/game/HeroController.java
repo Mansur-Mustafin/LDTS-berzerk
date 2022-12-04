@@ -5,6 +5,8 @@ import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
@@ -42,11 +44,13 @@ public class HeroController extends GameController {
         for (int i = 0; i < getModel().getMonsters().size(); i++) {
             if (getModel().getMonsters().get(i).position.equals(position)) {
                 getModel().getHero().decreaseEnergy(3);
+                SoundControl.getInstance().start(Sound.HERODEATH);
             }
         }
         for (int i = 0; i < getModel().getKings().size(); i++) {
             if (getModel().getKings().get(i).position.equals(position)) {
                 getModel().getHero().decreaseEnergy(5);
+                SoundControl.getInstance().start(Sound.HERODEATH);
             }
         }
     }

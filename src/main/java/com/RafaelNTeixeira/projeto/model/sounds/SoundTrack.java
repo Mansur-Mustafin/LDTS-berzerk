@@ -42,12 +42,14 @@ public class SoundTrack {
     public void play() {
         sound.setMicrosecondPosition(0);
         sound.start();
+        sleep();
     }
 
     public void playLoop() {
         sound.setMicrosecondPosition(0);
         sound.start();
         sound.loop(Clip.LOOP_CONTINUOUSLY);
+        sleep();
     }
 
     private void sleep() {

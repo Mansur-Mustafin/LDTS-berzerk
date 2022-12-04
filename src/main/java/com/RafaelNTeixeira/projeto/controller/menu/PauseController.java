@@ -8,6 +8,8 @@ import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 import com.RafaelNTeixeira.projeto.model.menu.Pause;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
@@ -31,8 +33,13 @@ public class PauseController extends Controller<Pause> {
                 break;
             case Enter:
                 if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedContinue()) game.setState(game.getOldState());
+                if (getModel().isSelectedContinue()) {
+                    SoundControl.getInstance().stopAll();
+                    SoundControl.getInstance().start(Sound.SOUNDTRACK);
+                    game.setState(game.getOldState());
+                }
                 if(getModel().isSelectedNewGame()){
+                    SoundControl.getInstance().start(Sound.SOUNDTRACK);
                     game.setState(new GameState(new Arena(34, 24, 1)));
                     game.setScore(0);
                 }

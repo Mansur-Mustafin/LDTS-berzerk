@@ -9,6 +9,8 @@ import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 import com.RafaelNTeixeira.projeto.model.menu.Pause;
 import com.RafaelNTeixeira.projeto.model.menu.Win;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
@@ -64,6 +66,8 @@ public class ArenaController extends GameController {
                 return;
             }
             if (key.getKeyType() == KeyType.Escape) {
+                SoundControl.getInstance().stopAll();
+                SoundControl.getInstance().start(Sound.MENUMUSIC);
                 game.setOldState(game.getState());
                 game.setState(new PauseState(new Pause()));
             } else {
