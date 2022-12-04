@@ -30,6 +30,8 @@
 > - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leader Board is displayed
 > - `CHARACTERS` - We designed the characters manually
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
+> - `BULLETS` - The player can shoot bullets
+> - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > 
 &nbsp;
 
