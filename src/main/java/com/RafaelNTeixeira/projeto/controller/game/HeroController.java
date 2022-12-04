@@ -61,9 +61,9 @@ public class HeroController extends GameController {
     @Override
     public void step(Game game, KeyStroke key, long time) {
         if(key == null){return;}
-        if (key.getKeyType() == KeyType.ArrowUp) moveHeroUp();
-        if (key.getKeyType() == KeyType.ArrowRight) moveHeroRight();
-        if (key.getKeyType() == KeyType.ArrowDown) moveHeroDown();
-        if (key.getKeyType() == KeyType.ArrowLeft) moveHeroLeft();
+        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'w') moveHeroUp();
+        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'd') moveHeroRight();
+        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 's') moveHeroDown();
+        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'a') moveHeroLeft();
     }
 }
