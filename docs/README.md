@@ -187,7 +187,9 @@
 
 ## REFACTORING LIST
 >
-> - 
+> - `Extract Variable`
+> - `Move Method`
+>
 
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
