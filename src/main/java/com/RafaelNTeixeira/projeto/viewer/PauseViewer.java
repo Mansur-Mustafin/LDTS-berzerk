@@ -13,11 +13,14 @@ public class PauseViewer extends Viewer<Pause> {
     public void drawElements(GUI gui) {
         gui.drawText(new Position(12, 8), "pause", "#FFFFFF");
 
-        for (int i = 0; i < getModel().getNumberEntries(); i++)
+        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+            String entry = getModel().getEntry(i);
+            boolean selected = getModel().isSelected(i);
             gui.drawText(
                     new Position(12, 12 + i),
-                    getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+                    entry,
+                    selected ? "#FFD700" : "#FFFFFF");
+        }
     }
 }
 
