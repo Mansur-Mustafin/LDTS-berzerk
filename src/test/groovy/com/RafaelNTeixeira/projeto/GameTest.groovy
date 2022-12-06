@@ -44,4 +44,22 @@ class GameTest extends Specification{
         lose.getScore() == 10
     }
 
+    def 'Set, get and increment score'() {
+        given:
+        Game game = new Game()
+        int score;
+        int incremented_score;
+
+
+        when:
+        game.setScore(10)
+        score = game.getScore()
+        game.incrementScore()
+        incremented_score = game.getScore()
+
+        then:
+        score == 10
+        incremented_score == 11
+    }
+
 }
