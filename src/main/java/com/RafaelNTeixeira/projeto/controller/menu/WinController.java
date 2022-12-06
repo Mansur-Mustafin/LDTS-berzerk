@@ -9,6 +9,8 @@ import com.RafaelNTeixeira.projeto.model.menu.AddLeader;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 import com.RafaelNTeixeira.projeto.model.menu.Win;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
@@ -29,9 +31,18 @@ public class WinController extends Controller<Win> {
                 getModel().nextEntry();
                 break;
             case Enter:
-                if(getModel().isSelectedMenu()) game.setState(new MenuState(new Menu()));
-                if(getModel().isSelectedLeaderBoard()) game.setState(new LeaderBoardState( new Leader()));
-                if(getModel().isSelectedAddToLeaderBoard()) game.setState(new AddLeaderState(new AddLeader(getModel().getScore())));
+                if(getModel().isSelectedMenu()) {
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                    game.setState(new MenuState(new Menu()));
+                }
+                if(getModel().isSelectedLeaderBoard()) {
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                    game.setState(new LeaderBoardState(new Leader()));
+                }
+                if(getModel().isSelectedAddToLeaderBoard()) {
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                    game.setState(new AddLeaderState(new AddLeader(getModel().getScore())));
+                }
                 break;
             case Character:
                 if(key.getCharacter() == 'e'){

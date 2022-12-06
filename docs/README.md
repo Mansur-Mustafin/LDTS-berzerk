@@ -148,10 +148,7 @@
 &nbsp;
 
 
-
-
 ### CREATING AND MOVING ENEMIES </br> 
-
 >
 > ### Problem in Context
 > > When we decided that we wanted more than one type of enemy and that they would have different attributes and movement, we realized that we needed an efficient way to create and move them. </br>
@@ -188,6 +185,11 @@
 >
 &nbsp;
 
+## REFACTORING LIST
+>
+> - `Extract Variable`
+> - `Move Method`
+>
 
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>

@@ -34,16 +34,21 @@ public class PauseController extends Controller<Pause> {
             case Enter:
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedContinue()) {
-                    SoundControl.getInstance().stopAll();
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                    SoundControl.getInstance().stop(Sound.MENUMUSIC);
                     SoundControl.getInstance().start(Sound.SOUNDTRACK);
                     game.setState(game.getOldState());
                 }
                 if(getModel().isSelectedNewGame()){
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
                     SoundControl.getInstance().start(Sound.SOUNDTRACK);
                     game.setState(new GameState(new Arena(34, 24, 1)));
                     game.setScore(0);
                 }
-                if(getModel().isSelectedGoToMenu()) game.setState(new MenuState(new Menu()));
+                if(getModel().isSelectedGoToMenu()) {
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                    game.setState(new MenuState(new Menu()));
+                }
                 break;
             case Character:
                 if(key.getCharacter() == 'e'){

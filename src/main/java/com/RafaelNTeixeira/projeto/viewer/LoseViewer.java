@@ -16,11 +16,13 @@ public class LoseViewer extends Viewer<Lose> {
 
         gui.drawText(new Position(8, 11), "your score:" + getModel().getScore(), "#FFFFFF");
 
-        for (int i = 0; i < getModel().getNumberEntries(); i++)
+        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+            String entry = getModel().getEntry(i);
             gui.drawText(
                     new Position(12 - i*3, 13 + i + 1),
-                    getModel().getEntry(i),
+                    entry,
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
+        }
     }
 }
 

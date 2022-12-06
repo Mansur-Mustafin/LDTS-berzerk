@@ -40,19 +40,35 @@ public class SoundControl {
 
     public void start(Sound sound) {
         switch (sound){
-            case SOUNDTRACK: soundTrack.playLoop();
-            case SHOOTING: shooting.play();
-            case MENUMUSIC: menuMusic.playLoop();
-            case HERODEATH: heroDeath.play();
-            case ENEMYDEATH: enemyDeath.play();
-            case CHANGETAB: changeTab.play();
+            case SOUNDTRACK:
+                soundTrack.playLoop();
+                break;
+            case SHOOTING:
+                shooting.play();
+                break;
+            case MENUMUSIC:
+                menuMusic.playLoop();
+                break;
+            case HERODEATH:
+                heroDeath.play();
+                break;
+            case ENEMYDEATH:
+                enemyDeath.play();
+                break;
+            case CHANGETAB:
+                changeTab.play();
+                break;
         }
     }
 
     public void stop(Sound sound){
         switch (sound){
-            case SOUNDTRACK: soundTrack.stop();
-            case MENUMUSIC: menuMusic.stop();
+            case SOUNDTRACK:
+                soundTrack.stop();
+                break;
+            case MENUMUSIC:
+                menuMusic.stop();
+                break;
         }
     }
 
