@@ -3,7 +3,6 @@ package com.RafaelNTeixeira.projeto.controller.game;
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
-import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Enemy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
@@ -53,6 +52,7 @@ public class EnemyController extends GameController {
 
     public char DirOfShoot(Position positionMonster) {
         Position positionHero = getModel().getHero().getPosition();
+
         if (positionHero.getX() == positionMonster.getX()) {
             if (positionMonster.getY() > positionHero.getY()) {
                 return 'u';
@@ -60,6 +60,7 @@ public class EnemyController extends GameController {
                 return 'd';
             }
         }
+
         if (positionHero.getY() == positionMonster.getY()) {
             if (positionMonster.getX() > positionHero.getX()) {
                 return 'l';
@@ -81,9 +82,9 @@ public class EnemyController extends GameController {
             SoundControl instance = SoundControl.getInstance();
             for (Enemy monster : monsters) {
                 Position position;
-                while (true){
-                    boolean canMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()));
-                    if (!!canMove) break;
+                while (true) {
+                    boolean monsterCanMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()));
+                    if (!!monsterCanMove) break;
                 }
                 monster.setPosition(position);
                 boolean monsterHitsHero = position.equals(getModel().getHero().position);

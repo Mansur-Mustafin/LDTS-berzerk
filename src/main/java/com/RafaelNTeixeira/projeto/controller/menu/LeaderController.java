@@ -1,11 +1,9 @@
 package com.RafaelNTeixeira.projeto.controller.menu;
 
 import com.RafaelNTeixeira.projeto.Game;
-import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
-import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 
 import com.RafaelNTeixeira.projeto.model.sounds.Sound;
