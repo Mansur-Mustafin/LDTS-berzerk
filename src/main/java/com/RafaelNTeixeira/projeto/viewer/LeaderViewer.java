@@ -14,19 +14,13 @@ public class LeaderViewer extends Viewer<Leader>{
     public void drawElements(GUI gui) {
         gui.drawText(new Position(10, 4), "leader board", "#FFFFFF");
 
-        for (int i = 0; i < 10 && i < getModel().getNumberOfplayers() ; i++) {
-            String str = getModel().getPlayers().get(i).getName();
+        int numberPlayers = getModel().getNumberOfplayers();
+        for (int i = 0; i < 10 && i < numberPlayers ; i++) {
+            String name = getModel().getPlayers().get(i).getName();
+            String score = getModel().getPlayers().get(i).getScore();
 
-            gui.drawText(
-                    new Position(5, 7 + i),
-                    str,
-                    "#FFFFFF");
-
-            gui.drawText(
-                    new Position(5  + 20 , 7 + i ),
-                    getModel().getPlayers().get(i).getScore(),
-                    "#FFFFFF");
-
+            gui.drawText(new Position(5, 7 + i), name, "#FFFFFF");
+            gui.drawText(new Position(5  + 20 , 7 + i ), score, "#FFFFFF");
         }
         gui.drawText(new Position(6, 22), "press enter to get menu", "#FFD700");
 

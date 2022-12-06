@@ -8,7 +8,7 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 public class MonsterViewer implements ElementViewer<Monster> {
     @Override
     public void draw(Monster monster, GUI gui) {
-        Position position = monster.getPosition();
-        gui.drawMonster(position);
+        Position monsterPosition = monster.getPosition();
+        gui.drawMonster(monsterPosition);
     }
 }

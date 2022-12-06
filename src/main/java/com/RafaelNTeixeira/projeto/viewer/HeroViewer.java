@@ -7,7 +7,7 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 public class HeroViewer implements ElementViewer<Hero> {
     @Override
     public void draw(Hero hero, GUI gui) {
-        Position position = hero.getPosition();
-        gui.drawHero(position);
+        Position heroPosition = hero.getPosition();
+        gui.drawHero(heroPosition);
     }
 }

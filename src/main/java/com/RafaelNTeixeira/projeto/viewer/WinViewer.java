@@ -18,13 +18,12 @@ public class WinViewer extends Viewer<Win>{
 
         gui.drawText(new Position(8, 11), "your score:" + getModel().getScore(), "#FFFFFF");
 
-        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+        int numberEntries = getModel().getNumberEntries();
+        for (int i = 0; i < numberEntries; i++) {
             String entry = getModel().getEntry(i);
             boolean selected = getModel().isSelected(i);
-            gui.drawText(
-                    new Position(12 - i*3, 13 + i + 1),
-                    entry,
-                    selected ? "#FFD700" : "#FFFFFF");
+
+            gui.drawText(new Position(12 - i*3, 13 + i + 1), entry, selected ? "#FFD700" : "#FFFFFF");
         }
     }
 }

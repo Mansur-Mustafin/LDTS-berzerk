@@ -3,6 +3,7 @@ package com.RafaelNTeixeira.projeto.viewer;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
 import com.RafaelNTeixeira.projeto.model.game.elements.Element;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
@@ -18,16 +19,21 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(GUI gui) {
+        List<Wall> walls = getModel().getWalls();
+        List<Monster> monsters = getModel().getMonsters();
+        List<King> kings = getModel().getKings();
+        List<Bullet> bullets = getModel().getBullets();
+        Hero hero = getModel().getHero();
+        
+        drawElements(gui, walls, new WallViewer());
+        drawElements(gui, monsters, new MonsterViewer());
+        drawElements(gui, kings, new KingViewer());
+        drawElements(gui, bullets, new BulletViewer());
+        drawElement(gui, hero, new HeroViewer());
 
 
-        drawElements(gui, getModel().getWalls(), new WallViewer());
-        drawElements(gui, getModel().getMonsters(), new MonsterViewer());
-        drawElements(gui, getModel().getKings(), new KingViewer());
-        drawElements(gui, getModel().getBullets(), new BulletViewer());
-        drawElement(gui, getModel().getHero(), new HeroViewer());
-
-
-        gui.drawText(new Position(0, 0), Integer.toString(getModel().getScore()) , "#FFD700");
+        int score = getModel().getScore();
+        gui.drawText(new Position(0, 0), Integer.toString(score) , "#FFD700");
         for(int i = 0; i < getModel().getHero().getEnergy() ; i++ ){
             gui.drawHeart(new Position(8 + i, 0));
         }
