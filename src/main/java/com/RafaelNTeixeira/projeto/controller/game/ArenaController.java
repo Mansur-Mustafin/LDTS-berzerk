@@ -1,9 +1,7 @@
 package com.RafaelNTeixeira.projeto.controller.game;
 
 import com.RafaelNTeixeira.projeto.Game;
-import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.States.*;
-import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
@@ -83,19 +81,19 @@ public class ArenaController extends GameController {
                 return;
             }
             if(time - lastBullet > 250 ){
-                if(key.getKeyType() == KeyType.ArrowRight){
+                if (key.getKeyType() == KeyType.ArrowRight) {
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('r', getModel().getHero().position, true);
                 }
-                if(key.getKeyType() == KeyType.ArrowLeft){
+                if (key.getKeyType() == KeyType.ArrowLeft) {
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('l', getModel().getHero().position, true);
                 }
-                if(key.getKeyType() == KeyType.ArrowUp){
+                if (key.getKeyType() == KeyType.ArrowUp) {
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('u', getModel().getHero().position, true);
                 }
-                if(key.getKeyType() == KeyType.ArrowDown){
+                if (key.getKeyType() == KeyType.ArrowDown) {
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('d', getModel().getHero().position, true);
                 }
