@@ -14,19 +14,18 @@ import java.util.List;
 public abstract class Enemy extends Element {
 
     private MoveStrategy moveStrategy;
-
+    private int energy;
 
     public Enemy(int x, int y) {
         super(x,y);
         this.moveStrategy = generateMoveStrategy();
+        energy = generateEnergy();
     }
 
-    public void draw(TextGraphics graphics){
-        graphics.setForegroundColor(TextColor.Factory.fromString("#CC0000"));
-        graphics.enableModifiers(SGR.BORDERED);
-        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"M");
+    public void decreaseEnergy(int x) {
+        this.energy -= x;
     }
-
+    public int getEnergy(){return energy; }
     public MoveStrategy getMoveStrategy() {return moveStrategy;}
 
     public void setMoveStrategy(MoveStrategy strategy){
@@ -42,6 +41,7 @@ public abstract class Enemy extends Element {
     }
 
     protected abstract MoveStrategy generateMoveStrategy();
+    protected abstract int generateEnergy();
 
     public Position move(Position position_hero, List<Wall> walls){
         return moveStrategy.move(position, position_hero, walls);

@@ -9,8 +9,11 @@ public class Monster extends Enemy{
     }
 
     @Override
+    protected int generateEnergy(){
+        return 1;
+    }
+    @Override
     protected MoveStrategy generateMoveStrategy(){
         return new RandomMoveStrategy();
     }
-
 }

@@ -9,8 +9,10 @@ import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Instruction;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
+
 import com.RafaelNTeixeira.projeto.model.sounds.Sound;
 import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
+
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;

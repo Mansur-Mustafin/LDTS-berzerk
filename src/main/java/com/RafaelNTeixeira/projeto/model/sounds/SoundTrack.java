@@ -23,7 +23,8 @@ public class SoundTrack {
             Clip soundClip = AudioSystem.getClip();
             soundClip.open(audioInputStream);
             FloatControl control = (FloatControl) soundClip.getControl(FloatControl.Type.MASTER_GAIN);
-            control.setValue(-10.0f);
+            control.setValue(-15.0f);
+
             return soundClip;
         } catch (Exception e) {
             e.printStackTrace();

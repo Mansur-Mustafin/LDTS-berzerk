@@ -60,13 +60,12 @@ public class AddLeader {
         return this.entries.size();
     }
 
-
     public void addScore(){
         PrintWriter out = null;
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/Leaders", true)));
             if(Name.isEmpty()){
-                out.println("Noname" + " 999");
+                out.println("Noname" + Score);
             }else {
                 out.println( Name + " " + Score);
             }

@@ -8,12 +8,10 @@ import java.util.*;
 public class BFSMoveStrategy implements MoveStrategy{
 
     boolean canMove(Position position){
-        if (position.getX() < 0 || position.getY() < 0 || position.getX() > 99 || position.getY() > 59)
-            return false;
-        return true;
+        return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= 99 && position.getY() <= 59;
     }
 
-    boolean conteins(List<Wall> walls, Position position){
+    boolean contains(List<Wall> walls, Position position){
         for(Wall w: walls){
             if(w.getPosition().getX() == position.getX() && w.getPosition().getY() == position.getY()){
                 return true;
@@ -29,7 +27,7 @@ public class BFSMoveStrategy implements MoveStrategy{
             return position;
         }
 
-        List<Position> steps = new ArrayList<Position>() ;
+        List<Position> steps = new ArrayList<>() ;
         steps.add(new Position(1,0)); steps.add(new Position(-1,0));
         steps.add(new Position(0,-1)); steps.add(new Position(0,1));
         steps.add(new Position(1,1)); steps.add(new Position(-1,1));
@@ -37,8 +35,7 @@ public class BFSMoveStrategy implements MoveStrategy{
 
         boolean[][]  used = new boolean[100][60];
         Position[][] parent = new Position[100][60];
-        //int[][]  distance = new int[100][60];
-        Queue<Position> q = new LinkedList<Position>();
+        Queue<Position> q = new LinkedList<>();
         q.add(position);
 
         for(int i = 0; i < 100; i++){
@@ -47,7 +44,6 @@ public class BFSMoveStrategy implements MoveStrategy{
             }
         }
 
-        //distance[position.getX()][position.getY()] = 0;
         used[position.getX()][position.getY()] = true;
 
         while(!q.isEmpty()){
@@ -55,9 +51,8 @@ public class BFSMoveStrategy implements MoveStrategy{
             for(Position step : steps){
                 Position tmp2 = tmp.add(step);
                 if(canMove(tmp2) ){
-                    if(!conteins(walls, tmp2)){
+                    if(!contains(walls, tmp2)){
                         if(!used[tmp2.getX()][tmp2.getY()]){
-                            //distance[tmp2.getX()][tmp2.getY()] = distance[tmp.getX()][tmp.getY()] + 1;
                             used[tmp2.getX()][tmp2.getY()] = true;
                             q.add(tmp2);
                             parent[tmp2.getX()][tmp2.getY()] = new Position(tmp.getX(), tmp.getY());

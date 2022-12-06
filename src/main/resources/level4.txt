@@ -7,6 +7,7 @@ w    ww         wwww    ww       w
 w    w   m       ww    ww   m    w
 w                     ww         w
 wwwwwwwwwwwwwwwwwwwwwww          w
+<<<<<<< HEAD
 w    m    w    wwww              w
 w   ww    m   ww  ww             w
 w    www    www    www           w
@@ -23,3 +24,21 @@ w k  www  k     m          m    ww
 ww   wwwwwwwwwwwwwwwwwwwwwwwwwwwww
 www          m   k  m            w
 wwwwwwwwwwwwww      wwwwwwwwwwwwww
+=======
+w             wwwwww             w
+w     k      wwwwwwww            w
+w           www    www           w
+w          ww  k w   ww          w
+w         ww     w    ww         w
+w    m    ww  m  w    ww    m    w
+w          ww    w   ww          w
+wwwwwww     ww   w               w
+wwwwwwww     ww    wwwwwwwwwwwwwww
+w      m      ww    wwwwwwwwwwwwww
+w             www     wwwwwwwwwwww
+w   k     wwwwwwww               w
+w      wwwwwwwwwww         m     w
+w     wwwwwwwwwwww    m          w
+w                k               w
+wwwww     wwwwwwwwwwwwwwwwwwwwwwww
+>>>>>>> bala
