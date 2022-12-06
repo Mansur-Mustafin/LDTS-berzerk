@@ -4,11 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Win {
-
     private final List<String> entries;
-
     private int currentEntry = 0;
-
     private int Score;
 
     public Win(int Score) {
@@ -39,13 +36,15 @@ public class Win {
         return currentEntry;
     }
     public boolean isSelectedMenu() {
-        return isSelected(0);
+        boolean menu = isSelected(0);
+        return menu;
     }
     public boolean isSelectedLeaderBoard() {
         return isSelected(1);
     }
     public boolean isSelectedAddToLeaderBoard(){
-        return isSelected(2);
+        boolean addToLeaderBoard = isSelected(2);
+        return addToLeaderBoard;
     }
     public int getNumberEntries() {
         return this.entries.size();

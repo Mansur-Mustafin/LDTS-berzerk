@@ -6,7 +6,6 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
-import com.github.javaparser.utils.Pair;
 
 import java.io.BufferedReader;
 import java.io.IOException;

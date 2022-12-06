@@ -4,10 +4,6 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Element;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 
 import java.util.List;
 
@@ -18,8 +14,11 @@ public abstract class Enemy extends Element {
 
     public Enemy(int x, int y) {
         super(x,y);
-        this.moveStrategy = generateMoveStrategy();
-        energy = generateEnergy();
+        MoveStrategy moveStrategy_ = generateMoveStrategy();
+        int energy_ = generateEnergy();
+        
+        this.moveStrategy = moveStrategy_;
+        energy = energy_;
     }
 
     public void decreaseEnergy(int x) {

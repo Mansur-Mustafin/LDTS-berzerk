@@ -3,22 +3,12 @@ package com.RafaelNTeixeira.projeto;
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna;
 import com.RafaelNTeixeira.projeto.States.MenuState;
 import com.RafaelNTeixeira.projeto.States.State;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
-import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
-import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
 
 
 import java.awt.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Game {
     private final GUILaterna gui;

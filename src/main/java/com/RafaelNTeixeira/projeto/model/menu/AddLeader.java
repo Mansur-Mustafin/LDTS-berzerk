@@ -60,18 +60,21 @@ public class AddLeader {
         return this.entries.size();
     }
 
-    public void addScore(){
+    public void addScore() {
         PrintWriter out = null;
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/Leaders", true)));
-            if(Name.isEmpty()){
+            if (Name.isEmpty()){
                 out.println("Noname" + Score);
-            }else {
+            }
+            else {
                 out.println( Name + " " + Score);
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             System.err.println(e);
-        } finally {
+        }
+        finally {
             if (out != null) {
                 out.close();
             }

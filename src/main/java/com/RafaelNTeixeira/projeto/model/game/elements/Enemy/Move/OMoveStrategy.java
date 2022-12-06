@@ -8,6 +8,8 @@ import java.util.List;
 public class OMoveStrategy implements MoveStrategy{
     @Override
     public Position move(Position position, Position position_hero , List<Wall> walls){
-        return new Position(position.getX() - 1, position.getY());
+        int x = position.getX() - 1;
+        int y = position.getY();
+        return new Position(x, y);
     }
 }

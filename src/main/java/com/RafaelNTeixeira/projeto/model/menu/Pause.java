@@ -31,18 +31,26 @@ public class Pause {
     }
 
     public boolean isSelectedExit() {
-        return isSelected(2);
+        boolean exit = isSelected(2);
+        return exit;
     }
 
     public boolean isSelectedContinue() {
-        return isSelected(0);
+        boolean continue_ = isSelected(0);
+        return continue_;
     }
 
-    public boolean isSelectedNewGame() {return isSelected(1);}
+    public boolean isSelectedNewGame() {
+        boolean newGame = isSelected(1);
+        return newGame;
+    }
     public int getCurrentEntry(){
         return currentEntry;
     }
-    public boolean isSelectedGoToMenu() {return isSelected(3);}
+    public boolean isSelectedGoToMenu() {
+        boolean menu = isSelected(3);
+        return menu;
+    }
 
     public int getNumberEntries() {
         return this.entries.size();

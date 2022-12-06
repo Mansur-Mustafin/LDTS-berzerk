@@ -26,12 +26,16 @@ public class Leader {
         BufferedReader reader = new BufferedReader(istreamreader);
         try {
             String line;
-            while((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 String[] words = line.split("\\s");
                 Player p = new Player (words[0], words[1]);
-                if(Contains(players, p)){
-                    players.get(Index(players, p)).setScore(words[1]);
-                }else{
+                boolean contains = Contains(players, p);
+
+                if (contains) {
+                    int index = Index(players, p);
+                    players.get(index).setScore(words[1]);
+                }
+                else {
                     players.add(p);
                 }
             }
@@ -42,17 +46,19 @@ public class Leader {
         Collections.sort(players, new SortByScore());
     }
 
-    public int Index(List<Player> lst, Player p){
-        for(int i = 0; i < lst.size(); i++){
-            if(lst.get(i).getName().equals(p.getName())){
+    public int Index(List<Player> lst, Player p) {
+        for (int i = 0; i < lst.size(); i++) {
+            String name = lst.get(i).getName();
+            if (name.equals(p.getName())) {
                 return i;
             }
         }
         return -1;
     }
-    public boolean Contains(List<Player> lst, Player p ){
-        for(Player player : lst){
-            if(player.getName().equals(p.getName())){
+    public boolean Contains(List<Player> lst, Player p) {
+        for (Player player : lst) {
+            String name = player.getName();
+            if (name.equals(p.getName())) {
                 return true;
             }
         }

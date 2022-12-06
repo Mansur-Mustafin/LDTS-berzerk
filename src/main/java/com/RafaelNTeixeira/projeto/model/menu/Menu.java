@@ -33,20 +33,25 @@ public class Menu {
     }
 
     public boolean isSelectedExit() {
-        return isSelected(1);
+        boolean exit = isSelected(1);
+        return exit;
     }
 
     public boolean isSelectedStart() {
-        return isSelected(0);
+        boolean start = isSelected(0);
+        return start;
     }
 
-    public boolean isSelectedInstructions() {return isSelected(3);
+    public boolean isSelectedInstructions() {
+        boolean instructions = isSelected(3);
+        return instructions;
     }
     public int getCurrentEntry(){
         return currentEntry;
     }
     public boolean isSelectedLeaderBoard() {
-        return isSelected(2);
+        boolean leaderBoard = isSelected(2);
+        return leaderBoard;
     }
 
     public int getNumberEntries() {

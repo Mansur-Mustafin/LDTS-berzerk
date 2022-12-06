@@ -12,6 +12,8 @@ public class RandomMoveStrategy implements MoveStrategy{
         Random random = new Random();
         int x = random.nextInt(3) - 1;
         int y = random.nextInt(3) - 1;
-        return new Position(position.getX() + x, position.getY() + y);
+        int xPos = position.getX() + x;
+        int yPos = position.getY() + y;
+        return new Position(xPos, yPos);
     }
 }

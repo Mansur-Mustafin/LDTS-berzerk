@@ -37,13 +37,16 @@ public class Lose {
         return currentEntry;
     }
     public boolean isSelectedMenu() {
-        return isSelected(0);
+        boolean menu = isSelected(0);
+        return menu;
     }
     public boolean isSelectedLeaderBoard() {
-        return isSelected(1);
+        boolean leaderboard = isSelected(1);
+        return leaderboard;
     }
-    public boolean isSelectedAddToLeaderBoard(){
-        return isSelected(2);
+    public boolean isSelectedAddToLeaderBoard() {
+        boolean addToLeaderBoard = isSelected(2);
+        return addToLeaderBoard;
     }
     public int getNumberEntries() {
         return this.entries.size();

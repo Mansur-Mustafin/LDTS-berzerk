@@ -3,7 +3,6 @@ package com.RafaelNTeixeira.projeto.model.game;
 public class Position {
     private int x;
     private int y;
-
     public Position(int x , int y){
         this.x = x;
         this.y = y;
@@ -26,7 +25,9 @@ public class Position {
         return new Position(this.x + position.x,this.y + position.y);
     }
     public double getDistance(Position pos2){
-        return Math.sqrt((pos2.x-x)*(pos2.x-x) + (pos2.y-y)*(pos2.y-y));
+        double xDistance = (pos2.x-x)*(pos2.x-x);
+        double yDistance = (pos2.y-y)*(pos2.y-y);
+        return Math.sqrt(xDistance + yDistance);
     }
 
     @Override

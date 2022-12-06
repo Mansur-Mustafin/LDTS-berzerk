@@ -2,11 +2,8 @@ package com.RafaelNTeixeira.projeto.States;
 
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.controller.menu.AddLeaderController;
-import com.RafaelNTeixeira.projeto.controller.menu.LeaderController;
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader;
-import com.RafaelNTeixeira.projeto.model.menu.Leader;
 import com.RafaelNTeixeira.projeto.viewer.AddLeaderViewer;
-import com.RafaelNTeixeira.projeto.viewer.LeaderViewer;
 import com.RafaelNTeixeira.projeto.viewer.Viewer;
 
 public class AddLeaderState extends State<AddLeader>{

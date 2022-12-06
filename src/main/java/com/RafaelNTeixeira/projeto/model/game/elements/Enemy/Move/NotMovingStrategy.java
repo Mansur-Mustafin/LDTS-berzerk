@@ -4,7 +4,6 @@ import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 
 import java.util.List;
-import java.util.Random;
 
 public class NotMovingStrategy implements MoveStrategy{
     @Override

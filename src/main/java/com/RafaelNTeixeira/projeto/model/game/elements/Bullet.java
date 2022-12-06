@@ -2,11 +2,10 @@ package com.RafaelNTeixeira.projeto.model.game.elements;
 
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.*;
-import com.github.javaparser.utils.Pair;
+
 
 import java.util.List;
 
-import static java.lang.Math.abs;
 
 public class Bullet extends Element {
     private final MoveStrategy moveStrategy;
@@ -34,7 +33,8 @@ public class Bullet extends Element {
     }
 
     public Position move(Position position_hero, List<Wall> walls){
-        return moveStrategy.move(position, position_hero, walls);
+        Position move = moveStrategy.move(position, position_hero, walls);
+        return move;
     }
 
     public void setPosition(Position position){

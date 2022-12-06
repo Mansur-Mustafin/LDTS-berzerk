@@ -1,13 +1,8 @@
 package com.RafaelNTeixeira.projeto.model.game.elements;
 
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 
 public class Hero extends Element {
-
     private int energy;
 
     public Hero(int x, int y) {
@@ -20,7 +15,8 @@ public class Hero extends Element {
     }
 
     public int getX() {
-        return position.getX();
+        int x = position.getX();
+        return x;
     }
 
     public void setX(int x) {
@@ -28,7 +24,8 @@ public class Hero extends Element {
     }
 
     public int getY() {
-        return position.getY();
+        int y = position.getY();
+        return y;
     }
 
     public void setY(int y) {
@@ -49,24 +46,34 @@ public class Hero extends Element {
 
 
     public Position moveUp() {
-        return new Position(position.getX(), position.getY()-1);
+        int x = position.getX();
+        int oneUp = position.getY()-1;
+        return new Position(x, oneUp);
     }
 
     public Position moveDown() {
-        return new Position(position.getX(), position.getY()+1);
+        int x = position.getX();
+        int oneDown = position.getY()+1;
+        return new Position(x, oneDown);
     }
 
     public Position moveLeft() {
-        return new Position(position.getX()-1, position.getY());
+        int oneLeft = position.getX()-1;
+        int y = position.getY();
+        return new Position(oneLeft, y);
     }
 
     public Position moveRight() {
-        return new Position(position.getX()+1, position.getY());
+        int oneRight = position.getX()+1;
+        int y = position.getY();
+        return new Position(oneRight, y);
     }
 
     public void setPosition( Position position_new){
-        this.position.setY(position_new.getY());
-        this.position.setX(position_new.getX());
+        int y = position_new.getY();
+        this.position.setY(y);
+        int x = position_new.getX();
+        this.position.setX(x);
     }
 
     public Position getPosition(){
