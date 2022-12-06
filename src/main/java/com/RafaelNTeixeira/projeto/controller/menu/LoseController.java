@@ -33,6 +33,7 @@ public class LoseController extends Controller<Lose> {
                 getModel().nextEntry();
                 break;
             case Enter:
+                SoundControl.getInstance().start(Sound.CHANGETAB);
                 if(getModel().isSelectedMenu()) game.setState(new MenuState(new Menu()));
                 if(getModel().isSelectedLeaderBoard()) game.setState(new LeaderBoardState( new Leader()));
                 if(getModel().isSelectedAddToLeaderBoard()) game.setState(new AddLeaderState(new AddLeader(getModel().getScore())));

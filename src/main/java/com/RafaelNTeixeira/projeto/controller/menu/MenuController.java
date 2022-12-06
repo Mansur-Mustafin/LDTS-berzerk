@@ -36,13 +36,20 @@ public class MenuController extends Controller<Menu> {
             case Enter:
                 if (getModel().isSelectedExit()) game.setState(null);
                 if (getModel().isSelectedStart()){
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
                     SoundControl.getInstance().stop(Sound.MENUMUSIC);
                     game.setState(new GameState(new Arena(34, 24, 1)));
                     SoundControl.getInstance().start(Sound.SOUNDTRACK);
                     game.setScore(0);
                 }
-                if (getModel().isSelectedLeaderBoard()) game.setState(new LeaderBoardState( new Leader()));
-                if (getModel().isSelectedInstructions()) game.setState(new InstructionsState((new Instruction())));
+                if (getModel().isSelectedLeaderBoard()) {
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                    game.setState(new LeaderBoardState(new Leader()));
+                }
+                if (getModel().isSelectedInstructions()) {
+                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                    game.setState(new InstructionsState((new Instruction())));
+                }
                 break;
             case Character:
                 if(key.getCharacter() == 'e'){

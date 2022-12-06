@@ -7,6 +7,8 @@ import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
@@ -24,6 +26,7 @@ public class LeaderController extends Controller<Leader> {
         switch (key.getKeyType()) {
 
             case Enter:
+                SoundControl.getInstance().start(Sound.CHANGETAB);
                 if(getModel().isSelectedEnter()) game.setState(new MenuState(new Menu()));
                 game.setScore(0);
                 break;

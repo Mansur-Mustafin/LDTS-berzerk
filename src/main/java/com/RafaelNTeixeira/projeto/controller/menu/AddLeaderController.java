@@ -5,6 +5,8 @@ import com.RafaelNTeixeira.projeto.States.LeaderBoardState;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
@@ -22,6 +24,7 @@ public class AddLeaderController extends Controller<AddLeader> {
             return;
         }
         if (key.getKeyType() == KeyType.Enter) {
+            SoundControl.getInstance().start(Sound.CHANGETAB);
             getModel().addScore();
             game.setState(new LeaderBoardState(new Leader()));
         }
