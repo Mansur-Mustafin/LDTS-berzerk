@@ -27,7 +27,7 @@ class SoundTrackTest extends Specification{
         FloatControl floatControl = soundTrack.getSound().getControl(FloatControl.Type.MASTER_GAIN)
 
         then:
-        floatControl.getValue() == -10.0f
+        floatControl.getValue() == -15.0f
         soundTrack != null
     }
 

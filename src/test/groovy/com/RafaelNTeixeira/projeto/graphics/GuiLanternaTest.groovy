@@ -36,7 +36,7 @@ class GuiLanternaTest extends Specification{
         s == screen
     }
 
-    def 'Draw Hero'() {
+    /*def 'Draw Hero'() {
         when:
         gui.drawHero(position)
 
@@ -44,7 +44,7 @@ class GuiLanternaTest extends Specification{
         1*tg.setForegroundColor(_)
         1*tg.enableModifiers(_)
         1*tg.putString(_,_)
-    }
+    }*/
 
     def 'Draw Wall'() {
         when:

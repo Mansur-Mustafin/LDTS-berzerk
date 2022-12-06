@@ -19,19 +19,6 @@ class EnemyTest extends Specification{
         pos = Mock(Position.class)
     }
 
-    def 'Draw' () {
-        given:
-        Monster monster = new Monster(10, 10)
-
-        when:
-        monster.draw(textGraphics)
-
-        then:
-        1*textGraphics.setForegroundColor(_)
-        1*textGraphics.enableModifiers(_)
-        1*textGraphics.putString(_,_)
-    }
-
     def 'Position getter'() {
         given:
         Monster monster = new Monster(50, 30)

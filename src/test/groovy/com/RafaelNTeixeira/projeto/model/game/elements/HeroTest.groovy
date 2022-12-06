@@ -77,19 +77,6 @@ class HeroTest extends Specification{
         hero1.getEnergy() == 5
     }
 
-    def 'Draw' () {
-        given:
-        Hero hero = new Hero()
-
-        when:
-        hero.draw(textGraphics)
-
-        then:
-        1*textGraphics.setForegroundColor(_)
-        1*textGraphics.enableModifiers(_)
-        1*textGraphics.putString(_,_)
-    }
-
     def 'MovesUP'(){
         given:
         Hero hero = new Hero()

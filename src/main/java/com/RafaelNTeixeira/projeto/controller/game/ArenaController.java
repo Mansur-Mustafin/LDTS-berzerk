@@ -122,4 +122,5 @@ public class ArenaController extends GameController {
     public void setHeroController(HeroController h){
         heroController = h;
     }
+
 }

@@ -26,17 +26,4 @@ class WallTest extends Specification{
         position == position1
     }
 
-    def 'Draw walls'() {
-        given:
-        Wall wall = new Wall(10, 10)
-
-        when:
-        wall.draw(textGraphics)
-
-        then:
-        1*textGraphics.setBackgroundColor(_)
-        1*textGraphics.setForegroundColor(_)
-        1*textGraphics.enableModifiers(_)
-        1*textGraphics.putString(_,_)
-    }
 }

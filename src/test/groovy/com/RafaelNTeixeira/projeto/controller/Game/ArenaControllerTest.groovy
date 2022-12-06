@@ -60,7 +60,7 @@ class ArenaControllerTest extends Specification{
         1 * game.setState(_)
     }
 
-    def 'test step < erergy'(){
+    def 'test step < energy'(){
         given:
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'x';
