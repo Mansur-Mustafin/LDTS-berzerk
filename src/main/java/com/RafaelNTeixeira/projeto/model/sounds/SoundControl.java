@@ -66,8 +66,20 @@ public class SoundControl {
             case SOUNDTRACK:
                 soundTrack.stop();
                 break;
+            case SHOOTING:
+                shooting.stop();
+                break;
             case MENUMUSIC:
                 menuMusic.stop();
+                break;
+            case HERODEATH:
+                heroDeath.stop();
+                break;
+            case ENEMYDEATH:
+                enemyDeath.stop();
+                break;
+            case CHANGETAB:
+                changeTab.stop();
                 break;
         }
     }
