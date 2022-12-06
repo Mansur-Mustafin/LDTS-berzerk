@@ -1,9 +1,12 @@
 package com.RafaelNTeixeira.projeto.model.game.arena;
 
+import com.RafaelNTeixeira.projeto.model.game.Position;
+import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+import com.github.javaparser.utils.Pair;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,15 +25,16 @@ public class Arena {
     private List<Wall> walls = new ArrayList<>();
     private List<Monster> monsters = new ArrayList<>();
     private List<King> kings = new ArrayList<>();
+
+    private List<Bullet> bullets = new ArrayList<>();
+    private List<Bullet> enemyBullets = new ArrayList<>();
     private int Score ;
     public Arena(int x, int y, int lvl) {
-
         width = x;
         height = y;
         level = lvl;
         createElements();
     }
-
 
     private void createElements(){
         StringBuilder str = new StringBuilder();
@@ -68,6 +72,23 @@ public class Arena {
         }
     }
 
+    public void eraseBullet(int index){
+        bullets.remove(index);
+    }
+    public void eraseMonster(int index){
+        monsters.remove(index);
+    }
+    public void eraseKing(int index){
+        kings.remove(index);
+    }
+
+
+    public void Shoot(char dir, Position position, boolean hero){
+        if(dir == 'r' ) bullets.add(new Bullet(position.getX() + 1, position.getY(), dir ,hero));
+        if(dir == 'l' ) bullets.add(new Bullet(position.getX() - 1, position.getY(), dir, hero));
+        if(dir == 'd' ) bullets.add(new Bullet(position.getX() , position.getY() + 1, dir, hero));
+        if(dir == 'u' ) bullets.add(new Bullet(position.getX() , position.getY() - 1, dir, hero));
+    }
 
     public int getlLevel(){
         return level;
@@ -83,6 +104,9 @@ public class Arena {
     }
     public List<King> getKings(){
         return kings;
+    }
+    public List<Bullet> getBullets(){
+        return bullets;
     }
     public int getHeight() {
         return height;

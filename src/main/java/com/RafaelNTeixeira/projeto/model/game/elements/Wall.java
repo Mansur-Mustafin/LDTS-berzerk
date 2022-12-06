@@ -8,7 +8,6 @@ import com.RafaelNTeixeira.projeto.model.game.Position;
 
 public class Wall extends Element {
 
-
     public Wall(int x, int y){
         super(x,y);
     }
@@ -17,12 +16,4 @@ public class Wall extends Element {
         return position;
     }
 
-
-    public void draw(TextGraphics graphics){
-
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#5C627F"));
-        graphics.setForegroundColor(TextColor.Factory.fromString("#5C627F"));
-        graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "w");
-    }
 }

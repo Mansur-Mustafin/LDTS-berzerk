@@ -7,7 +7,8 @@ public class Lose {
     private final List<String> entries;
     private int currentEntry = 0;
 
-    private int Score;
+    private final int Score;
+
     public Lose(int Score) {
         this.entries = Arrays.asList("menu", "Leader Board", "Add Score to LeaderBoard");
         this.Score = Score;
@@ -25,10 +26,10 @@ public class Lose {
             currentEntry = this.entries.size() - 1;
     }
 
+    public int getScore(){return Score;}
     public String getEntry(int i) {
         return entries.get(i);
     }
-    public int getScore(){return Score;}
     public boolean isSelected(int i) {
         return currentEntry == i;
     }

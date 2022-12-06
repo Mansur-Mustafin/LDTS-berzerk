@@ -5,8 +5,10 @@ import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+
 import com.RafaelNTeixeira.projeto.model.sounds.Sound;
 import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
+
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 

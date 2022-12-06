@@ -7,7 +7,10 @@ public class King extends Enemy{
     public King(int x, int y){
         super(x,y);
     }
-
+    @Override
+    protected int generateEnergy(){
+        return 2;
+    }
     @Override
     protected MoveStrategy generateMoveStrategy(){
         return new NotMovingStrategy();

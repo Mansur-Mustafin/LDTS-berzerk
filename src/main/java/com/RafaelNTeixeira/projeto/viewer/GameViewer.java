@@ -18,14 +18,14 @@ public class GameViewer extends Viewer<Arena> {
 
     @Override
     public void drawElements(GUI gui) {
-        List<Wall> walls = getModel().getWalls();
-        drawElements(gui, walls, new WallViewer());
-        List<Monster> monsters = getModel().getMonsters();
-        drawElements(gui, monsters, new MonsterViewer());
-        List<King> kings = getModel().getKings();
-        drawElements(gui, kings, new KingViewer());
-        Hero hero = getModel().getHero();
-        drawElement(gui, hero, new HeroViewer());
+
+
+        drawElements(gui, getModel().getWalls(), new WallViewer());
+        drawElements(gui, getModel().getMonsters(), new MonsterViewer());
+        drawElements(gui, getModel().getKings(), new KingViewer());
+        drawElements(gui, getModel().getBullets(), new BulletViewer());
+        drawElement(gui, getModel().getHero(), new HeroViewer());
+
 
         gui.drawText(new Position(0, 0), Integer.toString(getModel().getScore()) , "#FFD700");
         for(int i = 0; i < getModel().getHero().getEnergy() ; i++ ){

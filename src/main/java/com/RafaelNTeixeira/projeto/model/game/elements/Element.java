@@ -10,6 +10,4 @@ public abstract class Element {
         position = new Position(x,y);
     }
 
-
-    public abstract void draw(TextGraphics graphics);
 }

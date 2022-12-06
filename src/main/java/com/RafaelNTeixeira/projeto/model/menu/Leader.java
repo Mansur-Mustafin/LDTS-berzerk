@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class Leader {
-    private List<Player> players = new ArrayList<Player>();
+    private final List<Player> players = new ArrayList<>();
 
     public List<Player> getPlayers(){
         return players;

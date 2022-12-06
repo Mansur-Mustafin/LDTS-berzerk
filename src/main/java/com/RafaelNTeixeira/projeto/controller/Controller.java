@@ -2,6 +2,7 @@ package com.RafaelNTeixeira.projeto.controller;
 
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
+import com.github.javaparser.utils.Pair;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
