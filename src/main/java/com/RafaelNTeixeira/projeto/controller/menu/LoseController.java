@@ -18,8 +18,9 @@ import java.io.IOException;
 public class LoseController extends Controller<Lose> {
     public LoseController(Lose lose) {
         super(lose);
-        SoundControl.getInstance().stopAll();
-        SoundControl.getInstance().start(Sound.MENUMUSIC);
+        SoundControl instance = SoundControl.getInstance();
+        instance.stopAll();
+        instance.start(Sound.MENUMUSIC);
     }
 
     @Override
@@ -35,10 +36,20 @@ public class LoseController extends Controller<Lose> {
                 getModel().nextEntry();
                 break;
             case Enter:
-                SoundControl.getInstance().start(Sound.CHANGETAB);
-                if(getModel().isSelectedMenu()) game.setState(new MenuState(new Menu()));
-                if(getModel().isSelectedLeaderBoard()) game.setState(new LeaderBoardState( new Leader()));
-                if(getModel().isSelectedAddToLeaderBoard()) game.setState(new AddLeaderState(new AddLeader(getModel().getScore())));
+                SoundControl instance = SoundControl.getInstance();
+                instance.start(Sound.CHANGETAB);
+
+                boolean selectedMenu = getModel().isSelectedMenu();
+                if (selectedMenu) game.setState(new MenuState(new Menu()));
+
+                boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
+                if (selectedLeaderBoard) game.setState(new LeaderBoardState( new Leader()));
+
+                boolean selectedAddToLeaderBoard = getModel().isSelectedAddToLeaderBoard();
+                if (selectedAddToLeaderBoard) {
+                    int score = getModel().getScore();
+                    game.setState(new AddLeaderState(new AddLeader(score)));
+                }
                 break;
             case Character:
                 if(key.getCharacter() == 'e'){

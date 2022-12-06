@@ -1,43 +1,29 @@
 package com.RafaelNTeixeira.projeto.Graphics;
 
 import com.RafaelNTeixeira.projeto.model.game.Position;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
-import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
-import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
-import com.github.javaparser.utils.Pair;
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import com.googlecode.lanterna.input.MouseAction;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.MouseCaptureMode;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import static com.googlecode.lanterna.input.MouseActionType.CLICK_RELEASE;
 
 public class GUILaterna implements GUI {
     private final Screen screen;
@@ -49,7 +35,8 @@ public class GUILaterna implements GUI {
     public GUILaterna(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
-        this.screen = createScreen(terminal);
+        Screen screen_ = createScreen(terminal);
+        this.screen = screen_;
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {
@@ -117,7 +104,9 @@ public class GUILaterna implements GUI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        graphics.drawImage(new TerminalPosition(position.getX(), position.getY()), image);
+        int x = position.getX();
+        int y = position.getY();
+        graphics.drawImage(new TerminalPosition(x, y), image);
     }
 
     @Override
@@ -125,7 +114,9 @@ public class GUILaterna implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#FF0000"));
         graphics.enableModifiers(SGR.BORDERED);
-        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"J");
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x,y),"J");
     }
     @Override
     public void drawWall(Position position){
@@ -133,7 +124,9 @@ public class GUILaterna implements GUI {
         graphics.setBackgroundColor(TextColor.Factory.fromString("#5C627F"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#5C627F"));
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "w");
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x, y), "w");
     }
 
     @Override
@@ -141,7 +134,9 @@ public class GUILaterna implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#CC0000"));
         graphics.enableModifiers(SGR.BORDERED);
-        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"M");
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x,y),"M");
     }
 
     @Override
@@ -149,7 +144,9 @@ public class GUILaterna implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#A52D93"));
         graphics.enableModifiers(SGR.BORDERED);
-        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"K");
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x,y),"K");
     }
 
     @Override
@@ -157,7 +154,9 @@ public class GUILaterna implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#A52D93"));
         graphics.enableModifiers(SGR.BORDERED);
-        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"B");
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x,y),"B");
     }
 
     @Override
@@ -165,7 +164,9 @@ public class GUILaterna implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#B22222"));
         graphics.enableModifiers(SGR.BORDERED);
-        graphics.putString(new TerminalPosition(position.getX(),position.getY()),"O");
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x,y),"O");
     }
 
 
@@ -173,7 +174,9 @@ public class GUILaterna implements GUI {
     public void drawText(Position position, String text, String color){
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
+        int x = position.getX();
+        int y = position.getY();
+        tg.putString(x, y, text);
     }
     @Override
     public void clear(){

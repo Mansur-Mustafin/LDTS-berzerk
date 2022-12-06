@@ -5,6 +5,8 @@ import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Enemy;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.BFSMoveStrategy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 
@@ -28,9 +30,23 @@ public class EnemyController extends GameController {
     public boolean canMonsterMove(Position position) {
         if (position.getX() < 0 || position.getY() < 0 || position.getX() > getModel().getWidth() - 1 || position.getY() > getModel().getHeight() - 1)
             return false;
-        for (Wall wall : getModel().getWalls()) if (wall.getPosition().equals(position)) return false;
-        for (Enemy enemy : getModel().getMonsters()) if (enemy.getPosition().equals(position)) return false;
-        for (Enemy enemy : getModel().getKings()) if (enemy.getPosition().equals(position)) return false;
+
+        List<Wall> walls = getModel().getWalls();
+        for (Wall wall : walls) {
+            boolean equals = wall.getPosition().equals(position);
+            if (equals) return false;
+        }
+
+        List<Monster> monsters = getModel().getMonsters();
+        for (Enemy enemy : monsters) {
+            boolean equals1 = enemy.getPosition().equals(position);
+            if (equals1) return false;
+        }
+        List<King> kings = getModel().getKings();
+        for (Enemy enemy : kings) {
+            boolean equals2 = enemy.getPosition().equals(position);
+            if (equals2) return false;
+        }
         return true;
     }
 
@@ -58,30 +74,39 @@ public class EnemyController extends GameController {
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (time - lastMovementEnemy > 500) {
 
-            getModel().setScore(game.getScore());
+            int score = game.getScore();
+            getModel().setScore(score);
 
-            for (Enemy monster : getModel().getMonsters()) {
+            List<Monster> monsters = getModel().getMonsters();
+            SoundControl instance = SoundControl.getInstance();
+            for (Enemy monster : monsters) {
                 Position position;
-                while(!canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()))){}
+                while (true){
+                    boolean canMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()));
+                    if (!!canMove) break;
+                }
                 monster.setPosition(position);
-                if(position.equals(getModel().getHero().position)){
-                    SoundControl.getInstance().start(Sound.HERODEATH);
+                boolean monsterHitsHero = position.equals(getModel().getHero().position);
+                if (monsterHitsHero) {
+                    instance.start(Sound.HERODEATH);
                     getModel().getHero().decreaseEnergy(3);
                 }
                 char c = DirOfShoot(monster.position);
-                if(c != 'n'){
+                if (c != 'n'){
                     getModel().Shoot(c, monster.position, false);
                 }
             }
 
-            for (Enemy king : getModel().getKings()) {
-                if(king.position.getDistance(getModel().getHero().position) < 20){
+            List<King> kings = getModel().getKings();
+            for (Enemy king : kings) {
+                if (king.position.getDistance(getModel().getHero().position) < 20){
                     king.setMoveStrategy(new BFSMoveStrategy());
                 }
                 Position position = king.move(getModel().getHero().position ,getModel().getWalls() );
                 king.setPosition(position);
-                if(position.equals(getModel().getHero().position)){
-                    SoundControl.getInstance().start(Sound.HERODEATH);
+                boolean kingHitsHero = position.equals(getModel().getHero().position);
+                if (kingHitsHero) {
+                    instance.start(Sound.HERODEATH);
                     getModel().getHero().decreaseEnergy(5);
                 }
             }

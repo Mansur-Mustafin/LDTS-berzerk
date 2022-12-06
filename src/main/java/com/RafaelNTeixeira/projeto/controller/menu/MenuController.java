@@ -25,9 +25,10 @@ public class MenuController extends Controller<Menu> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
+        if (key == null) {
             return;
         }
+        SoundControl instance = SoundControl.getInstance();
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -36,26 +37,33 @@ public class MenuController extends Controller<Menu> {
                 getModel().nextEntry();
                 break;
             case Enter:
-                if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedStart()){
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
-                    SoundControl.getInstance().stop(Sound.MENUMUSIC);
+                boolean selectedExit = getModel().isSelectedExit();
+                if (selectedExit) game.setState(null);
+
+                boolean selectedStart = getModel().isSelectedStart();
+                if (selectedStart) {
+                    instance.start(Sound.CHANGETAB);
+                    instance.stop(Sound.MENUMUSIC);
                     game.setState(new GameState(new Arena(34, 24, 1)));
-                    SoundControl.getInstance().start(Sound.SOUNDTRACK);
+                    instance.start(Sound.SOUNDTRACK);
                     game.setScore(0);
                 }
-                if (getModel().isSelectedLeaderBoard()) {
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
+
+                boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
+                if (selectedLeaderBoard) {
+                    instance.start(Sound.CHANGETAB);
                     game.setState(new LeaderBoardState(new Leader()));
                 }
-                if (getModel().isSelectedInstructions()) {
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
+
+                boolean selectedInstructions = getModel().isSelectedInstructions();
+                if (selectedInstructions) {
+                    instance.start(Sound.CHANGETAB);
                     game.setState(new InstructionsState((new Instruction())));
                 }
                 break;
             case Character:
-                if(key.getCharacter() == 'e'){
-                    SoundControl.getInstance().stopAll();
+                if (key.getCharacter() == 'e') {
+                    instance.stopAll();
                     game.setState(null);
                 }
                 break;

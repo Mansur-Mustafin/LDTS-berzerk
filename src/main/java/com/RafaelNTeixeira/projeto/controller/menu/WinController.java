@@ -31,17 +31,26 @@ public class WinController extends Controller<Win> {
                 getModel().nextEntry();
                 break;
             case Enter:
-                if(getModel().isSelectedMenu()) {
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                boolean selectedMenu = getModel().isSelectedMenu();
+                SoundControl instance = SoundControl.getInstance();
+                if (selectedMenu) {
+                    instance.start(Sound.CHANGETAB);
                     game.setState(new MenuState(new Menu()));
                 }
-                if(getModel().isSelectedLeaderBoard()) {
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
+
+                boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
+                if (selectedLeaderBoard) {
+                    instance.start(Sound.CHANGETAB);
+
                     game.setState(new LeaderBoardState(new Leader()));
                 }
-                if(getModel().isSelectedAddToLeaderBoard()) {
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
-                    game.setState(new AddLeaderState(new AddLeader(getModel().getScore())));
+
+                boolean selectedAddToLeaderBoard = getModel().isSelectedAddToLeaderBoard();
+                if (selectedAddToLeaderBoard) {
+                    instance.start(Sound.CHANGETAB);
+
+                    int score = getModel().getScore();
+                    game.setState(new AddLeaderState(new AddLeader(score)));
                 }
                 break;
             case Character:

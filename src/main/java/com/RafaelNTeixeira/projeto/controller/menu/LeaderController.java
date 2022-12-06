@@ -28,8 +28,11 @@ public class LeaderController extends Controller<Leader> {
         switch (key.getKeyType()) {
 
             case Enter:
-                SoundControl.getInstance().start(Sound.CHANGETAB);
-                if(getModel().isSelectedEnter()) game.setState(new MenuState(new Menu()));
+                SoundControl instance = SoundControl.getInstance();
+                instance.start(Sound.CHANGETAB);
+
+                boolean selectedEnter = getModel().isSelectedEnter();
+                if (selectedEnter) game.setState(new MenuState(new Menu()));
                 game.setScore(0);
                 break;
             case Character:

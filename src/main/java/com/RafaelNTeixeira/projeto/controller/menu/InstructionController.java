@@ -25,8 +25,11 @@ public class InstructionController extends Controller<Instruction> {
 
         switch (key.getKeyType()) {
             case Enter:
-                SoundControl.getInstance().start(Sound.CHANGETAB);
-                if (getModel().isSelectedEnter()) game.setState(new MenuState(new Menu()));
+                SoundControl instance = SoundControl.getInstance();
+                instance.start(Sound.CHANGETAB);
+
+                boolean selectedEnter = getModel().isSelectedEnter();
+                if (selectedEnter) game.setState(new MenuState(new Menu()));
                 break;
             case Character:
                 if (key.getCharacter() == 'e'){

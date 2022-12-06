@@ -41,17 +41,20 @@ public class ArenaController extends GameController {
     }
 
     public void step(Game game, KeyStroke key, long time) throws IOException {
+        int score = game.getScore();
         if (key == null) {
             heroController.step(game, null, time);
-            if(checkNextLvl()){
-                if(getModel().getlLevel() == 4){
-                    game.setState(new WinState(new Win(game.getScore())));
+            boolean canGoToNextLevel = checkNextLvl();
+            if (canGoToNextLevel){
+                if (getModel().getlLevel() == 4) {
+                    game.setState(new WinState(new Win(score)));
                     return;
                 }
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
             }
 
-            if(checkPrevLvl()){
+            boolean canGoToPrevLevel = checkPrevLvl();
+            if (canGoToPrevLevel) {
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() - 1)));
             }
 
@@ -59,20 +62,21 @@ public class ArenaController extends GameController {
             enemyController.step(game, null, time);
 
             if(getModel().getHero().getEnergy() <= 0){
-                game.setState(new LoseState(new Lose(game.getScore())));
+                game.setState(new LoseState(new Lose(score)));
             }
         } else {
+            SoundControl instance = SoundControl.getInstance();
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
-                SoundControl.getInstance().stop(Sound.SOUNDTRACK);
-                SoundControl.getInstance().start(Sound.MENUMUSIC);
+                instance.stop(Sound.SOUNDTRACK);
+                instance.start(Sound.MENUMUSIC);
                 game.setState(new MenuState(new Menu()));
                 return;
             }
             if (this.getModel().getHero().getEnergy() <= 0) {
-                SoundControl.getInstance().start(Sound.HERODEATH);
-                SoundControl.getInstance().stop(Sound.SOUNDTRACK);
-                SoundControl.getInstance().start(Sound.MENUMUSIC);
-                game.setState(new LoseState(new Lose(game.getScore())));
+                instance.start(Sound.HERODEATH);
+                instance.stop(Sound.SOUNDTRACK);
+                instance.start(Sound.MENUMUSIC);
+                game.setState(new LoseState(new Lose(score)));
             }
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
                 game.setState(null);
@@ -80,19 +84,19 @@ public class ArenaController extends GameController {
             }
             if(time - lastBullet > 250 ){
                 if(key.getKeyType() == KeyType.ArrowRight){
-                    SoundControl.getInstance().start(Sound.SHOOTING);
+                    instance.start(Sound.SHOOTING);
                     getModel().Shoot('r', getModel().getHero().position, true);
                 }
                 if(key.getKeyType() == KeyType.ArrowLeft){
-                    SoundControl.getInstance().start(Sound.SHOOTING);
+                    instance.start(Sound.SHOOTING);
                     getModel().Shoot('l', getModel().getHero().position, true);
                 }
                 if(key.getKeyType() == KeyType.ArrowUp){
-                    SoundControl.getInstance().start(Sound.SHOOTING);
+                    instance.start(Sound.SHOOTING);
                     getModel().Shoot('u', getModel().getHero().position, true);
                 }
                 if(key.getKeyType() == KeyType.ArrowDown){
-                    SoundControl.getInstance().start(Sound.SHOOTING);
+                    instance.start(Sound.SHOOTING);
                     getModel().Shoot('d', getModel().getHero().position, true);
                 }
                 this.lastBullet = time;
@@ -100,9 +104,10 @@ public class ArenaController extends GameController {
 
 
             if (key.getKeyType() == KeyType.Escape) {
-                SoundControl.getInstance().stopAll();
-                SoundControl.getInstance().start(Sound.MENUMUSIC);
-                game.setOldState(game.getState());
+                instance.stopAll();
+                instance.start(Sound.MENUMUSIC);
+                State state = game.getState();
+                game.setOldState(state);
                 game.setState(new PauseState(new Pause()));
             } else {
                 heroController.step(game, key, time);

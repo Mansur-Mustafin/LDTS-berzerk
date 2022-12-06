@@ -25,14 +25,18 @@ public class AddLeaderController extends Controller<AddLeader> {
         if(key == null){
             return;
         }
+
         if (key.getKeyType() == KeyType.Enter) {
-            SoundControl.getInstance().start(Sound.CHANGETAB);
+            SoundControl instance = SoundControl.getInstance();
+            instance.start(Sound.CHANGETAB);
             getModel().addScore();
             game.setState(new LeaderBoardState(new Leader()));
         }
-        if(key.getKeyType() == KeyType.Character){
+
+        if (key.getKeyType() == KeyType.Character) {
             getModel().addChar(key.getCharacter());
         }
+
         if(key.getKeyType() == KeyType.Backspace){
             if(getModel().getName().length() == 0){
                 return;

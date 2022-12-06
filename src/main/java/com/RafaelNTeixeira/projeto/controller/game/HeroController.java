@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 
 import com.RafaelNTeixeira.projeto.model.sounds.Sound;
@@ -12,6 +13,8 @@ import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 
+import java.util.List;
+
 public class HeroController extends GameController {
 
     public HeroController(Arena arena) {
@@ -19,48 +22,61 @@ public class HeroController extends GameController {
     }
 
     public void moveHeroLeft() {
-        moveHero(getModel().getHero().moveLeft());
+        Position moveLeft = getModel().getHero().moveLeft();
+        moveHero(moveLeft);
     }
 
     public void moveHeroRight() {
-        moveHero(getModel().getHero().moveRight());
+        Position moveRight = getModel().getHero().moveRight();
+        moveHero(moveRight);
     }
 
     public void moveHeroUp() {
-        moveHero(getModel().getHero().moveUp());
+        Position moveUp = getModel().getHero().moveUp();
+        moveHero(moveUp);
     }
 
     public void moveHeroDown() {
-        moveHero(getModel().getHero().moveDown());
+        Position moveDown = getModel().getHero().moveDown();
+        moveHero(moveDown);
     }
 
     private boolean canHeroMove(Position position) {
 
-        for (Wall wall : getModel().getWalls())
-            if (wall.getPosition().equals(position)) return false;
+        List<Wall> walls = getModel().getWalls();
+        for (Wall wall : walls) {
+            boolean equals = wall.getPosition().equals(position);
+            if (equals) return false;
+        }
 
         return true;
     }
 
     public void verifyMonsterCollisions(Position position) {
+        SoundControl instance = SoundControl.getInstance();
+        Hero hero = getModel().getHero();
         for (int i = 0; i < getModel().getMonsters().size(); i++) {
-            if (getModel().getMonsters().get(i).position.equals(position)) {
-                SoundControl.getInstance().start(Sound.HERODEATH);
-                getModel().getHero().decreaseEnergy(3);
+            boolean monsterHitsHero = getModel().getMonsters().get(i).position.equals(position);
+            if (monsterHitsHero) {
+                instance.start(Sound.HERODEATH);
+                hero.decreaseEnergy(3);
             }
         }
         for (int i = 0; i < getModel().getKings().size(); i++) {
-            if (getModel().getKings().get(i).position.equals(position)) {
-                SoundControl.getInstance().start(Sound.HERODEATH);
-                getModel().getHero().decreaseEnergy(5);
+            boolean kingHitsHero = getModel().getKings().get(i).position.equals(position);
+            if (kingHitsHero) {
+                instance.start(Sound.HERODEATH);
+                hero.decreaseEnergy(5);
             }
         }
     }
 
     private void moveHero(Position position) {
-        if (canHeroMove(position)) {
+        boolean canMove = canHeroMove(position);
+        if (canMove) {
             verifyMonsterCollisions(position);
-            getModel().getHero().setPosition(position);
+            Hero hero = getModel().getHero();
+            hero.setPosition(position);
         }
     }
 

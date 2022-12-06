@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.States.GameState;
 import com.RafaelNTeixeira.projeto.States.MenuState;
+import com.RafaelNTeixeira.projeto.States.State;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
@@ -34,21 +35,30 @@ public class PauseController extends Controller<Pause> {
                 getModel().nextEntry();
                 break;
             case Enter:
-                if (getModel().isSelectedExit()) game.setState(null);
-                if (getModel().isSelectedContinue()) {
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
-                    SoundControl.getInstance().stop(Sound.MENUMUSIC);
-                    SoundControl.getInstance().start(Sound.SOUNDTRACK);
-                    game.setState(game.getOldState());
+                boolean selectedExit = getModel().isSelectedExit();
+                if (selectedExit) game.setState(null);
+
+                SoundControl instance = SoundControl.getInstance();
+
+                boolean selectedContinue = getModel().isSelectedContinue();
+                if (selectedContinue) {
+                    instance.start(Sound.CHANGETAB);
+                    instance.stop(Sound.MENUMUSIC);
+                    instance.start(Sound.SOUNDTRACK);
+                    State oldState = game.getOldState();
+                    game.setState(oldState);
                 }
-                if(getModel().isSelectedNewGame()){
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
-                    SoundControl.getInstance().start(Sound.SOUNDTRACK);
+
+                boolean selectedNewGame = getModel().isSelectedNewGame();
+                if (selectedNewGame) {
+                    instance.start(Sound.CHANGETAB);
+                    instance.start(Sound.SOUNDTRACK);
                     game.setState(new GameState(new Arena(34, 24, 1)));
                     game.setScore(0);
                 }
-                if(getModel().isSelectedGoToMenu()) {
-                    SoundControl.getInstance().start(Sound.CHANGETAB);
+                boolean selectedGoToMenu = getModel().isSelectedGoToMenu();
+                if (selectedGoToMenu) {
+                    instance.start(Sound.CHANGETAB);
                     game.setState(new MenuState(new Menu()));
                 }
                 break;

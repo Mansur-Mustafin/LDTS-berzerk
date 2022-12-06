@@ -7,10 +7,10 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
-import com.github.javaparser.utils.Pair;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
+import java.util.List;
 
 public class BulletController extends GameController{
 
@@ -22,19 +22,25 @@ public class BulletController extends GameController{
     }
 
     public boolean HaveWalls(Position position){
-        for (Wall wall : getModel().getWalls()) if (wall.getPosition().equals(position)) return true;
+        List<Wall> walls = getModel().getWalls();
+        for (Wall wall : walls) {
+            boolean positionEquals = wall.getPosition().equals(position);
+            if (positionEquals) return true;
+        }
         return false;
     }
 
     public boolean HaveMonster(Position position, Game game){
         for (int i = 0; i < getModel().getMonsters().size() ; i++){
             Monster monster = getModel().getMonsters().get(i);
-            if(monster.position.equals(position)){
+            boolean bulletHitsMonster = monster.position.equals(position);
+            if (bulletHitsMonster) {
                 monster.decreaseEnergy(1);
                 if(monster.getEnergy() <= 0){
                     getModel().eraseMonster(i);
                     game.incrementScore(5);
-                    getModel().setScore(game.getScore());
+                    int score = game.getScore();
+                    getModel().setScore(score);
                 }
                 return true;
             }
@@ -45,12 +51,14 @@ public class BulletController extends GameController{
     public boolean HaveKings(Position position, Game game){
         for (int i = 0; i < getModel().getKings().size() ; i++){
             King king = getModel().getKings().get(i);
-            if(king.position.equals(position)){
+            boolean bulletHitsKing = king.position.equals(position);
+            if (bulletHitsKing) {
                 king.decreaseEnergy(1);
                 if(king.getEnergy() <= 0){
                     getModel().eraseKing(i);
                     game.incrementScore(10);
-                    getModel().setScore(game.getScore());
+                    int score = game.getScore();
+                    getModel().setScore(score);
                 }
                 return true;
             }
@@ -65,16 +73,20 @@ public class BulletController extends GameController{
                 Bullet bullet = getModel().getBullets().get(i);
                 Position position = bullet.move(getModel().getHero().position, getModel().getWalls());
                 bullet.setPosition(position);
-                if(HaveWalls(bullet.position)){
+                boolean bulletHitsWall = HaveWalls(bullet.position);
+                if (bulletHitsWall) {
                     getModel().eraseBullet(i);
                 }
-                if(HaveMonster(bullet.position, game)){
+                boolean BulletHitsMonster = HaveMonster(bullet.position, game);
+                if (BulletHitsMonster) {
                     getModel().eraseBullet(i);
                 }
-                if(HaveKings(bullet.position, game)){
+                boolean BulletHitsKing = HaveKings(bullet.position, game);
+                if (BulletHitsKing) {
                     getModel().eraseBullet(i);
                 }
-                if(bullet.position.equals(getModel().getHero().position)){
+                boolean BulletHitsHero = bullet.position.equals(getModel().getHero().position);
+                if (BulletHitsHero) {
                     getModel().getHero().decreaseEnergy(1);
                 }
             }
