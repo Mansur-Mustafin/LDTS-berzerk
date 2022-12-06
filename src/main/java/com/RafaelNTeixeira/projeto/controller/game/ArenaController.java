@@ -45,7 +45,6 @@ public class ArenaController extends GameController {
         return false;
     }
 
-
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) {
             heroController.step(game, key, time);
