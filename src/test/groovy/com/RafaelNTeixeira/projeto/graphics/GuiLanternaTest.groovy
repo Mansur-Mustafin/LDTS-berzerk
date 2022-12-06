@@ -17,11 +17,13 @@ class GuiLanternaTest extends Specification{
     private def position
     private def gui
     private def tg
+    private def string
 
     def setup() {
         screen = Mock(Screen.class)
         position = new Position(10, 10)
         tg = Mock(TextGraphics.class);
+        string = new String("#FFFFFF")
         gui = new GUILaterna(screen)
         screen.newTextGraphics() >> tg
     }
@@ -65,14 +67,33 @@ class GuiLanternaTest extends Specification{
         1*tg.putString(_,_)
     }
 
-    def 'Draw King'() {
+    def 'Draw Heart'() {
         when:
-        gui.drawHero(position)
+        gui.drawHeart(position)
 
         then:
         1*tg.setForegroundColor(_)
         1*tg.enableModifiers(_)
         1*tg.putString(_,_)
+    }
+
+    def 'Draw King'() {
+        when:
+        gui.drawKing(position)
+
+        then:
+        1*tg.setForegroundColor(_)
+        1*tg.enableModifiers(_)
+        1*tg.putString(_,_)
+    }
+
+    def 'Draw Text'() {
+        when:
+        gui.drawText(position, string, string)
+
+        then:
+        1*tg.setForegroundColor(_)
+        1*tg.putString(_,_,_)
     }
 
     def 'Clear'() {

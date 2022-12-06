@@ -27,8 +27,44 @@ class SoundTrackTest extends Specification{
         FloatControl floatControl = soundTrack.getSound().getControl(FloatControl.Type.MASTER_GAIN)
 
         then:
-        floatControl.getValue() == -25.0f
+        floatControl.getValue() == -10.0f
         soundTrack != null
+    }
+
+    def 'Is playing'() {
+        given:
+        boolean f1 = clip.isRunning()
+        String path = "/src/main/resources/Sounds/soundTrack.wav"
+        soundTrack = new SoundTrack(path)
+
+        when:
+        boolean f2 = soundTrack.isPlaying()
+        soundTrack.play()
+        boolean f3 = soundTrack.isPlaying()
+        soundTrack.stop()
+
+        then:
+        f1 == f2
+        f3
+    }
+
+    def 'Play'() {
+        when:
+        soundTrack.play()
+
+        then:
+        1*clip.setMicrosecondPosition(_)
+        1*clip.start()
+    }
+
+    def 'Play Loop'() {
+        when:
+        soundTrack.playLoop()
+
+        then:
+        1*clip.setMicrosecondPosition(_)
+        1*clip.start()
+        1*clip.loop(Clip.LOOP_CONTINUOUSLY)
     }
 
 }
