@@ -35,6 +35,8 @@
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
 > - `FRIENDLY FIRE`- Enemies can kill each other
+> - `DODGE` - Enemies have a low chance of dodging player bullets
+>
 &nbsp;
 
 ## PLANNED FEATURES
@@ -183,6 +185,33 @@
 > > - We can change enemy moving strategy during the game
 > > - The use of strategies is separated from its creation 
 > > - Eliminates conditional statements
+>
+&nbsp;
+
+### USING THE SAME INSTANCE </br> 
+>
+> ### Problem in Context
+> > When we wanted to add sounds to our game, we predicted that that several classes would need access to a class with a capability of controlling the sound system (SoundControl). So we ensured that this controller would have only one instance. </br>
+> 
+> ### Pattern 
+> > The solution we found to this problem was implementing the `Singleton` pattern. This pattern gives us the ensurance that we instanciate only one object of a certain class, providing a global access point to it. </br>
+> 
+> ### Implementation
+> > The following figure shows how we implemented the pattern: </br>
+> > `Singleton`: </br>
+> >
+> > ![img]() _(insert singleton pattern here)_</br>
+>
+> > Packages can be found in:
+> >    - [`Sound`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/Sound.java)
+> >    - [`SoundControl`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/SoundControl.java)
+> >    - [`SoundTrack`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/SoundTrack.java)
+> 
+> ### Consequences
+> The use of the `Singleton` pattern in the current design allows the following benefits:
+> > - We are sure that a class has only one instance, gaining global access to that instance
+> > - It becomes harder to test the code because several frameworks rely on inheritance when producing mock objects
+> > - We can have an unique instance of the SoundControl object class instead of having to pass it as an atribute to all the classes that require its usability
 >
 &nbsp;
 
