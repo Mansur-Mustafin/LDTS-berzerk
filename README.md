@@ -35,6 +35,8 @@
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
 > - `FRIENDLY FIRE`- Enemies can kill each other
+> - `DODGE` - Enemies have a low chance of dodging player bullets
+>
 &nbsp;
                                                                                                                 
 ## GAME ELEMENTS 
