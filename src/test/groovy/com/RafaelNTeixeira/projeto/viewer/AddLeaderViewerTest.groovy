@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.viewer
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader
-import com.RafaelNTeixeira.projeto.viewer.AddLeaderViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.AddLeaderViewer
 import spock.lang.Specification
 
 class AddLeaderViewerTest extends Specification {

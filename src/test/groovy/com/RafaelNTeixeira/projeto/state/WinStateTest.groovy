@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.state
 import com.RafaelNTeixeira.projeto.States.WinState
 import com.RafaelNTeixeira.projeto.controller.menu.WinController
 import com.RafaelNTeixeira.projeto.model.menu.Win
-import com.RafaelNTeixeira.projeto.viewer.WinViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.WinViewer
 import spock.lang.Specification
 
 class WinStateTest extends Specification{

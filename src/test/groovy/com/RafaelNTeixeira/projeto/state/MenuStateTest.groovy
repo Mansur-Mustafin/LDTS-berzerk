@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.state
 import com.RafaelNTeixeira.projeto.States.MenuState
 import com.RafaelNTeixeira.projeto.controller.menu.MenuController
 import com.RafaelNTeixeira.projeto.model.menu.Menu
-import com.RafaelNTeixeira.projeto.viewer.MenuViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.MenuViewer
 import spock.lang.Specification
 
 class MenuStateTest extends Specification{

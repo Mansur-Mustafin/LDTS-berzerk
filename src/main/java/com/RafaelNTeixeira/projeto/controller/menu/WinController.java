@@ -41,7 +41,6 @@ public class WinController extends Controller<Win> {
                 boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
                 if (selectedLeaderBoard) {
                     instance.start(Sound.CHANGETAB);
-
                     game.setState(new LeaderBoardState(new Leader()));
                 }
 

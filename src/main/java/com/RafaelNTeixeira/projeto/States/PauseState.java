@@ -3,8 +3,8 @@ package com.RafaelNTeixeira.projeto.States;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.controller.menu.PauseController;
 import com.RafaelNTeixeira.projeto.model.menu.Pause;
-import com.RafaelNTeixeira.projeto.viewer.PauseViewer;
-import com.RafaelNTeixeira.projeto.viewer.Viewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.PauseViewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
 public class PauseState extends State<Pause>{
     public PauseState(Pause model) {

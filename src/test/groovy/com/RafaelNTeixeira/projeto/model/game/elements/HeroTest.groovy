@@ -77,6 +77,7 @@ class HeroTest extends Specification{
         hero1.getEnergy() == 5
     }
 
+
     def 'MovesUP'(){
         given:
         Hero hero = new Hero()

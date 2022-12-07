@@ -26,4 +26,5 @@ class WallTest extends Specification{
         position == position1
     }
 
+
 }

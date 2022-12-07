@@ -1,9 +1,9 @@
-package com.RafaelNTeixeira.projeto.viewer;
+package com.RafaelNTeixeira.projeto.viewer.menuViewe;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
-import com.RafaelNTeixeira.projeto.model.menu.Pause;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
 public class LoseViewer extends Viewer<Lose> {
     public LoseViewer(Lose lose) {

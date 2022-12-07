@@ -1,8 +1,9 @@
-package com.RafaelNTeixeira.projeto.viewer;
+package com.RafaelNTeixeira.projeto.viewer.menuViewe;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.menu.Instruction;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
 public class InstructionViewer extends Viewer<Instruction> {
     public InstructionViewer(Instruction instruction) {

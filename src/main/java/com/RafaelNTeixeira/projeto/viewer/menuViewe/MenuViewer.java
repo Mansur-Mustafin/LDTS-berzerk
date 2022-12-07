@@ -1,17 +1,18 @@
-package com.RafaelNTeixeira.projeto.viewer;
+package com.RafaelNTeixeira.projeto.viewer.menuViewe;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
-import com.RafaelNTeixeira.projeto.model.menu.Pause;
+import com.RafaelNTeixeira.projeto.model.menu.Menu;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
-public class PauseViewer extends Viewer<Pause> {
-    public PauseViewer(Pause pause) {
-        super(pause);
+public class MenuViewer extends Viewer<Menu> {
+    public MenuViewer(Menu menu) {
+        super(menu);
     }
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(12, 8), "pause", "#FFFFFF");
+        gui.drawText(new Position(12, 9), "menu", "#FFFFFF");
 
         int numberEntries = getModel().getNumberEntries();
         for (int i = 0; i < numberEntries; i++) {
@@ -22,4 +23,3 @@ public class PauseViewer extends Viewer<Pause> {
         }
     }
 }
-

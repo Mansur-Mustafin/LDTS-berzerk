@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.state
 import com.RafaelNTeixeira.projeto.States.InstructionsState
 import com.RafaelNTeixeira.projeto.controller.menu.InstructionController
 import com.RafaelNTeixeira.projeto.model.menu.Instruction
-import com.RafaelNTeixeira.projeto.viewer.InstructionViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.InstructionViewer
 import spock.lang.Specification
 
 class InstructionsStateTest extends Specification{

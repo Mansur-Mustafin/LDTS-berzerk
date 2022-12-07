@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.state
 import com.RafaelNTeixeira.projeto.States.PauseState
 import com.RafaelNTeixeira.projeto.controller.menu.PauseController
 import com.RafaelNTeixeira.projeto.model.menu.Pause
-import com.RafaelNTeixeira.projeto.viewer.PauseViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.PauseViewer
 import spock.lang.Specification
 
 class PauseStateTest extends Specification{

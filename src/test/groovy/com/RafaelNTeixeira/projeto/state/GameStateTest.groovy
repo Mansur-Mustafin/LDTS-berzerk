@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.state
 import com.RafaelNTeixeira.projeto.States.GameState
 import com.RafaelNTeixeira.projeto.controller.game.ArenaController
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
-import com.RafaelNTeixeira.projeto.viewer.GameViewer
+import com.RafaelNTeixeira.projeto.viewer.gameViewer.GameViewer
 import spock.lang.Specification
 
 class GameStateTest extends Specification{

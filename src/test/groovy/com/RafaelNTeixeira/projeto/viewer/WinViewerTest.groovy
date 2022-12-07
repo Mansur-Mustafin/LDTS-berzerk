@@ -3,6 +3,7 @@ package com.RafaelNTeixeira.projeto.viewer
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.Win
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.WinViewer
 import spock.lang.Specification
 
 class WinViewerTest extends Specification{

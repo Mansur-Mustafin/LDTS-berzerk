@@ -1,11 +1,11 @@
-package com.RafaelNTeixeira.projeto.viewer;
+package com.RafaelNTeixeira.projeto.viewer.menuViewe;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
-import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Win;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
-public class WinViewer extends Viewer<Win>{
+public class WinViewer extends Viewer<Win> {
     public WinViewer(Win win) {
         super(win);
     }

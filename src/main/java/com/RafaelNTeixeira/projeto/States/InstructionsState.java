@@ -3,8 +3,8 @@ package com.RafaelNTeixeira.projeto.States;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.controller.menu.InstructionController;
 import com.RafaelNTeixeira.projeto.model.menu.Instruction;
-import com.RafaelNTeixeira.projeto.viewer.InstructionViewer;
-import com.RafaelNTeixeira.projeto.viewer.Viewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.InstructionViewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
 
 public class InstructionsState extends State<Instruction> {

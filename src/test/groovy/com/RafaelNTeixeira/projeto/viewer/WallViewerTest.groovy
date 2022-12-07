@@ -2,7 +2,7 @@ package com.RafaelNTeixeira.projeto.viewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall
-import com.RafaelNTeixeira.projeto.viewer.WallViewer
+import com.RafaelNTeixeira.projeto.viewer.gameViewer.WallViewer
 import spock.lang.Specification
 
 class WallViewerTest extends Specification {

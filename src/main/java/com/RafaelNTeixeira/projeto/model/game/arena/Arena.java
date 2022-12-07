@@ -24,9 +24,8 @@ public class Arena {
     private List<Wall> walls = new ArrayList<>();
     private List<Monster> monsters = new ArrayList<>();
     private List<King> kings = new ArrayList<>();
-
     private List<Bullet> bullets = new ArrayList<>();
-    private List<Bullet> enemyBullets = new ArrayList<>();
+
     private int Score ;
     public Arena(int x, int y, int lvl) {
         width = x;
@@ -81,12 +80,28 @@ public class Arena {
         kings.remove(index);
     }
 
+    public boolean notContainsWall(Position position){
+        for(Wall wall : walls){
+            if(wall.getPosition().equals(position)){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void Shoot(char dir, Position position, boolean hero){
-        if(dir == 'r' ) bullets.add(new Bullet(position.getX() + 1, position.getY(), dir ,hero));
-        if(dir == 'l' ) bullets.add(new Bullet(position.getX() - 1, position.getY(), dir, hero));
-        if(dir == 'd' ) bullets.add(new Bullet(position.getX() , position.getY() + 1, dir, hero));
-        if(dir == 'u' ) bullets.add(new Bullet(position.getX() , position.getY() - 1, dir, hero));
+        if(dir == 'r' && notContainsWall(new Position(position.getX() + 1 , position.getY() ))){
+            bullets.add(new Bullet(position.getX() + 1, position.getY(), dir ,hero));
+        }
+        if(dir == 'l' && notContainsWall(new Position(position.getX() - 1 , position.getY() ))) {
+            bullets.add(new Bullet(position.getX() - 1, position.getY(), dir, hero));
+        }
+        if(dir == 'd' && notContainsWall(new Position(position.getX()   , position.getY() + 1))) {
+            bullets.add(new Bullet(position.getX() , position.getY() + 1, dir, hero));
+        }
+        if(dir == 'u' && notContainsWall(new Position(position.getX()  , position.getY() - 1 ))){
+            bullets.add(new Bullet(position.getX() , position.getY() - 1, dir, hero));
+        }
     }
 
     public int getlLevel(){
@@ -117,6 +132,7 @@ public class Arena {
     public int getScore() {
         return Score;
     }
+
 
     public void setScore(int score) {
         Score = score;

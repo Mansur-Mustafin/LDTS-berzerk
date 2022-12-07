@@ -19,6 +19,8 @@ class EnemyTest extends Specification{
         pos = Mock(Position.class)
     }
 
+
+
     def 'Position getter'() {
         given:
         Monster monster = new Monster(50, 30)
@@ -83,13 +85,10 @@ class EnemyTest extends Specification{
         def pos_hero = Mock(Position.class)
         def walls = Mock(List<Wall>.class)
         def strategy = Mock(MoveStrategy.class)
-
         strategy.move(_) >> new Position(1,2)
         monster.setMoveStrategy(strategy)
-
         when:
         def position = monster.move(pos_hero, walls)
-
         then:
         position.x == 1
         position.y == 2

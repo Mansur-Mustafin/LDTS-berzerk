@@ -70,10 +70,9 @@ public class BulletController extends GameController{
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (time - lastMovementBullet > 30) {
-            int bullets = getModel().getBullets().size();
-
-            for (int i = 0; i < bullets; i++){
+            for (int i = 0; i < getModel().getBullets().size(); i++){
                 Bullet bullet = getModel().getBullets().get(i);
+
                 Position position = bullet.move(getModel().getHero().position, getModel().getWalls());
                 bullet.setPosition(position);
 
