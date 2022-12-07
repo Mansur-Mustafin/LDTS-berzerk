@@ -33,7 +33,8 @@
 > - `BULLETS` - The player can shoot bullets
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
-> 
+> - `BULLET COLLISION` - When a bullet hits an element it disappears
+> - `FRIENDLY FIRE`- Enemies can kill each other
 &nbsp;
 
 ## PLANNED FEATURES
