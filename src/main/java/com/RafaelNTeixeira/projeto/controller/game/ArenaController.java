@@ -2,6 +2,7 @@ package com.RafaelNTeixeira.projeto.controller.game;
 
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.States.*;
+import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
@@ -16,7 +17,7 @@ import java.io.IOException;
 public class ArenaController extends GameController {
     private HeroController heroController;
     private EnemyController enemyController;
-    private final BulletController bulletController;
+    private BulletController bulletController;
     private long lastBullet;
 
     public ArenaController(Arena arena) {
@@ -26,15 +27,15 @@ public class ArenaController extends GameController {
         this.bulletController = new BulletController(arena);
     }
 
-    public boolean checkNextLvl(){
-        int x = getModel().getHero().getPosition().getX();
-        int y = getModel().getHero().getPosition().getY();
+    public boolean checkNextLvl(Position position){
+        int x = position.getX();
+        int y = position.getY();
         return x > 33 || y > 24;
     }
 
-    public boolean checkPrevLvl(){
-        int x = getModel().getHero().getPosition().getX();
-        int y = getModel().getHero().getPosition().getY();
+    public boolean checkPrevLvl(Position position){
+        int x = position.getX();
+        int y = position.getY();
         return x < 0 || y < 0;
     }
 
@@ -42,7 +43,7 @@ public class ArenaController extends GameController {
         int score = game.getScore();
         if (key == null) {
             heroController.step(game, null, time);
-            boolean canGoToNextLevel = checkNextLvl();
+            boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
             if (canGoToNextLevel){
                 if (getModel().getlLevel() == 4) {
                     game.setState(new WinState(new Win(score)));
@@ -51,7 +52,7 @@ public class ArenaController extends GameController {
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
             }
 
-            boolean canGoToPrevLevel = checkPrevLvl();
+            boolean canGoToPrevLevel = checkPrevLvl(getModel().getHero().getPosition());
             if (canGoToPrevLevel) {
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() - 1)));
             }
@@ -100,7 +101,6 @@ public class ArenaController extends GameController {
                 this.lastBullet = time;
             }
 
-
             if (key.getKeyType() == KeyType.Escape) {
                 instance.stopAll();
                 instance.start(Sound.MENUMUSIC);
@@ -119,5 +119,8 @@ public class ArenaController extends GameController {
     }
     public void setHeroController(HeroController h){
         heroController = h;
+    }
+    public void setBulletController(BulletController h){
+        bulletController = h;
     }
 }

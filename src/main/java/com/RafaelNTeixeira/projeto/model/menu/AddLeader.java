@@ -65,7 +65,7 @@ public class AddLeader {
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/Leaders", true)));
             if (Name.isEmpty()){
-                out.println("Noname" + Score);
+                out.println("Noname " + Score);
             }
             else {
                 out.println( Name + " " + Score);

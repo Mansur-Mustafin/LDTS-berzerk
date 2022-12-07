@@ -2,7 +2,7 @@ package com.RafaelNTeixeira.projeto.viewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero
-import com.RafaelNTeixeira.projeto.viewer.HeroViewer
+import com.RafaelNTeixeira.projeto.viewer.gameViewer.HeroViewer
 import spock.lang.Specification
 
 class HeroViewerTest extends Specification {

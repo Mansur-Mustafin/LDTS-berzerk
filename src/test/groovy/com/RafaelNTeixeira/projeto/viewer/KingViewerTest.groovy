@@ -2,7 +2,7 @@ package com.RafaelNTeixeira.projeto.viewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King
-import com.RafaelNTeixeira.projeto.viewer.KingViewer
+import com.RafaelNTeixeira.projeto.viewer.gameViewer.KingViewer
 import spock.lang.Specification
 
 class KingViewerTest extends Specification {

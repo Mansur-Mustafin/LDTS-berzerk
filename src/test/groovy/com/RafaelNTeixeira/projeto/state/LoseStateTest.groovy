@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.state
 import com.RafaelNTeixeira.projeto.States.LoseState
 import com.RafaelNTeixeira.projeto.controller.menu.LoseController
 import com.RafaelNTeixeira.projeto.model.menu.Lose
-import com.RafaelNTeixeira.projeto.viewer.LoseViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.LoseViewer
 import spock.lang.Specification
 
 class LoseStateTest extends Specification{

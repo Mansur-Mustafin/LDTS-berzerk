@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.state
 import com.RafaelNTeixeira.projeto.States.LeaderBoardState
 import com.RafaelNTeixeira.projeto.controller.menu.LeaderController
 import com.RafaelNTeixeira.projeto.model.menu.Leader
-import com.RafaelNTeixeira.projeto.viewer.LeaderViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.LeaderViewer
 import spock.lang.Specification
 
 class LeaderBoardStateTest extends Specification{

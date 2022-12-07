@@ -1,13 +1,9 @@
 package com.RafaelNTeixeira.projeto.state
 
 import com.RafaelNTeixeira.projeto.States.AddLeaderState
-import com.RafaelNTeixeira.projeto.States.GameState
-import com.RafaelNTeixeira.projeto.controller.game.ArenaController
 import com.RafaelNTeixeira.projeto.controller.menu.AddLeaderController
-import com.RafaelNTeixeira.projeto.model.game.arena.Arena
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader
-import com.RafaelNTeixeira.projeto.viewer.AddLeaderViewer
-import com.RafaelNTeixeira.projeto.viewer.GameViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.AddLeaderViewer
 import spock.lang.Specification
 
 class AddLeaderStateTest extends Specification{

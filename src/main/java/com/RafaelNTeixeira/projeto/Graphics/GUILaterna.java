@@ -82,9 +82,11 @@ public class GUILaterna implements GUI {
     @Override
     public void drawHero(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        //graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
-        //graphics.enableModifiers(SGR.BOLD);
-        //graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
+
+        /*
         TextImage image = new BasicTextImage(40, 16);
 
         InputStream istream = ClassLoader.getSystemResourceAsStream("Elements/Hero.txt");
@@ -107,6 +109,8 @@ public class GUILaterna implements GUI {
         int x = position.getX();
         int y = position.getY();
         graphics.drawImage(new TerminalPosition(x, y), image);
+        */
+
     }
 
     @Override

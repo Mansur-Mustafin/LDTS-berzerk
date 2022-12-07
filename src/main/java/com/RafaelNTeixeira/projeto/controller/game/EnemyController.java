@@ -49,7 +49,6 @@ public class EnemyController extends GameController {
         return true;
     }
 
-
     public char DirOfShoot(Position positionMonster) {
         Position positionHero = getModel().getHero().getPosition();
 

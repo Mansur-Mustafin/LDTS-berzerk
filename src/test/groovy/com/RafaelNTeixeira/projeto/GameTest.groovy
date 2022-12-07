@@ -54,7 +54,7 @@ class GameTest extends Specification{
         when:
         game.setScore(10)
         score = game.getScore()
-        game.incrementScore()
+        game.incrementScore(1)
         incremented_score = game.getScore()
 
         then:

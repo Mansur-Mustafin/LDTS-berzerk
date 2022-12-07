@@ -2,7 +2,7 @@ package com.RafaelNTeixeira.projeto.viewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster
-import com.RafaelNTeixeira.projeto.viewer.MonsterViewer
+import com.RafaelNTeixeira.projeto.viewer.gameViewer.MonsterViewer
 import spock.lang.Specification
 
 class MonsterViewerTest extends Specification {

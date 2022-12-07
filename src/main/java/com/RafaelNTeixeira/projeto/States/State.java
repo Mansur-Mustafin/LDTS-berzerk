@@ -3,7 +3,7 @@ package com.RafaelNTeixeira.projeto.States;
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.controller.Controller;
-import com.RafaelNTeixeira.projeto.viewer.Viewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 import com.github.javaparser.utils.Pair;
 import com.googlecode.lanterna.input.KeyStroke;
 

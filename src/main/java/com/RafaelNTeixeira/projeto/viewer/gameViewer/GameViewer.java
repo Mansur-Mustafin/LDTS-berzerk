@@ -1,4 +1,4 @@
-package com.RafaelNTeixeira.projeto.viewer;
+package com.RafaelNTeixeira.projeto.viewer.gameViewer;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
@@ -9,6 +9,7 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
 import java.util.List;
 

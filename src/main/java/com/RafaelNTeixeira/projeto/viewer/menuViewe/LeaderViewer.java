@@ -1,11 +1,11 @@
-package com.RafaelNTeixeira.projeto.viewer;
+package com.RafaelNTeixeira.projeto.viewer.menuViewe;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
-import com.RafaelNTeixeira.projeto.model.menu.Lose;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
-public class LeaderViewer extends Viewer<Leader>{
+public class LeaderViewer extends Viewer<Leader> {
     public LeaderViewer(Leader lose) {
         super(lose);
     }

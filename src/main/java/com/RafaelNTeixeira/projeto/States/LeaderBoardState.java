@@ -3,8 +3,8 @@ package com.RafaelNTeixeira.projeto.States;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.controller.menu.LeaderController;
 import com.RafaelNTeixeira.projeto.model.menu.Leader;
-import com.RafaelNTeixeira.projeto.viewer.LeaderViewer;
-import com.RafaelNTeixeira.projeto.viewer.Viewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.LeaderViewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
 
 public class LeaderBoardState extends State<Leader>{
