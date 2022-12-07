@@ -83,18 +83,22 @@ public class ArenaController extends GameController {
             }
             if(time - lastBullet > 250 ){
                 if (key.getKeyType() == KeyType.ArrowRight) {
+                    instance.stop(Sound.SHOOTING);
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('r', getModel().getHero().position, true);
                 }
                 if (key.getKeyType() == KeyType.ArrowLeft) {
+                    instance.stop(Sound.SHOOTING);
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('l', getModel().getHero().position, true);
                 }
                 if (key.getKeyType() == KeyType.ArrowUp) {
+                    instance.stop(Sound.SHOOTING);
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('u', getModel().getHero().position, true);
                 }
                 if (key.getKeyType() == KeyType.ArrowDown) {
+                    instance.stop(Sound.SHOOTING);
                     instance.start(Sound.SHOOTING);
                     getModel().Shoot('d', getModel().getHero().position, true);
                 }
@@ -120,11 +124,7 @@ public class ArenaController extends GameController {
     public void setHeroController(HeroController h){
         heroController = h;
     }
-<<<<<<< HEAD
-
-=======
     public void setBulletController(BulletController h){
         bulletController = h;
     }
->>>>>>> 28c3a5e2e39f3e9ffed685d4f3b410dd35893973
 }

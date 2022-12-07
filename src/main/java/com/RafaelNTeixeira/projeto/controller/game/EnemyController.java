@@ -88,11 +88,14 @@ public class EnemyController extends GameController {
                 monster.setPosition(position);
                 boolean monsterHitsHero = position.equals(getModel().getHero().position);
                 if (monsterHitsHero) {
+                    instance.stop(Sound.HERODEATH);
                     instance.start(Sound.HERODEATH);
                     getModel().getHero().decreaseEnergy(3);
                 }
                 char c = DirOfShoot(monster.position);
                 if (c != 'n'){
+                    instance.stop(Sound.SHOOTING);
+                    instance.start(Sound.SHOOTING);
                     getModel().Shoot(c, monster.position, false);
                 }
             }
@@ -106,6 +109,7 @@ public class EnemyController extends GameController {
                 king.setPosition(position);
                 boolean kingHitsHero = position.equals(getModel().getHero().position);
                 if (kingHitsHero) {
+                    instance.stop(Sound.HERODEATH);
                     instance.start(Sound.HERODEATH);
                     getModel().getHero().decreaseEnergy(5);
                 }

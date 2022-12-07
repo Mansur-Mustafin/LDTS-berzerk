@@ -10,7 +10,7 @@ public class Lose {
     private final int Score;
 
     public Lose(int Score) {
-        this.entries = Arrays.asList("menu", "Leader Board", "Add Score to LeaderBoard");
+        this.entries = Arrays.asList("menu", "Leader board", "Add Score to Leader board");
         this.Score = Score;
     }
 

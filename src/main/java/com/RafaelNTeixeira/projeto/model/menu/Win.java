@@ -9,7 +9,7 @@ public class Win {
     private int Score;
 
     public Win(int Score) {
-        this.entries = Arrays.asList("menu", "Leader Board", "Add Score to LeaderBoard");
+        this.entries = Arrays.asList("menu", "Leader board", "Add Score to LeaderBoard");
         this.Score = Score;
     }
 

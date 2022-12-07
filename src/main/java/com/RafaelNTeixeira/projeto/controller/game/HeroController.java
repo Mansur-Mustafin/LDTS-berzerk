@@ -58,6 +58,7 @@ public class HeroController extends GameController {
         for (int i = 0; i < getModel().getMonsters().size(); i++) {
             boolean monsterHitsHero = getModel().getMonsters().get(i).position.equals(position);
             if (monsterHitsHero) {
+                instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
                 hero.decreaseEnergy(3);
             }
@@ -65,6 +66,7 @@ public class HeroController extends GameController {
         for (int i = 0; i < getModel().getKings().size(); i++) {
             boolean kingHitsHero = getModel().getKings().get(i).position.equals(position);
             if (kingHitsHero) {
+                instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
                 hero.decreaseEnergy(5);
             }

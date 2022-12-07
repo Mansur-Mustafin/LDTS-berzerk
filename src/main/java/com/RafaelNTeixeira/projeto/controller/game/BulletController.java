@@ -7,6 +7,8 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
+import com.RafaelNTeixeira.projeto.model.sounds.Sound;
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
@@ -37,6 +39,7 @@ public class BulletController extends GameController{
             if (bulletHitsMonster) {
                 monster.decreaseEnergy(1);
                 if(monster.getEnergy() <= 0){
+                    SoundControl.getInstance().start(Sound.ENEMYDEATH);
                     getModel().eraseMonster(i);
                     game.incrementScore(5);
                     int score = game.getScore();
@@ -56,6 +59,7 @@ public class BulletController extends GameController{
             if (bulletHitsKing) {
                 king.decreaseEnergy(1);
                 if(king.getEnergy() <= 0){
+                    SoundControl.getInstance().start(Sound.ENEMYDEATH);
                     getModel().eraseKing(i);
                     game.incrementScore(10);
                     int score = game.getScore();
@@ -90,6 +94,9 @@ public class BulletController extends GameController{
                 }
                 boolean BulletHitsHero = bullet.position.equals(getModel().getHero().position);
                 if (BulletHitsHero) {
+                    SoundControl.getInstance().stop(Sound.HERODEATH);
+                    SoundControl.getInstance().start(Sound.HERODEATH);
+                    getModel().eraseBullet(i);
                     getModel().getHero().decreaseEnergy(1);
                 }
             }

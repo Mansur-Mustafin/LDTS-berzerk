@@ -19,7 +19,7 @@ public class LoseController extends Controller<Lose> {
     public LoseController(Lose lose) {
         super(lose);
         SoundControl instance = SoundControl.getInstance();
-        instance.stopAll();
+        instance.stop(Sound.SOUNDTRACK);
         instance.start(Sound.MENUMUSIC);
     }
 
