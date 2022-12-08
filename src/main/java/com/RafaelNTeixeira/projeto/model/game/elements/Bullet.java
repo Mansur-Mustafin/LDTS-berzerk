@@ -48,4 +48,6 @@ public class Bullet extends Element {
     public boolean isHeroBullet() {
         return heroBullet;
     }
+
+    public MoveStrategy getMoveStrategy(){return moveStrategy;}
 }
