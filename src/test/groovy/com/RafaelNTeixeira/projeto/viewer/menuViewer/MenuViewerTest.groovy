@@ -1,9 +1,9 @@
-package com.RafaelNTeixeira.projeto.viewer
+package com.RafaelNTeixeira.projeto.viewer.menuViewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.Menu
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.MenuViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.MenuViewer
 import spock.lang.Specification
 
 class MenuViewerTest extends Specification {

@@ -1,4 +1,4 @@
-package com.RafaelNTeixeira.projeto.viewer
+package com.RafaelNTeixeira.projeto.viewer.gameViewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster

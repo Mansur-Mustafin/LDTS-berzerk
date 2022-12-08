@@ -4,8 +4,8 @@ package com.RafaelNTeixeira.projeto.States;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.controller.menu.MenuController;
 import com.RafaelNTeixeira.projeto.model.menu.Menu;
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.MenuViewer;
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.MenuViewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.Viewer;
 
 public class MenuState extends State<Menu> {
     public MenuState(Menu model) {

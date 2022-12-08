@@ -3,8 +3,8 @@ package com.RafaelNTeixeira.projeto.States;
 import com.RafaelNTeixeira.projeto.controller.Controller;
 import com.RafaelNTeixeira.projeto.controller.menu.LoseController;
 import com.RafaelNTeixeira.projeto.model.menu.Lose;
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.LoseViewer;
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.LoseViewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.Viewer;
 
 public class LoseState extends State<Lose>{
     public LoseState(Lose model) {

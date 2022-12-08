@@ -1,4 +1,4 @@
-package com.RafaelNTeixeira.projeto.viewer.menuViewe;
+package com.RafaelNTeixeira.projeto.viewer.menuViewer;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 

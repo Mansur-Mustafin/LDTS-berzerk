@@ -1,9 +1,9 @@
-package com.RafaelNTeixeira.projeto.viewer
+package com.RafaelNTeixeira.projeto.viewer.menuViewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.menu.Pause
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.PauseViewer
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.PauseViewer
 import spock.lang.Specification
 
 class PauseViewerTest extends Specification {

@@ -1,9 +1,8 @@
-package com.RafaelNTeixeira.projeto.viewer.menuViewe;
+package com.RafaelNTeixeira.projeto.viewer.menuViewer;
 
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader;
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
 
 public class AddLeaderViewer extends Viewer<AddLeader> {
     public AddLeaderViewer(AddLeader lose) {

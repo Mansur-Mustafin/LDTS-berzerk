@@ -1,12 +1,12 @@
-package com.RafaelNTeixeira.projeto.viewer
+package com.RafaelNTeixeira.projeto.viewer.menuViewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
-import com.RafaelNTeixeira.projeto.model.menu.Leader
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.LeaderViewer
+import com.RafaelNTeixeira.projeto.model.menu.Instruction
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.InstructionViewer
 import spock.lang.Specification
 
-class LeaderViewerTest extends Specification {
+class InstructionViewerTest extends Specification {
     private def gui
     private def position
 
@@ -15,15 +15,15 @@ class LeaderViewerTest extends Specification {
         position = Mock(Position.class)
     }
 
-    def 'LeaderBoard Text Draw'() {
+    def 'Instruction Text Draw'() {
         given:
-        def leader_viewer = new LeaderViewer(new Leader())
+        def leader_viewer = new InstructionViewer(new Instruction())
         def gui = Mock(GUILaterna.class)
 
         when:
         leader_viewer.drawElements(gui)
 
         then:
-        22 * gui.drawText(_,_,_)
+        16 * gui.drawText(_,_,_)
     }
 }

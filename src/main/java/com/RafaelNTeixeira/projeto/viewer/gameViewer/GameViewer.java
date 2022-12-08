@@ -9,7 +9,7 @@ import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.Viewer;
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.Viewer;
 
 import java.util.List;
 

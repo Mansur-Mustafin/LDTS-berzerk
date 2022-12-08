@@ -1,12 +1,12 @@
-package com.RafaelNTeixeira.projeto.viewer
+package com.RafaelNTeixeira.projeto.viewer.menuViewer
 
 import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.model.game.Position
-import com.RafaelNTeixeira.projeto.model.menu.Lose
-import com.RafaelNTeixeira.projeto.viewer.menuViewe.LoseViewer
+import com.RafaelNTeixeira.projeto.model.menu.Win
+import com.RafaelNTeixeira.projeto.viewer.menuViewer.WinViewer
 import spock.lang.Specification
 
-class LoseViewerTest extends Specification {
+class WinViewerTest extends Specification{
     private def gui
     private def lose
     private def position
@@ -16,15 +16,15 @@ class LoseViewerTest extends Specification {
         position = Mock(Position.class)
     }
 
-    def 'You Lose Text Draw'() {
+    def 'You Win Text Draw'() {
         given:
-        def lose_viewer = new LoseViewer(new Lose(10))
+        def win_viewer = new WinViewer(new Win(10))
         def gui = Mock(GUILaterna.class)
 
         when:
-        lose_viewer.drawElements(gui)
+        win_viewer.drawElements(gui)
 
         then:
-        5 * gui.drawText(_,_,_)
+        7 * gui.drawText(_,_,_)
     }
 }
