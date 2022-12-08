@@ -19,7 +19,10 @@ public class LoseViewer extends Viewer<Lose> {
             String entry = getModel().getEntry(i);
             boolean selected = getModel().isSelected(i);
 
-            gui.drawText(new Position(12 - i*3, 13 + i + 1), entry, selected ? "#FFD700" : "#FFFFFF");
+            int x = 12 - i*3;
+            int y = 14 + i;
+
+            gui.drawText(new Position(x, y), entry, selected ? "#FFD700" : "#FFFFFF");
         }
     }
 }

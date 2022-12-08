@@ -21,8 +21,10 @@ public class WinViewer extends Viewer<Win> {
         for (int i = 0; i < numberEntries; i++) {
             String entry = getModel().getEntry(i);
             boolean selected = getModel().isSelected(i);
+            int x = 12 - i*3;
+            int y = 13 + i + 1;
 
-            gui.drawText(new Position(12 - i*3, 13 + i + 1), entry, selected ? "#FFD700" : "#FFFFFF");
+            gui.drawText(new Position(x, y), entry, selected ? "#FFD700" : "#FFFFFF");
         }
     }
 }

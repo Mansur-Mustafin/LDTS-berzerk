@@ -34,9 +34,8 @@ class LeaderBoardStateTest extends Specification{
 
         when:
         LeaderController leaderController = leaderBoardState.getController()
-        int x = leaderBoardState.getModel().getNumberOfplayers()
 
         then:
-        x == controller.getModel().getNumberOfplayers()
+        leaderController instanceof LeaderController
     }
 }

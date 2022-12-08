@@ -18,8 +18,10 @@ public class LeaderViewer extends Viewer<Leader> {
             String name = getModel().getPlayers().get(i).getName();
             String score = getModel().getPlayers().get(i).getScore();
 
-            gui.drawText(new Position(5, 7 + i), name, "#FFFFFF");
-            gui.drawText(new Position(5  + 20 , 7 + i ), score, "#FFFFFF");
+            int y = 7+1;
+
+            gui.drawText(new Position(5, y), name, "#FFFFFF");
+            gui.drawText(new Position(25 , y ), score, "#FFFFFF");
         }
         gui.drawText(new Position(6, 22), "press enter to get menu", "#FFD700");
 

@@ -19,11 +19,15 @@ class LeaderViewerTest extends Specification {
         given:
         def leader_viewer = new LeaderViewer(new Leader())
         def gui = Mock(GUILaterna.class)
+        int n_of_players = 2+(2*(leader_viewer.getModel().getNumberOfplayers()))
+        if(n_of_players > 22) {
+            n_of_players = 22
+        }
 
         when:
         leader_viewer.drawElements(gui)
 
         then:
-        22 * gui.drawText(_,_,_)
+        n_of_players * gui.drawText(_,_,_)
     }
 }
