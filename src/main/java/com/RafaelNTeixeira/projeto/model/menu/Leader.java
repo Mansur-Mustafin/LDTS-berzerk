@@ -72,9 +72,7 @@ public class Leader {
     public String getEntry(int i) {
         return entries.get(i);
     }
-    public void detEntries(List<String> entries){
-        this.entries = entries;
-    }
+
     public boolean isSelectedEnter() {
         return true;
     }

@@ -41,6 +41,7 @@ public class AddLeader {
     public void delChar(){
         Name = Name.substring(0,Name.length()-1);
     }
+    public void setName(String name) {this.Name = name;}
     public String getName(){
         return Name;
     }
