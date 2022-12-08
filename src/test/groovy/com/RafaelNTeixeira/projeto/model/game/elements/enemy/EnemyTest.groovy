@@ -46,9 +46,6 @@ class EnemyTest extends Specification{
     }
 
 
-
-
-
     def 'Get Move Strategy'() {
 
         given:

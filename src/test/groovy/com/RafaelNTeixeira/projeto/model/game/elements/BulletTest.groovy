@@ -50,19 +50,19 @@ class BulletTest extends Specification{
         bullet.getPosition() == position1
     }
 
-    /*def 'Move'() {
+    def 'Move'() {
         given:
         List<Wall> walls;
-        Position position = new Position(20, 20)
+        Position position = new Position(20, 19)
         boolean b = true
-        Bullet bullet = new Bullet(10, 10, 'r' as char, b)
-        EMoveStrategy moveStrategy = bullet.getMoveStrategy()
+        Bullet bullet = new Bullet(20, 20, 'u' as char, b)
+
+
 
         when:
-        bullet.move(position, walls)
+        Position position1 = bullet.move(position, walls)
 
         then:
-        1*moveStrategy.move(_,_,_)
-
-    }*/
+        position == position1
+    }
 }
