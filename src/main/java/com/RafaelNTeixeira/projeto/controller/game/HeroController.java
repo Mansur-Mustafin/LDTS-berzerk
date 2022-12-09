@@ -52,22 +52,31 @@ public class HeroController extends GameController {
         return true;
     }
 
-    public void verifyMonsterCollisions(Position position) {
+    public SoundControl getInstance(){
+        return SoundControl.getInstance();
+    }
+
+
+    public void soundDeath(){
         SoundControl instance = SoundControl.getInstance();
+        instance.stop(Sound.HERODEATH);
+        instance.start(Sound.HERODEATH);
+    }
+
+
+    public void verifyMonsterCollisions(Position position) {
         Hero hero = getModel().getHero();
         for (int i = 0; i < getModel().getMonsters().size(); i++) {
             boolean monsterHitsHero = getModel().getMonsters().get(i).position.equals(position);
             if (monsterHitsHero) {
-                instance.stop(Sound.HERODEATH);
-                instance.start(Sound.HERODEATH);
+                this.soundDeath();
                 hero.decreaseEnergy(3);
             }
         }
         for (int i = 0; i < getModel().getKings().size(); i++) {
             boolean kingHitsHero = getModel().getKings().get(i).position.equals(position);
             if (kingHitsHero) {
-                instance.stop(Sound.HERODEATH);
-                instance.start(Sound.HERODEATH);
+                this.soundDeath();
                 hero.decreaseEnergy(5);
             }
         }

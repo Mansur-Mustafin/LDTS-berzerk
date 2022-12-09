@@ -156,7 +156,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawHeroBullet(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#A52D93"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();

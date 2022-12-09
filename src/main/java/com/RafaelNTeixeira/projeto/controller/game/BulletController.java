@@ -41,7 +41,7 @@ public class BulletController extends GameController{
                 if(monster.getEnergy() <= 0){
                     SoundControl.getInstance().start(Sound.ENEMYDEATH);
                     getModel().eraseMonster(i);
-                    game.incrementScore(5);
+                    game.changeScoreBy(5);
                     int score = game.getScore();
                     getModel().setScore(score);
                 }
@@ -61,7 +61,7 @@ public class BulletController extends GameController{
                 if(king.getEnergy() <= 0){
                     SoundControl.getInstance().start(Sound.ENEMYDEATH);
                     getModel().eraseKing(i);
-                    game.incrementScore(10);
+                    game.changeScoreBy(10);
                     int score = game.getScore();
                     getModel().setScore(score);
                 }

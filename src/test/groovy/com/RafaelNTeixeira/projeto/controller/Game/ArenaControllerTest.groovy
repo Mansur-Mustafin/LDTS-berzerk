@@ -203,6 +203,8 @@ class ArenaControllerTest extends Specification{
         !Acontrol.checkNextLvl(new Position(10,10))
     }
 
+
+
     def 'check Prev LVL'(){
         expect: 'Should return flag to next lvl'
         Acontrol.checkPrevLvl(new Position(-10,10))

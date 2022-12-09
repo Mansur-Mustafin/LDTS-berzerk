@@ -4,9 +4,11 @@ import com.RafaelNTeixeira.projeto.Game
 import com.RafaelNTeixeira.projeto.controller.game.HeroController
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class HeroControllerTest extends Specification{
 
@@ -114,6 +116,7 @@ class HeroControllerTest extends Specification{
         10 == heroController.getModel().getHero().getEnergy()
     }
 
+
     def 'test Monster Collision -3'(){
 
         when:
@@ -121,7 +124,11 @@ class HeroControllerTest extends Specification{
 
         then:
         12 == heroController.getModel().getHero().getEnergy()
+        1 * heroController.soundDeath()
+
     }
+
+
 
     def 'test move Hero'(){
         given:

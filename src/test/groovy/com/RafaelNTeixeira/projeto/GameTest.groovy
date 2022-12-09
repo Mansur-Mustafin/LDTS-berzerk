@@ -1,17 +1,13 @@
 package com.RafaelNTeixeira.projeto
 
-import com.RafaelNTeixeira.projeto.Game
-import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
+
 import com.RafaelNTeixeira.projeto.States.GameState
 import com.RafaelNTeixeira.projeto.States.LoseState
 import com.RafaelNTeixeira.projeto.States.MenuState
 import com.RafaelNTeixeira.projeto.States.State
-import com.RafaelNTeixeira.projeto.controller.game.ArenaController
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
 import com.RafaelNTeixeira.projeto.model.menu.Lose
 import spock.lang.Specification
-
-import java.awt.Menu
 
 class GameTest extends Specification{
 
@@ -54,7 +50,7 @@ class GameTest extends Specification{
         when:
         game.setScore(10)
         score = game.getScore()
-        game.incrementScore(1)
+        game.changeScoreBy(1)
         incremented_score = game.getScore()
 
         then:

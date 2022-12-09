@@ -83,14 +83,13 @@ public class EnemyController extends GameController {
                 Position position;
                 while (true) {
                     boolean monsterCanMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()));
-                    if (!!monsterCanMove) break;
+                    if (monsterCanMove) break;
                 }
                 monster.setPosition(position);
                 boolean monsterHitsHero = position.equals(getModel().getHero().position);
                 if (monsterHitsHero) {
                     instance.stop(Sound.HERODEATH);
                     instance.start(Sound.HERODEATH);
-                    getModel().getHero().decreaseEnergy(3);
                 }
                 char c = DirOfShoot(monster.position);
                 if (c != 'n'){
@@ -116,5 +115,6 @@ public class EnemyController extends GameController {
             }
             this.lastMovementEnemy = time;
         }
+
     }
 }

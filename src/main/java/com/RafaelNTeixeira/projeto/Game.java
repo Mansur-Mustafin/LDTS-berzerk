@@ -42,7 +42,7 @@ public class Game {
     public int getScore(){
         return Score;
     }
-    public void incrementScore(int x){
+    public void changeScoreBy(int x){
         Score += x;
     }
 
