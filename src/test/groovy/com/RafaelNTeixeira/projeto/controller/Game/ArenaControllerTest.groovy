@@ -136,7 +136,7 @@ class ArenaControllerTest extends Specification{
 
         then:
         1 * h_c.step(game, key, time);
-        0 * b_c.step(game, key, time)
+        1 * b_c.step(game, key, time)
         1 * game.setState(_)
     }
 

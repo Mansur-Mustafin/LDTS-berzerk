@@ -8,7 +8,7 @@ class MenuTest extends Specification{
     def 'Menu Creation' () {
         given:
         Menu menu = new Menu()
-        String entrytest = "Start"
+        String entrytest = "start"
 
         when:
         String entry = menu.getEntry(0)
@@ -20,8 +20,8 @@ class MenuTest extends Specification{
     def 'Switching and getting entries'() {
         given:
         Menu menu = new Menu()
-        String entryStart = "Start"
-        String entryExit = "Exit"
+        String entryStart = "start"
+        String entryExit = "exit"
         int n = 4
 
         when:

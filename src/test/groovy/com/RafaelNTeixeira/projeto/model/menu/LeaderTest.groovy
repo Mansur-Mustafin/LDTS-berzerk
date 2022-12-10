@@ -7,7 +7,7 @@ class LeaderTest extends Specification{
     def 'Getting, selecting and changing entries'(){
         given:
         Leader leader = new Leader()
-        String entry = new String("Press enter to Back menu")
+        String entry = new String("press enter to back menu")
 
         when:
         String x = leader.getEntry(0)

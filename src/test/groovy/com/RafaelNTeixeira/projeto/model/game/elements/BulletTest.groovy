@@ -13,20 +13,13 @@ class BulletTest extends Specification{
         given:
         boolean b = true
         Bullet bulletr = new Bullet(10, 10, 'r' as char, b)
-        Bullet bulletl = new Bullet(10, 10, 'l' as char, b)
-        Bullet bulletu = new Bullet(10, 10, 'u' as char, b)
-        Bullet bulletd = new Bullet(10, 10, 'd' as char, b)
         Bullet bulleta = new Bullet(10, 10, 'a' as char, b)
 
         when:
         boolean f1 = bulletr.isHeroBullet()
 
         then:
-        bulletr.getMoveStrategy() instanceof EMoveStrategy
-        bulletl.getMoveStrategy() instanceof OMoveStrategy
-        bulletd.getMoveStrategy() instanceof SMoveStrategy
-        bulletu.getMoveStrategy() instanceof NMoveStrategy
-        bulleta.getMoveStrategy() instanceof NotMovingStrategy
+
         f1
     }
 
@@ -56,7 +49,7 @@ class BulletTest extends Specification{
 
 
         when:
-        Position position1 = bullet.move(position, walls)
+        Position position1 = bullet.move()
 
         then:
         position == position1

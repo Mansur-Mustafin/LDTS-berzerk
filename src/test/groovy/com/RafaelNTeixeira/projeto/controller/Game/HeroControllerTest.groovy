@@ -124,7 +124,6 @@ class HeroControllerTest extends Specification{
 
         then:
         12 == heroController.getModel().getHero().getEnergy()
-        1 * heroController.soundDeath()
 
     }
 
