@@ -32,7 +32,7 @@ public class GameViewer extends Viewer<Arena> {
         drawElements(gui, kings, new KingViewer());
         drawElements(gui, bullets, new BulletViewer());
         drawElement(gui, hero, new HeroViewer());
-        if(getModel().getlLevel() == 6){
+        if(getModel().getLevel() == 6){
             drawElement(gui, boss, new BossViewer());
             for(int i = 0; i < getModel().getBoss().getEnergy() ; i++ ){
                 gui.drawHeartBoss(new Position(33 - i, 0));

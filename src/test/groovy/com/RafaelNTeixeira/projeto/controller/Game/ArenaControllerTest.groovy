@@ -1,6 +1,7 @@
 package com.RafaelNTeixeira.projeto.controller.Game
 
 import com.RafaelNTeixeira.projeto.Game
+import com.RafaelNTeixeira.projeto.GameTest
 import com.RafaelNTeixeira.projeto.Graphics.GUI
 import com.RafaelNTeixeira.projeto.States.MenuState
 import com.RafaelNTeixeira.projeto.controller.game.ArenaController
@@ -105,7 +106,7 @@ class ArenaControllerTest extends Specification{
         1 * e_c.step(game, key, time);
     }
 
-    def 'test key = null + < energy'(){
+    def 'test key = null + < energy < 0'(){
         given:
         key = null
         arenaController.setEnemyController(e_c)
@@ -121,7 +122,25 @@ class ArenaControllerTest extends Specification{
         1 * game.setState(_)
     }
 
-    def 'test key = null +lvl = 4'(){
+    def 'test key = null + < energy == 0'(){
+        given:
+        key = null
+        arenaController.setEnemyController(e_c)
+        arenaController.setHeroController(h_c)
+        arenaController.getModel().getHero().setEnergy(0)
+
+        when:
+        arenaController.step(game, key, time)
+
+        then:
+        1 * h_c.step(game, key, time);
+        1 * e_c.step(game, key, time);
+        1 * game.setState(_)
+    }
+
+
+
+    def 'test key = null +lvl = 4 next lvl'(){
         given:
         key = null
         def arena = new Arena(34,24,4);
@@ -140,7 +159,7 @@ class ArenaControllerTest extends Specification{
         1 * game.setState(_)
     }
 
-    def 'test key = null +lvl = 4'(){
+    def 'test key = null +lvl = 4 prev lvl'(){
         given:
         key = null
         def arena = new Arena(34,24,4);
@@ -152,29 +171,87 @@ class ArenaControllerTest extends Specification{
 
         when:
         arenaController2.step(game, key, time)
+
         then:
         1 * h_c.step(game, key, time);
         1 * b_c.step(game, key, time)
         1 * game.setState(_)
     }
 
-    def 'test key = null +lvl = 4'(){
+    def 'test key = null +lvl = 6'(){
         given:
         key = null
-        def arena = new Arena(34,24,3);
+        def arena = new Arena(34,24,6);
         def arenaController2 = new ArenaController(arena)
         arenaController2.setEnemyController(e_c)
         arenaController2.setHeroController(h_c)
         arenaController2.setBulletController(b_c)
-        arena.getHero().setPosition(new Position(34,10))
+        arena.boss.decreaseEnergy(12)
+
+
+        when:
+        arenaController2.step(game, key, time)
+
+        then:
+        0 * b_c.step(game, key, time)
+        1 * h_c.step(game, key, time);
+        1 * game.setState(_)
+    }
+    def 'test key = null +lvl = 6 and Boss health < 0'(){
+        given:
+        key = null
+        def arena = new Arena(34,24,6);
+        def arenaController2 = new ArenaController(arena)
+        arenaController2.setEnemyController(e_c)
+        arenaController2.setHeroController(h_c)
+        arenaController2.setBulletController(b_c)
+        arena.boss.decreaseEnergy(15)
+
+        when:
+        arenaController2.step(game, key, time)
+
+        then:
+        0 * b_c.step(game, key, time)
+        1 * h_c.step(game, key, time);
+        1 * game.setState(_)
+    }
+    def 'test key = null +lvl = 6 and Boss health > 0'(){
+        given:
+        key = null
+        def arena = new Arena(34,24,6);
+        def arenaController2 = new ArenaController(arena)
+        arenaController2.setEnemyController(e_c)
+        arenaController2.setHeroController(h_c)
+        arenaController2.setBulletController(b_c)
+        arena.boss.decreaseEnergy(1)
 
         when:
         arenaController2.step(game, key, time)
 
         then:
         1 * h_c.step(game, key, time);
-        1 * b_c.step(game, key, time)
-        1 * game.setState(_)
+        1 * b_c.step(game, key, time);
+        1 * e_c.step(game, key, time);
+        0 * game.setState(_)
+    }
+
+    def 'test key = null +lvl == 5'(){
+        given:
+        key = null
+        def arena = new Arena(34,24,5);
+        def arenaController2 = new ArenaController(arena)
+        arenaController2.setEnemyController(e_c)
+        arenaController2.setHeroController(h_c)
+        arenaController2.setBulletController(b_c)
+
+        when:
+        arenaController2.step(game, key, time)
+
+        then:
+        1 * h_c.step(game, key, time);
+        1 * b_c.step(game, key, time);
+        1 * e_c.step(game, key, time);
+        0 * game.setState(_)
     }
 
     def 'test key == xxx'(){
@@ -199,6 +276,7 @@ class ArenaControllerTest extends Specification{
         Acontrol.checkNextLvl(new Position(10,25))
         Acontrol.checkNextLvl(new Position(34,25))
         !Acontrol.checkNextLvl(new Position(33,10))
+        !Acontrol.checkNextLvl(new Position(23,24))
         !Acontrol.checkNextLvl(new Position(10,22))
         !Acontrol.checkNextLvl(new Position(10,10))
     }
@@ -210,6 +288,8 @@ class ArenaControllerTest extends Specification{
         Acontrol.checkPrevLvl(new Position(-10,10))
         Acontrol.checkPrevLvl(new Position(10,-25))
         Acontrol.checkPrevLvl(new Position(-34,-25))
+        Acontrol.checkPrevLvl(new Position(0,25))
+        Acontrol.checkPrevLvl(new Position(34,0))
         !Acontrol.checkPrevLvl(new Position(33,10))
         !Acontrol.checkPrevLvl(new Position(10,22))
         !Acontrol.checkPrevLvl(new Position(10,10))

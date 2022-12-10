@@ -132,7 +132,7 @@ public class Arena {
         }
     }
 
-    public int getlLevel(){
+    public int getLevel(){
         return level;
     }
     public Hero getHero(){

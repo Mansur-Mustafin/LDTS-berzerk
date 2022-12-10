@@ -30,7 +30,7 @@ public class EnemyController extends GameController {
 
 
     public boolean canMonsterMove(Position position) {
-        if (position.getX() < 0 || position.getY() < 0 || position.getX() > getModel().getWidth() - 1 || position.getY() > getModel().getHeight() - 1)
+        if (position.getX() < 0 || position.getY() < 0 || position.getX() > 33 || position.getY() > 23)
             return false;
 
         List<Wall> walls = getModel().getWalls();
@@ -46,6 +46,7 @@ public class EnemyController extends GameController {
         }
         List<King> kings = getModel().getKings();
         for (Enemy enemy : kings) {
+
             boolean equals2 = enemy.getPosition().equals(position);
             if (equals2) return false;
         }
@@ -118,7 +119,7 @@ public class EnemyController extends GameController {
             }
             this.lastMovementEnemy = time;
         }
-        if(time - lastMovementBoss > 800 && getModel().getlLevel() == 6){
+        if(time - lastMovementBoss > 800 && getModel().getLevel() == 6){
             SoundControl instance = SoundControl.getInstance();
             Boss boss = getModel().getBoss();
             Position position = boss.move(getModel().getHero().position ,getModel().getWalls() );
@@ -139,7 +140,7 @@ public class EnemyController extends GameController {
             getModel().Shoot('z', boss.position, false);
             this.lastMovementBoss = time;
         }
-        if(time - lastSpawn > 6000 && getModel().getlLevel() == 6){
+        if(time - lastSpawn > 6000 && getModel().getLevel() == 6){
             getModel().spawnMonster();
             lastSpawn = time;
         }

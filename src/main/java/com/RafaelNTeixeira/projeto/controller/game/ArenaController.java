@@ -44,19 +44,20 @@ public class ArenaController extends GameController {
         if (key == null) {
             heroController.step(game, null, time);
 
-            if(getModel().getlLevel() == 6 && getModel().getBoss().getEnergy() <= 0){
+            if(getModel().getLevel() == 6 && getModel().getBoss().getEnergy() <= 0){
                 game.setState(new WinState(new Win(score)));
                 return;
             }
 
             boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
             if (canGoToNextLevel){
-                game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
+                int N_lvl = getModel().getLevel() + 1;
+                game.setState(new GameState(new Arena(34, 25, N_lvl)));
             }
 
             boolean canGoToPrevLevel = checkPrevLvl(getModel().getHero().getPosition());
             if (canGoToPrevLevel) {
-                game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() - 1)));
+                game.setState(new GameState(new Arena(34, 25, getModel().getLevel() - 1)));
             }
 
             bulletController.step(game, null, time);

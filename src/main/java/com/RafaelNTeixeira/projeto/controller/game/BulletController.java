@@ -81,7 +81,7 @@ public class BulletController extends GameController{
                 bullet.setPosition(position);
 
 
-                boolean bulletHitsBoss = (getModel().getlLevel() == 6) && bullet.position.equals(getModel().getBoss().position) ;
+                boolean bulletHitsBoss = (getModel().getLevel() == 6) && bullet.position.equals(getModel().getBoss().position) ;
                 if(bulletHitsBoss){
                     getModel().eraseBullet(i);
                     getModel().getBoss().decreaseEnergy(1);

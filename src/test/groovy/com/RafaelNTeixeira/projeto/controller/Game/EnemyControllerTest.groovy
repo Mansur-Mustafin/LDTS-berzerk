@@ -31,22 +31,43 @@ class EnemyControllerTest extends Specification{
         Position p5 = new Position(112, 312)
         Position p6 = new Position(-112, -3)
         Position w = new Position(0,7 )
-        when:
-        def r = enemyController.canMonsterMove(p)
-        def r2 = enemyController.canMonsterMove(p2)
-        def r3 = enemyController.canMonsterMove(p3)
-        def r4 = enemyController.canMonsterMove(p4)
-        def r5 = enemyController.canMonsterMove(p5)
-        def r6 = enemyController.canMonsterMove(p6)
-        def r7 = enemyController.canMonsterMove(w)
-        then:
-        !r
-        !r2
-        !r3
-        !r4
-        !r5
-        !r6
-        !r7
+        Position m = new Position(8,9 )
+        Position k = new Position(3,4 )
+        Position p7 = new Position(3, 5)
+        Position p8 = new Position(7,0)
+        Position p9 = new Position(33, 14)
+        Position p10 = new Position(23, 23)
+        Position p11 = new Position(0, 0)
+        Position p12 = new Position(0, 1)
+
+        expect:
+
+         !enemyController.canMonsterMove(p)
+         !enemyController.canMonsterMove(p2)
+         !enemyController.canMonsterMove(p3)
+         !enemyController.canMonsterMove(p4)
+         !enemyController.canMonsterMove(p5)
+         !enemyController.canMonsterMove(p6)
+         !enemyController.canMonsterMove(w)
+         !enemyController.canMonsterMove(m)
+         !enemyController.canMonsterMove(k)
+          enemyController.canMonsterMove(p7)
+        enemyController.canMonsterMove(p8)
+        enemyController.canMonsterMove(p9)
+        enemyController.canMonsterMove(p10)
+        enemyController.canMonsterMove(p11)
+        !enemyController.canMonsterMove(p12)
+    }
+
+    def 'test Shoot'(){
+        expect:
+
+        enemyController.DirOfShoot(new Position(7,21)) == 'u'
+        enemyController.DirOfShoot(new Position(7, 19)) == 'd'
+        enemyController.DirOfShoot(new Position(6,20)) == 'r'
+        enemyController.DirOfShoot(new Position(8, 20)) == 'l'
+        enemyController.DirOfShoot(new Position(3,3)) == 'n'
+
     }
 
     def 'test time < 500'(){
