@@ -166,4 +166,7 @@ public class Arena {
     public void setScore(int score) {
         Score = score;
     }
+
+    public void setBullets(List<Bullet> bullet_l) {bullets = bullet_l;}
+    public void setHealth(List<Health> health_l) {health = health_l;}
 }

@@ -77,6 +77,16 @@ class GuiLanternaTest extends Specification{
         1*tg.putString(_,_)
     }
 
+    def 'Draw Heart Boss'() {
+        when:
+        gui.drawHeartBoss(position)
+
+        then:
+        1*tg.setForegroundColor(_)
+        1*tg.enableModifiers(_)
+        1*tg.putString(_,_)
+    }
+
     def 'Draw King'() {
         when:
         gui.drawKing(position)
@@ -85,6 +95,16 @@ class GuiLanternaTest extends Specification{
         1*tg.setForegroundColor(_)
         1*tg.enableModifiers(_)
         1*tg.putString(_,_)
+    }
+
+    def 'Draw Boss'() {
+        when:
+        gui.drawBoss(position)
+
+        then:
+        1*tg.setForegroundColor(_)
+        1*tg.enableModifiers(_)
+        9*tg.putString(_,_)
     }
 
     def 'Draw Hero bullet'(){
