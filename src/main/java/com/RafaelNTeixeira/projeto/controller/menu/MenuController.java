@@ -44,7 +44,7 @@ public class MenuController extends Controller<Menu> {
                 if (selectedStart) {
                     instance.start(Sound.CHANGETAB);
                     instance.stop(Sound.MENUMUSIC);
-                    game.setState(new GameState(new Arena(34, 24, 6)));
+                    game.setState(new GameState(new Arena(34, 24, 1)));
                     instance.start(Sound.SOUNDTRACK);
                     game.setScore(0);
                 }
