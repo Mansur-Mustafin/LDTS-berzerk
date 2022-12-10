@@ -2,8 +2,10 @@ package com.RafaelNTeixeira.projeto.model.game.arena
 
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
+import com.RafaelNTeixeira.projeto.model.game.elements.Bullet
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster
+import com.RafaelNTeixeira.projeto.model.game.elements.Health
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall
 import spock.lang.Specification
@@ -103,5 +105,110 @@ class ArenaTest extends Specification{
 
         then:
         flag && flag2
+    }
+
+    def 'Spawn Monster'() {
+        given:
+        int x = arena.getMonsters().size()
+
+        when:
+        arena.spawnMonster()
+        int z = arena.getMonsters().size()
+
+        then:
+        x == z - 2
+    }
+
+    def 'Erase Bullet'() {
+        given:
+        List<Bullet> bullet_l = new ArrayList<Bullet>()
+        Bullet bullet = new Bullet(10, 10, 'u' as char, true)
+        bullet_l.add(bullet)
+        arena.setBullets(bullet_l)
+        int x = arena.getBullets().size()
+
+        when:
+        arena.eraseBullet(0)
+
+        then:
+        x == arena.getBullets().size()+1
+    }
+
+    def 'Erase Monsters'() {
+        given:
+        int x = arena.getMonsters().size()
+
+        when:
+        arena.eraseMonster(0)
+
+        then:
+        x == arena.getMonsters().size()+1
+    }
+
+    def 'Erase King'() {
+        given:
+        int x = arena.getKings().size()
+
+        when:
+        arena.eraseKing(0)
+
+        then:
+        x == arena.getKings().size()+1
+    }
+
+    def 'Erase Health'() {
+        given:
+        List<Health> health_l = new ArrayList<>()
+        Health health = new Health(5, 5)
+        health_l.add(health)
+        arena.setHealth(health_l)
+        int x = arena.getHealth().size()
+
+        when:
+        arena.eraseHealth(0)
+
+        then:
+        x == arena.getHealth().size()+1
+    }
+
+    def 'Not contains wall'(){
+        given:
+        Position position = new Position(0, 2)
+        Position position1 = new Position(5, 5)
+
+        when:
+        boolean f1 = arena.notContainsWall(position)
+        boolean f2 = arena.notContainsWall(position1)
+
+        then:
+        !f1
+        f2
+    }
+
+    def 'Shoot'(){
+        given:
+        Position position = new Position(5, 5)
+
+        when:
+        arena.Shoot('r' as char, position, true)
+        arena.Shoot('l' as char, position, true)
+        arena.Shoot('d' as char, position, true)
+        arena.Shoot('u' as char, position, true)
+        arena.Shoot('q' as char, position, true)
+        arena.Shoot('t' as char, position, true)
+        arena.Shoot('a' as char, position, true)
+        arena.Shoot('z' as char, position, true)
+        List<Bullet> bulletList = arena.getBullets()
+
+        then:
+        bulletList[0].getPosition() == new Position(6, 5)
+        bulletList[1].getPosition() == new Position(4, 5)
+        bulletList[2].getPosition() == new Position(5, 6)
+        bulletList[3].getPosition() == new Position(5, 4)
+        bulletList[4].getPosition() == new Position(4, 4)
+        bulletList[5].getPosition() == new Position(6, 4)
+        bulletList[6].getPosition() == new Position(4, 6)
+        bulletList[7].getPosition() == new Position(6, 6)
+
     }
 }
