@@ -80,6 +80,7 @@ public class ArenaController extends GameController {
                 instance.start(Sound.MENUMUSIC);
                 game.setState(new LoseState(new Lose(score)));
             }
+
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
                 game.setState(null);
                 return;

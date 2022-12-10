@@ -67,4 +67,12 @@ class SoundTrackTest extends Specification{
         1*clip.loop(Clip.LOOP_CONTINUOUSLY)
     }
 
+    def 'Stop'(){
+        when:
+        soundTrack.stop()
+
+        then:
+        1*clip.stop()
+    }
+
 }

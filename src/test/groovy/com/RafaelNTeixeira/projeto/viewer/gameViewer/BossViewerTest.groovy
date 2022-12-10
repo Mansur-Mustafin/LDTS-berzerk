@@ -14,7 +14,7 @@ class BossViewerTest extends Specification{
         gui = Mock(GUILaterna.class)
     }
 
-    def 'Heart Draw'() {
+    def 'Boss Draw'() {
         given:
         BossViewer bossViewer = new BossViewer()
 

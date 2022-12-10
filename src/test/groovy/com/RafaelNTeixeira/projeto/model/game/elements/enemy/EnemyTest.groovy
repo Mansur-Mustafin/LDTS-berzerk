@@ -1,6 +1,7 @@
 package com.RafaelNTeixeira.projeto.model.game.elements.enemy
 
 import com.RafaelNTeixeira.projeto.model.game.Position
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.BFSMoveStrategy
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.RandomMoveStrategy
@@ -72,8 +73,17 @@ class EnemyTest extends Specification{
 
         then:
         monster.getMoveStrategy().getClass() == new BFSMoveStrategy().getClass()
+    }
 
+    def 'Generate energy'(){
+        given:
+        Monster monster = new Monster(10, 10)
 
+        when:
+        int x = monster.generateEnergy()
+
+        then:
+        x == 1
     }
 
     /*def 'Move'() {
