@@ -118,7 +118,7 @@
 > > - It’s always the same process to add a new feature: create model, view and controller for that
 >
 &nbsp;
-&nbsp;
+
 
 ### CHANGING GAME STATE </br>
 >
@@ -161,11 +161,14 @@
 > 
 > ### Implementation
 > > The following figure shows how we implemented the patterns: </br>
-> > `Factory Pattern`: </br>
+> >
+> > &nbsp;
+> > `Factory Pattern` </br>
 > >
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Factory.png) </br>
+> > &nbsp;
 > >
-> > `Strategy Pattern`: </br>
+> > `Strategy Pattern` </br>
 > >
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Strategy.png) </br> 
 > >
@@ -198,7 +201,7 @@
 > 
 > ### Implementation
 > > The following figure shows how we implemented the pattern: </br>
-> > `Singleton`: </br>
+> > `Singleton` </br>
 > >
 > > ![img]() _(insert singleton pattern here)_</br>
 >
@@ -216,10 +219,24 @@
 &nbsp;
 
 ## REFACTORING LIST
->
+> 
+> Here´s a list of refactorings that we did throughout our project development:
 > - `Extract Variable`
 > - `Move Method`
+> - `Rename Method`
+> - `Add Parameter`
+> - `Remove parameter`
+> - `Decompose Conditional`
+> - `Consolidate Duplicate Conditional Fragments`
+> - `Inline Method`
 >
+&nbsp;
+
+## CODE SMELLS
+> 
+> Here´s a list of code smells that are currently present on our code:
+>
+&nbsp;
 
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
