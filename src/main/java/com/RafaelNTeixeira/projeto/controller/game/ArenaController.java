@@ -36,19 +36,21 @@ public class ArenaController extends GameController {
     public boolean checkPrevLvl(Position position){
         int x = position.getX();
         int y = position.getY();
-        return x < 0 || y < 0;
+        return x <= 0 || y <= 0;
     }
 
     public void step(Game game, KeyStroke key, long time) throws IOException {
         int score = game.getScore();
         if (key == null) {
             heroController.step(game, null, time);
+
+            if(getModel().getlLevel() == 6 && getModel().getBoss().getEnergy() <= 0){
+                game.setState(new WinState(new Win(score)));
+                return;
+            }
+
             boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
             if (canGoToNextLevel){
-                if (getModel().getlLevel() == 4) {
-                    game.setState(new WinState(new Win(score)));
-                    return;
-                }
                 game.setState(new GameState(new Arena(34, 25, getModel().getlLevel() + 1)));
             }
 

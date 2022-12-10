@@ -77,8 +77,15 @@ public class BulletController extends GameController{
             for (int i = 0; i < getModel().getBullets().size(); i++){
                 Bullet bullet = getModel().getBullets().get(i);
 
-                Position position = bullet.move(getModel().getHero().position, getModel().getWalls());
+                Position position = bullet.move();
                 bullet.setPosition(position);
+
+
+                boolean bulletHitsBoss = (getModel().getlLevel() == 6) && bullet.position.equals(getModel().getBoss().position) ;
+                if(bulletHitsBoss){
+                    getModel().eraseBullet(i);
+                    getModel().getBoss().decreaseEnergy(1);
+                }
 
                 boolean bulletHitsWall = HaveWalls(bullet.position);
                 if (bulletHitsWall) {

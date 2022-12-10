@@ -76,9 +76,4 @@ public class Hero extends Element {
         this.position.setX(x);
     }
 
-    public Position getPosition(){
-        return position;
-    }
-
-
 }

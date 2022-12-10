@@ -1,10 +1,7 @@
 package com.RafaelNTeixeira.projeto.model.game.elements.enemy.Move
 
 import com.RafaelNTeixeira.projeto.model.game.Position
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.EMoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.NMoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.OMoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.SMoveStrategy
+
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall
 import spock.lang.Specification
 

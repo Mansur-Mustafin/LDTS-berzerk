@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+import com.RafaelNTeixeira.projeto.model.game.elements.Health;
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 
@@ -42,7 +43,6 @@ public class HeroController extends GameController {
     }
 
     private boolean canHeroMove(Position position) {
-
         List<Wall> walls = getModel().getWalls();
         for (Wall wall : walls) {
             boolean equals = wall.getPosition().equals(position);
@@ -91,8 +91,22 @@ public class HeroController extends GameController {
         }
     }
 
+    private boolean checkHealth(){
+        List<Health> healthList = getModel().getHealth();
+        for(int i = 0 ; i < healthList.size(); i++){
+            if(healthList.get(i).getPosition().equals(getModel().getHero().getPosition())){
+                getModel().eraseHealth(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public void step(Game game, KeyStroke key, long time) {
+        if(checkHealth()){
+            getModel().getHero().decreaseEnergy(-1);
+        }
         if(key == null){return;}
         if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'w') moveHeroUp();
         if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'd') moveHeroRight();

@@ -3,12 +3,10 @@ package com.RafaelNTeixeira.projeto.viewer.gameViewer;
 import com.RafaelNTeixeira.projeto.Graphics.GUI;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
-import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
-import com.RafaelNTeixeira.projeto.model.game.elements.Element;
+import com.RafaelNTeixeira.projeto.model.game.elements.*;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Boss;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
-import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
-import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 import com.RafaelNTeixeira.projeto.viewer.menuViewer.Viewer;
 
 import java.util.List;
@@ -24,20 +22,29 @@ public class GameViewer extends Viewer<Arena> {
         List<Monster> monsters = getModel().getMonsters();
         List<King> kings = getModel().getKings();
         List<Bullet> bullets = getModel().getBullets();
+        List<Health> health = getModel().getHealth();
         Hero hero = getModel().getHero();
-        
+        Boss boss = getModel().getBoss();
+
+        drawElements(gui, health, new HeartViewer());
         drawElements(gui, walls, new WallViewer());
         drawElements(gui, monsters, new MonsterViewer());
         drawElements(gui, kings, new KingViewer());
         drawElements(gui, bullets, new BulletViewer());
         drawElement(gui, hero, new HeroViewer());
-
+        if(getModel().getlLevel() == 6){
+            drawElement(gui, boss, new BossViewer());
+            for(int i = 0; i < getModel().getBoss().getEnergy() ; i++ ){
+                gui.drawHeartBoss(new Position(33 - i, 0));
+            }
+        }
 
         int score = getModel().getScore();
         gui.drawText(new Position(0, 0), Integer.toString(score) , "#FFD700");
         for(int i = 0; i < getModel().getHero().getEnergy() ; i++ ){
-            gui.drawHeart(new Position(8 + i, 0));
+            gui.drawHeart(new Position(4 + i, 0));
         }
+
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

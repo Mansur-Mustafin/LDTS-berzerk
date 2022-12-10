@@ -12,6 +12,7 @@ public interface GUI {
     KeyStroke getNextAction() throws IOException;
 
     void drawHeart(Position position);
+    void drawHeartBoss(Position position);
     void drawHero(Position position);
 
     //List<Pair<Integer, Integer>> getPressedMause();
@@ -20,7 +21,7 @@ public interface GUI {
     void drawWall(Position position);
 
     void drawMonster(Position position);
-
+    void drawBoss(Position position);
     void drawKing(Position position);
     void drawHeroBullet(Position position);
     void drawEnemyBullet(Position position);

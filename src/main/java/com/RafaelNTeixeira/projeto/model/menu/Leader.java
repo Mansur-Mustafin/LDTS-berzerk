@@ -19,9 +19,9 @@ public class Leader {
 
     private int currentEntry = 0;
     public Leader() throws IOException {
-        this.entries = Arrays.asList("Press enter to Back menu");
+        this.entries = Arrays.asList("press enter to back menu");
 
-        InputStream istream = ClassLoader.getSystemResourceAsStream("Leaders");
+        InputStream istream = ClassLoader.getSystemResourceAsStream("leaders");
         InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(istreamreader);
         try {

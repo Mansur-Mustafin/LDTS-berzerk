@@ -59,7 +59,6 @@ public class GUILaterna implements GUI {
         ((AWTTerminalFrame)terminal).getComponent(0).addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(e.getButton());
                 pressedKeys.add(e.getButton());
             }
         });
@@ -122,6 +121,17 @@ public class GUILaterna implements GUI {
         int y = position.getY();
         graphics.putString(new TerminalPosition(x,y),"J");
     }
+
+    @Override
+    public void drawHeartBoss(Position position){
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
+        graphics.enableModifiers(SGR.BORDERED);
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x,y),"J");
+    }
+
     @Override
     public void drawWall(Position position){
         TextGraphics graphics = screen.newTextGraphics();
@@ -151,6 +161,24 @@ public class GUILaterna implements GUI {
         int x = position.getX();
         int y = position.getY();
         graphics.putString(new TerminalPosition(x,y),"K");
+    }
+
+    @Override
+    public void drawBoss(Position position){
+        TextGraphics graphics = screen.newTextGraphics();
+        graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
+        graphics.enableModifiers(SGR.BORDERED);
+        int x = position.getX();
+        int y = position.getY();
+        graphics.putString(new TerminalPosition(x,y),"F");
+        graphics.putString(new TerminalPosition(x - 1,y - 1),"A");
+        graphics.putString(new TerminalPosition(x,y - 1),"C");
+        graphics.putString(new TerminalPosition(x + 1,y - 1),"D");
+        graphics.putString(new TerminalPosition(x - 1,y),"E");
+        graphics.putString(new TerminalPosition(x + 1,y),"G");
+        graphics.putString(new TerminalPosition(x - 1 ,y+1),"H");
+        graphics.putString(new TerminalPosition(x,y+1),"I");
+        graphics.putString(new TerminalPosition(x+1,y+1),"L");
     }
 
     @Override

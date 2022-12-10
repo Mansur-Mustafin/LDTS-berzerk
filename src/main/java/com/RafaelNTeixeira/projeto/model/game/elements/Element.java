@@ -9,4 +9,8 @@ public abstract class Element {
         position = new Position(x,y);
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
 }

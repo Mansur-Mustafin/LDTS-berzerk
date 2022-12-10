@@ -7,8 +7,6 @@ public class Wall extends Element {
         super(x,y);
     }
 
-    public Position getPosition() {
-        return position;
-    }
+
 
 }

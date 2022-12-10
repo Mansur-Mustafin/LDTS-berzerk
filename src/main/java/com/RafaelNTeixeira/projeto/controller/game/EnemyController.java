@@ -3,6 +3,7 @@ package com.RafaelNTeixeira.projeto.controller.game;
 import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Boss;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Enemy;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
@@ -19,6 +20,8 @@ import java.util.List;
 
 public class EnemyController extends GameController {
     private long lastMovementEnemy;
+    private long lastMovementBoss;
+    private long lastSpawn;
 
     public EnemyController(Arena arena) {
         super(arena);
@@ -115,6 +118,30 @@ public class EnemyController extends GameController {
             }
             this.lastMovementEnemy = time;
         }
-
+        if(time - lastMovementBoss > 800 && getModel().getlLevel() == 6){
+            SoundControl instance = SoundControl.getInstance();
+            Boss boss = getModel().getBoss();
+            Position position = boss.move(getModel().getHero().position ,getModel().getWalls() );
+            boss.setPosition(position);
+            boolean BossHitsHero = position.getDistance(getModel().getHero().position) < 2;
+            if (BossHitsHero) {
+                instance.stop(Sound.HERODEATH);
+                instance.start(Sound.HERODEATH);
+                getModel().getHero().decreaseEnergy(7);
+            }
+            getModel().Shoot('r', boss.position, false);
+            getModel().Shoot('l', boss.position, false);
+            getModel().Shoot('u', boss.position, false);
+            getModel().Shoot('d', boss.position, false);
+            getModel().Shoot('t', boss.position, false);
+            getModel().Shoot('q', boss.position, false);
+            getModel().Shoot('a', boss.position, false);
+            getModel().Shoot('z', boss.position, false);
+            this.lastMovementBoss = time;
+        }
+        if(time - lastSpawn > 6000 && getModel().getlLevel() == 6){
+            getModel().spawnMonster();
+            lastSpawn = time;
+        }
     }
 }

@@ -47,7 +47,7 @@ public class Game {
     }
 
     public void run() throws IOException {
-        int frameTime = 1000 / 80;
+        int frameTime = 1000 / 120;
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();

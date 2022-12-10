@@ -8,46 +8,47 @@ import java.util.List;
 
 
 public class Bullet extends Element {
-    private final MoveStrategy moveStrategy;
     private final boolean heroBullet;
 
-    public Bullet(int x, int y, Character dir, boolean heroBullet){
+    private char dir;
+
+    public Bullet(int x, int y, char dir, boolean heroBullet){
         super(x,y);
         this.heroBullet = heroBullet;
-        switch (dir){
-            case 'r':
-                moveStrategy =  new EMoveStrategy();
-                break;
-            case 'l':
-                moveStrategy =  new OMoveStrategy();
-                break;
-            case 'u':
-                moveStrategy =  new NMoveStrategy();
-                break;
-            case 'd':
-                moveStrategy =  new SMoveStrategy();
-                break;
-            default:
-                moveStrategy =  new NotMovingStrategy();
-        }
+        this.dir = dir;
     }
 
-    public Position move(Position position_hero, List<Wall> walls){
-        Position move = moveStrategy.move(position, position_hero, walls);
-        return move;
+    public Position move(){
+        int x = position.getX();
+        int y = position.getY();
+
+        switch (dir){
+            case 'r':
+                return new Position(x + 1, y);
+            case 'l':
+                return new Position(x - 1, y);
+            case 'u':
+                return new Position(x, y - 1);
+            case 'd':
+                return new Position(x , y + 1);
+            case 't':
+                return new Position(x +1 , y - 1);
+            case 'q':
+                return new Position(x - 1 , y - 1);
+            case 'a':
+                return new Position(x - 1 , y + 1);
+            case 'z':
+                return new Position(x + 1, y + 1);
+        }
+        return new Position(x , y);
     }
 
     public void setPosition(Position position){
         this.position = position;
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
     public boolean isHeroBullet() {
         return heroBullet;
     }
 
-    public MoveStrategy getMoveStrategy(){return moveStrategy;}
 }

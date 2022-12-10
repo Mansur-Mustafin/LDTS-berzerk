@@ -1,13 +1,9 @@
 package com.RafaelNTeixeira.projeto.model.game.elements
 
 import com.RafaelNTeixeira.projeto.model.game.Position
-import com.RafaelNTeixeira.projeto.model.game.arena.Arena
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.EMoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.MoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.NMoveStrategy
+
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.NotMovingStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.OMoveStrategy
-import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.SMoveStrategy
+
 import spock.lang.Specification
 
 class BulletTest extends Specification{
