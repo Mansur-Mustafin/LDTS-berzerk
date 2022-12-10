@@ -57,41 +57,40 @@ public class HeroController extends GameController {
     }
 
 
-    public void soundDeath(){
-        SoundControl instance = SoundControl.getInstance();
-        instance.stop(Sound.HERODEATH);
-        instance.start(Sound.HERODEATH);
-    }
 
 
-    public void verifyMonsterCollisions(Position position) {
+    public void verifyMonsterCollisions(Position position, SoundControl instance) {
         Hero hero = getModel().getHero();
+
         for (int i = 0; i < getModel().getMonsters().size(); i++) {
             boolean monsterHitsHero = getModel().getMonsters().get(i).position.equals(position);
             if (monsterHitsHero) {
-                this.soundDeath();
+                instance.stop(Sound.HERODEATH);
+                instance.start(Sound.HERODEATH);
                 hero.decreaseEnergy(3);
             }
         }
         for (int i = 0; i < getModel().getKings().size(); i++) {
             boolean kingHitsHero = getModel().getKings().get(i).position.equals(position);
             if (kingHitsHero) {
-                this.soundDeath();
+                instance.stop(Sound.HERODEATH);
+                instance.start(Sound.HERODEATH);
                 hero.decreaseEnergy(5);
             }
         }
     }
 
     private void moveHero(Position position) {
+        SoundControl instance = SoundControl.getInstance();
         boolean canMove = canHeroMove(position);
         if (canMove) {
-            verifyMonsterCollisions(position);
+            verifyMonsterCollisions(position, instance);
             Hero hero = getModel().getHero();
             hero.setPosition(position);
         }
     }
 
-    private boolean checkHealth(){
+    public boolean checkHealth(){
         List<Health> healthList = getModel().getHealth();
         for(int i = 0 ; i < healthList.size(); i++){
             if(healthList.get(i).getPosition().equals(getModel().getHero().getPosition())){

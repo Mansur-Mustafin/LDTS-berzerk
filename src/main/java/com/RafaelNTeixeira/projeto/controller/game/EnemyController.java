@@ -28,6 +28,17 @@ public class EnemyController extends GameController {
         this.lastMovementEnemy = 0;
     }
 
+    public void setLastMovementEnemy(long time){
+        lastMovementEnemy = time;
+    }
+
+    public void lastMovementBoss(long time){
+        lastMovementEnemy = time;
+    }
+
+    public void lastSpawn(long time){
+        lastMovementEnemy = time;
+    }
 
     public boolean canMonsterMove(Position position) {
         if (position.getX() < 0 || position.getY() < 0 || position.getX() > 33 || position.getY() > 23)
@@ -74,71 +85,82 @@ public class EnemyController extends GameController {
         return 'n';
     }
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-        if (time - lastMovementEnemy > 500) {
+    public void stepMovementEnemy(Game game, KeyStroke key, long time, SoundControl instance ){
+        int score = game.getScore();
+        getModel().setScore(score);
 
-            int score = game.getScore();
-            getModel().setScore(score);
+        List<Monster> monsters = getModel().getMonsters();
 
-            List<Monster> monsters = getModel().getMonsters();
-            SoundControl instance = SoundControl.getInstance();
-            for (Enemy monster : monsters) {
-                Position position;
-                while (true) {
-                    boolean monsterCanMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()));
-                    if (monsterCanMove) break;
-                }
-                monster.setPosition(position);
-                boolean monsterHitsHero = position.equals(getModel().getHero().position);
-                if (monsterHitsHero) {
-                    instance.stop(Sound.HERODEATH);
-                    instance.start(Sound.HERODEATH);
-                }
-                char c = DirOfShoot(monster.position);
-                if (c != 'n'){
-                    instance.stop(Sound.SHOOTING);
-                    instance.start(Sound.SHOOTING);
-                    getModel().Shoot(c, monster.position, false);
-                }
+        for (Enemy monster : monsters) {
+            Position position;
+            while (true) {
+                boolean monsterCanMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()));
+                if (monsterCanMove) break;
             }
-
-            List<King> kings = getModel().getKings();
-            for (Enemy king : kings) {
-                if (king.position.getDistance(getModel().getHero().position) < 20){
-                    king.setMoveStrategy(new BFSMoveStrategy());
-                }
-                Position position = king.move(getModel().getHero().position ,getModel().getWalls() );
-                king.setPosition(position);
-                boolean kingHitsHero = position.equals(getModel().getHero().position);
-                if (kingHitsHero) {
-                    instance.stop(Sound.HERODEATH);
-                    instance.start(Sound.HERODEATH);
-                    getModel().getHero().decreaseEnergy(5);
-                }
-            }
-            this.lastMovementEnemy = time;
-        }
-        if(time - lastMovementBoss > 800 && getModel().getLevel() == 6){
-            SoundControl instance = SoundControl.getInstance();
-            Boss boss = getModel().getBoss();
-            Position position = boss.move(getModel().getHero().position ,getModel().getWalls() );
-            boss.setPosition(position);
-            boolean BossHitsHero = position.getDistance(getModel().getHero().position) < 2;
-            if (BossHitsHero) {
+            monster.setPosition(position);
+            boolean monsterHitsHero = position.equals(getModel().getHero().position);
+            if (monsterHitsHero) {
                 instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
-                getModel().getHero().decreaseEnergy(7);
             }
-            getModel().Shoot('r', boss.position, false);
-            getModel().Shoot('l', boss.position, false);
-            getModel().Shoot('u', boss.position, false);
-            getModel().Shoot('d', boss.position, false);
-            getModel().Shoot('t', boss.position, false);
-            getModel().Shoot('q', boss.position, false);
-            getModel().Shoot('a', boss.position, false);
-            getModel().Shoot('z', boss.position, false);
-            this.lastMovementBoss = time;
+            char c = DirOfShoot(monster.position);
+            if (c != 'n'){
+                instance.stop(Sound.SHOOTING);
+                instance.start(Sound.SHOOTING);
+                getModel().Shoot(c, monster.position, false);
+            }
+        }
+
+        List<King> kings = getModel().getKings();
+        for (Enemy king : kings) {
+            if (king.position.getDistance(getModel().getHero().position) < 20){
+                king.setMoveStrategy(new BFSMoveStrategy());
+            }
+            Position position = king.move(getModel().getHero().position ,getModel().getWalls() );
+            king.setPosition(position);
+            boolean kingHitsHero = position.equals(getModel().getHero().position);
+            if (kingHitsHero) {
+                instance.stop(Sound.HERODEATH);
+                instance.start(Sound.HERODEATH);
+                getModel().getHero().decreaseEnergy(5);
+            }
+        }
+    }
+
+
+    public void stepMovementBoss(Game game, KeyStroke key, long time, SoundControl instance){
+        Boss boss = getModel().getBoss();
+        Position position = boss.move(getModel().getHero().position ,getModel().getWalls() );
+        boss.setPosition(position);
+        boolean BossHitsHero = position.getDistance(getModel().getHero().position) < 2;
+        if (BossHitsHero) {
+            instance.stop(Sound.HERODEATH);
+            instance.start(Sound.HERODEATH);
+            getModel().getHero().decreaseEnergy(7);
+        }
+        getModel().Shoot('r', boss.position, false);
+        getModel().Shoot('l', boss.position, false);
+        getModel().Shoot('u', boss.position, false);
+        getModel().Shoot('d', boss.position, false);
+        getModel().Shoot('t', boss.position, false);
+        getModel().Shoot('q', boss.position, false);
+        getModel().Shoot('a', boss.position, false);
+        getModel().Shoot('z', boss.position, false);
+        this.lastMovementBoss = time;
+    }
+
+
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        SoundControl instance = SoundControl.getInstance();
+
+        if (time - lastMovementEnemy > 500) {
+            stepMovementEnemy(game, key, time, instance);
+            this.lastMovementEnemy = time;
+        }
+
+        if(time - lastMovementBoss > 800 && getModel().getLevel() == 6){
+            stepMovementBoss(game, key, time, instance);
         }
         if(time - lastSpawn > 6000 && getModel().getLevel() == 6){
             getModel().spawnMonster();

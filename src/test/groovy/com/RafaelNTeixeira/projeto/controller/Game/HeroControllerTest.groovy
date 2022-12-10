@@ -17,6 +17,7 @@ class HeroControllerTest extends Specification{
     private def key
     private def time
     private def heroController
+    private def instance
 
     def setup(){
         arena = new Arena(34,24,1)
@@ -24,12 +25,20 @@ class HeroControllerTest extends Specification{
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
+        instance = Mock(SoundControl.class)
     }
 
     def 'test Cons' (){
         expect:
         heroController.getModel().getWidth() == 34
         heroController.getModel().getHeight() == 24
+    }
+
+    def 'test Sound'(){
+        given:
+        def instance = heroController.getInstance();
+        expect:
+        instance instanceof SoundControl
     }
 
     def 'test MoveHeroLeft'(){
@@ -101,7 +110,7 @@ class HeroControllerTest extends Specification{
         def energy = new Integer(heroController.getModel().getHero().getEnergy())
 
         when:
-        heroController.verifyMonsterCollisions(new Position(2,2))
+        heroController.verifyMonsterCollisions(new Position(2,2), instance)
 
         then:
         energy == heroController.getModel().getHero().getEnergy()
@@ -110,24 +119,24 @@ class HeroControllerTest extends Specification{
     def 'test Monster Collision -5'(){
 
         when:
-        heroController.verifyMonsterCollisions(new Position(3,4))
+        heroController.verifyMonsterCollisions(new Position(3,4), instance)
 
         then:
         10 == heroController.getModel().getHero().getEnergy()
+        1 * instance.stop(_)
+        1 * instance.start(_)
     }
-
 
     def 'test Monster Collision -3'(){
 
         when:
-        heroController.verifyMonsterCollisions(new Position(8, 9))
+        heroController.verifyMonsterCollisions(new Position(8, 9), instance)
 
         then:
         12 == heroController.getModel().getHero().getEnergy()
-
+        1 * instance.stop(_)
+        1 * instance.start(_)
     }
-
-
 
     def 'test move Hero'(){
         given:
@@ -221,5 +230,48 @@ class HeroControllerTest extends Specification{
         then:
         heroController.getModel().getHero().getPosition().getX() == p.getX()
         heroController.getModel().getHero().getPosition().getY() == p.getY()
+    }
+
+    def 'test checkHealth false'(){
+        given:
+        def arena2 = new Arena(34,24,6)
+        def heroController2 = new HeroController(arena2)
+
+        when:
+        def r1 = heroController2.checkHealth()
+
+        then:
+        !r1
+    }
+
+    def 'test checkHealth true'(){
+        given:
+        def arena2 = new Arena(34,24,6)
+        def heroController2 = new HeroController(arena2)
+        heroController2.model.hero.setPosition(new Position(27,3))
+        def i = heroController2.model.getHealth().size()
+
+        when:
+        def r1 = heroController2.checkHealth()
+
+
+        then:
+        r1
+        i - 1 == heroController2.model.getHealth().size()
+    }
+
+    def 'test step null + energy'(){
+        given:
+        def arena2 = new Arena(34,24,6)
+        def heroController2 = new HeroController(arena2)
+        heroController2.model.hero.setPosition(new Position(27,3))
+        key = null
+        def i = heroController2.model.hero.energy
+
+        when:
+        heroController2.step(game,  key,  time)
+
+        then:
+        i + 1 == heroController2.model.hero.energy
     }
 }
