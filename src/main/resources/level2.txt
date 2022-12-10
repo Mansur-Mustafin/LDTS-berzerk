@@ -8,18 +8,18 @@ w         w           k w        w
 w         wwwwwwwwwwwwwww        w
 w         w                      w
 w    m    w      m      w        w
-w         w             wwwwww   w
-w         w             w k      w
-w         w       m     w        w
-  h       w             w        w
-          w    k        w   m    w
+w         w      w      wwwwww   w
+w         w      w      w k      w
+w         w      wm     w        w
+  h       w      w      w        w
+          w    k w      w   m    w
 wwwwwwwwwww             w        w
 w                       w        w
 w        wwwwwwwwwwwwwwww        w
 w        w              k        w
-w     m  w           w           w
-w        w     m     w           w
-w        w           w     m     w
-w                    w           w
-w     m              w           w
+w     m  w     wwwwwwww          w
+w        w            w          w
+w        w  w   wwww  w    m     w
+w           w      w             w
+w     m  wwww      w             w
 wwwwwwwwwwwwwww    wwwwwwwwwwwwwww
