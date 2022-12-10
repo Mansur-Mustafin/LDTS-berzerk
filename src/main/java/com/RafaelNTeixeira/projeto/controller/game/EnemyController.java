@@ -103,12 +103,14 @@ public class EnemyController extends GameController {
             if (monsterHitsHero) {
                 instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
+                getModel().getHero().decreaseEnergy(3);
             }
-            char c = DirOfShoot(monster.position);
+            char c = DirOfShoot(monster.getPosition());
             if (c != 'n'){
                 instance.stop(Sound.SHOOTING);
                 instance.start(Sound.SHOOTING);
-                getModel().Shoot(c, monster.position, false);
+                getModel().Shoot(c, monster.getPosition(), false);
+
             }
         }
 

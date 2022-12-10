@@ -28,6 +28,8 @@ public class Arena {
     private List<King> kings = new ArrayList<>();
     private List<Bullet> bullets = new ArrayList<>();
     private List<Health> health = new ArrayList<>();
+
+
     private Boss boss;
     private int Score ;
     public Arena(int x, int y, int lvl) {
@@ -167,6 +169,9 @@ public class Arena {
         Score = score;
     }
 
+    public void setMonsters(List<Monster> m){
+        monsters = m;
+    }
     public void setBullets(List<Bullet> bullet_l) {bullets = bullet_l;}
     public void setHealth(List<Health> health_l) {health = health_l;}
 }

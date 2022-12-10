@@ -83,11 +83,7 @@ class PositionTest extends Specification{
         boolean equals1 = position2.equals(position)
 
         then:
-        equals == false
-        equals1 == true
+        !equals
+        equals1
     }
-
-
-
-
 }

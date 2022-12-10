@@ -34,13 +34,13 @@ public class BFSMoveStrategy implements MoveStrategy{
         steps.add(new Position(1,1)); steps.add(new Position(-1,1));
         steps.add(new Position(1,-1)); steps.add(new Position(-1,-1));
 
-        boolean[][]  used = new boolean[34][24];
-        Position[][] parent = new Position[34][24];
+        boolean[][]  used = new boolean[35][27];
+        Position[][] parent = new Position[35][27];
         Queue<Position> q = new LinkedList<>();
         q.add(position);
 
-        for(int i = 0; i < 34; i++){
-            for(int j = 0; j < 24; j++){
+        for(int i = 0; i < 35; i++){
+            for(int j = 0; j < 27; j++){
                 used[i][j] = false;
             }
         }

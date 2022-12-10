@@ -5,6 +5,7 @@ import com.RafaelNTeixeira.projeto.controller.game.BulletController
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
 import com.RafaelNTeixeira.projeto.model.game.elements.Bullet
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import spock.lang.Specification
 
@@ -15,6 +16,7 @@ class BulletControllerTest extends Specification{
     private def game
     private def key
     private def time
+    private def instance
 
     def setup(){
         arena = new Arena(34,24,1)
@@ -22,6 +24,7 @@ class BulletControllerTest extends Specification{
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
+        instance = Mock(SoundControl.class)
     }
 
     def 'Test cons'() {
@@ -45,24 +48,35 @@ class BulletControllerTest extends Specification{
         !f2
     }
 
-    //hero 7, 20
-    //king 3, 4
-
     def 'Have Monster'(){
         given:
         Position position = new Position(0,2)
-        Position position1 = new Position(8, 9)
-        int m_size = arena.getMonsters().size()
 
         when:
-        boolean f1 = bulletController.HaveMonster(position, game)
-        boolean f2 = bulletController.HaveMonster(position1, game)
+        boolean f1 = bulletController.HaveMonster(position, game , instance)
         int m_size2 = arena.getMonsters().size()
 
         then:
         !f1
+    }
+
+    def 'Have Monster 2'(){
+        given:
+        Position position1 = new Position(8, 9)
+        int m_size = arena.getMonsters().size()
+        def score = arena.getScore()
+        game.getScore() >> 5
+
+        when:
+        boolean f2 = bulletController.HaveMonster(position1, game, instance)
+        int m_size2 = arena.getMonsters().size()
+
+        then:
+        score + 5 == bulletController.getModel().getScore()
         f2
         m_size2 == m_size-1
+        1 * instance.start(_)
+        1 * game.changeScoreBy(_);
     }
 
     def 'King life 1'(){
@@ -71,26 +85,43 @@ class BulletControllerTest extends Specification{
         Position position1 = new Position(3, 4)
 
         when:
-        boolean f1 = bulletController.HaveKings(position, game)
-        boolean f2 = bulletController.HaveKings(position1, game)
-
+        boolean f1 = bulletController.HaveKings(position, game, instance)
+        boolean f2 = bulletController.HaveKings(position1, game, instance)
 
         then:
         !f1
         f2
     }
 
-    def 'King life 0'(){
+    def 'King life not die'(){
         given:
         Position position1 = new Position(3, 4)
         int k_size = arena.getKings().size()
 
         when:
-        bulletController.HaveKings(position1, game)
-        bulletController.HaveKings(position1, game)
+        bulletController.HaveKings(position1, game, instance)
+
 
         then:
-        arena.getKings().size() == k_size - 1
+        arena.getKings().size() == k_size
+    }
+
+    def 'King life 0'(){
+        given:
+        Position position1 = new Position(3, 4)
+        def k_size = arena.getKings().size()
+        def score = arena.getScore()
+        game.getScore() >> 10
+
+        when:
+        bulletController.HaveKings(position1, game, instance)
+        bulletController.HaveKings(position1, game,  instance)
+
+        then:
+        bulletController.getModel().getKings().size() == k_size - 1
+        1 * instance.start(_)
+        1 * game.changeScoreBy(_)
+        bulletController.getModel().getScore() == 10 + score
     }
 
     def 'King life < 0'(){
@@ -99,9 +130,9 @@ class BulletControllerTest extends Specification{
         int k_size = arena.getKings().size()
 
         when:
-        bulletController.HaveKings(position1, game)
-        bulletController.HaveKings(position1, game)
-        bulletController.HaveKings(position1, game)
+        bulletController.HaveKings(position1, game,  instance)
+        bulletController.HaveKings(position1, game, instance)
+        bulletController.HaveKings(position1, game, instance)
 
         then:
         arena.getKings().size() == k_size - 1
@@ -115,7 +146,7 @@ class BulletControllerTest extends Specification{
         arena.setBullets(list_b)
 
         when:
-        bulletController.step(game, key, time)
+        bulletController.stepMovimentBullet(game, key, instance)
 
         then:
         arena.getBullets().size() == 0
@@ -129,7 +160,7 @@ class BulletControllerTest extends Specification{
         arena.setBullets(list_b)
 
         when:
-        bulletController.step(game, key, time)
+        bulletController.stepMovimentBullet(game, key, instance)
 
         then:
         arena.getBullets().size() == 0
@@ -143,7 +174,7 @@ class BulletControllerTest extends Specification{
         arena.setBullets(list_b)
 
         when:
-        bulletController.step(game, key, time)
+        bulletController.stepMovimentBullet(game, key, instance)
 
         then:
         arena.getBullets().size() == 0
@@ -155,12 +186,16 @@ class BulletControllerTest extends Specification{
         Bullet bullet = new Bullet(7, 21, 'u' as char, false)
         list_b.add(bullet)
         arena.setBullets(list_b)
+        def energy = bulletController.getModel().getHero().getEnergy()
 
         when:
-        bulletController.step(game, key, time)
+        bulletController.stepMovimentBullet(game, key, instance)
 
         then:
         arena.getBullets().size() == 0
+        energy - 1 == bulletController.getModel().getHero().getEnergy()
+        1 * instance.stop(_)
+        1 * instance.start(_)
     }
 
     def 'Step bullet hits Boss'(){
@@ -171,12 +206,59 @@ class BulletControllerTest extends Specification{
         Bullet bullet = new Bullet(18, 13, 'u' as char, true)
         list_b.add(bullet)
         arena1.setBullets(list_b)
+        def energy = bulletController1.getModel().boss.energy
 
         when:
-        bulletController1.step(game, key, time)
+        bulletController1.stepMovimentBullet(game, key, instance)
 
         then:
         arena1.getBullets().size() == 0
+        energy - 1 == bulletController1.getModel().boss.energy
     }
 
+    def 'Step 30 '(){
+        given:
+        List<Bullet> list_b = new ArrayList<>()
+        Bullet bullet = new Bullet(3, 3, 'd' as char, true)
+        list_b.add(bullet)
+        arena.setBullets(list_b)
+
+        when:
+        bulletController.step(game, key, 30)
+
+        then:
+        bullet.position.x == 3
+        bullet.position.y == 3
+    }
+
+    def 'Step  29 + 10'(){
+        given:
+        List<Bullet> list_b = new ArrayList<>()
+        Bullet bullet = new Bullet(3, 3, 'd' as char, true)
+        list_b.add(bullet)
+        arena.setBullets(list_b)
+        bulletController.setlastMovementBullet(20)
+
+        when:
+        bulletController.step(game, key, 30)
+
+        then:
+        bullet.position.x == 3
+        bullet.position.y == 3
+    }
+
+    def 'Step  35'(){
+        given:
+        List<Bullet> list_b = new ArrayList<>()
+        Bullet bullet = new Bullet(3, 3, 'd' as char, true)
+        list_b.add(bullet)
+        arena.setBullets(list_b)
+
+        when:
+        bulletController.step(game, key, 35)
+
+        then:
+        bullet.position.x == 3
+        bullet.position.y == 4
+    }
 }
