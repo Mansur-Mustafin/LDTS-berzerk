@@ -38,6 +38,29 @@ class AddLeaderTest extends Specification{
         z == leader
     }
 
+    def 'Entry boundaries prev'(){
+        given:
+        AddLeader addLeader = new AddLeader(10)
+
+        when:
+        addLeader.previousEntry()
+
+        then:
+        addLeader.isSelected(1)
+    }
+
+    def 'Entry boundaries next'(){
+        given:
+        AddLeader addLeader = new AddLeader(10)
+
+        when:
+        addLeader.nextEntry()
+        addLeader.nextEntry()
+
+        then:
+        addLeader.isSelected(0)
+    }
+
     def 'Deleting char'() {
         given:
         AddLeader addLeader = new AddLeader(10)
@@ -51,6 +74,5 @@ class AddLeaderTest extends Specification{
         then:
         name == name1
     }
-
 
 }

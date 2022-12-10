@@ -50,4 +50,29 @@ class MenuTest extends Specification{
         then:
         f1 && f2
     }
+
+    def 'Entry boundaries prev'(){
+        given:
+        Menu menu = new Menu()
+
+        when:
+        menu.previousEntry()
+
+        then:
+        menu.isSelected(3)
+    }
+
+    def 'Entry boundaries next'(){
+        given:
+        Menu menu = new Menu()
+
+        when:
+        menu.nextEntry()
+        menu.nextEntry()
+        menu.nextEntry()
+        menu.nextEntry()
+
+        then:
+        menu.isSelected(0)
+    }
 }

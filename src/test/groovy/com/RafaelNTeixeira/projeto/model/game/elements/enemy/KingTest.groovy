@@ -29,6 +29,16 @@ class KingTest extends Specification{
 
         then:
         moveStrategy.getClass() == new NotMovingStrategy().getClass()
+    }
 
+    def 'Generate energy'(){
+        given:
+        King king = new King(10, 10)
+
+        when:
+        int x = king.generateEnergy()
+
+        then:
+        x == 2
     }
 }
