@@ -28,16 +28,16 @@ public class EnemyController extends GameController {
         this.lastMovementEnemy = 0;
     }
 
-    public void setLastMovementEnemy(long time){
+    public void lastMovementEnemy(long time){
         lastMovementEnemy = time;
     }
 
     public void lastMovementBoss(long time){
-        lastMovementEnemy = time;
+        lastMovementBoss = time;
     }
 
     public void lastSpawn(long time){
-        lastMovementEnemy = time;
+        lastSpawn = time;
     }
 
     public boolean canMonsterMove(Position position) {
@@ -70,7 +70,8 @@ public class EnemyController extends GameController {
         if (positionHero.getX() == positionMonster.getX()) {
             if (positionMonster.getY() > positionHero.getY()) {
                 return 'u';
-            } else {
+            }
+            if(positionMonster.getY() < positionHero.getY()) {
                 return 'd';
             }
         }

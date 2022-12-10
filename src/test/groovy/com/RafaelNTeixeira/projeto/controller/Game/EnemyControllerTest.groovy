@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.Game
 import com.RafaelNTeixeira.projeto.controller.game.EnemyController
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import spock.lang.Specification
 
@@ -15,6 +16,7 @@ class EnemyControllerTest extends Specification{
     private def game
     private def key
     private def time
+    private def instance
 
     def setup(){
         a1 = new Arena(34,24,1)
@@ -24,6 +26,7 @@ class EnemyControllerTest extends Specification{
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
+        instance = Mock(SoundControl.class)
     }
 
     def 'test of can move'(){
@@ -69,7 +72,8 @@ class EnemyControllerTest extends Specification{
         enemyController1.DirOfShoot(new Position(6,20)) == 'r'
         enemyController1.DirOfShoot(new Position(8, 20)) == 'l'
         enemyController1.DirOfShoot(new Position(3,3)) == 'n'
-        enemyController1.DirOfShoot(new Position(7,20)) == 'd'
+        enemyController1.DirOfShoot(new Position(7,20)) == 'r'
+        enemyController1.DirOfShoot(new Position(8,20)) == 'l'
     }
 
 
@@ -153,12 +157,120 @@ class EnemyControllerTest extends Specification{
         given:
         def time2 = 790
         enemyController2.lastMovementBoss(200)
-        def x = enemyController2.getModel().getBoss().getPosition().getX()
-        def y = enemyController2.getModel().getBoss().getPosition().getY()
+        def p = new Position(enemyController2.getModel().getBoss().getPosition().getX(),enemyController2.getModel().getBoss().getPosition().getY() )
+
         when:
         enemyController2.step(game, key, time2)
         then:
-        x == enemyController2.getModel().getBoss().getPosition().getX()
-        y == enemyController2.getModel().getBoss().getPosition().getY()
+        p.x == enemyController2.getModel().getBoss().getPosition().getX()
+        p.y == enemyController2.getModel().getBoss().getPosition().getY()
     }
+
+    def 'test stepMovementBoss move'(){
+        given:
+        def x = enemyController2.getModel().getBoss().getPosition().getX()
+        def y = enemyController2.getModel().getBoss().getPosition().getY()
+        def i = enemyController2.getModel().getBullets().size()
+
+        when:
+        enemyController2.stepMovementBoss(game,key, 200, instance)
+
+        then:
+        x != enemyController2.getModel().getBoss().getPosition().getX() || y != enemyController2.getModel().getBoss().getPosition().getY()
+        i + 8 == enemyController2.getModel().getBullets().size()
+    }
+
+    def 'test stepMovementBoss - energy'(){
+        given:
+        def x = enemyController2.getModel().getBoss().getPosition().getX()
+        def y = enemyController2.getModel().getBoss().getPosition().getY()
+        def i = enemyController2.getModel().getBullets().size()
+        enemyController2.getModel().getHero().setPosition(new Position(18,12))
+        def energy = enemyController2.getModel().getHero().getEnergy()
+
+        when:
+        enemyController2.stepMovementBoss(game,key, 200, instance)
+
+        then:
+        i + 8 == enemyController2.getModel().getBullets().size()
+        energy - 7 == enemyController2.getModel().getHero().getEnergy()
+        1 * instance.stop(_)
+        1 * instance.start(_)
+    }
+
+    def 'test stepMovementBoss - enegry < or <='(){
+        given:
+        def x = enemyController2.getModel().getBoss().getPosition().getX()
+        def y = enemyController2.getModel().getBoss().getPosition().getY()
+        def i = enemyController2.getModel().getBullets().size()
+        enemyController2.getModel().getHero().setPosition(new Position(15,12))
+        def energy = enemyController2.getModel().getHero().getEnergy()
+
+        when:
+        enemyController2.stepMovementBoss(game,key, 200, instance)
+
+        then:
+        i + 8 == enemyController2.getModel().getBullets().size()
+        energy == enemyController2.getModel().getHero().getEnergy()
+    }
+
+    def 'test MovementEnemy 200 '(){
+        given:
+        def time2 = 200
+        def x = enemyController1.getModel().getKings().get(0).getPosition().getX()
+        def y = enemyController1.getModel().getKings().get(0).getPosition().getY()
+        when:
+        enemyController1.step(game, key, time2)
+        then:
+        x == enemyController1.getModel().getKings().get(0).getPosition().getX()
+        y == enemyController1.getModel().getKings().get(0).getPosition().getY()
+    }
+
+    def 'test MovementEnemy 6000 '(){
+        given:
+        def time2 = 6000
+        def x = enemyController1.getModel().getKings().get(0).getPosition().getX()
+        def y = enemyController1.getModel().getKings().get(0).getPosition().getY()
+        when:
+        enemyController1.step(game, key, time2)
+        then:
+        x != enemyController1.getModel().getKings().get(0).getPosition().getX() || y != enemyController1.getModel().getKings().get(0).getPosition().getY()
+    }
+
+    def 'test MovementEnemy 500 '(){
+        given:
+        def time2 = 500
+        def x = enemyController1.getModel().getKings().get(0).getPosition().getX()
+        def y = enemyController1.getModel().getKings().get(0).getPosition().getY()
+        when:
+        enemyController1.step(game, key, time2)
+        then:
+        x == enemyController1.getModel().getKings().get(0).getPosition().getX()
+        y == enemyController1.getModel().getKings().get(0).getPosition().getY()
+    }
+
+    def 'test MovementEnemy + or - '(){
+        given:
+        def time2 = 490
+        def x = enemyController1.getModel().getKings().get(0).getPosition().getX()
+        def y = enemyController1.getModel().getKings().get(0).getPosition().getY()
+        enemyController1.lastMovementEnemy(200)
+        when:
+        enemyController1.step(game, key, time2)
+        then:
+        x == enemyController1.getModel().getKings().get(0).getPosition().getX()
+        y == enemyController1.getModel().getKings().get(0).getPosition().getY()
+    }
+
+    def 'test stepMovementEnemy'(){
+        given:
+        game.getScore() >> 200
+
+        when:
+        enemyController1.stepMovementEnemy(game, key, 500, instance)
+
+        then:
+        enemyController1.getModel().getScore() == 200
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.*;
 public class BFSMoveStrategy implements MoveStrategy{
 
     boolean canMove(Position position){
-        return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= 99 && position.getY() <= 59;
+        return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= 33 && position.getY() <= 23;
     }
 
     boolean contains(List<Wall> walls, Position position){
@@ -34,13 +34,13 @@ public class BFSMoveStrategy implements MoveStrategy{
         steps.add(new Position(1,1)); steps.add(new Position(-1,1));
         steps.add(new Position(1,-1)); steps.add(new Position(-1,-1));
 
-        boolean[][]  used = new boolean[100][60];
-        Position[][] parent = new Position[100][60];
+        boolean[][]  used = new boolean[34][24];
+        Position[][] parent = new Position[34][24];
         Queue<Position> q = new LinkedList<>();
         q.add(position);
 
-        for(int i = 0; i < 100; i++){
-            for(int j = 0; j < 60; j++){
+        for(int i = 0; i < 34; i++){
+            for(int j = 0; j < 24; j++){
                 used[i][j] = false;
             }
         }
