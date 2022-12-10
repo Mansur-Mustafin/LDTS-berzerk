@@ -8,13 +8,7 @@ import spock.lang.Specification
 
 class WallTest extends Specification{
 
-    private def textGraphics
-
-    def setup () {
-        textGraphics = Mock(TextGraphics.class)
-    }
-
-    def 'Position getter' () {
+    def 'Wall creation' () {
         given:
         Wall wall = new Wall(50, 50)
         Position position = new Position(50, 50)
