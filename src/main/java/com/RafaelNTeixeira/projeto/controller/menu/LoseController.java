@@ -19,15 +19,21 @@ public class LoseController extends Controller<Lose> {
     public LoseController(Lose lose) {
         super(lose);
         SoundControl instance = SoundControl.getInstance();
+        startMenuMusic(instance);
+    }
+
+    public void startMenuMusic(SoundControl instance){
         instance.stop(Sound.SOUNDTRACK);
         instance.start(Sound.MENUMUSIC);
     }
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
-            return;
-        }
+    public void changeTabSound(SoundControl instance) {
+        instance.stop(Sound.CHANGETAB);
+        instance.start(Sound.CHANGETAB);
+    }
+
+    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
+
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -36,14 +42,18 @@ public class LoseController extends Controller<Lose> {
                 getModel().nextEntry();
                 break;
             case Enter:
-                SoundControl instance = SoundControl.getInstance();
-                instance.start(Sound.CHANGETAB);
+
+                changeTabSound(instance);
 
                 boolean selectedMenu = getModel().isSelectedMenu();
-                if (selectedMenu) game.setState(new MenuState(new Menu()));
+                if (selectedMenu) {
+                    game.setState(new MenuState(new Menu()));
+                }
 
                 boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
-                if (selectedLeaderBoard) game.setState(new LeaderBoardState( new Leader()));
+                if (selectedLeaderBoard) {
+                    game.setState(new LeaderBoardState( new Leader()));
+                }
 
                 boolean selectedAddToLeaderBoard = getModel().isSelectedAddToLeaderBoard();
                 if (selectedAddToLeaderBoard) {
@@ -57,5 +67,18 @@ public class LoseController extends Controller<Lose> {
                 }
                 break;
         }
+
+    }
+
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if(key == null){
+            return;
+        }
+
+        SoundControl instance = SoundControl.getInstance();
+
+        stepNotNull(game, key, time, instance);
+
     }
 }
