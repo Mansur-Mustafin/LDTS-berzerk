@@ -6,10 +6,13 @@ import com.googlecode.lanterna.SGR
 import com.googlecode.lanterna.TerminalPosition
 import com.googlecode.lanterna.TextColor
 import com.googlecode.lanterna.graphics.TextGraphics
+import com.googlecode.lanterna.input.KeyType
 import com.googlecode.lanterna.screen.Screen
 import com.googlecode.lanterna.terminal.Terminal
 import org.mockito.Mock
 import spock.lang.Specification
+
+import javax.swing.KeyStroke
 
 class GuiLanternaTest extends Specification{
 
@@ -27,6 +30,7 @@ class GuiLanternaTest extends Specification{
         gui = new GUILaterna(screen)
         screen.newTextGraphics() >> tg
     }
+
 
     def 'Creation with screen'() {
         when:
@@ -98,13 +102,24 @@ class GuiLanternaTest extends Specification{
     }
 
     def 'Draw Boss'() {
+        given:
+        def x = position.getX()
+        def y = position.getY()
         when:
         gui.drawBoss(position)
 
         then:
         1*tg.setForegroundColor(_)
         1*tg.enableModifiers(_)
-        9*tg.putString(_,_)
+        1*tg.putString(x,y, "F")
+        1*tg.putString(x - 1,y - 1,"A");
+        1*tg.putString(x,y - 1,"C");
+        1*tg.putString(x + 1,y - 1,"D");
+        1*tg.putString(x - 1,y,"E");
+        1*tg.putString(x + 1,y,"G");
+        1*tg.putString(x - 1 ,y+1,"H");
+        1*tg.putString(x,y+1,"I");
+        1*tg.putString(x+1,y+1,"L");
     }
 
     def 'Draw Hero bullet'(){
@@ -136,6 +151,15 @@ class GuiLanternaTest extends Specification{
         1*tg.putString(_,_,_)
     }
 
+    def 'Construtor'(){
+        given:
+        def gui = new GUILaterna(10,10)
+
+        expect:
+        gui.getScreen() instanceof Screen
+
+    }
+
     def 'Clear'() {
         when:
         gui.clear()
@@ -160,13 +184,39 @@ class GuiLanternaTest extends Specification{
         1*screen.close()
     }
 
-    def 'New text graphics'() {
+    def 'test getNextAction'(){
+        given:
+        screen.pollInput() >> new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowDown)
         when:
-        TextGraphics t = screen.newTextGraphics()
-
+        def r = gui.getNextAction()
         then:
-        t instanceof TextGraphics
+        r instanceof com.googlecode.lanterna.input.KeyStroke
     }
 
+    def 'test getNextAction 1'(){
+        given:
+        screen.pollInput() >> null
+        def s = new HashSet<>() ;
+        s.add(1)
+        s.add(3)
+        s.add(5)
+        s.add(4)
+        gui.setPressedKeys(s)
+
+        when:
+        def r = gui.getNextAction()
+        def r2 = gui.getNextAction()
+        def r3 = gui.getNextAction()
+        def r4 = gui.getNextAction()
+        def r5 = gui.getNextAction()
+
+        then:
+        s.isEmpty()
+        r instanceof com.googlecode.lanterna.input.KeyStroke
+        r2 instanceof com.googlecode.lanterna.input.KeyStroke
+        r3 instanceof com.googlecode.lanterna.input.KeyStroke
+        r4 instanceof com.googlecode.lanterna.input.KeyStroke
+        r5 == null
+    }
 
 }

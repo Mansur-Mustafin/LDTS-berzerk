@@ -39,6 +39,7 @@ public class GUILaterna implements GUI {
         this.screen = screen_;
     }
 
+
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
@@ -170,7 +171,17 @@ public class GUILaterna implements GUI {
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
-        graphics.putString(new TerminalPosition(x,y),"F");
+        graphics.putString(x,y,"F");
+        graphics.putString(x - 1,y - 1,"A");
+        graphics.putString(x,y - 1,"C");
+        graphics.putString(x + 1,y - 1,"D");
+        graphics.putString(x - 1,y,"E");
+        graphics.putString(x + 1,y,"G");
+        graphics.putString(x - 1 ,y+1,"H");
+        graphics.putString(x,y+1,"I");
+        graphics.putString(x+1,y+1,"L");
+
+        /*
         graphics.putString(new TerminalPosition(x - 1,y - 1),"A");
         graphics.putString(new TerminalPosition(x,y - 1),"C");
         graphics.putString(new TerminalPosition(x + 1,y - 1),"D");
@@ -179,6 +190,8 @@ public class GUILaterna implements GUI {
         graphics.putString(new TerminalPosition(x - 1 ,y+1),"H");
         graphics.putString(new TerminalPosition(x,y+1),"I");
         graphics.putString(new TerminalPosition(x+1,y+1),"L");
+        */
+
     }
 
     @Override
@@ -223,10 +236,9 @@ public class GUILaterna implements GUI {
         screen.close();
     }
 
-    public TextGraphics newTextGraphics(){
-        return screen.newTextGraphics();
-    }
 
+
+    public Screen getScreen(){return screen;}
 
     public KeyStroke getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -249,5 +261,9 @@ public class GUILaterna implements GUI {
             }
         }
         return keyStroke;
+    }
+
+    public void setPressedKeys(Set<Integer> set){
+        pressedKeys = set;
     }
 }
