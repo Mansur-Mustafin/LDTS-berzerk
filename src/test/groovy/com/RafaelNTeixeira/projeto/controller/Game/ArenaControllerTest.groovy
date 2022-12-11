@@ -10,7 +10,11 @@ import com.RafaelNTeixeira.projeto.controller.game.EnemyController
 import com.RafaelNTeixeira.projeto.controller.game.HeroController
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
+import com.RafaelNTeixeira.projeto.model.game.elements.Bullet
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster
 import com.RafaelNTeixeira.projeto.model.game.elements.Hero
+import com.RafaelNTeixeira.projeto.model.game.elements.Wall
 import com.RafaelNTeixeira.projeto.model.menu.Menu
 import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
@@ -280,20 +284,47 @@ class ArenaControllerTest extends Specification{
         1 * e_c.step(game, key, time);
     }
 
-
-
-    def 'test key = null'(){
+    def 'test key == xxx 250'(){
         given:
-        key = null
-        arenaController.setEnemyController(e_c)
-        arenaController.setHeroController(h_c)
+        def time = 260
+        key.getKeyType() >> KeyType.ArrowUp ;
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+        hero.getEnergy() >> 6
+        Acontrol.setEnemyController(e_c)
+        Acontrol.setHeroController(h_c)
+        Acontrol.setLastBullet(150)
 
         when:
-        arenaController.step(game, key, time)
+        Acontrol.step(game, key, 260)
 
         then:
         1 * h_c.step(game, key, time);
         1 * e_c.step(game, key, time);
+    }
+
+    def 'test key = null'(){
+        given:
+        key = null
+        Acontrol.setEnemyController(e_c)
+        Acontrol.setHeroController(h_c)
+        Acontrol.setBulletController(b_c)
+        Acontrol.getModel() >> arena
+        arena.getLevel() >> 5
+        arena.getHero() >> hero
+        hero.getPosition() >> new Position(10,10)
+        arena.getBullets() >> [new Bullet(2,2, 'd' as char,true)];
+        arena.getWalls() >> [new Wall(3,2)]
+        arena.getMonsters() >> [new Monster(5,5)]
+        arena.getKings() >> [new King(7,7)]
+
+        when:
+        Acontrol.stepVoidKey(game, key, time, instance)
+
+        then:
+        1 * h_c.step(game, null, time);
+        1 * e_c.step(game, null, time);
+        1 * b_c.step(game, null, time)
     }
 
     def 'test key = null + < energy < 0'(){

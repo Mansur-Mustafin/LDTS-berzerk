@@ -128,54 +128,10 @@ public class ArenaController extends GameController {
             game.setOldState(state);
             game.setState(new PauseState(new Pause()));
         } else {
-<<<<<<< HEAD
             heroController.step(game, key, time);
             enemyController.step(game, key, time);
         }
     }
-=======
-            SoundControl instance = SoundControl.getInstance();
-            if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
-                instance.stop(Sound.SOUNDTRACK);
-                instance.start(Sound.MENUMUSIC);
-                game.setState(new MenuState(new Menu()));
-                return;
-            }
-            if (this.getModel().getHero().getEnergy() <= 0) {
-                instance.start(Sound.HERODEATH);
-                instance.stop(Sound.SOUNDTRACK);
-                instance.start(Sound.MENUMUSIC);
-                game.setState(new LoseState(new Lose(score)));
-            }
-
-            if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
-                game.setState(null);
-                return;
-            }
-            if(time - lastBullet > 250 ){
-                if (key.getKeyType() == KeyType.ArrowRight) {
-                    instance.stop(Sound.SHOOTING);
-                    instance.start(Sound.SHOOTING);
-                    getModel().Shoot('r', getModel().getHero().position, true);
-                }
-                if (key.getKeyType() == KeyType.ArrowLeft) {
-                    instance.stop(Sound.SHOOTING);
-                    instance.start(Sound.SHOOTING);
-                    getModel().Shoot('l', getModel().getHero().position, true);
-                }
-                if (key.getKeyType() == KeyType.ArrowUp) {
-                    instance.stop(Sound.SHOOTING);
-                    instance.start(Sound.SHOOTING);
-                    getModel().Shoot('u', getModel().getHero().position, true);
-                }
-                if (key.getKeyType() == KeyType.ArrowDown) {
-                    instance.stop(Sound.SHOOTING);
-                    instance.start(Sound.SHOOTING);
-                    getModel().Shoot('d', getModel().getHero().position, true);
-                }
-                this.lastBullet = time;
-            }
->>>>>>> 37a01ea344fb9ca472d9551ba988186e3519d2a6
 
     public void step(Game game, KeyStroke key, long time) throws IOException {
         SoundControl instance = SoundControl.getInstance();
