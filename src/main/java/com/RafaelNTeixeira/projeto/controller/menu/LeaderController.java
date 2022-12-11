@@ -18,19 +18,22 @@ public class LeaderController extends Controller<Leader> {
         super(leader);
     }
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
-            return;
-        }
+    public void changeTabSound(SoundControl instance) {
+        instance.stop(Sound.CHANGETAB);
+        instance.start(Sound.CHANGETAB);
+    }
+
+    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) {
+
         switch (key.getKeyType()) {
 
             case Enter:
-                SoundControl instance = SoundControl.getInstance();
-                instance.start(Sound.CHANGETAB);
+                changeTabSound(instance);
 
                 boolean selectedEnter = getModel().isSelectedEnter();
-                if (selectedEnter) game.setState(new MenuState(new Menu()));
+                if (selectedEnter) {
+                    game.setState(new MenuState(new Menu()));
+                }
                 game.setScore(0);
                 break;
             case Character:
@@ -39,5 +42,17 @@ public class LeaderController extends Controller<Leader> {
                 }
                 break;
         }
+
+    }
+
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if(key == null){
+            return;
+        }
+
+        SoundControl instance = SoundControl.getInstance();
+
+        stepNotNull(game, key, time, instance);
     }
 }
