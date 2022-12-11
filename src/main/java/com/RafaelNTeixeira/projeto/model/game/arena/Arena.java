@@ -29,7 +29,6 @@ public class Arena {
     private List<Bullet> bullets = new ArrayList<>();
     private List<Health> health = new ArrayList<>();
 
-
     private Boss boss;
     private int Score ;
     public Arena(int x, int y, int lvl) {
@@ -87,8 +86,11 @@ public class Arena {
     }
 
     public void eraseBullet(int index){
-        bullets.remove(index);
+        if(index < bullets.size()){
+            bullets.remove(index);
+        }
     }
+
     public void eraseMonster(int index){
         monsters.remove(index);
     }
