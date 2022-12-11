@@ -54,15 +54,19 @@ class LeaderTest extends Specification{
         List<Player> playerList = new ArrayList<>()
         Player player = new Player('Ian', '100')
         Player player1 = new Player('Mansur', '0')
+        Player player2 = new Player('Rafael', '0')
         playerList.add(player)
         playerList.add(player1)
 
         when:
         int index = leader.Index(playerList, player)
         int index1 = leader.Index(playerList, player1)
+        int index2 = leader.Index(playerList, player2)
+
 
         then:
         index == 0
         index1 == 1
+        index2 == -1
     }
 }

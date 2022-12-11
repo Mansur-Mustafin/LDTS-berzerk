@@ -71,12 +71,25 @@ class MenuTest extends Specification{
         Menu menu = new Menu()
 
         when:
+        boolean f1 = menu.isSelectedStart()
+        boolean f2 = menu.isSelectedExit()
         menu.nextEntry()
+        boolean f3 = menu.isSelectedStart()
+        boolean f4 = menu.isSelectedExit()
         menu.nextEntry()
+        boolean f5 = menu.isSelectedInstructions()
+        boolean f6 = menu.isSelectedLeaderBoard()
         menu.nextEntry()
+        boolean f7 = menu.isSelectedInstructions()
+        boolean f8 = menu.isSelectedLeaderBoard()
         menu.nextEntry()
 
         then:
         menu.isSelected(0)
+        f1 && f4 && f6 && f7
+        !f2
+        !f8
+        !f5
+        !f3
     }
 }
