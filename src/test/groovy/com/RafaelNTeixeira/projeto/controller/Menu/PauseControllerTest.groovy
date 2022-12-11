@@ -5,6 +5,7 @@ import com.RafaelNTeixeira.projeto.controller.menu.MenuController
 import com.RafaelNTeixeira.projeto.controller.menu.PauseController
 import com.RafaelNTeixeira.projeto.model.menu.Menu
 import com.RafaelNTeixeira.projeto.model.menu.Pause
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
@@ -15,12 +16,16 @@ class PauseControllerTest extends Specification{
     private def key
     private def time
     private def pauseController
+    private def pause
+    private def instance
 
     def setup(){
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
-        pauseController = new PauseController(new Pause())
+        pause = Mock(Pause.class)
+        pauseController = new PauseController(pause)
+        instance = Mock(SoundControl.class)
     }
 
     def 'test key = null'(){
@@ -32,13 +37,48 @@ class PauseControllerTest extends Specification{
         0 * game.setState(_)
     }
 
-    def 'test key Enter'(){
+    def 'test key Enter exit'(){
         given:
-        key.getKeyType() >>> KeyType.Enter;
-
+        key.getKeyType() >> KeyType.Enter;
+        pause.isSelectedExit() >> true
         when:
-        pauseController.step(game,key,time)
+        pauseController.notNullStep(game, key, time, instance)
         then:
+        1 * game.setState(null)
+    }
+
+    def 'test key Enter continue'(){
+        given:
+        key.getKeyType() >> KeyType.Enter;
+        pause.isSelectedContinue() >> true
+        when:
+        pauseController.notNullStep(game, key, time, instance)
+        then:
+        2 * instance.start(_)
+        1 * instance.stop(_)
+        1 * game.setState(_)
+    }
+
+    def 'test key Enter go to menu'(){
+        given:
+        key.getKeyType() >> KeyType.Enter;
+        pause.isSelectedGoToMenu() >> true
+        when:
+        pauseController.notNullStep(game, key, time, instance)
+        then:
+        1 * instance.start(_)
+        1 * instance.stop(_)
+        1 * game.setState(_)
+    }
+
+    def 'test key Enter continue'(){
+        given:
+        key.getKeyType() >> KeyType.Enter;
+        pause.isSelectedNewGame() >> true
+        when:
+        pauseController.notNullStep(game, key, time, instance)
+        then:
+        2 * instance.start(_)
         1 * game.setState(_)
     }
 
@@ -47,7 +87,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        pauseController.step(game,key,time)
+        pauseController.notNullStep(game, key, time, instance)
         then:
         1 * game.setState(_)
     }
@@ -58,7 +98,7 @@ class PauseControllerTest extends Specification{
         key.getCharacter() >> 'q'
 
         when:
-        pauseController.step(game,key,time)
+        pauseController.notNullStep(game, key, time, instance)
 
         then:
         1 * game.setState(_)
@@ -70,11 +110,10 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.ArrowUp;
 
         when:
-        pauseController.step(game,key,time)
+        pauseController.notNullStep(game, key, time, instance)
 
         then:
-        x != pauseController.getModel().getCurrentEntry()
-        pauseController.getModel().getCurrentEntry() == pauseController.getModel().getNumberEntries() - 1
+        1*pause.previousEntry()
     }
 
     def 'test key arrow Down'(){
@@ -83,9 +122,8 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.ArrowDown;
 
         when:
-        pauseController.step(game,key,time)
+        pauseController.notNullStep(game, key, time, instance)
         then:
-        x != pauseController.getModel().getCurrentEntry()
-        pauseController.getModel().getCurrentEntry() == 1
+        1*pause.nextEntry()
     }
 }

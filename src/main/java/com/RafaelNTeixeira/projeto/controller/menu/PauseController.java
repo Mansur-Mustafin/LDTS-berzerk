@@ -22,11 +22,24 @@ public class PauseController extends Controller<Pause> {
         super(pause);
     }
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
-            return;
-        }
+    public void continueSound(SoundControl instance){
+        instance.start(Sound.CHANGETAB);
+        instance.stop(Sound.MENUMUSIC);
+        instance.start(Sound.SOUNDTRACK);
+    }
+
+    public void newGameSound(SoundControl instance){
+        instance.start(Sound.CHANGETAB);
+        instance.start(Sound.SOUNDTRACK);
+    }
+
+    public void changeTabSound(SoundControl instance){
+        instance.stop(Sound.CHANGETAB);
+        instance.start(Sound.CHANGETAB);
+    }
+
+
+    public void notNullStep(Game game, KeyStroke key, long time, SoundControl instance) {
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -36,30 +49,31 @@ public class PauseController extends Controller<Pause> {
                 break;
             case Enter:
                 boolean selectedExit = getModel().isSelectedExit();
-                if (selectedExit) game.setState(null);
-
-                SoundControl instance = SoundControl.getInstance();
+                if (selectedExit){
+                    game.setState(null);
+                    return;
+                }
 
                 boolean selectedContinue = getModel().isSelectedContinue();
                 if (selectedContinue) {
-                    instance.start(Sound.CHANGETAB);
-                    instance.stop(Sound.MENUMUSIC);
-                    instance.start(Sound.SOUNDTRACK);
+                    continueSound(instance);
                     State oldState = game.getOldState();
                     game.setState(oldState);
+                    return;
                 }
 
                 boolean selectedNewGame = getModel().isSelectedNewGame();
                 if (selectedNewGame) {
-                    instance.start(Sound.CHANGETAB);
-                    instance.start(Sound.SOUNDTRACK);
+                    newGameSound(instance);
                     game.setState(new GameState(new Arena(34, 24, 1)));
                     game.setScore(0);
+                    return;
                 }
                 boolean selectedGoToMenu = getModel().isSelectedGoToMenu();
                 if (selectedGoToMenu) {
-                    instance.start(Sound.CHANGETAB);
+                    changeTabSound(instance);
                     game.setState(new MenuState(new Menu()));
+                    return;
                 }
                 break;
             case Character:
@@ -71,6 +85,15 @@ public class PauseController extends Controller<Pause> {
                 }
                 break;
         }
+    }
+
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if(key == null){
+            return;
+        }
+        SoundControl instance = SoundControl.getInstance();
+        notNullStep(game, key, time, instance);
     }
 }
 
