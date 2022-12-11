@@ -58,4 +58,14 @@ class InstructionControllerTest extends Specification{
         then:
         1 * game.setState(_)
     }
+
+    def 'test key char wit step'(){
+        given:
+        key.getKeyType() >> KeyType.Character;
+        key.getCharacter() >> 'e'
+        when:
+        instructionController.step(game,key,time)
+        then:
+        1 * game.setState(_)
+    }
 }
