@@ -23,7 +23,7 @@ class GameViewerTest extends Specification{
         Wall wall = arena.getWalls()[1]
         King king = arena.getKings()[0]
         Hero hero = arena.getHero()
-        int life = hero.getEnergy()+1
+        int life = hero.getEnergy()
         List<Bullet> list = new ArrayList<>()
         Bullet hbullet = new Bullet(5, 5, 'u' as char, true)
         Bullet ebullet = new Bullet(5, 10, 'd' as char, false)

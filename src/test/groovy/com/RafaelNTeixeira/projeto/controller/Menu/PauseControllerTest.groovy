@@ -80,6 +80,7 @@ class PauseControllerTest extends Specification{
         then:
         2 * instance.start(_)
         1 * game.setState(_)
+        1 * game.setScore(0)
     }
 
     def 'test key char e'(){
@@ -99,6 +100,18 @@ class PauseControllerTest extends Specification{
 
         when:
         pauseController.notNullStep(game, key, time, instance)
+
+        then:
+        1 * game.setState(_)
+    }
+
+    def 'test step key char q'(){
+        given:
+        key.getKeyType() >> KeyType.Character;
+        key.getCharacter() >> 'q'
+
+        when:
+        pauseController.step(game, key, time)
 
         then:
         1 * game.setState(_)
