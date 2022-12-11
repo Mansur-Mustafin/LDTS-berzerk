@@ -13,6 +13,7 @@ import org.mockito.Mock
 import spock.lang.Specification
 
 import javax.swing.KeyStroke
+import java.awt.event.MouseEvent
 
 class GuiLanternaTest extends Specification{
 
@@ -30,6 +31,7 @@ class GuiLanternaTest extends Specification{
         gui = new GUILaterna(screen)
         screen.newTextGraphics() >> tg
     }
+
 
 
     def 'Creation with screen'() {
@@ -210,6 +212,5 @@ class GuiLanternaTest extends Specification{
         r4 instanceof com.googlecode.lanterna.input.KeyStroke
         r5 == null
     }
-
 
 }

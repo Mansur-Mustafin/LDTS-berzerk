@@ -26,4 +26,18 @@ class AddLeaderViewerTest extends Specification {
         then:
         3 * gui.drawText(_,_,_)
     }
+
+    def 'Add to LeaderBoard Text Draw'() {
+        given:
+        def add_leader_viewer = new AddLeaderViewer(new AddLeader(10))
+        def gui = Mock(GUILaterna.class)
+
+        when:
+        add_leader_viewer.draw(gui)
+
+        then:
+        3 * gui.drawText(_,_,_)
+        1 * gui.clear();
+        1 * gui.refresh();
+    }
 }

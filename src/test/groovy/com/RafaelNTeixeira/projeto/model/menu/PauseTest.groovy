@@ -22,10 +22,13 @@ class PauseTest extends Specification{
 
         when:
         pause.previousEntry()
+        def x = pause.getCurrentEntry()
 
         then:
         pause.isSelected(3)
+        x == 3
     }
+
 
     def 'Entry boundaries prev'(){
         given:

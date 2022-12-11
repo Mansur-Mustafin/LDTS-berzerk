@@ -14,15 +14,22 @@ import java.util.List;
 
 public abstract class State<T> {
     private final T model;
-    private final Controller<T> controller;
-    private final Viewer<T> viewer;
+    private Controller<T> controller;
+    private Viewer<T> viewer;
 
-    List<Pair<Integer, Integer>> pressedMause = new ArrayList<>();
 
     public State(T model) {
         this.model = model;
         this.viewer = getViewer();
         this.controller = getController();
+    }
+
+    public void setViewer(Viewer<T> v){
+        this.viewer = v;
+    }
+
+    public void setController(Controller<T> controller){
+        this.controller = controller;
     }
 
     protected abstract Viewer<T> getViewer();

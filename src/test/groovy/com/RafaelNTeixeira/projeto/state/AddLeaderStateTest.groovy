@@ -1,5 +1,7 @@
 package com.RafaelNTeixeira.projeto.state
 
+import com.RafaelNTeixeira.projeto.Game
+import com.RafaelNTeixeira.projeto.Graphics.GUILaterna
 import com.RafaelNTeixeira.projeto.States.AddLeaderState
 import com.RafaelNTeixeira.projeto.controller.menu.AddLeaderController
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader
@@ -39,4 +41,37 @@ class AddLeaderStateTest extends Specification{
 
     }
 
+    def 'Get controller 2'() {
+        given:
+        def addLeader = Mock(AddLeader.class)
+        def Lstate = new AddLeaderState(addLeader)
+
+        when:
+        def x = Lstate.getController()
+
+        then:
+        x instanceof AddLeaderController
+
+    }
+
+    def 'Sate test'() {
+        given:
+        def addLeader = Mock(AddLeader.class)
+        def v = Mock(AddLeaderViewer.class)
+        def c = Mock(AddLeaderController.class)
+        def game = Mock(Game.class)
+        def gui = Mock(GUILaterna.class)
+        def time = 5000
+        def Lstate = new AddLeaderState(addLeader)
+        Lstate.setViewer(v)
+        Lstate.setController(c)
+
+        when:
+        Lstate.step(game, gui, time)
+
+        then:
+        1 * gui.getNextAction();
+        1 * c.step(game, _, time)
+        1 * v.draw(gui)
+    }
 }
