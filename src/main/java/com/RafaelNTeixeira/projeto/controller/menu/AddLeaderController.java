@@ -19,15 +19,9 @@ public class AddLeaderController extends Controller<AddLeader> {
         super(lose);
     }
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-
-        if(key == null){
-            return;
-        }
+    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
 
         if (key.getKeyType() == KeyType.Enter) {
-            SoundControl instance = SoundControl.getInstance();
             instance.start(Sound.CHANGETAB);
             getModel().addScore();
             game.setState(new LeaderBoardState(new Leader()));
@@ -43,5 +37,15 @@ public class AddLeaderController extends Controller<AddLeader> {
             }
             getModel().delChar();
         }
+    }
+
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+
+        if(key == null){
+            return;
+        }
+
+        stepNotNull(game, key, time, SoundControl.getInstance());
     }
 }

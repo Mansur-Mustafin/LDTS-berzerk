@@ -4,6 +4,7 @@ import com.RafaelNTeixeira.projeto.Game
 import com.RafaelNTeixeira.projeto.controller.menu.AddLeaderController
 import com.RafaelNTeixeira.projeto.controller.menu.LeaderController
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
@@ -13,12 +14,15 @@ class AddLeaderControllerTest extends Specification{
     private def key
     private def time
     private def leaderController
+    private def instance
+
 
     def setup(){
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
         leaderController = new AddLeaderController(new AddLeader(10))
+        instance = Mock(SoundControl.class)
     }
 
     def 'test key = null'(){
@@ -33,9 +37,10 @@ class AddLeaderControllerTest extends Specification{
         given:
         key.getKeyType() >> KeyType.Enter;
         when:
-        leaderController.step(game,key,time)
+        leaderController.stepNotNull(game,key,time, instance)
         then:
         1 * game.setState(_)
+        1 * instance.start(_)
     }
 
     def 'test key Char'(){
@@ -44,11 +49,10 @@ class AddLeaderControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'd'
         when:
-        leaderController.step(game,key,time)
+        leaderController.stepNotNull(game,key,time, instance)
         then:
         !s.equals(leaderController.getModel().getName())
         leaderController.getModel().getName().charAt(leaderController.getModel().getName().length() - 1) == 'd';
     }
-
 
 }
