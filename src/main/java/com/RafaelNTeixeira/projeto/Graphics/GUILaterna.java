@@ -223,10 +223,6 @@ public class GUILaterna implements GUI {
         screen.close();
     }
 
-    public TextGraphics newTextGraphics(){
-        return screen.newTextGraphics();
-    }
-
 
     public KeyStroke getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();

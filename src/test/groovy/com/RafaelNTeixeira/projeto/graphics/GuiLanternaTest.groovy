@@ -160,13 +160,5 @@ class GuiLanternaTest extends Specification{
         1*screen.close()
     }
 
-    def 'New text graphics'() {
-        when:
-        TextGraphics t = screen.newTextGraphics()
-
-        then:
-        t instanceof TextGraphics
-    }
-
 
 }
