@@ -4,6 +4,9 @@ import com.RafaelNTeixeira.projeto.Game
 import com.RafaelNTeixeira.projeto.controller.game.EnemyController
 import com.RafaelNTeixeira.projeto.model.game.Position
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Move.NotMovingStrategy
+import com.RafaelNTeixeira.projeto.model.game.elements.Wall
 import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import spock.lang.Specification
@@ -273,4 +276,58 @@ class EnemyControllerTest extends Specification{
         enemyController1.getModel().getScore() == 200
     }
 
+    def 'test stepMovementEnemy for monster'(){
+        given:
+        game.getScore() >> 200
+        def monster = Mock(Monster.class)
+        def listOfMonsters = new ArrayList();
+        listOfMonsters.add(monster)
+        monster.move(_ as Position, _ as List<Wall>) >>> [ new Position(0,7), new Position(10,10)]
+        monster.getPosition() >>> [new Position(7,7), new Position(10,10), new Position(10,10)]
+
+        enemyController1.getModel().setMonsters(listOfMonsters)
+        enemyController1.getModel().getHero().setPosition(new Position(10,10))
+        def N_of_bullts = enemyController1.getModel().getBullets().size()
+
+        when:
+        enemyController1.stepMovementEnemy(game, key, 500, instance)
+
+        then:
+        enemyController1.getModel().getScore() == 200
+        enemyController1.getModel().getMonsters().get(0).getPosition().getX() == 10
+        enemyController1.getModel().getHero().getEnergy() == 12
+        N_of_bullts + 1 == enemyController1.getModel().getBullets().size()
+        2 * instance.stop(_)
+        2 * instance.start(_)
+        1 * monster.setPosition(_ as Position)
+    }
+
+    def 'test stepMovementEnemy for kings'(){
+        given:
+        game.getScore() >> 200
+        enemyController1.getModel().getHero().setPosition(new Position(3,3))
+
+        when:
+        enemyController1.stepMovementEnemy(game, key, 500, instance)
+
+        then:
+        enemyController1.getModel().getHero().getEnergy() == 10
+        enemyController1.getModel().getScore() == 200
+        1 * instance.stop(_)
+        1 * instance.start(_)
+    }
+
+    def 'test stepMovementEnemy for kings 2nd'(){
+        given:
+        game.getScore() >> 200
+        enemyController1.getModel().getHero().setPosition(new Position(6,6))
+
+        when:
+        enemyController1.stepMovementEnemy(game, key, 500, instance)
+
+        then:
+        enemyController1.getModel().getHero().getEnergy() == 15
+        enemyController1.getModel().getScore() == 200
+        enemyController1.getModel().getKings().get(1).getMoveStrategy() instanceof NotMovingStrategy
+    }
 }

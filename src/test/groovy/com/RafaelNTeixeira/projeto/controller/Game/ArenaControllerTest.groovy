@@ -29,6 +29,9 @@ class ArenaControllerTest extends Specification{
     private def h_c
     private def b_c
     private def instance
+    private def hero
+    private def pos
+
 
     def setup(){
         arena = Mock(Arena.class)
@@ -41,6 +44,77 @@ class ArenaControllerTest extends Specification{
         h_c  = Mock(HeroController.class)
         b_c = Mock(BulletController.class)
         instance = Mock(SoundControl.class)
+        hero = Mock(Hero.class)
+        pos = Mock(Position.class)
+    }
+
+    def 'test ShootSound'(){
+        when:
+        Acontrol.ShootSound(instance)
+        then:
+        1 * instance.stop(_)
+        1 * instance.start(_)
+    }
+
+    def 'test steplastBullet r'(){
+        given:
+
+        key.getKeyType() >> KeyType.ArrowRight
+        arena.getHero() >> hero
+        hero.getPosition() >> pos
+
+        when:
+        Acontrol.steplastBullet(game, key, instance)
+
+        then:
+        1 * arena.Shoot(_,_,_)
+        1 * instance.start(_)
+    }
+
+    def 'test steplastBullet l'(){
+        given:
+        key.getKeyType() >> KeyType.ArrowLeft
+        arena.getHero() >> hero
+        hero.getPosition() >> pos
+
+        when:
+        Acontrol.steplastBullet(game, key, instance)
+
+        then:
+        1 * arena.Shoot(_,_,_)
+        1 * instance.start(_)
+    }
+
+    def 'test steplastBullet d'(){
+        given:
+        def hero = Mock(Hero.class)
+        def pos = Mock(Position.class)
+        key.getKeyType() >> KeyType.ArrowDown
+        arena.getHero() >> hero
+        hero.getPosition() >> pos
+
+        when:
+        Acontrol.steplastBullet(game, key, instance)
+
+        then:
+        1 * arena.Shoot(_,_,_)
+        1 * instance.start(_)
+    }
+
+    def 'test steplastBullet u'(){
+        given:
+        def hero = Mock(Hero.class)
+        def pos = Mock(Position.class)
+        key.getKeyType() >> KeyType.ArrowUp
+        arena.getHero() >> hero
+        hero.getPosition() >> pos
+
+        when:
+        Acontrol.steplastBullet(game, key, instance)
+
+        then:
+        1 * arena.Shoot(_,_,_)
+        1 * instance.start(_)
     }
 
     def 'test step QUIT'(){
@@ -49,9 +123,11 @@ class ArenaControllerTest extends Specification{
         key.getCharacter() >> 'q';
 
         when:
-        Acontrol.step(game, key, time)
+        Acontrol.stepNonVoid(game, key, time, instance)
 
         then:
+        1 * instance.stop(_)
+        1 * instance.start(_)
         1 * game.setState(_)
     }
 
@@ -59,38 +135,152 @@ class ArenaControllerTest extends Specification{
         given:
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e';
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+        hero.getEnergy() >> 10
 
         when:
-        arenaController.step(game, key, time)
+        Acontrol.stepNonVoid(game, key, time, instance)
 
         then:
         1 * game.setState(_)
     }
 
-    def 'test step < energy'(){
+    def 'test step energy = 0'(){
         given:
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'x';
-        arenaController.getModel().getHero().setEnergy(-10);
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+
+        hero.getEnergy() >> 0
 
         when:
-        arenaController.step(game, key, time)
+        Acontrol.stepNonVoid(game, key, time, instance)
 
         then:
+        1 * instance.stop(_)
+        2 * instance.start(_)
+        1 * game.setState(_)
+    }
+
+    def 'test step energy < 0'(){
+        given:
+        key.getKeyType() >> KeyType.Character;
+        key.getCharacter() >> 'x';
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+        hero.getEnergy() >> -5
+
+        when:
+        Acontrol.stepNonVoid(game, key, time, instance)
+
+        then:
+        1 * instance.stop(_)
+        2 * instance.start(_)
         1 * game.setState(_)
     }
 
     def 'test step Escape'(){
         given:
         key.getKeyType() >> KeyType.Escape ;
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+        hero.getEnergy() >> 6
 
         when:
-        arenaController.step(game, key, time)
+        Acontrol.stepNonVoid(game, key, time, instance)
 
         then:
+        1 * instance.stopAll()
+        1 * instance.start(_)
         1 * game.setState(_)
         1 * game.setOldState(_)
     }
+
+    def 'check Next LVL'(){
+        expect: 'Should return flag to next lvl'
+        Acontrol.checkNextLvl(new Position(34,10))
+        Acontrol.checkNextLvl(new Position(10,25))
+        Acontrol.checkNextLvl(new Position(34,25))
+        !Acontrol.checkNextLvl(new Position(33,10))
+        !Acontrol.checkNextLvl(new Position(23,23))
+        !Acontrol.checkNextLvl(new Position(10,22))
+        !Acontrol.checkNextLvl(new Position(10,10))
+    }
+
+    def 'check Prev LVL'(){
+        expect: 'Should return flag to next lvl'
+        Acontrol.checkPrevLvl(new Position(-10,10))
+        Acontrol.checkPrevLvl(new Position(10,-25))
+        Acontrol.checkPrevLvl(new Position(-34,-25))
+        Acontrol.checkPrevLvl(new Position(0,25))
+        Acontrol.checkPrevLvl(new Position(34,0))
+        !Acontrol.checkPrevLvl(new Position(33,10))
+        !Acontrol.checkPrevLvl(new Position(10,22))
+        !Acontrol.checkPrevLvl(new Position(10,10))
+    }
+
+    def 'test key == xxx 250'(){
+        given:
+        time = 250
+        key.getKeyType() >> KeyType.ArrowUp ;
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+        hero.getEnergy() >> 6
+        Acontrol.setEnemyController(e_c)
+        Acontrol.setHeroController(h_c)
+
+        when:
+        Acontrol.stepNonVoid(game, key, time, instance)
+
+        then:
+        0 * arena.Shoot(_,_,_)
+        1 * h_c.step(game, key, time);
+        1 * e_c.step(game, key, time);
+    }
+
+    def 'test key == xxx 250'(){
+        given:
+        def time = 260
+        key.getKeyType() >> KeyType.ArrowUp ;
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+        hero.getEnergy() >> 6
+        Acontrol.setEnemyController(e_c)
+        Acontrol.setHeroController(h_c)
+        Acontrol.setLastBullet(0)
+
+        when:
+        Acontrol.stepNonVoid(game, key, 260, instance)
+
+        then:
+        1 * arena.Shoot(_,_,_)
+        1 * h_c.step(game, key, time);
+        1 * e_c.step(game, key, time);
+    }
+
+    def 'test key == xxx 250'(){
+        given:
+        def time = 260
+        key.getKeyType() >> KeyType.ArrowUp ;
+        Acontrol.getModel() >> arena
+        arena.getHero() >> hero
+        hero.getEnergy() >> 6
+        Acontrol.setEnemyController(e_c)
+        Acontrol.setHeroController(h_c)
+        Acontrol.setLastBullet(150)
+
+        when:
+        Acontrol.stepNonVoid(game, key, 260, instance)
+
+        then:
+        0 * arena.Shoot(_,_,_)
+        1 * h_c.step(game, key, time);
+        1 * e_c.step(game, key, time);
+    }
+
+
 
     def 'test key = null'(){
         given:
@@ -137,8 +327,6 @@ class ArenaControllerTest extends Specification{
         1 * e_c.step(game, key, time);
         1 * game.setState(_)
     }
-
-
 
     def 'test key = null +lvl = 4 next lvl'(){
         given:
@@ -197,6 +385,7 @@ class ArenaControllerTest extends Specification{
         1 * h_c.step(game, key, time);
         1 * game.setState(_)
     }
+
     def 'test key = null +lvl = 6 and Boss health < 0'(){
         given:
         key = null
@@ -215,6 +404,7 @@ class ArenaControllerTest extends Specification{
         1 * h_c.step(game, key, time);
         1 * game.setState(_)
     }
+
     def 'test key = null +lvl = 6 and Boss health > 0'(){
         given:
         key = null
@@ -254,44 +444,4 @@ class ArenaControllerTest extends Specification{
         0 * game.setState(_)
     }
 
-    def 'test key == xxx'(){
-        given:
-        key.getKeyType() >> KeyType.Character ;
-        key.getCharacter() >> 'x';
-        arenaController.setEnemyController(e_c)
-        arenaController.setHeroController(h_c)
-        arenaController.getModel().getHero().setEnergy(-10)
-
-        when:
-        arenaController.step(game, key, time)
-
-        then:
-        1 * h_c.step(game, key, time);
-        1 * e_c.step(game, key, time);
-    }
-
-    def 'check Next LVL'(){
-        expect: 'Should return flag to next lvl'
-        Acontrol.checkNextLvl(new Position(34,10))
-        Acontrol.checkNextLvl(new Position(10,25))
-        Acontrol.checkNextLvl(new Position(34,25))
-        !Acontrol.checkNextLvl(new Position(33,10))
-        !Acontrol.checkNextLvl(new Position(23,24))
-        !Acontrol.checkNextLvl(new Position(10,22))
-        !Acontrol.checkNextLvl(new Position(10,10))
-    }
-
-
-
-    def 'check Prev LVL'(){
-        expect: 'Should return flag to next lvl'
-        Acontrol.checkPrevLvl(new Position(-10,10))
-        Acontrol.checkPrevLvl(new Position(10,-25))
-        Acontrol.checkPrevLvl(new Position(-34,-25))
-        Acontrol.checkPrevLvl(new Position(0,25))
-        Acontrol.checkPrevLvl(new Position(34,0))
-        !Acontrol.checkPrevLvl(new Position(33,10))
-        !Acontrol.checkPrevLvl(new Position(10,22))
-        !Acontrol.checkPrevLvl(new Position(10,10))
-    }
 }
