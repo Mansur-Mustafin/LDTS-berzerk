@@ -237,7 +237,6 @@ public class GUILaterna implements GUI {
     }
 
 
-
     public Screen getScreen(){return screen;}
 
     public KeyStroke getNextAction() throws IOException {

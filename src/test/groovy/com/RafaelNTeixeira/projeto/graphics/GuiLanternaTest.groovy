@@ -184,6 +184,7 @@ class GuiLanternaTest extends Specification{
         1*screen.close()
     }
 
+
     def 'test getNextAction'(){
         given:
         screen.pollInput() >> new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowDown)
@@ -218,5 +219,6 @@ class GuiLanternaTest extends Specification{
         r4 instanceof com.googlecode.lanterna.input.KeyStroke
         r5 == null
     }
+
 
 }
