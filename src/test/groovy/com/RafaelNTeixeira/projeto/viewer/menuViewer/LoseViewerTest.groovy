@@ -25,6 +25,10 @@ class LoseViewerTest extends Specification {
         lose_viewer.drawElements(gui)
 
         then:
-        5 * gui.drawText(_,_,_)
+        1 * gui.drawText(new Position(12,14),_,"#FFD700")
+        1 * gui.drawText(new Position(8,11),_,"#FFFFFF")
+        1 * gui.drawText(new Position(9,15),_,"#FFFFFF")
+        1 * gui.drawText(new Position(6,16),_,"#FFFFFF")
+        1 * gui.drawText(new Position(10,10),_,"#ff0000")
     }
 }

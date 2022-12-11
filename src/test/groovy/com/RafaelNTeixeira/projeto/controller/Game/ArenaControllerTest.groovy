@@ -3,7 +3,9 @@ package com.RafaelNTeixeira.projeto.controller.Game
 import com.RafaelNTeixeira.projeto.Game
 import com.RafaelNTeixeira.projeto.GameTest
 import com.RafaelNTeixeira.projeto.Graphics.GUI
+import com.RafaelNTeixeira.projeto.States.GameState
 import com.RafaelNTeixeira.projeto.States.MenuState
+import com.RafaelNTeixeira.projeto.States.State
 import com.RafaelNTeixeira.projeto.controller.game.ArenaController
 import com.RafaelNTeixeira.projeto.controller.game.BulletController
 import com.RafaelNTeixeira.projeto.controller.game.EnemyController

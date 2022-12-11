@@ -25,6 +25,10 @@ class PauseViewerTest extends Specification {
         pause_viewer.drawElements(gui)
 
         then:
-        5 * gui.drawText(_, _, _)
+        1 * gui.drawText(new Position(12, 8), "pause", "#FFFFFF")
+        1 * gui.drawText(new Position(12, 12), _, "#FFD700")
+        1 * gui.drawText(new Position(12, 13), _, "#FFFFFF")
+        1 * gui.drawText(new Position(12, 14), _, "#FFFFFF")
+        1 * gui.drawText(new Position(12, 15), _, "#FFFFFF")
     }
 }

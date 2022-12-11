@@ -223,6 +223,7 @@ public class GUILaterna implements GUI {
         int y = position.getY();
         tg.putString(x, y, text);
     }
+
     @Override
     public void clear(){
         screen.clear();

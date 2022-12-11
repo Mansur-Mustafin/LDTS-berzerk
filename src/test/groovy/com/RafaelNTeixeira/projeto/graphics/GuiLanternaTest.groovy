@@ -151,15 +151,6 @@ class GuiLanternaTest extends Specification{
         1*tg.putString(_,_,_)
     }
 
-    def 'Construtor'(){
-        given:
-        def gui = new GUILaterna(10,10)
-
-        expect:
-        gui.getScreen() instanceof Screen
-
-    }
-
     def 'Clear'() {
         when:
         gui.clear()
