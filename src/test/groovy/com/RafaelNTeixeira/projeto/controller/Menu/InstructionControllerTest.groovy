@@ -5,22 +5,27 @@ import com.RafaelNTeixeira.projeto.controller.menu.AddLeaderController
 import com.RafaelNTeixeira.projeto.controller.menu.InstructionController
 import com.RafaelNTeixeira.projeto.model.menu.AddLeader
 import com.RafaelNTeixeira.projeto.model.menu.Instruction
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
 
-class InstractionControllerTest extends Specification{
+class InstructionControllerTest extends Specification{
 
     private def game
     private def key
     private def time
     private def instructionController
+    private def instance
+    private def instruction
 
     def setup(){
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
-        instructionController = new InstructionController(new Instruction())
+        instruction = Mock(Instruction.class)
+        instructionController = new InstructionController(instruction)
+        instance = Mock(SoundControl.class)
     }
 
     def 'test key = null'(){
@@ -35,9 +40,12 @@ class InstractionControllerTest extends Specification{
     def 'test key Enter'(){
         given:
         key.getKeyType() >> KeyType.Enter;
+        instructionController.getModel() >> instruction
+        instruction.isSelectedEnter() >> true
         when:
-        instructionController.step(game,key,time)
+        instructionController.stepNotNull(game,key,time, instance)
         then:
+        1*instance.start(_)
         1 * game.setState(_)
     }
 
@@ -46,7 +54,7 @@ class InstractionControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        instructionController.step(game,key,time)
+        instructionController.stepNotNull(game,key,time, instance)
         then:
         1 * game.setState(_)
     }

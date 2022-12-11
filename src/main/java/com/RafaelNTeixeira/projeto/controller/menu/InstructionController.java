@@ -13,18 +13,16 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 
+import static com.googlecode.lanterna.input.KeyType.Enter;
+
 public class InstructionController extends Controller<Instruction> {
     public InstructionController(Instruction instruction) {
         super(instruction);
     }
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-        if (key == null) return;
-
+    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance){
         switch (key.getKeyType()) {
             case Enter:
-                SoundControl instance = SoundControl.getInstance();
                 instance.start(Sound.CHANGETAB);
 
                 boolean selectedEnter = getModel().isSelectedEnter();
@@ -36,5 +34,12 @@ public class InstructionController extends Controller<Instruction> {
                 }
                 break;
         }
+    }
+
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if (key == null) return;
+
+        stepNotNull(game, key, time, SoundControl.getInstance());
     }
 }
