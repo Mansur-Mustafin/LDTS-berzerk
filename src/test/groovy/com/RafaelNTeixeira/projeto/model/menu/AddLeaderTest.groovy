@@ -25,8 +25,10 @@ class AddLeaderTest extends Specification{
 
         when:
         boolean fmenu = addLeader.isSelectedMenu()
+        boolean fleader2 = addLeader.isSelectedLeaderBoard()
         addLeader.nextEntry()
         boolean fleader = addLeader.isSelectedLeaderBoard()
+        boolean fmenu2 = addLeader.isSelectedMenu()
         boolean f1 = addLeader.isSelected(1)
         String y = addLeader.getEntry(0)
         addLeader.previousEntry()
@@ -36,6 +38,44 @@ class AddLeaderTest extends Specification{
         f1 && fmenu && fleader
         y == menu
         z == leader
+        !fleader2
+        !fmenu2
+    }
+
+    def 'Entry boundaries prev'(){
+        given:
+        AddLeader addLeader = new AddLeader(10)
+
+        when:
+        addLeader.nextEntry()
+        addLeader.previousEntry()
+
+        then:
+        addLeader.isSelected(0)
+    }
+
+    def 'Entry boundaries prev'(){
+        given:
+        AddLeader addLeader = new AddLeader(10)
+
+        when:
+        addLeader.previousEntry()
+        addLeader.nextEntry()
+
+
+        then:
+        addLeader.isSelected(0)
+    }
+    def 'Entry boundaries prev'(){
+        given:
+        AddLeader addLeader = new AddLeader(10)
+
+        when:
+        addLeader.previousEntry()
+        addLeader.previousEntry()
+
+        then:
+        addLeader.isSelected(0)
     }
 
     def 'Entry boundaries prev'(){

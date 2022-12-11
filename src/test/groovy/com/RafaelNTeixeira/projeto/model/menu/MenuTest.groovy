@@ -44,11 +44,15 @@ class MenuTest extends Specification{
 
         when:
         boolean f1 = menu.isSelectedStart()
+        boolean f3 = menu.isSelectedExit()
         menu.nextEntry()
         boolean f2 = menu.isSelectedExit()
+        boolean f4 = menu.isSelectedStart()
 
         then:
         f1 && f2
+        !f3
+        !f4
     }
 
     def 'Entry boundaries prev'(){
