@@ -4,7 +4,7 @@ package com.l12gr05.projeto.model.game.elements.enemy
 import com.l12gr05.projeto.model.game.elements.Enemy.Boss
 import com.l12gr05.projeto.model.game.Position
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.KingMoveStrategy
-import com.l12gr05.projeto.model.game.elements.Enemy.Move.Move
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.MoveStrategy
 import spock.lang.Specification
 
 class BossTest extends Specification{
@@ -26,7 +26,7 @@ class BossTest extends Specification{
         Boss boss = new Boss(10, 10)
 
         when:
-        Move moveStrategy = boss.generateMoveStrategy()
+        MoveStrategy moveStrategy = boss.generateMoveStrategy()
 
         then:
         moveStrategy.class == KingMoveStrategy

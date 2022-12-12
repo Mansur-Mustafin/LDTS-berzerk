@@ -17,15 +17,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class Arena {
-    private int height;
-    private int width;
+    private final int height;
+    private final int width;
 
-    private int level;
+    private final int level;
     private Hero hero;
 
-    private List<Wall> walls = new ArrayList<>();
+    private final List<Wall> walls = new ArrayList<>();
     private List<Monster> monsters = new ArrayList<>();
-    private List<King> kings = new ArrayList<>();
+    private final List<King> kings = new ArrayList<>();
     private List<Bullet> bullets = new ArrayList<>();
     private List<Health> health = new ArrayList<>();
 
@@ -192,7 +192,6 @@ public class Arena {
     public void setScore(int score) {
         Score = score;
     }
-
     public void setMonsters(List<Monster> m){
         monsters = m;
     }

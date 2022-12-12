@@ -2,7 +2,7 @@ package com.l12gr05.projeto.model.game.elements.enemy
 
 import com.l12gr05.projeto.model.game.Position
 import com.l12gr05.projeto.model.game.elements.Enemy.King
-import com.l12gr05.projeto.model.game.elements.Enemy.Move.Move
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.MoveStrategy
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.NotMovingStrategy
 import spock.lang.Specification
 
@@ -25,7 +25,7 @@ class KingTest extends Specification{
         King king = new King(10, 10)
 
         when:
-        Move moveStrategy = king.generateMoveStrategy()
+        MoveStrategy moveStrategy = king.generateMoveStrategy()
 
         then:
         moveStrategy.getClass() == new NotMovingStrategy().getClass()

@@ -5,7 +5,7 @@ import com.l12gr05.projeto.model.game.elements.Wall;
 
 import java.util.List;
 
-public class NotMovingStrategy implements Move {
+public class NotMovingStrategy implements MoveStrategy {
     @Override
     public Position move(Position position, Position position_hero , List<Wall> walls){
         return position;

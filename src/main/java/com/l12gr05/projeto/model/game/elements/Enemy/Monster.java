@@ -1,7 +1,7 @@
 package com.l12gr05.projeto.model.game.elements.Enemy;
 
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.MonsterMoveStrategy;
-import com.l12gr05.projeto.model.game.elements.Enemy.Move.Move;
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.MoveStrategy;
 
 public class Monster extends Enemy{
     public Monster(int x, int y){
@@ -13,7 +13,7 @@ public class Monster extends Enemy{
         return 1;
     }
     @Override
-    protected Move generateMoveStrategy(){
+    protected MoveStrategy generateMoveStrategy(){
         return new MonsterMoveStrategy();
     }
 }

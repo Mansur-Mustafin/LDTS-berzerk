@@ -171,13 +171,9 @@ class ArenaTest extends Specification{
     }
 
     def 'Not contains wall'(){
-        given:
-        Position position = new Position(0, 2)
-        Position position1 = new Position(5, 5)
-
         when:
-        boolean f1 = arena.notContainsWall(position)
-        boolean f2 = arena.notContainsWall(position1)
+        boolean f1 = arena.notContainsWall(0,2)
+        boolean f2 = arena.notContainsWall(5,5)
 
         then:
         !f1

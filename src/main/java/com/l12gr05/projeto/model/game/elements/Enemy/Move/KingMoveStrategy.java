@@ -5,7 +5,7 @@ import com.l12gr05.projeto.model.game.elements.Wall;
 
 import java.util.*;
 
-public class KingMoveStrategy implements Move {
+public class KingMoveStrategy implements MoveStrategy {
 
     boolean canMove(Position position){
         return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= 33 && position.getY() <= 23;
@@ -81,7 +81,7 @@ public class KingMoveStrategy implements Move {
         Position tmp = new Position(position_hero.getX(), position_hero.getY());
         while (true) {
             boolean equals2 = parent[tmp.getX()][tmp.getY()].equals(position);
-            if (!!equals2) break;
+            if (equals2) break;
             tmp = parent[tmp.getX()][tmp.getY()];
         }
 

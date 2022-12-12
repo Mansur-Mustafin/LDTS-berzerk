@@ -85,31 +85,6 @@ public class GUILaterna implements GUI {
         int yPosition = position.getY();
         graphics.putString(new TerminalPosition(xPosition, yPosition), "X");
 
-        /*
-        TextImage image = new BasicTextImage(40, 16);
-
-        InputStream istream = ClassLoader.getSystemResourceAsStream("Elements/Hero.txt");
-        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(istreamreader);
-
-        try {
-            int i = 0;
-            for (String line; (line = reader.readLine()) != null; i++) {
-                System.out.println(line);
-                int j = 0;
-                for (char c: line.toCharArray()) {
-                    image.setCharacterAt(j,i, new TextCharacter(c));
-                    j++;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        int x = position.getX();
-        int y = position.getY();
-        graphics.drawImage(new TerminalPosition(x, y), image);
-        */
-
     }
 
     @Override
@@ -179,18 +154,6 @@ public class GUILaterna implements GUI {
         graphics.putString(x - 1 ,y+1,"H");
         graphics.putString(x,y+1,"I");
         graphics.putString(x+1,y+1,"L");
-
-        /*
-        graphics.putString(new TerminalPosition(x - 1,y - 1),"A");
-        graphics.putString(new TerminalPosition(x,y - 1),"C");
-        graphics.putString(new TerminalPosition(x + 1,y - 1),"D");
-        graphics.putString(new TerminalPosition(x - 1,y),"E");
-        graphics.putString(new TerminalPosition(x + 1,y),"G");
-        graphics.putString(new TerminalPosition(x - 1 ,y+1),"H");
-        graphics.putString(new TerminalPosition(x,y+1),"I");
-        graphics.putString(new TerminalPosition(x+1,y+1),"L");
-        */
-
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.l12gr05.projeto.model.game.elements.enemy
 
 import com.l12gr05.projeto.model.game.Position
 import com.l12gr05.projeto.model.game.elements.Enemy.Monster
-import com.l12gr05.projeto.model.game.elements.Enemy.Move.Move
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.MoveStrategy
 import com.googlecode.lanterna.graphics.TextGraphics
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.KingMoveStrategy
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.MonsterMoveStrategy
@@ -50,10 +50,10 @@ class EnemyTest extends Specification{
 
         given:
         Monster monster = new Monster(10, 10)
-        Move moveStrategy = new MonsterMoveStrategy()
+        MoveStrategy moveStrategy = new MonsterMoveStrategy()
 
         when:
-        Move moveStrategy1 = monster.getMoveStrategy()
+        MoveStrategy moveStrategy1 = monster.getMoveStrategy()
 
         then:
         moveStrategy.getClass() == moveStrategy1.getClass()
@@ -65,7 +65,7 @@ class EnemyTest extends Specification{
     def 'Set move strategy'() {
         given:
         Monster monster = new Monster(10, 10)
-        Move moveStrategy = new KingMoveStrategy()
+        MoveStrategy moveStrategy = new KingMoveStrategy()
 
         when:
         monster.setMoveStrategy(moveStrategy)

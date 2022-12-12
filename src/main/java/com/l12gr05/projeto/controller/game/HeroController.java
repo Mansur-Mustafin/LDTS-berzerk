@@ -55,9 +55,6 @@ public class HeroController extends GameController {
         return SoundControl.getInstance();
     }
 
-
-
-
     public void verifyMonsterCollisions(Position position, SoundControl instance) {
         Hero hero = getModel().getHero();
         monsterHitsHero(position, instance, hero);
