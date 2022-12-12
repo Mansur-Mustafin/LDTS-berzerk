@@ -240,7 +240,8 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 ## CODE SMELLS
 > 
 > Here´s a list of code smells that are currently present on our code:
->
+> - `Large Class`
+> 
 &nbsp;
 
 ### TESTING
