@@ -136,14 +136,14 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/State.png) </br>
 > 
 > > Packages can be found in:
-> >    - [`AddLeaderState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/AddLeaderState.java)
-> >    - [`GameState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/GameState.java)
-> >    - [`InstructionsState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/InstructionsState.java)
-> >    - [`LeaderBoardState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LeaderBoardState.java)
-> >    - [`LoseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LoseState.java)
-> >    - [`MenuState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/MenuState.java)
-> >    - [`PauseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/PauseState.java)   
-> >    - [`State`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/State.java)   
+> >    - [`AddToLeaderboardState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/AddToLeaderboardState.java)
+> >    - [`GameState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/GameState.java)
+> >    - [`InstructionsState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/InstructionsState.java)
+> >    - [`LeaderBoardState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/LeaderBoardState.java)
+> >    - [`LoseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/LoseState.java)
+> >    - [`MenuState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/MenuState.java)
+> >    - [`PauseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/PauseState.java)   
+> >    - [`State`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/State.java)   
 > 
 > ### Consequences
 > The use of the `State Pattern` in the current design allows the following benefits:
@@ -176,13 +176,15 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > >
 >
 > > Packages can be found in:
-> >    - [`MoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/MoveStrategy.java)
-> >    - [`NotMovingStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/NotMovingStrategy.java)
-> >    - [`RandomMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/RandomMoveStrategy.java)
-> >    - [`BFSMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/BFSMovingStrategy.java)
-> >    - [`Enemy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Enemy.java)
-> >    - [`King`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/King.java)
-> >    - [`Monster`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Monster.java)
+> >    - [`Move`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/MoveStrategy.java)
+> >    - [`NotMovingStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/NotMovingStrategy.java)
+> >    - [`MonsterMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/MonsterMoveStrategy.java)
+> >    - [`KingMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/KingMoveStrategy.java)
+> >    - [`King`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/King.java)
+> >    - [`Monster`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Monster.java)
+> >    - [`Boss`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Boss.java)
+> >    - [`Enemy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Enemy.java)
+> >    
 > 
 > ### Consequences
 > The use of the `State` and `Factory` patterns in the current design allows the following benefits:
@@ -204,13 +206,13 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > ### Implementation
 > > The following figure shows how we implemented the pattern: </br>
 > > `Singleton` </br>
-> >
+> > 
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Singleton.png) </br>
 >
 > > Packages can be found in:
-> >    - [`Sound`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/Sound.java)
-> >    - [`SoundControl`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/SoundControl.java)
-> >    - [`SoundTrack`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/SoundTrack.java)
+> >    - [`Sound`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/sounds/Sound.java)
+> >    - [`SoundControl`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/sounds/SoundControl.java)
+> >    - [`SoundTrack`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/sounds/SoundTrack.java)
 > 
 > ### Consequences
 > The use of the `Singleton` pattern in the current design allows the following benefits:
@@ -244,6 +246,11 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
 &nbsp;
+
+
+### MUTATION TESTING
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Pitest.png)
+
 
 ### SELF-EVALUATION
 > 
