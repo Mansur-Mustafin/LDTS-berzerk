@@ -36,21 +36,8 @@
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
 > - `FRIENDLY FIRE`- Enemies can kill each other
 > - `DODGE` - Enemies have a low chance of dodging player bullets
->
-&nbsp;
-
-## PLANNED FEATURES
-> 
-> **We pretend to implement:**
-> 
-> - `A SCORING SYSTEM` - With each elimination the player's score increases
-> - `A RANKING SYSTEM` - When the player is eliminated, if he acquires a New High Record, he will be able to write his name on the LeaderBoard and acquire a position on it
-> - `DIFFERENT TYPES OF WEAPONS`
-> - `DIFFERENT TYPES OF ENEMIES`
-> - `DESTROY BULLETS THAT COLLIDE`
-> - `A NEW GAME OBJECTIVE` - The player must obligatorily obtain a key and eliminate all enemies so that he can open the doors to other levels
-> - `A LOGO AND BUTTON DESIGNS` - Manually made
-> - `A SOUND SYSTEM` - We've already added the .wav files to the repository but haven't implemented them yet
+> - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
+> - `BOSS` - We made a final boss consisting of 9 different PNG's 
 >
 &nbsp;
 
