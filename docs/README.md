@@ -20,37 +20,24 @@
 
 ## IMPLEMENTED FEATURES
 > 
-> - `MENU` - When the game is initialized, a menu containing the options Play, Leader Board, Instructions and Exit is displayed
+> - `MENU` - When the game is initialized, a menu containing the options Play, LeaderBoard, Instructions and Exit is displayed
 > - `PAUSE` - It's possible to pause the game. When the game is paused, a menu containing the options Continue, New game, Exit and Exit to Menu is displayed
 > - `ENEMIES` - There are 2 types of enemies in the game: Monster and King
 > - `KING MOVIMENTATION` - King has an inteligent movementation (finds the shortest way to hero by dodging walls)
 > - `MAP CREATION` - We are able to use custom made maps with the support of a wall and enemies tracking system
 > - `EXTERNAL FONT` - We can use our own font in the game
 > - `HEALTH BAR` - The player has an amount of health that decreases every time he has contact with an enemy
-> - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leader Board is displayed
+> - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See LeaderBoard and Add name to leaderBoard is displayed
 > - `CHARACTERS` - We designed the characters manually
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
-> - `BULLETS` - The player can shoot bullets
+> - `BULLETS` - The player and enenies can shoot bullets
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
 > - `FRIENDLY FIRE`- Enemies can kill each other
 > - `DODGE` - Enemies have a low chance of dodging player bullets
->
-&nbsp;
-
-## PLANNED FEATURES
-> 
-> **We pretend to implement:**
-> 
-> - `A SCORING SYSTEM` - With each elimination the player's score increases
-> - `A RANKING SYSTEM` - When the player is eliminated, if he acquires a New High Record, he will be able to write his name on the LeaderBoard and acquire a position on it
-> - `DIFFERENT TYPES OF WEAPONS`
-> - `DIFFERENT TYPES OF ENEMIES`
-> - `DESTROY BULLETS THAT COLLIDE`
-> - `A NEW GAME OBJECTIVE` - The player must obligatorily obtain a key and eliminate all enemies so that he can open the doors to other levels
-> - `A LOGO AND BUTTON DESIGNS` - Manually made
-> - `A SOUND SYSTEM` - We've already added the .wav files to the repository but haven't implemented them yet
+> - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
+> - `BOSS` - We made a final boss consisting of 9 different PNG's 
 >
 &nbsp;
 
@@ -237,6 +224,7 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > 
 > Here´s a list of refactorings that we did throughout our project development:
 > - `Extract Variable`
+> - `Extract Method`
 > - `Move Method`
 > - `Rename Method`
 > - `Add Parameter`
