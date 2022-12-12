@@ -36,6 +36,8 @@
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
 > - `FRIENDLY FIRE`- Enemies can kill each other
 > - `DODGE` - Enemies have a low chance of dodging player bullets
+> - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
+> - `BOSS` - We made a final boss consisting of 9 different PNG's 
 >
 &nbsp;
                                                                                                                 
