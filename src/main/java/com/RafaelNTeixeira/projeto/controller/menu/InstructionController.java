@@ -40,6 +40,7 @@ public class InstructionController extends Controller<Instruction> {
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) return;
 
-        stepNotNull(game, key, time, SoundControl.getInstance());
+        SoundControl instance = SoundControl.getInstance();
+        stepNotNull(game, key, time, instance);
     }
 }

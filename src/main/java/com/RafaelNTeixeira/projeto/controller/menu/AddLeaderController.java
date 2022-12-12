@@ -21,21 +21,28 @@ public class AddLeaderController extends Controller<AddLeader> {
 
     public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
 
-        if (key.getKeyType() == KeyType.Enter) {
-            instance.start(Sound.CHANGETAB);
-            getModel().addScore();
-            game.setState(new LeaderBoardState(new Leader()));
-        }
-
-        if (key.getKeyType() == KeyType.Character) {
-            getModel().addChar(key.getCharacter());
-        }
+        pressedEnter(game, key, instance);
+        writeName(key);
 
         if(key.getKeyType() == KeyType.Backspace){
             if(getModel().getName().length() == 0){
                 return;
             }
             getModel().delChar();
+        }
+    }
+
+    private void writeName(KeyStroke key) {
+        if (key.getKeyType() == KeyType.Character) {
+            getModel().addChar(key.getCharacter());
+        }
+    }
+
+    private void pressedEnter(Game game, KeyStroke key, SoundControl instance) throws IOException {
+        if (key.getKeyType() == KeyType.Enter) {
+            instance.start(Sound.CHANGETAB);
+            getModel().addScore();
+            game.setState(new LeaderBoardState(new Leader()));
         }
     }
 
@@ -46,6 +53,7 @@ public class AddLeaderController extends Controller<AddLeader> {
             return;
         }
 
-        stepNotNull(game, key, time, SoundControl.getInstance());
+        SoundControl instance = SoundControl.getInstance();
+        stepNotNull(game, key, time, instance);
     }
 }

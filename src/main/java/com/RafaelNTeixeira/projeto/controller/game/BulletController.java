@@ -4,8 +4,10 @@ import com.RafaelNTeixeira.projeto.Game;
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.RafaelNTeixeira.projeto.model.game.arena.Arena;
 import com.RafaelNTeixeira.projeto.model.game.elements.Bullet;
+import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Boss;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.King;
 import com.RafaelNTeixeira.projeto.model.game.elements.Enemy.Monster;
+import com.RafaelNTeixeira.projeto.model.game.elements.Hero;
 import com.RafaelNTeixeira.projeto.model.game.elements.Wall;
 import com.RafaelNTeixeira.projeto.model.sounds.Sound;
 import com.RafaelNTeixeira.projeto.model.sounds.SoundControl;
@@ -83,30 +85,43 @@ public class BulletController extends GameController{
             bullet.setPosition(position);
 
             boolean bulletHitsBoss = (getModel().getLevel() == 6) && bullet.position.equals(getModel().getBoss().position) ;
-            if(bulletHitsBoss){
-                getModel().eraseBullet(i);
-                getModel().getBoss().decreaseEnergy(1);
-            }
+            bulletHitsBossAction(i, bulletHitsBoss);
 
             boolean bulletHitsWall = HaveWalls(bullet.position);
-            if (bulletHitsWall) {
-                getModel().eraseBullet(i);
-            }
+            bulletHitsElementAction(i, bulletHitsWall);
+
             boolean BulletHitsMonster = HaveMonster(bullet.position, game, instance);
-            if (BulletHitsMonster) {
-                getModel().eraseBullet(i);
-            }
+            bulletHitsElementAction(i, BulletHitsMonster);
+
             boolean BulletHitsKing = HaveKings(bullet.position, game, instance);
-            if (BulletHitsKing) {
-                getModel().eraseBullet(i);
-            }
+            bulletHitsElementAction(i, BulletHitsKing);
+
             boolean BulletHitsHero = bullet.position.equals(getModel().getHero().position);
-            if (BulletHitsHero) {
-                instance.stop(Sound.HERODEATH);
-                instance.start(Sound.HERODEATH);
-                getModel().eraseBullet(i);
-                getModel().getHero().decreaseEnergy(1);
-            }
+            bulletHitsHero(instance, i, BulletHitsHero);
+        }
+    }
+
+    private void bulletHitsHero(SoundControl instance, int i, boolean bulletHitsHero) {
+        if (bulletHitsHero) {
+            instance.stop(Sound.HERODEATH);
+            instance.start(Sound.HERODEATH);
+            getModel().eraseBullet(i);
+            Hero hero = getModel().getHero();
+            hero.decreaseEnergy(1);
+        }
+    }
+
+    private void bulletHitsElementAction(int i, boolean bulletHitsWall) {
+        if (bulletHitsWall) {
+            getModel().eraseBullet(i);
+        }
+    }
+
+    private void bulletHitsBossAction(int i, boolean bulletHitsBoss) {
+        if(bulletHitsBoss){
+            getModel().eraseBullet(i);
+            Boss boss = getModel().getBoss();
+            boss.decreaseEnergy(1);
         }
     }
 

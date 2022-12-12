@@ -116,11 +116,14 @@ public class EnemyController extends GameController {
 
         List<King> kings = getModel().getKings();
         for (Enemy king : kings) {
-            if (king.position.getDistance(getModel().getHero().position) < 20){
+            double kingHeroDistance = king.position.getDistance(getModel().getHero().position);
+            if (kingHeroDistance < 20){
                 king.setMoveStrategy(new BFSMoveStrategy());
             }
+
             Position position = king.move(getModel().getHero().position ,getModel().getWalls() );
             king.setPosition(position);
+
             boolean kingHitsHero = position.equals(getModel().getHero().position);
             if (kingHitsHero) {
                 instance.stop(Sound.HERODEATH);

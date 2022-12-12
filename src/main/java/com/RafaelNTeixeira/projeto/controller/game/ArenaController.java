@@ -49,21 +49,23 @@ public class ArenaController extends GameController {
     }
 
     public void steplastBullet(Game game, KeyStroke key, SoundControl instance){
+        Position position = getModel().getHero().getPosition();
+
         if (key.getKeyType() == KeyType.ArrowRight) {
             ShootSound(instance);
-            getModel().Shoot('r', getModel().getHero().getPosition(), true);
+            getModel().Shoot('r', position, true);
         }
         if (key.getKeyType() == KeyType.ArrowLeft) {
             ShootSound(instance);
-            getModel().Shoot('l', getModel().getHero().getPosition(), true);
+            getModel().Shoot('l', position, true);
         }
         if (key.getKeyType() == KeyType.ArrowUp) {
             ShootSound(instance);
-            getModel().Shoot('u', getModel().getHero().getPosition(), true);
+            getModel().Shoot('u', position, true);
         }
         if (key.getKeyType() == KeyType.ArrowDown) {
             ShootSound(instance);
-            getModel().Shoot('d', getModel().getHero().getPosition(), true);
+            getModel().Shoot('d', position, true);
         }
     }
 
@@ -77,22 +79,33 @@ public class ArenaController extends GameController {
             return;
         }
 
-        boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
-        if (canGoToNextLevel){
-            int N_lvl = getModel().getLevel() + 1;
-            game.setState(new GameState(new Arena(34, 25, N_lvl)));
-        }
-
-        boolean canGoToPrevLevel = checkPrevLvl(getModel().getHero().getPosition());
-        if (canGoToPrevLevel) {
-            game.setState(new GameState(new Arena(34, 25, getModel().getLevel() - 1)));
-        }
+        canGoToNextLevel(game);
+        canGoToPrevLevel(game);
 
         bulletController.step(game, null, time);
         enemyController.step(game, null, time);
 
-        if(getModel().getHero().getEnergy() <= 0){
+        hasNoEnergy(game, score);
+    }
+
+    private void hasNoEnergy(Game game, int score) {
+        if (getModel().getHero().getEnergy() <= 0) {
             game.setState(new LoseState(new Lose(score)));
+        }
+    }
+
+    private void canGoToPrevLevel(Game game) {
+        boolean canGoToPrevLevel = checkPrevLvl(getModel().getHero().getPosition());
+        if (canGoToPrevLevel) {
+            game.setState(new GameState(new Arena(34, 25, getModel().getLevel() - 1)));
+        }
+    }
+
+    private void canGoToNextLevel(Game game) {
+        boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
+        if (canGoToNextLevel){
+            int N_lvl = getModel().getLevel() + 1;
+            game.setState(new GameState(new Arena(34, 25, N_lvl)));
         }
     }
 
@@ -121,6 +134,10 @@ public class ArenaController extends GameController {
             this.lastBullet = time;
         }
 
+        pressedEscape(game, key, time, instance);
+    }
+
+    private void pressedEscape(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
         if (key.getKeyType() == KeyType.Escape) {
             instance.stopAll();
             instance.start(Sound.MENUMUSIC);
