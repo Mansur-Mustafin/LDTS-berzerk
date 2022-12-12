@@ -5,7 +5,7 @@ plugins {
     id 'info.solidsoft.pitest' version '1.6.0'
 }
 
-group 'com.RafaelNTeixeira.projeto'
+group 'com.l12gr05.projeto'
 version '1.0-SNAPSHOT'
 
 
@@ -31,8 +31,8 @@ pitest {
     junit5PluginVersion = '0.12'
     pitestVersion = '1.6.7'
     verbose = true
-    excludedClasses = ['com.RafaelNTeixeira.projeto.Application']
-    excludedTestClasses = ['com.RafaelNTeixeira.projeto.GameTest']
+    excludedClasses = ['com.l12gr05.projeto.Application']
+    excludedTestClasses = ['com.l12gr05.projeto.GameTest']
 }
 
-mainClassName = 'com.RafaelNTeixeira.projeto.Application'
+mainClassName = 'com.l12gr05.projeto.Application'

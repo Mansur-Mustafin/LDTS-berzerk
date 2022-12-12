@@ -27,7 +27,7 @@
 > - `MAP CREATION` - We are able to use custom made maps with the support of a wall and enemies tracking system
 > - `EXTERNAL FONT` - We can use our own font in the game
 > - `HEALTH BAR` - The player has an amount of health that decreases every time he has contact with an enemy
-> - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leader Board is displayed
+> - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See Leader Board and Add name to leaderboard Board is displayed
 > - `CHARACTERS` - We designed the characters manually
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
 > - `BULLETS` - The player and enenies can shoot bullets
