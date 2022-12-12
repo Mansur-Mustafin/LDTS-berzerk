@@ -18,11 +18,13 @@ import java.io.IOException;
 public class WinController extends Controller<Win> {
     public WinController(Win win){super(win);}
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
-            return;
-        }
+    public void changeTabSound(SoundControl instance){
+        instance.stop(Sound.CHANGETAB);
+        instance.start(Sound.CHANGETAB);
+    }
+
+    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException  {
+
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -32,22 +34,20 @@ public class WinController extends Controller<Win> {
                 break;
             case Enter:
                 boolean selectedMenu = getModel().isSelectedMenu();
-                SoundControl instance = SoundControl.getInstance();
                 if (selectedMenu) {
-                    instance.start(Sound.CHANGETAB);
+                    changeTabSound(instance);
                     game.setState(new MenuState(new Menu()));
                 }
 
                 boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
                 if (selectedLeaderBoard) {
-                    instance.start(Sound.CHANGETAB);
+                    changeTabSound(instance);
                     game.setState(new LeaderBoardState(new Leader()));
                 }
 
                 boolean selectedAddToLeaderBoard = getModel().isSelectedAddToLeaderBoard();
                 if (selectedAddToLeaderBoard) {
-                    instance.start(Sound.CHANGETAB);
-
+                    changeTabSound(instance);
                     int score = getModel().getScore();
                     game.setState(new AddLeaderState(new AddLeader(score)));
                 }
@@ -58,5 +58,17 @@ public class WinController extends Controller<Win> {
                 }
                 break;
         }
+
+    }
+
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if(key == null){
+            return;
+        }
+
+        SoundControl instance = SoundControl.getInstance();
+
+        stepNotNull(game,key,time,instance);
     }
 }

@@ -3,6 +3,7 @@ package com.RafaelNTeixeira.projeto.controller.Menu
 import com.RafaelNTeixeira.projeto.Game
 import com.RafaelNTeixeira.projeto.controller.menu.WinController
 import com.RafaelNTeixeira.projeto.model.menu.Win
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
@@ -11,13 +12,17 @@ class WinControllerTest extends Specification{
     private def game
     private def key
     private def time
+    private def win
     private def winController
+    private def instance
 
     def setup(){
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
-        winController = new WinController(new Win(10))
+        win = Mock(Win.class)
+        winController = new WinController(win)
+        instance = Mock(SoundControl.class)
     }
 
     def 'test key = null'(){
@@ -29,13 +34,43 @@ class WinControllerTest extends Specification{
         0 * game.setState(_)
     }
 
-    def 'test key Enter'(){
+
+    def 'test key Enter menu'(){
         given:
-        key.getKeyType() >>> KeyType.Enter;
+        key.getKeyType() >> KeyType.Enter;
+        win.isSelectedMenu() >> true
 
         when:
-        winController.step(game,key,time)
+        winController.stepNotNull(game,key,time,instance)
         then:
+        1 * instance.stop(_)
+        1 * instance.start(_)
+        1 * game.setState(_)
+    }
+
+    def 'test key Enter leader board'(){
+        given:
+        key.getKeyType() >> KeyType.Enter;
+        win.isSelectedLeaderBoard() >> true
+
+        when:
+        winController.stepNotNull(game,key,time,instance)
+        then:
+        1 * instance.stop(_)
+        1 * instance.start(_)
+        1 * game.setState(_)
+    }
+
+    def 'test key Enter leader board'(){
+        given:
+        key.getKeyType() >> KeyType.Enter;
+        win.isSelectedAddToLeaderBoard() >> true
+
+        when:
+        winController.stepNotNull(game,key,time,instance)
+        then:
+        1 * instance.stop(_)
+        1 * instance.start(_)
         1 * game.setState(_)
     }
 
@@ -49,27 +84,40 @@ class WinControllerTest extends Specification{
         1 * game.setState(_)
     }
 
+
+    def 'test key char'(){
+        given:
+        key.getKeyType() >> KeyType.Character;
+        key.getCharacter() >> 'e'
+        when:
+        winController.stepNotNull(game,key,time,instance)
+        then:
+        1 * game.setState(_)
+    }
+
     def 'test key arrow UP'(){
         given:
-        int x = new Integer(winController.getModel().getCurrentEntry())
+        WinController winController1 = new WinController(new Win(10))
+        int x = new Integer(winController1.getModel().getCurrentEntry())
         key.getKeyType() >> KeyType.ArrowUp;
 
         when:
-        winController.step(game,key,time)
+        winController1.step(game,key,time)
         then:
-        x != winController.getModel().getCurrentEntry()
-        winController.getModel().getCurrentEntry() == winController.getModel().getNumberEntries() - 1
+        x != winController1.getModel().getCurrentEntry()
+        winController1.getModel().getCurrentEntry() == winController1.getModel().getNumberEntries() - 1
     }
 
     def 'test key arrow Down'(){
         given:
-        int x = new Integer(winController.getModel().getCurrentEntry())
+        WinController winController1 = new WinController(new Win(10))
+        int x = new Integer(winController1.getModel().getCurrentEntry())
         key.getKeyType() >> KeyType.ArrowDown;
 
         when:
-        winController.step(game,key,time)
+        winController1.step(game,key,time)
         then:
-        x != winController.getModel().getCurrentEntry()
-        winController.getModel().getCurrentEntry() == 1
+        x != winController1.getModel().getCurrentEntry()
+        winController1.getModel().getCurrentEntry() == 1
     }
 }
