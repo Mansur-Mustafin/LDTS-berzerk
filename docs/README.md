@@ -110,9 +110,9 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/MVC.png) </br>
 > 
 > > Packages can be found in:
-> >    - [`CONTROLLER`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/controller)
-> >    - [`MODEL`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/model)
-> >    - [`VIEW`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/viewer)
+> >    - [`Controller`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/l12gr05/projeto/controller)
+> >    - [`Model`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/l12gr05/projeto/model)
+> >    - [`View`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/l12gr05/projeto/viewer)
 > 
 > ### Consequences
 > The use of the `MVC Pattern` in the current design allows the following benefits:
