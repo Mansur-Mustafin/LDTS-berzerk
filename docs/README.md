@@ -237,6 +237,7 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > 
 > Here´s a list of refactorings that we did throughout our project development:
 > - `Extract Variable`
+> - `Extract Method`
 > - `Move Method`
 > - `Rename Method`
 > - `Add Parameter`
