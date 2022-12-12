@@ -205,7 +205,7 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > > The following figure shows how we implemented the pattern: </br>
 > > `Singleton` </br>
 > >
-> > ![img]() _(insert singleton pattern here)_</br>
+> > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Singleton.png) </br>
 >
 > > Packages can be found in:
 > >    - [`Sound`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/Sound.java)
