@@ -100,7 +100,8 @@ public class Arena {
     public void eraseHealth(int index){health.remove(index);
     }
 
-    public boolean notContainsWall(Position position){
+    public boolean notContainsWall(int x, int y){
+        Position position = new Position(x,y);
         for(Wall wall : walls){
             if(wall.getPosition().equals(position)){
                 return false;
@@ -110,29 +111,50 @@ public class Arena {
     }
 
     public void Shoot(char dir, Position position, boolean hero){
-        if(dir == 'r' && notContainsWall(new Position(position.getX() + 1 , position.getY() ))){
-            bullets.add(new Bullet(position.getX() + 1, position.getY(), dir ,hero));
-        }
-        if(dir == 'l' && notContainsWall(new Position(position.getX() - 1 , position.getY() ))) {
-            bullets.add(new Bullet(position.getX() - 1, position.getY(), dir, hero));
-        }
-        if(dir == 'd' && notContainsWall(new Position(position.getX()   , position.getY() + 1))) {
-            bullets.add(new Bullet(position.getX() , position.getY() + 1, dir, hero));
-        }
-        if(dir == 'u' && notContainsWall(new Position(position.getX()  , position.getY() - 1 ))){
-            bullets.add(new Bullet(position.getX() , position.getY() - 1, dir, hero));
-        }
-        if(dir == 'q' && notContainsWall(new Position(position.getX() -1 , position.getY() - 1 ))){
-            bullets.add(new Bullet(position.getX() -1 , position.getY() - 1, dir, hero));
-        }
-        if(dir == 't' && notContainsWall(new Position(position.getX() + 1 , position.getY() - 1 ))){
-            bullets.add(new Bullet(position.getX() + 1 , position.getY() - 1, dir, hero));
-        }
-        if(dir == 'a' && notContainsWall(new Position(position.getX() - 1 , position.getY() + 1 ))){
-            bullets.add(new Bullet(position.getX()  - 1, position.getY() + 1, dir, hero));
-        }
-        if(dir == 'z' && notContainsWall(new Position(position.getX()  + 1 , position.getY() + 1 ))){
-            bullets.add(new Bullet(position.getX() + 1 , position.getY() + 1, dir, hero));
+        int x = position.getX();
+        int y = position.getY();
+
+        switch (dir){
+            case 'r':
+                if(notContainsWall(x + 1,y)){
+                    bullets.add(new Bullet(x + 1, y, dir ,hero));
+                }
+                break;
+            case 'l':
+                if(notContainsWall(x - 1,y)){
+                    bullets.add(new Bullet(x - 1, y, dir, hero));
+                }
+                break;
+            case 'd':
+                if(notContainsWall(x,y+1)){
+                    bullets.add(new Bullet(x , y + 1, dir, hero));
+                }
+                break;
+            case 'u':
+                if(notContainsWall(x,y-1)){
+                    bullets.add(new Bullet( x , y - 1, dir, hero));
+                }
+                break;
+            case 'q':
+                if(notContainsWall(x - 1,y - 1)){
+                    bullets.add(new Bullet(x -1  , y - 1, dir, hero));
+                }
+                break;
+            case 't':
+                if(notContainsWall(x + 1,y-1)){
+                    bullets.add(new Bullet(x + 1,y-1, dir, hero));
+                }
+                break;
+            case 'a':
+                if(notContainsWall(x - 1,y+1)){
+                    bullets.add(new Bullet(x - 1, y + 1, dir, hero));
+                }
+                break;
+            case 'z':
+                if(notContainsWall(x + 1,y+1)){
+                    bullets.add(new Bullet(x + 1, y + 1, dir, hero));
+                }
+                break;
         }
     }
 
