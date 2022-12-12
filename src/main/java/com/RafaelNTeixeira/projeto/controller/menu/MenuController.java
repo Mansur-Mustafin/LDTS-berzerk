@@ -23,12 +23,19 @@ public class MenuController extends Controller<Menu> {
         SoundControl.getInstance().start(Sound.MENUMUSIC);
     }
 
-    @Override
-    public void step(Game game, KeyStroke key, long time) throws IOException {
-        if (key == null) {
-            return;
-        }
-        SoundControl instance = SoundControl.getInstance();
+    public void newGameMusic(SoundControl instance) {
+        instance.start(Sound.CHANGETAB);
+        instance.stop(Sound.MENUMUSIC);
+        instance.start(Sound.SOUNDTRACK);
+    }
+
+    public void changeTabSound(SoundControl instance){
+        instance.stop(Sound.CHANGETAB);
+        instance.start(Sound.CHANGETAB);
+    }
+
+    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException{
+
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -37,27 +44,28 @@ public class MenuController extends Controller<Menu> {
                 getModel().nextEntry();
                 break;
             case Enter:
+
                 boolean selectedExit = getModel().isSelectedExit();
-                if (selectedExit) game.setState(null);
+                if (selectedExit) {
+                    game.setState(null);
+                }
 
                 boolean selectedStart = getModel().isSelectedStart();
                 if (selectedStart) {
-                    instance.start(Sound.CHANGETAB);
-                    instance.stop(Sound.MENUMUSIC);
+                    newGameMusic(instance);
                     game.setState(new GameState(new Arena(34, 24, 1)));
-                    instance.start(Sound.SOUNDTRACK);
                     game.setScore(0);
                 }
 
                 boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
                 if (selectedLeaderBoard) {
-                    instance.start(Sound.CHANGETAB);
+                    changeTabSound(instance);
                     game.setState(new LeaderBoardState(new Leader()));
                 }
 
                 boolean selectedInstructions = getModel().isSelectedInstructions();
                 if (selectedInstructions) {
-                    instance.start(Sound.CHANGETAB);
+                    changeTabSound(instance);
                     game.setState(new InstructionsState((new Instruction())));
                 }
                 break;
@@ -68,5 +76,14 @@ public class MenuController extends Controller<Menu> {
                 }
                 break;
         }
+
+    }
+    @Override
+    public void step(Game game, KeyStroke key, long time) throws IOException {
+        if (key == null) {
+            return;
+        }
+        SoundControl instance = SoundControl.getInstance();
+        stepNotNull(game, key, time, instance);
     }
 }

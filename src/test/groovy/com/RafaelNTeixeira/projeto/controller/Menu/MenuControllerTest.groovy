@@ -5,6 +5,7 @@ import com.RafaelNTeixeira.projeto.controller.menu.LoseController
 import com.RafaelNTeixeira.projeto.controller.menu.MenuController
 import com.RafaelNTeixeira.projeto.model.menu.Lose
 import com.RafaelNTeixeira.projeto.model.menu.Menu
+import com.RafaelNTeixeira.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType
 import spock.lang.Specification
@@ -14,13 +15,17 @@ class MenuControllerTest extends Specification{
     private def game
     private def key
     private def time
+    private def menu
     private def menuController
+    private def instance
 
     def setup(){
         game = Mock(Game.class)
         key = Mock(KeyStroke.class)
         time = 5000
-        menuController = new MenuController(new Menu())
+        menu = Mock(Menu.class)
+        menuController = new MenuController(menu)
+        instance = Mock(SoundControl.class)
     }
 
     def 'test key = null'(){
@@ -32,17 +37,70 @@ class MenuControllerTest extends Specification{
         0 * game.setState(_)
     }
 
-    def 'test key Enter'(){
+    def 'test key Enter exit'(){
         given:
         key.getKeyType() >>> KeyType.Enter;
+        menu.isSelectedExit() >> true
 
         when:
-        menuController.step(game,key,time)
+        menuController.stepNotNull(game,key,time,instance)
         then:
         1 * game.setState(_)
     }
 
+    def 'test key Enter start'(){
+        given:
+        key.getKeyType() >>> KeyType.Enter;
+        menu.isSelectedStart() >> true
+
+        when:
+        menuController.stepNotNull(game,key,time,instance)
+        then:
+        2 * instance.start(_)
+        1 * instance.stop(_)
+        1 * game.setState(_)
+        1 * game.setScore(0)
+    }
+
+    def 'test key Enter leader board'(){
+        given:
+        key.getKeyType() >>> KeyType.Enter;
+        menu.isSelectedLeaderBoard() >> true
+
+        when:
+        menuController.stepNotNull(game,key,time,instance)
+        then:
+        1 * instance.stop(_)
+        1 * instance.start(_)
+        1 * game.setState(_)
+    }
+
+    def 'test key Enter Instructions'(){
+        given:
+        key.getKeyType() >>> KeyType.Enter;
+        menu.isSelectedInstructions() >> true
+
+        when:
+        menuController.stepNotNull(game,key,time,instance)
+        then:
+
+        1 * instance.stop(_)
+        1 * instance.start(_)
+        1 * game.setState(_)
+    }
+
     def 'test key char'(){
+        given:
+        key.getKeyType() >> KeyType.Character;
+        key.getCharacter() >> 'e'
+        when:
+        menuController.stepNotNull(game,key,time,instance)
+        then:
+        1 * instance.stopAll()
+        1 * game.setState(_)
+    }
+
+    def 'test key char step'(){
         given:
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
@@ -54,26 +112,28 @@ class MenuControllerTest extends Specification{
 
     def 'test key arrow UP'(){
         given:
-        int x = new Integer(menuController.getModel().getCurrentEntry())
+        MenuController menuController1 = new MenuController(new Menu())
+        int x = new Integer(menuController1.getModel().getCurrentEntry())
         key.getKeyType() >> KeyType.ArrowUp;
 
         when:
-        menuController.step(game,key,time)
+        menuController1.stepNotNull(game,key,time,instance)
 
         then:
-        x != menuController.getModel().getCurrentEntry()
-        menuController.getModel().getCurrentEntry() == menuController.getModel().getNumberEntries() - 1
+        x != menuController1.getModel().getCurrentEntry()
+        menuController1.getModel().getCurrentEntry() == menuController1.getModel().getNumberEntries() - 1
     }
 
     def 'test key arrow Down'(){
         given:
-        int x = new Integer(menuController.getModel().getCurrentEntry())
+        MenuController menuController1 = new MenuController(new Menu())
+        int x = new Integer(menuController1.getModel().getCurrentEntry())
         key.getKeyType() >> KeyType.ArrowDown;
 
         when:
-        menuController.step(game,key,time)
+        menuController1.stepNotNull(game,key,time,instance)
         then:
-        x != menuController.getModel().getCurrentEntry()
-        menuController.getModel().getCurrentEntry() == 1
+        x != menuController1.getModel().getCurrentEntry()
+        menuController1.getModel().getCurrentEntry() == 1
     }
 }
