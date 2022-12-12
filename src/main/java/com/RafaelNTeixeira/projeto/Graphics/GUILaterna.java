@@ -2,9 +2,7 @@ package com.RafaelNTeixeira.projeto.Graphics;
 
 import com.RafaelNTeixeira.projeto.model.game.Position;
 import com.googlecode.lanterna.*;
-import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -20,7 +18,6 @@ import java.awt.event.MouseEvent;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -84,7 +81,9 @@ public class GUILaterna implements GUI {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
         graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
+        int xPosition = position.getX();
+        int yPosition = position.getY();
+        graphics.putString(new TerminalPosition(xPosition, yPosition), "X");
 
         /*
         TextImage image = new BasicTextImage(40, 16);

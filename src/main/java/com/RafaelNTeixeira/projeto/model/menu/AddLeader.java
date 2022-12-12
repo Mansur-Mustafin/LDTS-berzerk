@@ -51,10 +51,12 @@ public class AddLeader {
     }
 
     public boolean isSelectedMenu() {
-        return isSelected(0);
+        boolean selectedMenu = isSelected(0);
+        return selectedMenu;
     }
     public boolean isSelectedLeaderBoard() {
-        return isSelected(1);
+        boolean selectedLeaderboard = isSelected(1);
+        return selectedLeaderboard;
     }
 
     public int getNumberEntries() {
@@ -65,20 +67,28 @@ public class AddLeader {
         PrintWriter out = null;
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/Leaders", true)));
-            if (Name.isEmpty()){
-                out.println("Noname " + Score);
-            }
-            else {
-                out.println( Name + " " + Score);
-            }
+            addScore(out);
         }
         catch (IOException e) {
             System.err.println(e);
         }
         finally {
-            if (out != null) {
-                out.close();
-            }
+            closeScore(out);
+        }
+    }
+
+    private void closeScore(PrintWriter out) {
+        if (out != null) {
+            out.close();
+        }
+    }
+
+    private void addScore(PrintWriter out) {
+        if (Name.isEmpty()){
+            out.println("Noname " + Score);
+        }
+        else {
+            out.println( Name + " " + Score);
         }
     }
 }

@@ -17,6 +17,10 @@ public class WinViewer extends Viewer<Win> {
 
         gui.drawText(new Position(8, 11), "your score:" + getModel().getScore(), "#FFFFFF");
 
+        drawText(gui);
+    }
+
+    private void drawText(GUI gui) {
         int numberEntries = getModel().getNumberEntries();
         for (int i = 0; i < numberEntries; i++) {
             String entry = getModel().getEntry(i);

@@ -40,7 +40,8 @@ public class Win {
         return menu;
     }
     public boolean isSelectedLeaderBoard() {
-        return isSelected(1);
+        boolean selectedLeaderboard = isSelected(1);
+        return selectedLeaderboard;
     }
     public boolean isSelectedAddToLeaderBoard(){
         boolean addToLeaderBoard = isSelected(2);

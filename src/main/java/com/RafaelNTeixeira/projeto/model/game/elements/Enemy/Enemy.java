@@ -43,6 +43,7 @@ public abstract class Enemy extends Element {
     protected abstract int generateEnergy();
 
     public Position move(Position position_hero, List<Wall> walls){
-        return moveStrategy.move(position, position_hero, walls);
+        Position move = moveStrategy.move(position, position_hero, walls);
+        return move;
     }
 }
