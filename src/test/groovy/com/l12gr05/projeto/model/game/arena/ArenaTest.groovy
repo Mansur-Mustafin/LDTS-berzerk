@@ -171,13 +171,13 @@ class ArenaTest extends Specification{
     }
 
     def 'Not contains wall'(){
-        when:
-        boolean f1 = arena.notContainsWall(0,2)
-        boolean f2 = arena.notContainsWall(5,5)
 
-        then:
-        !f1
-        f2
+        expect:
+        !arena.notContainsWall(0,2, (char)'l')
+        arena.notContainsWall(7,17,(char) 'u')
+        arena.notContainsWall(7,22,(char) 'd')
+        arena.notContainsWall(9,20,(char) 'l')
+        arena.notContainsWall(5,17,(char) 'r')
     }
 
     def 'Shoot'(){

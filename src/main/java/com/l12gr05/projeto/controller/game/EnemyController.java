@@ -44,6 +44,7 @@ public class EnemyController extends GameController {
         if (position.getX() < 0 || position.getY() < 0 || position.getX() > 33 || position.getY() > 23)
             return false;
 
+
         List<Wall> walls = getModel().getWalls();
         for (Wall wall : walls) {
             boolean equals = wall.getPosition().equals(position);
@@ -53,11 +54,13 @@ public class EnemyController extends GameController {
         List<Monster> monsters = getModel().getMonsters();
         for (Enemy enemy : monsters) {
             boolean equals1 = enemy.getPosition().equals(position);
-            if (equals1) return false;
+            if (equals1) {
+                return false;
+            }
         }
+
         List<King> kings = getModel().getKings();
         for (Enemy enemy : kings) {
-
             boolean equals2 = enemy.getPosition().equals(position);
             if (equals2) return false;
         }
