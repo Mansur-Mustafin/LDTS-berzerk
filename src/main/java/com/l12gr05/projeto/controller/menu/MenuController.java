@@ -66,7 +66,7 @@ public class MenuController extends Controller<Menu> {
                 boolean selectedInstructions = getModel().isSelectedInstructions();
                 if (selectedInstructions) {
                     changeTabSound(instance);
-                    game.setState(new InstructionsState((new Instruction())));
+                    game.setState(new InstructionsState(new Instruction()));
                 }
                 break;
             case Character:
@@ -74,6 +74,8 @@ public class MenuController extends Controller<Menu> {
                     instance.stopAll();
                     game.setState(null);
                 }
+                break;
+            default:
                 break;
         }
 

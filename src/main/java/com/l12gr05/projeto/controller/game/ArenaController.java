@@ -152,6 +152,7 @@ public class ArenaController extends GameController {
         }
     }
 
+    @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         SoundControl instance = SoundControl.getInstance();
         if (key == null) {

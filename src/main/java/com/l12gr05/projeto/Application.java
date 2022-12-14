@@ -10,7 +10,7 @@ public class Application {
         try {
             game.run();
         } catch(IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }

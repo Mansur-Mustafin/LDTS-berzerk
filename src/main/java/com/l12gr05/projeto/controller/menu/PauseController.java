@@ -83,6 +83,8 @@ public class PauseController extends Controller<Pause> {
                     game.setState(new MenuState(new Menu()));
                 }
                 break;
+            default:
+                break;
         }
     }
 

@@ -31,6 +31,8 @@ public class InstructionController extends Controller<Instruction> {
                     game.setState(null);
                 }
                 break;
+            default:
+                break;
         }
     }
 

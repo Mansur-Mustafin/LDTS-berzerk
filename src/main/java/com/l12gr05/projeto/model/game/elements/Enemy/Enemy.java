@@ -35,6 +35,7 @@ public abstract class Enemy extends Element {
         this.position = position;
     }
 
+    @Override
     public Position getPosition() {
         return position;
     }

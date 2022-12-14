@@ -57,6 +57,8 @@ public class WinController extends Controller<Win> {
                     game.setState(null);
                 }
                 break;
+            default:
+                break;
         }
 
     }

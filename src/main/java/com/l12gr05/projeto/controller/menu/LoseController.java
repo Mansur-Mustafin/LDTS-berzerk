@@ -69,6 +69,8 @@ public class LoseController extends Controller<Lose> {
                     game.setState(null);
                 }
                 break;
+            default:
+                break;
         }
 
     }

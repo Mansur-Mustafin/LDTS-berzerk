@@ -76,7 +76,7 @@ public class Arena {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -189,8 +189,8 @@ public class Arena {
     public int getScore() {
         return Score;
     }
-    public void setScore(int score) {
-        Score = score;
+    public void setScore(int s) {
+        Score = s;
     }
     public void setMonsters(List<Monster> m){
         monsters = m;

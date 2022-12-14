@@ -41,6 +41,8 @@ public class LeaderboardController extends Controller<Leaderboard> {
                     game.setState(null);
                 }
                 break;
+            default:
+                break;
         }
 
     }
