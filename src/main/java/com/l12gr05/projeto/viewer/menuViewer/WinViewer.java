@@ -11,11 +11,10 @@ public class WinViewer extends Viewer<Win> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(13, 7), "you win!", "#FFD700");
-        gui.drawText(new Position(5, 9), "i think you can do better", "#FFFFFF");
-        gui.drawText(new Position(10, 10), "let's try again!", "#FFFFFF");
-
-        gui.drawText(new Position(8, 11), "your score:" + getModel().getScore(), "#FFFFFF");
+        gui.drawText(new Position(12, 8), "you win!", "#FFD700");
+        gui.drawText(new Position(4, 9), "i think you can do better", "#FFFFFF");
+        gui.drawText(new Position(9, 10), "let's try again!", "#FFFFFF");
+        gui.drawText(new Position(10, 11), "your score:" + getModel().getScore(), "#FFFFFF");
 
         drawText(gui);
     }
@@ -25,8 +24,8 @@ public class WinViewer extends Viewer<Win> {
         for (int i = 0; i < numberEntries; i++) {
             String entry = getModel().getEntry(i);
             boolean selected = getModel().isSelected(i);
-            int x = 12 - i*3;
-            int y = 13 + i + 1;
+            int x = 13 - i*4;
+            int y = 14 + i;
 
             gui.drawText(new Position(x, y), entry, selected ? "#FFD700" : "#FFFFFF");
         }

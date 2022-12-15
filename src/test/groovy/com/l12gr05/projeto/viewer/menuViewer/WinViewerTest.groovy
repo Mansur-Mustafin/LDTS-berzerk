@@ -8,7 +8,6 @@ import spock.lang.Specification
 
 class WinViewerTest extends Specification{
     private def gui
-    private def lose
     private def position
 
     void setup() {
@@ -25,12 +24,12 @@ class WinViewerTest extends Specification{
         win_viewer.drawElements(gui)
 
         then:
-        1 * gui.drawText(new Position(13, 7), _, "#FFD700")
-        1 * gui.drawText(new Position(5, 9), _, "#FFFFFF")
-        1 * gui.drawText(new Position(10, 10), _, "#FFFFFF")
-        1 * gui.drawText(new Position(12, 14),_,"#FFD700")
+        1 * gui.drawText(new Position(12, 8), _, "#FFD700")
+        1 * gui.drawText(new Position(4, 9), _, "#FFFFFF")
+        1 * gui.drawText(new Position(9, 10), _, "#FFFFFF")
+        1 * gui.drawText(new Position(13, 14),_,"#FFD700")
         1 * gui.drawText(new Position(9, 15),_,"#FFFFFF")
-        1 * gui.drawText(new Position(6, 16),_,"#FFFFFF")
-        1 * gui.drawText(new Position(8, 11), _, "#FFFFFF")
+        1 * gui.drawText(new Position(5, 16),_,"#FFFFFF")
+        1 * gui.drawText(new Position(10, 11), _, "#FFFFFF")
     }
 }

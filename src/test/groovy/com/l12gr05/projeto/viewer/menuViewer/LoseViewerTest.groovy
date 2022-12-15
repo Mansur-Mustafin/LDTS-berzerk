@@ -8,7 +8,6 @@ import spock.lang.Specification
 
 class LoseViewerTest extends Specification {
     private def gui
-    private def lose
     private def position
 
     void setup() {
@@ -25,10 +24,10 @@ class LoseViewerTest extends Specification {
         lose_viewer.drawElements(gui)
 
         then:
-        1 * gui.drawText(new Position(12,14),_,"#FFD700")
-        1 * gui.drawText(new Position(8,11),_,"#FFFFFF")
-        1 * gui.drawText(new Position(9,15),_,"#FFFFFF")
+        1 * gui.drawText(new Position(14,14),_,"#FFD700")
+        1 * gui.drawText(new Position(11,10),_,"#FFFFFF")
+        1 * gui.drawText(new Position(10,15),_,"#FFFFFF")
         1 * gui.drawText(new Position(6,16),_,"#FFFFFF")
-        1 * gui.drawText(new Position(10,10),_,"#ff0000")
+        1 * gui.drawText(new Position(12,9),_,"#ff0000")
     }
 }

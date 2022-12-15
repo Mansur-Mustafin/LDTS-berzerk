@@ -11,7 +11,6 @@ class BulletTest extends Specification{
         given:
         boolean b = true
         Bullet bulletr = new Bullet(10, 10, 'r' as char, b)
-        Bullet bulleta = new Bullet(10, 10, 'a' as char, b)
 
         when:
         boolean f1 = bulletr.isHeroBullet()

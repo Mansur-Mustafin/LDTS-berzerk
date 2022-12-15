@@ -14,6 +14,8 @@ import com.googlecode.lanterna.input.KeyType;
 
 import java.io.IOException;
 
+import static java.lang.Character.toLowerCase;
+
 public class AddToLeaderboardController extends Controller<AddToLeaderboard> {
     public AddToLeaderboardController(AddToLeaderboard lose) {
         super(lose);
@@ -34,7 +36,9 @@ public class AddToLeaderboardController extends Controller<AddToLeaderboard> {
 
     private void writeName(KeyStroke key) {
         if (key.getKeyType() == KeyType.Character) {
-            getModel().addChar(key.getCharacter());
+            char c = key.getCharacter();
+            c = toLowerCase(c);
+            getModel().addChar(c);
         }
     }
 

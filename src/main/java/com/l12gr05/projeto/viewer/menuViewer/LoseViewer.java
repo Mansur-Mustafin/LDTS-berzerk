@@ -11,15 +11,15 @@ public class LoseViewer extends Viewer<Lose> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(10, 10), "game over", "#ff0000");
-        gui.drawText(new Position(8, 11), "your score:" + getModel().getScore(), "#FFFFFF");
+        gui.drawText(new Position(12, 9), "game over", "#ff0000");
+        gui.drawText(new Position(11, 10), "your score:" + getModel().getScore(), "#FFFFFF");
 
         int numberEntries = getModel().getNumberEntries();
         for (int i = 0; i < numberEntries; i++) {
             String entry = getModel().getEntry(i);
             boolean selected = getModel().isSelected(i);
 
-            int x = 12 - i*3;
+            int x = 14 - i*4;
             int y = 14 + i;
 
             gui.drawText(new Position(x, y), entry, selected ? "#FFD700" : "#FFFFFF");

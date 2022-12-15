@@ -79,7 +79,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawHero(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         graphics.enableModifiers(SGR.BOLD);
         int xPosition = position.getX();
         int yPosition = position.getY();
@@ -100,7 +100,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawHeartBoss(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#608482"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
@@ -110,8 +110,8 @@ public class GUILaterna implements GUI {
     @Override
     public void drawWall(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#5C627F"));
-        graphics.setForegroundColor(TextColor.Factory.fromString("#5C627F"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#484857"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#484857"));
         graphics.enableModifiers(SGR.BOLD);
         int x = position.getX();
         int y = position.getY();
@@ -121,7 +121,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawMonster(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#CC0000"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#D31717"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
@@ -131,7 +131,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawKing(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#A52D93"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#EFC320"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
@@ -141,7 +141,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawBoss(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#ADABAC"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
