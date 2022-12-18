@@ -1,6 +1,7 @@
 package com.l12gr05.projeto.controller.game;
 
 import com.l12gr05.projeto.Game;
+import com.l12gr05.projeto.model.game.elements.Hero;
 import com.l12gr05.projeto.state.*;
 import com.l12gr05.projeto.model.game.Position;
 import com.l12gr05.projeto.model.game.arena.Arena;
@@ -113,17 +114,18 @@ public class ArenaController extends GameController {
 
     public void stepNonVoid(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
         int score = game.getScore();
-        boolean previousMenu = key.getKeyType() == KeyType.Character && key.getCharacter() == 'q';
-        boolean heroDeath = this.getModel().getHero().getEnergy() <= 0;
+        Hero hero = this.getModel().getHero();
+        boolean quitKey = key.getKeyType() == KeyType.Character && key.getCharacter() == 'q';
         boolean exitKey = key.getKeyType() == KeyType.Character && key.getCharacter() == 'e';
 
-        if (previousMenu) {
+
+        if (quitKey) {
             instance.stop(Sound.SOUNDTRACK);
             instance.start(Sound.MENUMUSIC);
             game.setState(new MenuState(new Menu()));
             return;
         }
-        if (heroDeath) {
+        if (hero.getEnergy() <= 0) {
             instance.start(Sound.HERODEATH);
             instance.stop(Sound.SOUNDTRACK);
             instance.start(Sound.MENUMUSIC);

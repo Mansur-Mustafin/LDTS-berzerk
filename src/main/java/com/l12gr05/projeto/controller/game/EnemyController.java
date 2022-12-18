@@ -8,6 +8,7 @@ import com.l12gr05.projeto.model.game.elements.Enemy.Enemy;
 import com.l12gr05.projeto.model.game.elements.Enemy.King;
 import com.l12gr05.projeto.model.game.elements.Enemy.Monster;
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.KingMoveStrategy;
+import com.l12gr05.projeto.model.game.elements.Hero;
 import com.l12gr05.projeto.model.game.elements.Wall;
 
 import com.l12gr05.projeto.model.sounds.Sound;
@@ -90,7 +91,6 @@ public class EnemyController extends GameController {
         int score = game.getScore();
         getModel().setScore(score);
 
-
         List<Monster> monsters = getModel().getMonsters();
 
         for (Enemy monster : monsters) {
@@ -104,14 +104,15 @@ public class EnemyController extends GameController {
             if (monsterHitsHero) {
                 instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
-                getModel().getHero().decreaseEnergy(3);
+                Hero hero = getModel().getHero();
+                hero.decreaseEnergy(3);
             }
-            Position position1 = monster.getPosition();
-            char c = DirOfShoot(position1);
+            Position pos = monster.getPosition();
+            char c = DirOfShoot(pos);
             if (c != 'n'){
                 instance.stop(Sound.SHOOTING);
                 instance.start(Sound.SHOOTING);
-                getModel().Shoot(c, position1, false);
+                getModel().Shoot(c, pos, false);
 
             }
         }
@@ -130,7 +131,8 @@ public class EnemyController extends GameController {
             if (kingHitsHero) {
                 instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
-                getModel().getHero().decreaseEnergy(5);
+                Hero hero = getModel().getHero();
+                hero.decreaseEnergy(5);
             }
         }
     }
