@@ -90,6 +90,7 @@ public class EnemyController extends GameController {
         int score = game.getScore();
         getModel().setScore(score);
 
+
         List<Monster> monsters = getModel().getMonsters();
 
         for (Enemy monster : monsters) {
@@ -105,11 +106,12 @@ public class EnemyController extends GameController {
                 instance.start(Sound.HERODEATH);
                 getModel().getHero().decreaseEnergy(3);
             }
-            char c = DirOfShoot(monster.getPosition());
+            Position position1 = monster.getPosition();
+            char c = DirOfShoot(position1);
             if (c != 'n'){
                 instance.stop(Sound.SHOOTING);
                 instance.start(Sound.SHOOTING);
-                getModel().Shoot(c, monster.getPosition(), false);
+                getModel().Shoot(c, position1, false);
 
             }
         }

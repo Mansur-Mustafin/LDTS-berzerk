@@ -113,30 +113,37 @@ public class ArenaController extends GameController {
 
     public void stepNonVoid(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
         int score = game.getScore();
+        boolean previousMenu = key.getKeyType() == KeyType.Character && key.getCharacter() == 'q';
+        boolean heroDeath = this.getModel().getHero().getEnergy() <= 0;
+        boolean exitKey = key.getKeyType() == KeyType.Character && key.getCharacter() == 'e';
 
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
+        if (previousMenu) {
             instance.stop(Sound.SOUNDTRACK);
             instance.start(Sound.MENUMUSIC);
             game.setState(new MenuState(new Menu()));
             return;
         }
-        if (this.getModel().getHero().getEnergy() <= 0) {
+        if (heroDeath) {
             instance.start(Sound.HERODEATH);
             instance.stop(Sound.SOUNDTRACK);
             instance.start(Sound.MENUMUSIC);
             game.setState(new LoseState(new Lose(score)));
             return;
         }
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
+        if (exitKey) {
             game.setState(null);
             return;
         }
-        if(time - lastBullet > 250 ){
+        bulletStep(game, key, time, instance);
+
+        pressedEscape(game, key, time, instance);
+    }
+
+    private void bulletStep(Game game, KeyStroke key, long time, SoundControl instance) {
+        if (time - lastBullet > 250 ) {
             steplastBullet(game, key, instance);
             this.lastBullet = time;
         }
-
-        pressedEscape(game, key, time, instance);
     }
 
     private void pressedEscape(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
@@ -146,7 +153,8 @@ public class ArenaController extends GameController {
             State state = game.getState();
             game.setOldState(state);
             game.setState(new PauseState(new Pause()));
-        } else {
+        }
+        else {
             heroController.step(game, key, time);
             enemyController.step(game, key, time);
         }
