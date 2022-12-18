@@ -22,7 +22,6 @@ public class InstructionController extends Controller<Instruction> {
         switch (key.getKeyType()) {
             case Enter:
                 instance.start(Sound.CHANGETAB);
-
                 boolean selectedEnter = getModel().isSelectedEnter();
                 if (selectedEnter) game.setState(new MenuState(new Menu()));
                 break;
@@ -39,7 +38,6 @@ public class InstructionController extends Controller<Instruction> {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) return;
-
         SoundControl instance = SoundControl.getInstance();
         stepNotNull(game, key, time, instance);
     }

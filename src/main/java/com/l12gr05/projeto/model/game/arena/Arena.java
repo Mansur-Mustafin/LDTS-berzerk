@@ -54,22 +54,22 @@ public class Arena {
             for (String line; (line = reader.readLine()) != null; i++) {
                 int j = 0;
                 for (char c: line.toCharArray()) {
-                    if(c == 'h'){
+                    if (c == 'h') {
                         hero = new Hero(j,i);
                     }
-                    if(c == 'm'){
+                    if (c == 'm') {
                         monsters.add(new Monster(j, i));
                     }
-                    if(c == 'k'){
+                    if (c == 'k') {
                         kings.add(new King(j, i));
                     }
-                    if(c == 'w'){
+                    if (c == 'w') {
                         walls.add(new Wall(j, i));
                     }
-                    if(c == 'f'){
+                    if (c == 'f') {
                         boss = new Boss(j,i);
                     }
-                    if(c == 'J'){
+                    if (c == 'J') {
                         health.add(new Health(j,i));
                     }
                     j++;
@@ -102,7 +102,7 @@ public class Arena {
 
     public boolean notContainsWall(int x, int y){
         Position position = new Position(x,y);
-        for(Wall wall : walls){
+        for (Wall wall : walls) {
             if(wall.getPosition().equals(position)){
                 return false;
             }
@@ -116,42 +116,42 @@ public class Arena {
 
         switch (dir){
             case 'r':
-                if(notContainsWall(x + 1,y)){
+                if (notContainsWall(x + 1,y)) {
                     bullets.add(new Bullet(x + 1, y, dir ,hero));
                 }
                 break;
             case 'l':
-                if(notContainsWall(x - 1,y)){
+                if (notContainsWall(x - 1,y)) {
                     bullets.add(new Bullet(x - 1, y, dir, hero));
                 }
                 break;
             case 'd':
-                if(notContainsWall(x,y+1)){
+                if (notContainsWall(x,y+1)) {
                     bullets.add(new Bullet(x , y + 1, dir, hero));
                 }
                 break;
             case 'u':
-                if(notContainsWall(x,y-1)){
+                if (notContainsWall(x,y-1)) {
                     bullets.add(new Bullet( x , y - 1, dir, hero));
                 }
                 break;
             case 'q':
-                if(notContainsWall(x - 1,y - 1)){
+                if (notContainsWall(x - 1,y - 1)) {
                     bullets.add(new Bullet(x -1  , y - 1, dir, hero));
                 }
                 break;
             case 't':
-                if(notContainsWall(x + 1,y-1)){
+                if (notContainsWall(x + 1,y-1)) {
                     bullets.add(new Bullet(x + 1,y-1, dir, hero));
                 }
                 break;
             case 'a':
-                if(notContainsWall(x - 1,y+1)){
+                if (notContainsWall(x - 1,y+1)) {
                     bullets.add(new Bullet(x - 1, y + 1, dir, hero));
                 }
                 break;
             case 'z':
-                if(notContainsWall(x + 1,y+1)){
+                if (notContainsWall(x + 1,y+1)) {
                     bullets.add(new Bullet(x + 1, y + 1, dir, hero));
                 }
                 break;

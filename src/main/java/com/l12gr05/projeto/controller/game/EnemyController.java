@@ -92,7 +92,6 @@ public class EnemyController extends GameController {
         getModel().setScore(score);
 
         List<Monster> monsters = getModel().getMonsters();
-
         for (Enemy monster : monsters) {
             Position position;
             while (true) {
@@ -169,10 +168,10 @@ public class EnemyController extends GameController {
             this.lastMovementEnemy = time;
         }
 
-        if(time - lastMovementBoss > 800 && getModel().getLevel() == 6){
+        if (time - lastMovementBoss > 800 && getModel().getLevel() == 6) {
             stepMovementBoss(game, key, time, instance);
         }
-        if(time - lastSpawn > 6000 && getModel().getLevel() == 6){
+        if (time - lastSpawn > 6000 && getModel().getLevel() == 6) {
             getModel().spawnMonster();
             lastSpawn = time;
         }

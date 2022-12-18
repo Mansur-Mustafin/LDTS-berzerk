@@ -78,8 +78,8 @@ public class MenuController extends Controller<Menu> {
             default:
                 break;
         }
-
     }
+
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) {

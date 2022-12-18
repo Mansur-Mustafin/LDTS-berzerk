@@ -53,7 +53,6 @@ public class GUILaterna implements GUI {
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
-
         ((AWTTerminalFrame)terminal).getComponent(0).addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -84,7 +83,6 @@ public class GUILaterna implements GUI {
         int xPosition = position.getX();
         int yPosition = position.getY();
         graphics.putString(new TerminalPosition(xPosition, yPosition), "X");
-
     }
 
     @Override
@@ -205,20 +203,20 @@ public class GUILaterna implements GUI {
     @Override
     public KeyStroke getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
-        if(keyStroke == null && !pressedKeys.isEmpty()){
-            if(pressedKeys.contains(1)){
+        if (keyStroke == null && !pressedKeys.isEmpty()) {
+            if (pressedKeys.contains(1)) {
                 pressedKeys.remove(1);
                 return new KeyStroke(KeyType.ArrowLeft);
             }
-            if(pressedKeys.contains(3)){
+            if (pressedKeys.contains(3)) {
                 pressedKeys.remove(3);
                 return new KeyStroke(KeyType.ArrowRight);
             }
-            if(pressedKeys.contains(5)){
+            if (pressedKeys.contains(5)) {
                 pressedKeys.remove(5);
                 return new KeyStroke(KeyType.ArrowUp);
             }
-            if(pressedKeys.contains(4)){
+            if (pressedKeys.contains(4)) {
                 pressedKeys.remove(4);
                 return new KeyStroke(KeyType.ArrowDown);
             }

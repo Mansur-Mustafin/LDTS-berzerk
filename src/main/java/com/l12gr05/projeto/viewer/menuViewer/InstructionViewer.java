@@ -30,7 +30,6 @@ public class InstructionViewer extends Viewer<Instruction> {
         gui.drawText(new Position(0, 17), "||                             ||", "#E9FFDB");
         gui.drawText(new Position(0, 18), "||=============================||", "#E9FFDB");
 
-
         gui.drawText(new Position(2, 21), "Press enter to go back to menu", "#FFFFFF");
     }
 }

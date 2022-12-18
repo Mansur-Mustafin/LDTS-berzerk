@@ -90,7 +90,7 @@ public class PauseController extends Controller<Pause> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
+        if (key == null) {
             return;
         }
         SoundControl instance = SoundControl.getInstance();

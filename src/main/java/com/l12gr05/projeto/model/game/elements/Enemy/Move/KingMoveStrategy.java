@@ -49,7 +49,6 @@ public class KingMoveStrategy implements MoveStrategy {
         int y = position.getY();
         used[x][y] = true;
 
-
         while (!q.isEmpty()) {
             Position tmp = q.remove();
             for(Position step : steps){
