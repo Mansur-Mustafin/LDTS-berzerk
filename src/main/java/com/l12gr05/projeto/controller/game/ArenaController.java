@@ -108,7 +108,7 @@ public class ArenaController extends GameController {
         boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
         if (canGoToNextLevel){
             int N_lvl = getModel().getLevel() + 1;
-            game.setState(new GameState(new Arena(34, 25, N_lvl)));
+            game.setState(new GameState(new Arena(34, 25, 6)));
         }
     }
 
