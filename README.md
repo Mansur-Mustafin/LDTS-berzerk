@@ -30,7 +30,7 @@
 > - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See LeaderBoard and Add name to leaderBoard is displayed
 > - `CHARACTERS` - We designed the characters manually
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
-> - `BULLETS` - The player and enenies can shoot bullets
+> - `BULLETS` - The player and enemies can shoot bullets
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
@@ -38,6 +38,8 @@
 > - `DODGE` - Enemies have a low chance of dodging player bullets
 > - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
 > - `BOSS` - We made a final boss consisting of 9 different PNG's 
+> - `SHOOT BEHIND WALLS` - If the player is hidden behind walls, the enemies will not try to shoot through them
+> - `PICK UP HEALTH`- On the final level, the player has the chance to restore health by picking hearts on the ground
 >
 &nbsp;
                                                                                                                 
