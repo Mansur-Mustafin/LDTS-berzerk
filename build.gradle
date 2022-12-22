@@ -8,7 +8,6 @@ plugins {
 group 'com.l12gr05.projeto'
 version '1.0-SNAPSHOT'
 
-
 repositories {
     mavenCentral()
 }
