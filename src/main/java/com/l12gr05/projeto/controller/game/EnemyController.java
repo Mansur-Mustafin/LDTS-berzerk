@@ -89,7 +89,7 @@ public class EnemyController extends GameController {
         return 'n';
     }
 
-    public void stepMovementEnemy(Game game, KeyStroke key, long time, SoundControl instance ){
+    public void stepMovementEnemy(Game game, SoundControl instance ){
         int score = game.getScore();
         getModel().setScore(score);
 
@@ -139,7 +139,7 @@ public class EnemyController extends GameController {
     }
 
 
-    public void stepMovementBoss(Game game, KeyStroke key, long time, SoundControl instance){
+    public void stepMovementBoss(long time, SoundControl instance){
         Boss boss = getModel().getBoss();
         Position position = boss.move(getModel().getHero().position ,getModel().getWalls() );
         boss.setPosition(position);
@@ -166,12 +166,12 @@ public class EnemyController extends GameController {
         SoundControl instance = SoundControl.getInstance();
 
         if (time - lastMovementEnemy > 500) {
-            stepMovementEnemy(game, key, time, instance);
+            stepMovementEnemy(game,instance);
             this.lastMovementEnemy = time;
         }
 
         if (time - lastMovementBoss > 800 && getModel().getLevel() == 6) {
-            stepMovementBoss(game, key, time, instance);
+            stepMovementBoss(time, instance);
         }
         if (time - lastSpawn > 6000 && getModel().getLevel() == 6) {
             getModel().spawnMonster();

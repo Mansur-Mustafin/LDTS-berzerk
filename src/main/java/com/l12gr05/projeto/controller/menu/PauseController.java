@@ -38,7 +38,7 @@ public class PauseController extends Controller<Pause> {
     }
 
 
-    public void notNullStep(Game game, KeyStroke key, long time, SoundControl instance) {
+    public void notNullStep(Game game, KeyStroke key, SoundControl instance) {
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -94,7 +94,7 @@ public class PauseController extends Controller<Pause> {
             return;
         }
         SoundControl instance = SoundControl.getInstance();
-        notNullStep(game, key, time, instance);
+        notNullStep(game, key, instance);
     }
 }
 

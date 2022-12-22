@@ -21,7 +21,7 @@ public class AddToLeaderboardController extends Controller<AddToLeaderboard> {
         super(lose);
     }
 
-    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
+    public void stepNotNull(Game game, KeyStroke key, SoundControl instance) throws IOException {
         pressedEnter(game, key, instance);
         writeName(key);
 
@@ -55,6 +55,6 @@ public class AddToLeaderboardController extends Controller<AddToLeaderboard> {
             return;
         }
         SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game, key, time, instance);
+        stepNotNull(game, key, instance);
     }
 }

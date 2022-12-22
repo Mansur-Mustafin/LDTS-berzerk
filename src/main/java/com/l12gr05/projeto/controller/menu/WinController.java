@@ -23,7 +23,7 @@ public class WinController extends Controller<Win> {
         instance.start(Sound.CHANGETAB);
     }
 
-    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException  {
+    public void stepNotNull(Game game, KeyStroke key, SoundControl instance) throws IOException  {
 
         switch (key.getKeyType()) {
             case ArrowUp:
@@ -68,6 +68,6 @@ public class WinController extends Controller<Win> {
             return;
         }
         SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game,key,time,instance);
+        stepNotNull(game,key,instance);
     }
 }

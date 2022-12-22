@@ -23,7 +23,7 @@ public class LeaderboardController extends Controller<Leaderboard> {
         instance.start(Sound.CHANGETAB);
     }
 
-    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) {
+    public void stepNotNull(Game game, KeyStroke key, SoundControl instance) {
         switch (key.getKeyType()) {
             case Enter:
                 changeTabSound(instance);
@@ -49,6 +49,6 @@ public class LeaderboardController extends Controller<Leaderboard> {
             return;
         }
         SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game, key, time, instance);
+        stepNotNull(game, key, instance);
     }
 }

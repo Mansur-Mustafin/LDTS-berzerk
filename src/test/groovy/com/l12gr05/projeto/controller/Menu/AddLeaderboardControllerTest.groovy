@@ -38,7 +38,7 @@ class AddLeaderboardControllerTest extends Specification{
         given:
         key.getKeyType() >> KeyType.Enter;
         when:
-        leaderController.stepNotNull(game,key,time, instance)
+        leaderController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
         1 * addLeader.addScore()
@@ -62,7 +62,7 @@ class AddLeaderboardControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'd'
         when:
-        addLeaderController.stepNotNull(game,key,time, instance)
+        addLeaderController.stepNotNull(game,key,instance)
         then:
         !s.equals(addLeaderController.getModel().getName())
         addLeaderController.getModel().getName().charAt(addLeaderController.getModel().getName().length() - 1) == 'd';
@@ -76,7 +76,7 @@ class AddLeaderboardControllerTest extends Specification{
         key.getKeyType() >> KeyType.Backspace
 
         when:
-        addLeaderController.stepNotNull(game, key, time, instance)
+        addLeaderController.stepNotNull(game, key,instance)
 
         then:
         addLeader1.getName() == ''
@@ -90,7 +90,7 @@ class AddLeaderboardControllerTest extends Specification{
         key.getKeyType() >> KeyType.Backspace
 
         when:
-        addLeaderController.stepNotNull(game, key, time, instance)
+        addLeaderController.stepNotNull(game, key, instance)
 
         then:
         addLeader1.getName() == 'Ia'
