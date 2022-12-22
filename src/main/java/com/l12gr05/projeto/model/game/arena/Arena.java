@@ -115,18 +115,11 @@ public class Arena {
     public void eraseHealth(int index){health.remove(index);
     }
 
-<<<<<<< HEAD
+
     public boolean notContainsWall(int x, int y, char dir){
         if(x < 0 || y < 0 ||x > 34 || y > 24){
             return false;
-=======
-    public boolean notContainsWall(int x, int y){
-        Position position = new Position(x,y);
-        for (Wall wall : walls) {
-            if(wall.getPosition().equals(position)){
-                return false;
-            }
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
         }
         switch (dir){
             case'r':
@@ -171,74 +164,50 @@ public class Arena {
 
         switch (dir){
             case 'r':
-<<<<<<< HEAD
                 if(notContainsWall(x + 1,y, dir)){
-=======
-                if (notContainsWall(x + 1,y)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet(x + 1, y, dir ,hero));
                 }
                 break;
             case 'l':
-<<<<<<< HEAD
                 if(notContainsWall(x - 1,y, dir)){
-=======
-                if (notContainsWall(x - 1,y)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet(x - 1, y, dir, hero));
                 }
                 break;
             case 'd':
-<<<<<<< HEAD
                 if(notContainsWall(x,y+1, dir)){
-=======
-                if (notContainsWall(x,y+1)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet(x , y + 1, dir, hero));
                 }
                 break;
             case 'u':
-<<<<<<< HEAD
                 if(notContainsWall(x,y-1, dir)){
-=======
-                if (notContainsWall(x,y-1)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet( x , y - 1, dir, hero));
                 }
                 break;
             case 'q':
-<<<<<<< HEAD
                 if(notContainsWall(x - 1,y - 1, dir)){
-=======
-                if (notContainsWall(x - 1,y - 1)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet(x -1  , y - 1, dir, hero));
                 }
                 break;
             case 't':
-<<<<<<< HEAD
                 if(notContainsWall(x + 1,y-1, dir)){
-=======
-                if (notContainsWall(x + 1,y-1)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet(x + 1,y-1, dir, hero));
                 }
                 break;
             case 'a':
-<<<<<<< HEAD
                 if(notContainsWall(x - 1,y+1, dir)){
-=======
-                if (notContainsWall(x - 1,y+1)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet(x - 1, y + 1, dir, hero));
                 }
                 break;
             case 'z':
-<<<<<<< HEAD
                 if(notContainsWall(x + 1,y+1, dir)){
-=======
-                if (notContainsWall(x + 1,y+1)) {
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
                     bullets.add(new Bullet(x + 1, y + 1, dir, hero));
                 }
                 break;
@@ -276,16 +245,12 @@ public class Arena {
     public int getScore() {
         return Score;
     }
-<<<<<<< HEAD
     public boolean[][] getMatrixOfWalls(){
         return MatrixOfWalls;
     }
     public void setScore(int score) {
         Score = score;
-=======
-    public void setScore(int s) {
-        Score = s;
->>>>>>> 3288a1f3798aae785712aada04bfd894629bfed1
+
     }
     public void setMonsters(List<Monster> m){
         monsters = m;

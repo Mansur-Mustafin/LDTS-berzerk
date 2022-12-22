@@ -2,10 +2,7 @@ package com.l12gr05.projeto.model.menu;
 
 import com.l12gr05.projeto.Player;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -19,13 +16,11 @@ public class Leaderboard {
 
     public Leaderboard() throws IOException {
         this.entries = Arrays.asList("press enter to back menu");
-
-        InputStream istream = ClassLoader.getSystemResourceAsStream("leaders");
-        InputStreamReader istreamreader = new InputStreamReader(istream, StandardCharsets.UTF_8);
-        BufferedReader reader = new BufferedReader(istreamreader);
-        try {
+        File file = new File("src/main/resources/Leaders");
+        Scanner sc = new Scanner(file);
             String line;
-            while ((line = reader.readLine()) != null) {
+            while (sc.hasNextLine()) {
+                line = sc.nextLine();
                 String[] words = line.split("\\s");
                 Player p = new Player (words[0], words[1]);
                 boolean contains = contains(players, p);
@@ -38,10 +33,7 @@ public class Leaderboard {
                     players.add(p);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        reader.close();
+        sc.close();
         Collections.sort(players, new SortByScore());
     }
 
