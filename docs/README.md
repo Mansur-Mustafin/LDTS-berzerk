@@ -257,7 +257,22 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 
 ### MUTATION TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Pitest.png)
-`PITEST LINK:` https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/docs/PiTests
+`PITEST LINK:` https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/docs/PiTests </br>
+&nbsp;
+
+
+### BETTER CODE HUB
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/BetterCodeHub.jpg) 
+
+**Result of the analysis:** 6/10
+
+**Failed guidelines:** </br>
+`Automate Tests` - Failing the software can't calculate assert density while we are using Spock to make our tests </br>
+`Keep Unit Interfaces Small` </br>
+`Couple Architecture Components Loosely` - Failing because we use the MVC pattern (Organize the project in different folders) </br>
+`Write Code Once` </br>
+&nbsp;
+
 
 ### SELF-EVALUATION
 > 
