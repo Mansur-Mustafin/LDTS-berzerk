@@ -68,30 +68,34 @@ public class Arena {
             int i = 0;
             for (String line; (line = reader.readLine()) != null; i++) {
                 int j = 0;
-                for (char c: line.toCharArray()) {
-                    if (c == 'h') {
-                        hero = new Hero(j,i);
-                    }
-                    if (c == 'm') {
-                        monsters.add(new Monster(j, i));
-                    }
-                    if (c == 'k') {
-                        kings.add(new King(j, i));
-                    }
-                    if (c == 'w') {
-                        walls.add(new Wall(j, i));
-                    }
-                    if (c == 'f') {
-                        boss = new Boss(j,i);
-                    }
-                    if (c == 'J') {
-                        health.add(new Health(j,i));
-                    }
-                    j++;
-                }
+                readMap(i, line, j);
             }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    private void readMap(int i, String line, int j) {
+        for (char c: line.toCharArray()) {
+            if (c == 'h') {
+                hero = new Hero(j,i);
+            }
+            if (c == 'm') {
+                monsters.add(new Monster(j, i));
+            }
+            if (c == 'k') {
+                kings.add(new King(j, i));
+            }
+            if (c == 'w') {
+                walls.add(new Wall(j, i));
+            }
+            if (c == 'f') {
+                boss = new Boss(j,i);
+            }
+            if (c == 'J') {
+                health.add(new Health(j,i));
+            }
+            j++;
         }
     }
 
@@ -158,7 +162,7 @@ public class Arena {
         return !MatrixOfWalls[x][y];
     }
 
-    public void Shoot(char dir, Position position, boolean hero){
+    public void shoot(char dir, Position position, boolean hero){
         int x = position.getX();
         int y = position.getY();
 

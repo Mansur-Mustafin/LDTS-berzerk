@@ -13,7 +13,6 @@ import com.l12gr05.projeto.model.sounds.Sound;
 import com.l12gr05.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import com.l12gr05.projeto.state.*;
 
 import java.io.IOException;
 
@@ -51,28 +50,28 @@ public class ArenaController extends GameController {
         instance.start(Sound.SHOOTING);
     }
 
-    public void steplastBullet(Game game, KeyStroke key, SoundControl instance){
+    public void steplastBullet(KeyStroke key, SoundControl instance){
         Position position = getModel().getHero().getPosition();
 
-        if (key.getKeyType() == KeyType.ArrowRight) {
-            ShootSound(instance);
-            getModel().Shoot('r', position, true);
-        }
-        if (key.getKeyType() == KeyType.ArrowLeft) {
-            ShootSound(instance);
-            getModel().Shoot('l', position, true);
-        }
         if (key.getKeyType() == KeyType.ArrowUp) {
             ShootSound(instance);
-            getModel().Shoot('u', position, true);
+            getModel().shoot('u', position, true);
         }
         if (key.getKeyType() == KeyType.ArrowDown) {
             ShootSound(instance);
-            getModel().Shoot('d', position, true);
+            getModel().shoot('d', position, true);
+        }
+        if (key.getKeyType() == KeyType.ArrowRight) {
+            ShootSound(instance);
+            getModel().shoot('r', position, true);
+        }
+        if (key.getKeyType() == KeyType.ArrowLeft) {
+            ShootSound(instance);
+            getModel().shoot('l', position, true);
         }
     }
 
-    public void stepVoidKey(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
+    public void stepVoidKey(Game game, long time) throws IOException {
         int score = game.getScore();
 
         heroController.step(game, null, time);
@@ -108,7 +107,7 @@ public class ArenaController extends GameController {
         boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
         if (canGoToNextLevel){
             int N_lvl = getModel().getLevel() + 1;
-            game.setState(new GameState(new Arena(34, 25, 6)));
+            game.setState(new GameState(new Arena(34, 25, N_lvl)));
         }
     }
 
@@ -136,14 +135,14 @@ public class ArenaController extends GameController {
             game.setState(null);
             return;
         }
-        bulletStep(game, key, time, instance);
+        bulletStep(key, time, instance);
 
         pressedEscape(game, key, time, instance);
     }
 
-    private void bulletStep(Game game, KeyStroke key, long time, SoundControl instance) {
+    private void bulletStep(KeyStroke key, long time, SoundControl instance) {
         if (time - lastBullet > 250 ) {
-            steplastBullet(game, key, instance);
+            steplastBullet(key, instance);
             this.lastBullet = time;
         }
     }
@@ -166,7 +165,7 @@ public class ArenaController extends GameController {
     public void step(Game game, KeyStroke key, long time) throws IOException {
         SoundControl instance = SoundControl.getInstance();
         if (key == null) {
-            stepVoidKey(game, null, time,instance );
+            stepVoidKey(game, time);
         } else {
             stepNonVoid(game, key, time,instance );
         }

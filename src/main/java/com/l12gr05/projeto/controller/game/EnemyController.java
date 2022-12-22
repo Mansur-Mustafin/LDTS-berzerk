@@ -44,8 +44,7 @@ public class EnemyController extends GameController {
     public boolean canMonsterMove(Position position) {
         if (position.getX() < 0 || position.getY() < 0 || position.getX() > 33 || position.getY() > 23)
             return false;
-
-
+        
         List<Wall> walls = getModel().getWalls();
         for (Wall wall : walls) {
             boolean equals = wall.getPosition().equals(position);
@@ -114,7 +113,7 @@ public class EnemyController extends GameController {
             if (c != 'n'){
                 instance.stop(Sound.SHOOTING);
                 instance.start(Sound.SHOOTING);
-                getModel().Shoot(c, pos, false);
+                getModel().shoot(c, pos, false);
 
             }
         }
@@ -150,14 +149,14 @@ public class EnemyController extends GameController {
             instance.start(Sound.HERODEATH);
             getModel().getHero().decreaseEnergy(7);
         }
-        getModel().Shoot('r', boss.position, false);
-        getModel().Shoot('l', boss.position, false);
-        getModel().Shoot('u', boss.position, false);
-        getModel().Shoot('d', boss.position, false);
-        getModel().Shoot('t', boss.position, false);
-        getModel().Shoot('q', boss.position, false);
-        getModel().Shoot('a', boss.position, false);
-        getModel().Shoot('z', boss.position, false);
+        getModel().shoot('r', boss.position, false);
+        getModel().shoot('l', boss.position, false);
+        getModel().shoot('u', boss.position, false);
+        getModel().shoot('d', boss.position, false);
+        getModel().shoot('t', boss.position, false);
+        getModel().shoot('q', boss.position, false);
+        getModel().shoot('a', boss.position, false);
+        getModel().shoot('z', boss.position, false);
         this.lastMovementBoss = time;
     }
 
