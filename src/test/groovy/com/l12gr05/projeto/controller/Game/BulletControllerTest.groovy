@@ -34,33 +34,32 @@ class BulletControllerTest extends Specification{
         bulletController.lastMovementBullet == 0
     }
 
-    def 'Have Walls'(){
+    def 'Has Walls'(){
         given:
         Position position = new Position(0,7)
         Position position1 = new Position(5, 5)
 
         when:
-        boolean f1 = bulletController.HaveWalls(position)
-        boolean f2 = bulletController.HaveWalls(position1)
+        boolean f1 = bulletController.hasWalls(position)
+        boolean f2 = bulletController.hasWalls(position1)
 
         then:
         f1
         !f2
     }
 
-    def 'Have Monster'(){
+    def 'Has Monster'(){
         given:
         Position position = new Position(0,2)
 
         when:
-        boolean f1 = bulletController.HaveMonster(position, game , instance)
-        int m_size2 = arena.getMonsters().size()
+        boolean f1 = bulletController.hasMonster(position, game , instance)
 
         then:
         !f1
     }
 
-    def 'Have Monster 2'(){
+    def 'Has Monster 2'(){
         given:
         Position position1 = new Position(8, 9)
         int m_size = arena.getMonsters().size()
@@ -68,7 +67,7 @@ class BulletControllerTest extends Specification{
         game.getScore() >> 5
 
         when:
-        boolean f2 = bulletController.HaveMonster(position1, game, instance)
+        boolean f2 = bulletController.hasMonster(position1, game, instance)
         int m_size2 = arena.getMonsters().size()
 
         then:
@@ -85,8 +84,8 @@ class BulletControllerTest extends Specification{
         Position position1 = new Position(3, 4)
 
         when:
-        boolean f1 = bulletController.HaveKings(position, game, instance)
-        boolean f2 = bulletController.HaveKings(position1, game, instance)
+        boolean f1 = bulletController.hasKings(position, game, instance)
+        boolean f2 = bulletController.hasKings(position1, game, instance)
 
         then:
         !f1
@@ -99,7 +98,7 @@ class BulletControllerTest extends Specification{
         int k_size = arena.getKings().size()
 
         when:
-        bulletController.HaveKings(position1, game, instance)
+        bulletController.hasKings(position1, game, instance)
 
 
         then:
@@ -114,8 +113,8 @@ class BulletControllerTest extends Specification{
         game.getScore() >> 10
 
         when:
-        bulletController.HaveKings(position1, game, instance)
-        bulletController.HaveKings(position1, game,  instance)
+        bulletController.hasKings(position1, game, instance)
+        bulletController.hasKings(position1, game,  instance)
 
         then:
         bulletController.getModel().getKings().size() == k_size - 1
@@ -130,9 +129,9 @@ class BulletControllerTest extends Specification{
         int k_size = arena.getKings().size()
 
         when:
-        bulletController.HaveKings(position1, game,  instance)
-        bulletController.HaveKings(position1, game, instance)
-        bulletController.HaveKings(position1, game, instance)
+        bulletController.hasKings(position1, game,  instance)
+        bulletController.hasKings(position1, game, instance)
+        bulletController.hasKings(position1, game, instance)
 
         then:
         arena.getKings().size() == k_size - 1

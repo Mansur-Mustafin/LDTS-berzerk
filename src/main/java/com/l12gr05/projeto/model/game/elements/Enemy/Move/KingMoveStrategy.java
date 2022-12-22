@@ -36,7 +36,7 @@ public class KingMoveStrategy implements MoveStrategy {
 
         boolean[][]  used = new boolean[35][27];
         Position[][] parent = new Position[35][27];
-        Queue<Position> q = new LinkedList<>();
+        Queue<Position> q = new ArrayDeque<>();
         q.add(position);
 
         for(int i = 0; i < 35; i++){
@@ -48,7 +48,6 @@ public class KingMoveStrategy implements MoveStrategy {
         int x = position.getX();
         int y = position.getY();
         used[x][y] = true;
-
 
         while (!q.isEmpty()) {
             Position tmp = q.remove();

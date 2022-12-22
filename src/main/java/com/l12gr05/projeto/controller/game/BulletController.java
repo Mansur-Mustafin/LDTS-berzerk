@@ -28,7 +28,7 @@ public class BulletController extends GameController{
         lastMovementBullet = time;
     }
 
-    public boolean HaveWalls(Position position){
+    public boolean hasWalls(Position position){
         List<Wall> walls = getModel().getWalls();
         for (Wall wall : walls) {
             boolean positionEquals = wall.getPosition().equals(position);
@@ -37,14 +37,14 @@ public class BulletController extends GameController{
         return false;
     }
 
-    public boolean HaveMonster(Position position, Game game, SoundControl instance){
+    public boolean hasMonster(Position position, Game game, SoundControl instance) {
         for (int i = 0; i < getModel().getMonsters().size() ; i++){
             Monster monster = getModel().getMonsters().get(i);
             boolean bulletHitsMonster = monster.position.equals(position);
 
             if (bulletHitsMonster) {
                 monster.decreaseEnergy(1);
-                if(monster.getEnergy() <= 0){
+                if (monster.getEnergy() <= 0) {
                     instance.start(Sound.ENEMYDEATH);
                     getModel().eraseMonster(i);
                     game.changeScoreBy(5);
@@ -57,14 +57,14 @@ public class BulletController extends GameController{
         return false;
     }
 
-    public boolean HaveKings(Position position, Game game, SoundControl instance){
+    public boolean hasKings(Position position, Game game, SoundControl instance) {
         for (int i = 0; i < getModel().getKings().size() ; i++){
             King king = getModel().getKings().get(i);
             boolean bulletHitsKing = king.position.equals(position);
 
             if (bulletHitsKing) {
                 king.decreaseEnergy(1);
-                if(king.getEnergy() <= 0){
+                if (king.getEnergy() <= 0) {
                     instance.start(Sound.ENEMYDEATH);
                     getModel().eraseKing(i);
                     game.changeScoreBy(10);
@@ -87,13 +87,13 @@ public class BulletController extends GameController{
             boolean bulletHitsBoss = (getModel().getLevel() == 6) && bullet.position.equals(getModel().getBoss().position) ;
             bulletHitsBossAction(i, bulletHitsBoss);
 
-            boolean bulletHitsWall = HaveWalls(bullet.position);
+            boolean bulletHitsWall = hasWalls(bullet.position);
             bulletHitsElementAction(i, bulletHitsWall);
 
-            boolean BulletHitsMonster = HaveMonster(bullet.position, game, instance);
+            boolean BulletHitsMonster = hasMonster(bullet.position, game, instance);
             bulletHitsElementAction(i, BulletHitsMonster);
 
-            boolean BulletHitsKing = HaveKings(bullet.position, game, instance);
+            boolean BulletHitsKing = hasKings(bullet.position, game, instance);
             bulletHitsElementAction(i, BulletHitsKing);
 
             boolean BulletHitsHero = bullet.position.equals(getModel().getHero().position);

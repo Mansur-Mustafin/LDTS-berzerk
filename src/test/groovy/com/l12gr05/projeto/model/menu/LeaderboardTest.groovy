@@ -41,8 +41,8 @@ class LeaderboardTest extends Specification{
         playerList.add(player)
 
         when:
-        boolean f1 = leader.Contains(playerList, player)
-        boolean f2 = leader.Contains(playerList, player1)
+        boolean f1 = leader.contains(playerList, player)
+        boolean f2 = leader.contains(playerList, player1)
 
         then:
         f1
@@ -60,9 +60,9 @@ class LeaderboardTest extends Specification{
         playerList.add(player1)
 
         when:
-        int index = leader.Index(playerList, player)
-        int index1 = leader.Index(playerList, player1)
-        int index2 = leader.Index(playerList, player2)
+        int index = leader.index(playerList, player)
+        int index1 = leader.index(playerList, player1)
+        int index2 = leader.index(playerList, player2)
 
 
         then:

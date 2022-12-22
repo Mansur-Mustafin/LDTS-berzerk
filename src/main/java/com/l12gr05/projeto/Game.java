@@ -51,10 +51,7 @@ public class Game {
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();
-
-
             state.step(this, gui, startTime);
-
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
@@ -62,6 +59,7 @@ public class Game {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+                System.out.println("Error: " + e.getMessage());
             }
         }
         gui.close();

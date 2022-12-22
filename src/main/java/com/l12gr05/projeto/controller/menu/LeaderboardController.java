@@ -24,12 +24,9 @@ public class LeaderboardController extends Controller<Leaderboard> {
     }
 
     public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) {
-
         switch (key.getKeyType()) {
-
             case Enter:
                 changeTabSound(instance);
-
                 boolean selectedEnter = getModel().isSelectedEnter();
                 if (selectedEnter) {
                     game.setState(new MenuState(new Menu()));
@@ -41,18 +38,17 @@ public class LeaderboardController extends Controller<Leaderboard> {
                     game.setState(null);
                 }
                 break;
+            default:
+                break;
         }
-
     }
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
+        if (key == null) {
             return;
         }
-
         SoundControl instance = SoundControl.getInstance();
-
         stepNotNull(game, key, time, instance);
     }
 }

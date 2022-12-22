@@ -30,7 +30,7 @@
 > - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See LeaderBoard and Add name to leaderBoard is displayed
 > - `CHARACTERS` - We designed the characters manually
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
-> - `BULLETS` - The player and enenies can shoot bullets
+> - `BULLETS` - The player and enemies can shoot bullets
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
@@ -38,24 +38,26 @@
 > - `DODGE` - Enemies have a low chance of dodging player bullets
 > - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
 > - `BOSS` - We made a final boss consisting of 9 different PNG's 
+> - `SHOOT BEHIND WALLS` - If the player is hidden behind walls, the enemies will not try to shoot through them
+> - `PICK UP HEALTH`- On the final level, the player has the chance to restore health by picking hearts on the ground
 >
 &nbsp;
 
 ## GAME ELEMENTS
 >
-> <pre>                 HERO                      KING                 MONSTER               </pre>       
+> <pre>                              HERO                           KING                           MONSTER                         </pre>       
 >
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/HERO.png)
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/KING.png)
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/MONSTER.png)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/HERO.png)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/KING.png)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/MONSTER.png)
 >
 &nbsp;
 
-> <pre>               HEROBULLET               ENEMYBULLET               WALL               </pre>       
+> <pre>                              HEROBULLET                  ENEMYBULLET                        WALL                          </pre>       
 >
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/HeroBullet.png)
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/EnemyBullet.png)
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/Wall.png)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/HeroBullet.png)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/EnemyBullet.png)
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Elements/Wall.png)
 >
 &nbsp;
 
@@ -90,6 +92,10 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 <pre>                                                         TAKING DAMAGE                                                        </pre>      
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Taking%20Damage.gif)
 >
+
+<pre>                                                         BOSS LEVEL                                                        </pre>      
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Gifs/Boss%20Level.gif)
+>
 &nbsp;
 
 ## DESIGN - UML
@@ -110,9 +116,9 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/MVC.png) </br>
 > 
 > > Packages can be found in:
-> >    - [`CONTROLLER`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/controller)
-> >    - [`MODEL`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/model)
-> >    - [`VIEW`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/RafaelNTeixeira/projeto/viewer)
+> >    - [`Controller`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/l12gr05/projeto/controller)
+> >    - [`Model`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/l12gr05/projeto/model)
+> >    - [`View`](https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/src/main/java/com/l12gr05/projeto/viewer)
 > 
 > ### Consequences
 > The use of the `MVC Pattern` in the current design allows the following benefits:
@@ -136,14 +142,14 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/State.png) </br>
 > 
 > > Packages can be found in:
-> >    - [`AddLeaderState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/AddLeaderState.java)
-> >    - [`GameState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/GameState.java)
-> >    - [`InstructionsState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/InstructionsState.java)
-> >    - [`LeaderBoardState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LeaderBoardState.java)
-> >    - [`LoseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/LoseState.java)
-> >    - [`MenuState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/MenuState.java)
-> >    - [`PauseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/PauseState.java)   
-> >    - [`State`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/States/State.java)   
+> >    - [`AddToLeaderboardState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/AddToLeaderboardState.java)
+> >    - [`GameState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/GameState.java)
+> >    - [`InstructionsState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/InstructionsState.java)
+> >    - [`LeaderBoardState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/LeaderBoardState.java)
+> >    - [`LoseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/LoseState.java)
+> >    - [`MenuState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/MenuState.java)
+> >    - [`PauseState`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/PauseState.java)   
+> >    - [`State`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/state/State.java)   
 > 
 > ### Consequences
 > The use of the `State Pattern` in the current design allows the following benefits:
@@ -176,13 +182,15 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > >
 >
 > > Packages can be found in:
-> >    - [`MoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/MoveStrategy.java)
-> >    - [`NotMovingStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/NotMovingStrategy.java)
-> >    - [`RandomMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/RandomMoveStrategy.java)
-> >    - [`BFSMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Move/BFSMovingStrategy.java)
-> >    - [`Enemy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Enemy.java)
-> >    - [`King`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/King.java)
-> >    - [`Monster`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/game/elements/Enemy/Monster.java)
+> >    - [`Move`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/MoveStrategy.java)
+> >    - [`NotMovingStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/NotMovingStrategy.java)
+> >    - [`MonsterMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/MonsterMoveStrategy.java)
+> >    - [`KingMoveStrategy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Move/KingMoveStrategy.java)
+> >    - [`King`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/King.java)
+> >    - [`Monster`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Monster.java)
+> >    - [`Boss`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Boss.java)
+> >    - [`Enemy`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/game/elements/Enemy/Enemy.java)
+> >    
 > 
 > ### Consequences
 > The use of the `State` and `Factory` patterns in the current design allows the following benefits:
@@ -204,13 +212,13 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > ### Implementation
 > > The following figure shows how we implemented the pattern: </br>
 > > `Singleton` </br>
-> >
+> > 
 > > ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Patterns/Singleton.png) </br>
 >
 > > Packages can be found in:
-> >    - [`Sound`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/Sound.java)
-> >    - [`SoundControl`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/SoundControl.java)
-> >    - [`SoundTrack`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/RafaelNTeixeira/projeto/model/sounds/SoundTrack.java)
+> >    - [`Sound`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/sounds/Sound.java)
+> >    - [`SoundControl`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/sounds/SoundControl.java)
+> >    - [`SoundTrack`](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/src/main/java/com/l12gr05/projeto/model/sounds/SoundTrack.java)
 > 
 > ### Consequences
 > The use of the `Singleton` pattern in the current design allows the following benefits:
@@ -237,13 +245,34 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 
 ## CODE SMELLS
 > 
-> Here´s a list of code smells that are currently present on our code:
->
+> Here´s a code smell that is currently present on our code:
+> - `Large Class`
+> 
 &nbsp;
 
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
 &nbsp;
+
+
+### MUTATION TESTING
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/Pitest.png)
+`PITEST LINK:` https://github.com/FEUP-LDTS-2022/project-l12gr05/tree/master/docs/PiTests </br>
+&nbsp;
+
+
+### BETTER CODE HUB
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/BetterCodeHub.jpg) 
+
+**Result of the analysis:** 6/10
+
+**Failed guidelines:** </br>
+`Automate Tests` - Failing the software can't calculate assert density while we are using Spock to make our tests </br>
+`Keep Unit Interfaces Small` </br>
+`Couple Architecture Components Loosely` - Failing because we use the MVC pattern (Organize the project in different folders) </br>
+`Write Code Once` </br>
+&nbsp;
+
 
 ### SELF-EVALUATION
 > 

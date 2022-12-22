@@ -8,6 +8,7 @@ import com.l12gr05.projeto.model.game.elements.Enemy.Enemy;
 import com.l12gr05.projeto.model.game.elements.Enemy.King;
 import com.l12gr05.projeto.model.game.elements.Enemy.Monster;
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.KingMoveStrategy;
+import com.l12gr05.projeto.model.game.elements.Hero;
 import com.l12gr05.projeto.model.game.elements.Wall;
 
 import com.l12gr05.projeto.model.sounds.Sound;
@@ -94,7 +95,6 @@ public class EnemyController extends GameController {
         getModel().setScore(score);
 
         List<Monster> monsters = getModel().getMonsters();
-
         for (Enemy monster : monsters) {
             Position position;
             while (true) {
@@ -106,13 +106,15 @@ public class EnemyController extends GameController {
             if (monsterHitsHero) {
                 instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
-                getModel().getHero().decreaseEnergy(3);
+                Hero hero = getModel().getHero();
+                hero.decreaseEnergy(3);
             }
-            char c = DirOfShoot(monster.getPosition());
+            Position pos = monster.getPosition();
+            char c = DirOfShoot(pos);
             if (c != 'n'){
                 instance.stop(Sound.SHOOTING);
                 instance.start(Sound.SHOOTING);
-                getModel().Shoot(c, monster.getPosition(), false);
+                getModel().Shoot(c, pos, false);
 
             }
         }
@@ -131,7 +133,8 @@ public class EnemyController extends GameController {
             if (kingHitsHero) {
                 instance.stop(Sound.HERODEATH);
                 instance.start(Sound.HERODEATH);
-                getModel().getHero().decreaseEnergy(5);
+                Hero hero = getModel().getHero();
+                hero.decreaseEnergy(5);
             }
         }
     }
@@ -168,10 +171,10 @@ public class EnemyController extends GameController {
             this.lastMovementEnemy = time;
         }
 
-        if(time - lastMovementBoss > 800 && getModel().getLevel() == 6){
+        if (time - lastMovementBoss > 800 && getModel().getLevel() == 6) {
             stepMovementBoss(game, key, time, instance);
         }
-        if(time - lastSpawn > 6000 && getModel().getLevel() == 6){
+        if (time - lastSpawn > 6000 && getModel().getLevel() == 6) {
             getModel().spawnMonster();
             lastSpawn = time;
         }

@@ -17,7 +17,6 @@ public class Leaderboard {
     }
     private List<String> entries;
 
-    private int currentEntry = 0;
     public Leaderboard() throws IOException {
         this.entries = Arrays.asList("press enter to back menu");
 
@@ -29,10 +28,10 @@ public class Leaderboard {
             while ((line = reader.readLine()) != null) {
                 String[] words = line.split("\\s");
                 Player p = new Player (words[0], words[1]);
-                boolean contains = Contains(players, p);
+                boolean contains = contains(players, p);
 
                 if (contains) {
-                    int index = Index(players, p);
+                    int index = index(players, p);
                     players.get(index).setScore(words[1]);
                 }
                 else {
@@ -46,7 +45,7 @@ public class Leaderboard {
         Collections.sort(players, new SortByScore());
     }
 
-    public int Index(List<Player> lst, Player p) {
+    public int index(List<Player> lst, Player p) {
         for (int i = 0; i < lst.size(); i++) {
             String name = lst.get(i).getName();
             if (name.equals(p.getName())) {
@@ -55,7 +54,7 @@ public class Leaderboard {
         }
         return -1;
     }
-    public boolean Contains(List<Player> lst, Player p) {
+    public boolean contains(List<Player> lst, Player p) {
         for (Player player : lst) {
             String name = player.getName();
             if (name.equals(p.getName())) {

@@ -1,6 +1,7 @@
 package com.l12gr05.projeto.controller.game;
 
 import com.l12gr05.projeto.Game;
+import com.l12gr05.projeto.model.game.elements.Hero;
 import com.l12gr05.projeto.state.*;
 import com.l12gr05.projeto.model.game.Position;
 import com.l12gr05.projeto.model.game.arena.Arena;
@@ -107,36 +108,44 @@ public class ArenaController extends GameController {
         boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
         if (canGoToNextLevel){
             int N_lvl = getModel().getLevel() + 1;
-            game.setState(new GameState(new Arena(34, 25, N_lvl)));
+            game.setState(new GameState(new Arena(34, 25, 6)));
         }
     }
 
     public void stepNonVoid(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
         int score = game.getScore();
+        Hero hero = this.getModel().getHero();
+        boolean quitKey = key.getKeyType() == KeyType.Character && key.getCharacter() == 'q';
+        boolean exitKey = key.getKeyType() == KeyType.Character && key.getCharacter() == 'e';
 
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') {
+
+        if (quitKey) {
             instance.stop(Sound.SOUNDTRACK);
             instance.start(Sound.MENUMUSIC);
             game.setState(new MenuState(new Menu()));
             return;
         }
-        if (this.getModel().getHero().getEnergy() <= 0) {
+        if (hero.getEnergy() <= 0) {
             instance.start(Sound.HERODEATH);
             instance.stop(Sound.SOUNDTRACK);
             instance.start(Sound.MENUMUSIC);
             game.setState(new LoseState(new Lose(score)));
             return;
         }
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') {
+        if (exitKey) {
             game.setState(null);
             return;
         }
-        if(time - lastBullet > 250 ){
+        bulletStep(game, key, time, instance);
+
+        pressedEscape(game, key, time, instance);
+    }
+
+    private void bulletStep(Game game, KeyStroke key, long time, SoundControl instance) {
+        if (time - lastBullet > 250 ) {
             steplastBullet(game, key, instance);
             this.lastBullet = time;
         }
-
-        pressedEscape(game, key, time, instance);
     }
 
     private void pressedEscape(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
@@ -146,12 +155,14 @@ public class ArenaController extends GameController {
             State state = game.getState();
             game.setOldState(state);
             game.setState(new PauseState(new Pause()));
-        } else {
+        }
+        else {
             heroController.step(game, key, time);
             enemyController.step(game, key, time);
         }
     }
 
+    @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         SoundControl instance = SoundControl.getInstance();
         if (key == null) {

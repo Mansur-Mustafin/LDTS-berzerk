@@ -83,12 +83,14 @@ public class PauseController extends Controller<Pause> {
                     game.setState(new MenuState(new Menu()));
                 }
                 break;
+            default:
+                break;
         }
     }
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
+        if (key == null) {
             return;
         }
         SoundControl instance = SoundControl.getInstance();

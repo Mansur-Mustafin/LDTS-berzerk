@@ -53,7 +53,6 @@ public class GUILaterna implements GUI {
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
-
         ((AWTTerminalFrame)terminal).getComponent(0).addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -79,12 +78,11 @@ public class GUILaterna implements GUI {
     @Override
     public void drawHero(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         graphics.enableModifiers(SGR.BOLD);
         int xPosition = position.getX();
         int yPosition = position.getY();
         graphics.putString(new TerminalPosition(xPosition, yPosition), "X");
-
     }
 
     @Override
@@ -100,7 +98,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawHeartBoss(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#608482"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
@@ -110,8 +108,8 @@ public class GUILaterna implements GUI {
     @Override
     public void drawWall(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#5C627F"));
-        graphics.setForegroundColor(TextColor.Factory.fromString("#5C627F"));
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#484857"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#484857"));
         graphics.enableModifiers(SGR.BOLD);
         int x = position.getX();
         int y = position.getY();
@@ -121,7 +119,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawMonster(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#CC0000"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#D31717"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
@@ -131,7 +129,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawKing(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#A52D93"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#EFC320"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
@@ -141,7 +139,7 @@ public class GUILaterna implements GUI {
     @Override
     public void drawBoss(Position position){
         TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
+        graphics.setForegroundColor(TextColor.Factory.fromString("#ADABAC"));
         graphics.enableModifiers(SGR.BORDERED);
         int x = position.getX();
         int y = position.getY();
@@ -202,22 +200,23 @@ public class GUILaterna implements GUI {
 
     public Screen getScreen(){return screen;}
 
+    @Override
     public KeyStroke getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
-        if(keyStroke == null && !pressedKeys.isEmpty()){
-            if(pressedKeys.contains(1)){
+        if (keyStroke == null && !pressedKeys.isEmpty()) {
+            if (pressedKeys.contains(1)) {
                 pressedKeys.remove(1);
                 return new KeyStroke(KeyType.ArrowLeft);
             }
-            if(pressedKeys.contains(3)){
+            if (pressedKeys.contains(3)) {
                 pressedKeys.remove(3);
                 return new KeyStroke(KeyType.ArrowRight);
             }
-            if(pressedKeys.contains(5)){
+            if (pressedKeys.contains(5)) {
                 pressedKeys.remove(5);
                 return new KeyStroke(KeyType.ArrowUp);
             }
-            if(pressedKeys.contains(4)){
+            if (pressedKeys.contains(4)) {
                 pressedKeys.remove(4);
                 return new KeyStroke(KeyType.ArrowDown);
             }

@@ -36,7 +36,6 @@ public class LoseController extends Controller<Lose> {
     }
 
     public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
-
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -45,9 +44,7 @@ public class LoseController extends Controller<Lose> {
                 getModel().nextEntry();
                 break;
             case Enter:
-
                 changeTabSound(instance);
-
                 boolean selectedMenu = getModel().isSelectedMenu();
                 if (selectedMenu) {
                     game.setState(new MenuState(new Menu()));
@@ -65,23 +62,21 @@ public class LoseController extends Controller<Lose> {
                 }
                 break;
             case Character:
-                if(key.getCharacter() == 'e'){
+                if (key.getCharacter() == 'e') {
                     game.setState(null);
                 }
                 break;
+            default:
+                break;
         }
-
     }
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if(key == null){
+        if (key == null) {
             return;
         }
-
         SoundControl instance = SoundControl.getInstance();
-
         stepNotNull(game, key, time, instance);
-
     }
 }

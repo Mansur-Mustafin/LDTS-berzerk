@@ -14,18 +14,19 @@ import com.googlecode.lanterna.input.KeyType;
 
 import java.io.IOException;
 
+import static java.lang.Character.toLowerCase;
+
 public class AddToLeaderboardController extends Controller<AddToLeaderboard> {
     public AddToLeaderboardController(AddToLeaderboard lose) {
         super(lose);
     }
 
     public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance) throws IOException {
-
         pressedEnter(game, key, instance);
         writeName(key);
 
-        if(key.getKeyType() == KeyType.Backspace){
-            if(getModel().getName().length() == 0){
+        if (key.getKeyType() == KeyType.Backspace) {
+            if (getModel().getName().length() == 0) {
                 return;
             }
             getModel().delChar();
@@ -34,7 +35,9 @@ public class AddToLeaderboardController extends Controller<AddToLeaderboard> {
 
     private void writeName(KeyStroke key) {
         if (key.getKeyType() == KeyType.Character) {
-            getModel().addChar(key.getCharacter());
+            char c = key.getCharacter();
+            c = toLowerCase(c);
+            getModel().addChar(c);
         }
     }
 
@@ -48,11 +51,9 @@ public class AddToLeaderboardController extends Controller<AddToLeaderboard> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-
-        if(key == null){
+        if (key == null) {
             return;
         }
-
         SoundControl instance = SoundControl.getInstance();
         stepNotNull(game, key, time, instance);
     }

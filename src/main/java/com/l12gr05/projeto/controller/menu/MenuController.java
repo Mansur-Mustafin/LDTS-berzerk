@@ -66,7 +66,7 @@ public class MenuController extends Controller<Menu> {
                 boolean selectedInstructions = getModel().isSelectedInstructions();
                 if (selectedInstructions) {
                     changeTabSound(instance);
-                    game.setState(new InstructionsState((new Instruction())));
+                    game.setState(new InstructionsState(new Instruction()));
                 }
                 break;
             case Character:
@@ -75,9 +75,11 @@ public class MenuController extends Controller<Menu> {
                     game.setState(null);
                 }
                 break;
+            default:
+                break;
         }
-
     }
+
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) {
