@@ -252,6 +252,7 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 
 ### TESTING
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/CodeCoverage.png) </br>
+Como temos dois métodos que são executados no arranque do programa, não conseguimos implementar testes para estes e portanto não atingimos a percentagem de Code Coverage de 100% </br>
 &nbsp;
 
 
