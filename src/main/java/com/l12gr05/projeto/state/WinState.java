@@ -6,7 +6,7 @@ import com.l12gr05.projeto.model.menu.Win;
 import com.l12gr05.projeto.viewer.menuViewer.Viewer;
 import com.l12gr05.projeto.viewer.menuViewer.WinViewer;
 
-public class WinState extends State<Win>{
+public class WinState extends State<Win> {
     public WinState(Win model) {
         super(model);
     }

@@ -16,7 +16,6 @@ public abstract class Enemy extends Element {
         super(x,y);
         MoveStrategy move_ = generateMoveStrategy();
         int energy_ = generateEnergy();
-        
         this.move = move_;
         this.energy = energy_;
     }
@@ -27,11 +26,11 @@ public abstract class Enemy extends Element {
     public int getEnergy(){return energy; }
     public MoveStrategy getMoveStrategy() {return move;}
 
-    public void setMoveStrategy(MoveStrategy strategy){
+    public void setMoveStrategy(MoveStrategy strategy) {
         move = strategy;
     }
 
-    public void setPosition(Position position){
+    public void setPosition(Position position) {
         this.position = position;
     }
 
@@ -43,7 +42,7 @@ public abstract class Enemy extends Element {
     protected abstract MoveStrategy generateMoveStrategy();
     protected abstract int generateEnergy();
 
-    public Position move(Position position_hero, boolean[][] matrixOfWalls){
+    public Position move(Position position_hero, boolean[][] matrixOfWalls) {
         return this.move.move(position, position_hero, matrixOfWalls);
     }
 }

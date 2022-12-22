@@ -51,7 +51,7 @@ public class HeroController extends GameController {
         return true;
     }
 
-    public SoundControl getInstance(){
+    public SoundControl getInstance() {
         return SoundControl.getInstance();
     }
 
@@ -100,9 +100,9 @@ public class HeroController extends GameController {
 
     public boolean checkHealth(){
         List<Health> healthList = getModel().getHealth();
-        for(int i = 0 ; i < healthList.size(); i++){
+        for (int i = 0 ; i < healthList.size(); i++) {
             boolean equals = healthList.get(i).getPosition().equals(getModel().getHero().getPosition());
-            if (equals){
+            if (equals) {
                 getModel().eraseHealth(i);
                 return true;
             }
@@ -113,11 +113,11 @@ public class HeroController extends GameController {
     @Override
     public void step(Game game, KeyStroke key, long time) {
         boolean health = checkHealth();
-        if (health){
+        if (health) {
             Hero hero = getModel().getHero();
             hero.decreaseEnergy(-1);
         }
-        if(key == null){return;}
+        if (key == null) {return;}
         keyStep(key);
     }
 

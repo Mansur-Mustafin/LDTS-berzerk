@@ -34,7 +34,7 @@ public class LeaderboardController extends Controller<Leaderboard> {
                 game.setScore(0);
                 break;
             case Character:
-                if(key.getCharacter() == 'e'){
+                if (key.getCharacter() == 'e') {
                     game.setState(null);
                 }
                 break;
@@ -45,9 +45,7 @@ public class LeaderboardController extends Controller<Leaderboard> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if (key == null) {
-            return;
-        }
+        if (key == null) return;
         SoundControl instance = SoundControl.getInstance();
         stepNotNull(game, key, instance);
     }

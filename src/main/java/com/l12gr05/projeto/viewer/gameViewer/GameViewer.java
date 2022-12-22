@@ -39,7 +39,6 @@ public class GameViewer extends Viewer<Arena> {
                 gui.drawHeartBoss(new Position(33 - i, 0));
             }
         }
-
         int score = getModel().getScore();
         gui.drawText(new Position(0, 0), Integer.toString(score) , "#FFD700");
         for (int i = 0; i < getModel().getHero().getEnergy() ; i++ ) {
@@ -48,8 +47,7 @@ public class GameViewer extends Viewer<Arena> {
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {
-        for (T element : elements)
-            drawElement(gui, element, viewer);
+        for (T element : elements) drawElement(gui, element, viewer);
     }
 
     private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {

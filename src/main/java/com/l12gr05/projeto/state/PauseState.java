@@ -6,7 +6,7 @@ import com.l12gr05.projeto.model.menu.Pause;
 import com.l12gr05.projeto.viewer.menuViewer.PauseViewer;
 import com.l12gr05.projeto.viewer.menuViewer.Viewer;
 
-public class PauseState extends State<Pause>{
+public class PauseState extends State<Pause> {
     public PauseState(Pause model) {
         super(model);
     }

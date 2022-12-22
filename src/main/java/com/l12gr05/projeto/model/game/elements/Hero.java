@@ -34,7 +34,7 @@ public class Hero extends Element {
         this.energy -= x;
     }
 
-    public void setEnergy(int x ){
+    public void setEnergy(int x) {
         energy = x;
     }
 
@@ -67,7 +67,7 @@ public class Hero extends Element {
         return new Position(oneRight, y);
     }
 
-    public void setPosition( Position position_new){
+    public void setPosition(Position position_new) {
         int y = position_new.getY();
         this.position.setY(y);
         int x = position_new.getX();

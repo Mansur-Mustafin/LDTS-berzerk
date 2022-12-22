@@ -40,7 +40,6 @@ public class GUILaterna implements GUI {
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
-
         screen.setCursorPosition(null);
         screen.startScreen();
         screen.doResizeIfNecessary();
@@ -66,17 +65,15 @@ public class GUILaterna implements GUI {
         URL resource = getClass().getClassLoader().getResource("square.ttf");
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-
         Font loadedFont = font.deriveFont(Font.PLAIN, 20);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
 
     @Override
-    public void drawHero(Position position){
+    public void drawHero(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF"));
         graphics.enableModifiers(SGR.BOLD);
@@ -86,7 +83,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawHeart(Position position){
+    public void drawHeart(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#FF0000"));
         graphics.enableModifiers(SGR.BORDERED);
@@ -96,7 +93,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawHeartBoss(Position position){
+    public void drawHeartBoss(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#608482"));
         graphics.enableModifiers(SGR.BORDERED);
@@ -106,7 +103,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawWall(Position position){
+    public void drawWall(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setBackgroundColor(TextColor.Factory.fromString("#484857"));
         graphics.setForegroundColor(TextColor.Factory.fromString("#484857"));
@@ -117,7 +114,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawMonster(Position position){
+    public void drawMonster(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#D31717"));
         graphics.enableModifiers(SGR.BORDERED);
@@ -127,7 +124,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawKing(Position position){
+    public void drawKing(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#EFC320"));
         graphics.enableModifiers(SGR.BORDERED);
@@ -137,7 +134,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawBoss(Position position){
+    public void drawBoss(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#ADABAC"));
         graphics.enableModifiers(SGR.BORDERED);
@@ -155,7 +152,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawHeroBullet(Position position){
+    public void drawHeroBullet(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#008000"));
         graphics.enableModifiers(SGR.BORDERED);
@@ -165,7 +162,7 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void drawEnemyBullet(Position position){
+    public void drawEnemyBullet(Position position) {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.setForegroundColor(TextColor.Factory.fromString("#B22222"));
         graphics.enableModifiers(SGR.BORDERED);
@@ -176,7 +173,7 @@ public class GUILaterna implements GUI {
 
 
     @Override
-    public void drawText(Position position, String text, String color){
+    public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         int x = position.getX();
@@ -185,20 +182,20 @@ public class GUILaterna implements GUI {
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         screen.clear();
     }
     @Override
-    public void refresh() throws IOException{
+    public void refresh() throws IOException {
         screen.refresh();
     }
     @Override
-    public void close() throws IOException{
+    public void close() throws IOException {
         screen.close();
     }
 
 
-    public Screen getScreen(){return screen;}
+    public Screen getScreen() {return screen;}
 
     @Override
     public KeyStroke getNextAction() throws IOException {
@@ -224,7 +221,7 @@ public class GUILaterna implements GUI {
         return keyStroke;
     }
 
-    public void setPressedKeys(Set<Integer> set){
+    public void setPressedKeys(Set<Integer> set) {
         pressedKeys = set;
     }
 }

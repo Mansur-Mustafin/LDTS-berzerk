@@ -7,33 +7,22 @@ import java.util.*;
 
 public class KingMoveStrategy implements MoveStrategy {
 
-    public boolean canMove(Position position){
+    public boolean canMove(Position position) {
         return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= 33 && position.getY() <= 23;
     }
 
-    public boolean contains(boolean[][] matrixOfWalls, Position position){
+    public boolean contains(boolean[][] matrixOfWalls, Position position) {
         int x = position.getX();
         int y = position.getY();
         return matrixOfWalls[x][y];
-        /*
-        for (Wall w: walls) {
-            if (w.getPosition().getX() == position.getX() && w.getPosition().getY() == position.getY()) {
-                return true;
-            }
-        }
-        return false;
-
-         */
     }
 
     @Override
-    public Position move(Position position, Position position_hero , boolean[][] matrixOfWalls){
-
+    public Position move(Position position, Position position_hero , boolean[][] matrixOfWalls) {
         boolean equals = position.equals(position_hero);
         if (equals) {
             return position;
         }
-
         List<Position> steps = new ArrayList<>() ;
         steps.add(new Position(1,0)); steps.add(new Position(-1,0));
         steps.add(new Position(0,-1)); steps.add(new Position(0,1));
@@ -45,22 +34,13 @@ public class KingMoveStrategy implements MoveStrategy {
         Queue<Position> q = new ArrayDeque<>();
         q.add(position);
 
-        /*
-        for(int i = 0; i < 35; i++){
-            for(int j = 0; j < 27; j++){
-                used[i][j] = false;
-            }
-        }
-
-         */
-
         int x = position.getX();
         int y = position.getY();
         used[x][y] = true;
 
         while (!q.isEmpty()) {
             Position tmp = q.remove();
-            for(Position step : steps){
+            for (Position step : steps) {
                 Position tmp2 = tmp.add(step);
                 boolean canMove = canMove(tmp2);
                 if (canMove) {

@@ -7,7 +7,7 @@ import com.l12gr05.projeto.viewer.menuViewer.LeaderboardViewer;
 import com.l12gr05.projeto.viewer.menuViewer.Viewer;
 
 
-public class LeaderBoardState extends State<Leaderboard>{
+public class LeaderBoardState extends State<Leaderboard> {
     public LeaderBoardState(Leaderboard model) {
         super(model);
     }

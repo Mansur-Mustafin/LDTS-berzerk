@@ -25,7 +25,7 @@ public class LoseController extends Controller<Lose> {
         startMenuMusic(instance);
     }
 
-    public void startMenuMusic(SoundControl instance){
+    public void startMenuMusic(SoundControl instance) {
         instance.stop(Sound.SOUNDTRACK);
         instance.start(Sound.MENUMUSIC);
     }
@@ -73,9 +73,7 @@ public class LoseController extends Controller<Lose> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if (key == null) {
-            return;
-        }
+        if (key == null) return;
         SoundControl instance = SoundControl.getInstance();
         stepNotNull(game, key, instance);
     }

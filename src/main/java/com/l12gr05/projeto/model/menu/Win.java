@@ -32,7 +32,7 @@ public class Win {
     public boolean isSelected(int i) {
         return currentEntry == i;
     }
-    public int getCurrentEntry(){
+    public int getCurrentEntry() {
         return currentEntry;
     }
     public boolean isSelectedMenu() {
@@ -43,7 +43,7 @@ public class Win {
         boolean selectedLeaderboard = isSelected(1);
         return selectedLeaderboard;
     }
-    public boolean isSelectedAddToLeaderBoard(){
+    public boolean isSelectedAddToLeaderBoard() {
         boolean addToLeaderBoard = isSelected(2);
         return addToLeaderBoard;
     }

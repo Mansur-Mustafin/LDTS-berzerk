@@ -9,7 +9,6 @@ public class BulletViewer implements ElementViewer<Bullet> {
     public void draw(Bullet bullet, GUI gui) {
         boolean heroBullet = bullet.isHeroBullet();
         Position bulletPosition = bullet.getPosition();
-
         if (heroBullet) {
             gui.drawHeroBullet(bulletPosition);
         }

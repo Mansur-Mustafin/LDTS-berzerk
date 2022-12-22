@@ -21,11 +21,11 @@ public abstract class State<T> {
         this.controller = getController();
     }
 
-    public void setViewer(Viewer<T> v){
+    public void setViewer(Viewer<T> v) {
         this.viewer = v;
     }
 
-    public void setController(Controller<T> controller){
+    public void setController(Controller<T> controller) {
         this.controller = controller;
     }
 

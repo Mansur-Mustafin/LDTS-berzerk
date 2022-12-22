@@ -26,7 +26,6 @@ public class WinViewer extends Viewer<Win> {
             boolean selected = getModel().isSelected(i);
             int x = 13 - i*4;
             int y = 14 + i;
-
             gui.drawText(new Position(x, y), entry, selected ? "#FFD700" : "#FFFFFF");
         }
     }

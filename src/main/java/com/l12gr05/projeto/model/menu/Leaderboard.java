@@ -9,7 +9,7 @@ import java.util.*;
 public class Leaderboard {
     private final List<Player> players = new ArrayList<>();
 
-    public List<Player> getPlayers(){
+    public List<Player> getPlayers() {
         return players;
     }
     private List<String> entries;
@@ -24,7 +24,6 @@ public class Leaderboard {
                 String[] words = line.split("\\s");
                 Player p = new Player (words[0], words[1]);
                 boolean contains = contains(players, p);
-
                 if (contains) {
                     int index = index(players, p);
                     players.get(index).setScore(words[1]);
@@ -56,7 +55,7 @@ public class Leaderboard {
         return false;
     }
 
-    public int getNumberOfplayers(){
+    public int getNumberOfplayers() {
         return players.size();
     }
 
@@ -70,8 +69,7 @@ public class Leaderboard {
 }
 
 class SortByScore implements Comparator<Player> {
-    public int compare(Player a, Player b)
-    {
+    public int compare(Player a, Player b) {
         return Integer.parseInt(b.getScore()) - Integer.parseInt(a.getScore());
     }
 }

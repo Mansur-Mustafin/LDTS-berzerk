@@ -27,11 +27,11 @@ public class AddToLeaderboard {
         openOut();
     }
 
-    void setOut(PrintWriter out_){
+    void setOut(PrintWriter out_) {
         out = out_;
     }
 
-    void openOut(){
+    void openOut() {
         try {
             //this.out = new PrintWriter(new BufferedWriter(new FileWriter("src/main/resources/Leaders", true)));
             this.out = new PrintWriter(Files.newBufferedWriter(Paths.get("src/main/resources/Leaders"), UTF_8, CREATE, APPEND));
@@ -57,18 +57,18 @@ public class AddToLeaderboard {
         return entries.get(i);
     }
 
-    public void addChar(Character character){
+    public void addChar(Character character) {
         name += character;
     }
 
-    public void delChar(){
+    public void delChar() {
         name = name.substring(0, name.length()-1);
     }
     public void setName(String name) {this.name = name;}
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public int getScore(){return Score;}
+    public int getScore() {return Score;}
     public boolean isSelected(int i) {
         return currentEntry == i;
     }

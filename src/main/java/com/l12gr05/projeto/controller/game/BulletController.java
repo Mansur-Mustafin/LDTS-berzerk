@@ -14,7 +14,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
 
-public class BulletController extends GameController{
+public class BulletController extends GameController {
     private long lastMovementBullet;
 
     public BulletController(Arena arena) {
@@ -22,18 +22,18 @@ public class BulletController extends GameController{
         this.lastMovementBullet = 0;
     }
 
-    public void setlastMovementBullet(long time){
+    public void setlastMovementBullet(long time) {
         lastMovementBullet = time;
     }
 
-    public boolean hasWalls(Position position){
+    public boolean hasWalls(Position position) {
         int x = position.getX();
         int y = position.getY();
         return getModel().hasWalls(x,y);
     }
 
     public boolean hasMonster(Position position, Game game, SoundControl instance) {
-        for (int i = 0; i < getModel().getMonsters().size() ; i++){
+        for (int i = 0; i < getModel().getMonsters().size() ; i++) {
             Monster monster = getModel().getMonsters().get(i);
             boolean bulletHitsMonster = monster.position.equals(position);
 
@@ -53,7 +53,7 @@ public class BulletController extends GameController{
     }
 
     public boolean hasKings(Position position, Game game, SoundControl instance) {
-        for (int i = 0; i < getModel().getKings().size() ; i++){
+        for (int i = 0; i < getModel().getKings().size() ; i++) {
             King king = getModel().getKings().get(i);
             boolean bulletHitsKing = king.position.equals(position);
 
@@ -72,8 +72,8 @@ public class BulletController extends GameController{
         return false;
     }
 
-    public void stepMovimentBullet(Game game, SoundControl instance){
-        for (int i = 0; i < getModel().getBullets().size(); i++){
+    public void stepMovimentBullet(Game game, SoundControl instance) {
+        for (int i = 0; i < getModel().getBullets().size(); i++) {
             Bullet bullet = getModel().getBullets().get(i);
 
             Position position = bullet.move();
@@ -113,7 +113,7 @@ public class BulletController extends GameController{
     }
 
     private void bulletHitsBossAction(int i, boolean bulletHitsBoss) {
-        if(bulletHitsBoss){
+        if (bulletHitsBoss) {
             getModel().eraseBullet(i);
             Boss boss = getModel().getBoss();
             boss.decreaseEnergy(1);

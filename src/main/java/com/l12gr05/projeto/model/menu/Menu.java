@@ -46,7 +46,7 @@ public class Menu {
         boolean instructions = isSelected(3);
         return instructions;
     }
-    public int getCurrentEntry(){
+    public int getCurrentEntry() {
         return currentEntry;
     }
     public boolean isSelectedLeaderBoard() {

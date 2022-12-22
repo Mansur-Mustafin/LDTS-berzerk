@@ -21,18 +21,18 @@ public class PauseController extends Controller<Pause> {
         super(pause);
     }
 
-    public void continueSound(SoundControl instance){
+    public void continueSound(SoundControl instance) {
         instance.start(Sound.CHANGETAB);
         instance.stop(Sound.MENUMUSIC);
         instance.start(Sound.SOUNDTRACK);
     }
 
-    public void newGameSound(SoundControl instance){
+    public void newGameSound(SoundControl instance) {
         instance.start(Sound.CHANGETAB);
         instance.start(Sound.SOUNDTRACK);
     }
 
-    public void changeTabSound(SoundControl instance){
+    public void changeTabSound(SoundControl instance) {
         instance.stop(Sound.CHANGETAB);
         instance.start(Sound.CHANGETAB);
     }
@@ -52,7 +52,6 @@ public class PauseController extends Controller<Pause> {
                     game.setState(null);
                     return;
                 }
-
                 boolean selectedContinue = getModel().isSelectedContinue();
                 if (selectedContinue) {
                     continueSound(instance);
@@ -60,7 +59,6 @@ public class PauseController extends Controller<Pause> {
                     game.setState(oldState);
                     return;
                 }
-
                 boolean selectedNewGame = getModel().isSelectedNewGame();
                 if (selectedNewGame) {
                     newGameSound(instance);
@@ -76,10 +74,10 @@ public class PauseController extends Controller<Pause> {
                 }
                 break;
             case Character:
-                if(key.getCharacter() == 'e'){
+                if (key.getCharacter() == 'e') {
                     game.setState(null);
                 }
-                if(key.getCharacter() == 'q'){
+                if (key.getCharacter() == 'q') {
                     game.setState(new MenuState(new Menu()));
                 }
                 break;
@@ -90,9 +88,7 @@ public class PauseController extends Controller<Pause> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if (key == null) {
-            return;
-        }
+        if (key == null) return;
         SoundControl instance = SoundControl.getInstance();
         notNullStep(game, key, instance);
     }

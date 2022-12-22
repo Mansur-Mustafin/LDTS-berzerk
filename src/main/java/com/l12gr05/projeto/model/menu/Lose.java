@@ -26,7 +26,7 @@ public class Lose {
             currentEntry = this.entries.size() - 1;
     }
 
-    public int getScore(){return Score;}
+    public int getScore() {return Score;}
     public String getEntry(int i) {
         return entries.get(i);
     }

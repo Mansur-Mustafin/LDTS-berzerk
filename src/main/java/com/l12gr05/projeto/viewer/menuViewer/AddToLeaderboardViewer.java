@@ -13,7 +13,6 @@ public class AddToLeaderboardViewer extends Viewer<AddToLeaderboard> {
     public void drawElements(GUI gui) {
         gui.drawText(new Position(5,12 ), "enter your name:", "#FFFFFF");
         gui.drawText(new Position(5, 10), "your Score: " + getModel().getScore(), "#FFFFFF");
-
         String name = getModel().getName();
         gui.drawText(new Position(22, 12), name, "#FFFFFF");
     }

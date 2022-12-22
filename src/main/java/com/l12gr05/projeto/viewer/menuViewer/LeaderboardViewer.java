@@ -19,7 +19,6 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
             String score = getModel().getPlayers().get(i).getScore();
 
             int y = 7+i;
-
             gui.drawText(new Position(5, y), name, "#FFFFFF");
             gui.drawText(new Position(25 , y ), score, "#FFFFFF");
         }

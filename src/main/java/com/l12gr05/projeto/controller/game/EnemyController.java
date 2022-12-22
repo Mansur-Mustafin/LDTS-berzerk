@@ -28,15 +28,15 @@ public class EnemyController extends GameController {
         this.lastMovementEnemy = 0;
     }
 
-    public void lastMovementEnemy(long time){
+    public void lastMovementEnemy(long time) {
         lastMovementEnemy = time;
     }
 
-    public void lastMovementBoss(long time){
+    public void lastMovementBoss(long time) {
         lastMovementBoss = time;
     }
 
-    public void lastSpawn(long time){
+    public void lastSpawn(long time) {
         lastSpawn = time;
     }
 
@@ -46,11 +46,9 @@ public class EnemyController extends GameController {
 
         int x = position.getX();
         int y = position.getY();
-        if(getModel().hasWalls(x,y)){
+        if (getModel().hasWalls(x,y)) {
             return false;
-
         }
-
 
         List<Monster> monsters = getModel().getMonsters();
         for (Enemy enemy : monsters) {
@@ -75,7 +73,7 @@ public class EnemyController extends GameController {
             if (positionMonster.getY() > positionHero.getY()) {
                 return 'u';
             }
-            if(positionMonster.getY() < positionHero.getY()) {
+            if (positionMonster.getY() < positionHero.getY()) {
                 return 'd';
             }
         }
@@ -90,7 +88,7 @@ public class EnemyController extends GameController {
         return 'n';
     }
 
-    public void stepMovementEnemy(Game game, SoundControl instance ){
+    public void stepMovementEnemy(Game game, SoundControl instance ) {
         int score = game.getScore();
         getModel().setScore(score);
 
@@ -111,7 +109,7 @@ public class EnemyController extends GameController {
             }
             Position pos = monster.getPosition();
             char c = DirOfShoot(pos);
-            if (c != 'n'){
+            if (c != 'n') {
                 instance.stop(Sound.SHOOTING);
                 instance.start(Sound.SHOOTING);
                 getModel().shoot(c, pos, false);
@@ -122,13 +120,11 @@ public class EnemyController extends GameController {
         List<King> kings = getModel().getKings();
         for (Enemy king : kings) {
             double kingHeroDistance = king.position.getDistance(getModel().getHero().position);
-            if (kingHeroDistance < 20){
+            if (kingHeroDistance < 20) {
                 king.setMoveStrategy(new KingMoveStrategy());
             }
-
             Position position = king.move(getModel().getHero().position ,getModel().getMatrixOfWalls() );
             king.setPosition(position);
-
             boolean kingHitsHero = position.equals(getModel().getHero().position);
             if (kingHitsHero) {
                 instance.stop(Sound.HERODEATH);
@@ -140,7 +136,7 @@ public class EnemyController extends GameController {
     }
 
 
-    public void stepMovementBoss(long time, SoundControl instance){
+    public void stepMovementBoss(long time, SoundControl instance) {
         Boss boss = getModel().getBoss();
         Position position = boss.move(getModel().getHero().position ,getModel().getMatrixOfWalls() );
         boss.setPosition(position);

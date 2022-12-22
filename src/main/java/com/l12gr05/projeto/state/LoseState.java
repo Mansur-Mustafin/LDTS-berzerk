@@ -6,7 +6,7 @@ import com.l12gr05.projeto.model.menu.Lose;
 import com.l12gr05.projeto.viewer.menuViewer.LoseViewer;
 import com.l12gr05.projeto.viewer.menuViewer.Viewer;
 
-public class LoseState extends State<Lose>{
+public class LoseState extends State<Lose> {
     public LoseState(Lose model) {
         super(model);
     }

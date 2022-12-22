@@ -44,7 +44,7 @@ public class Pause {
         boolean newGame = isSelected(1);
         return newGame;
     }
-    public int getCurrentEntry(){
+    public int getCurrentEntry() {
         return currentEntry;
     }
     public boolean isSelectedGoToMenu() {

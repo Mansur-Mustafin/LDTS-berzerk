@@ -29,13 +29,12 @@ public class MenuController extends Controller<Menu> {
         instance.start(Sound.SOUNDTRACK);
     }
 
-    public void changeTabSound(SoundControl instance){
+    public void changeTabSound(SoundControl instance) {
         instance.stop(Sound.CHANGETAB);
         instance.start(Sound.CHANGETAB);
     }
 
-    public void stepNotNull(Game game, KeyStroke key, SoundControl instance) throws IOException{
-
+    public void stepNotNull(Game game, KeyStroke key, SoundControl instance) throws IOException {
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -44,25 +43,21 @@ public class MenuController extends Controller<Menu> {
                 getModel().nextEntry();
                 break;
             case Enter:
-
                 boolean selectedExit = getModel().isSelectedExit();
                 if (selectedExit) {
                     game.setState(null);
                 }
-
                 boolean selectedStart = getModel().isSelectedStart();
                 if (selectedStart) {
                     newGameMusic(instance);
                     game.setState(new GameState(new Arena(34, 24, 1)));
                     game.setScore(0);
                 }
-
                 boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();
                 if (selectedLeaderBoard) {
                     changeTabSound(instance);
                     game.setState(new LeaderBoardState(new Leaderboard()));
                 }
-
                 boolean selectedInstructions = getModel().isSelectedInstructions();
                 if (selectedInstructions) {
                     changeTabSound(instance);
@@ -82,9 +77,7 @@ public class MenuController extends Controller<Menu> {
 
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
-        if (key == null) {
-            return;
-        }
+        if (key == null) return;
         SoundControl instance = SoundControl.getInstance();
         stepNotNull(game, key, instance);
     }

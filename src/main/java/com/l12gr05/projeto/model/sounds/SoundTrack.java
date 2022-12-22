@@ -25,9 +25,9 @@ public class SoundTrack {
             control.setValue(-15.0f);
 
             return soundClip;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
-            //e.printStackTrace();
         }
         return null;
     }
@@ -56,9 +56,9 @@ public class SoundTrack {
     private void sleep() {
         try {
             Thread.sleep(5);
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e) {
             System.out.println("Error: " + e.getMessage());
-            //e.printStackTrace();
         }
     }
 }

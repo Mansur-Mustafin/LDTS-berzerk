@@ -3,11 +3,11 @@ package com.l12gr05.projeto.model.game;
 public class Position {
     private int x;
     private int y;
-    public Position(int x , int y){
+    public Position(int x , int y) {
         this.x = x;
         this.y = y;
     }
-    public Position(){
+    public Position() {
         this(10,10);
     }
 
@@ -21,10 +21,10 @@ public class Position {
     public void setY(int y) {
         this.y = y;
     }
-    public Position add(Position position){
+    public Position add(Position position) {
         return new Position(this.x + position.x,this.y + position.y);
     }
-    public double getDistance(Position pos2){
+    public double getDistance(Position pos2) {
         double xDistance = (pos2.x-x)*(pos2.x-x);
         double yDistance = (pos2.y-y)*(pos2.y-y);
         return Math.sqrt(xDistance + yDistance);

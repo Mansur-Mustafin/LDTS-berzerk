@@ -73,20 +73,16 @@ public class ArenaController extends GameController {
 
     public void stepVoidKey(Game game, long time) throws IOException {
         int score = game.getScore();
-
         heroController.step(game, null, time);
 
         if(getModel().getLevel() == 6 && getModel().getBoss().getEnergy() <= 0){
             game.setState(new WinState(new Win(score)));
             return;
         }
-
         canGoToNextLevel(game);
         canGoToPrevLevel(game);
-
         bulletController.step(game, null, time);
         enemyController.step(game, null, time);
-
         hasNoEnergy(game, score);
     }
 
@@ -117,7 +113,6 @@ public class ArenaController extends GameController {
         boolean quitKey = key.getKeyType() == KeyType.Character && key.getCharacter() == 'q';
         boolean exitKey = key.getKeyType() == KeyType.Character && key.getCharacter() == 'e';
 
-
         if (quitKey) {
             instance.stop(Sound.SOUNDTRACK);
             instance.start(Sound.MENUMUSIC);
@@ -136,7 +131,6 @@ public class ArenaController extends GameController {
             return;
         }
         bulletStep(key, time, instance);
-
         pressedEscape(game, key, time, instance);
     }
 
@@ -164,10 +158,12 @@ public class ArenaController extends GameController {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         SoundControl instance = SoundControl.getInstance();
+
         if (key == null) {
             stepVoidKey(game, time);
-        } else {
-            stepNonVoid(game, key, time,instance );
+        }
+        else {
+            stepNonVoid(game, key, time, instance);
         }
     }
 

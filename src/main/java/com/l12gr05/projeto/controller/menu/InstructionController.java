@@ -18,7 +18,7 @@ public class InstructionController extends Controller<Instruction> {
         super(instruction);
     }
 
-    public void stepNotNull(Game game, KeyStroke key, SoundControl instance){
+    public void stepNotNull(Game game, KeyStroke key, SoundControl instance) {
         switch (key.getKeyType()) {
             case Enter:
                 instance.start(Sound.CHANGETAB);
@@ -26,7 +26,7 @@ public class InstructionController extends Controller<Instruction> {
                 if (selectedEnter) game.setState(new MenuState(new Menu()));
                 break;
             case Character:
-                if (key.getCharacter() == 'e'){
+                if (key.getCharacter() == 'e') {
                     game.setState(null);
                 }
                 break;

@@ -21,7 +21,6 @@ public class LoseViewer extends Viewer<Lose> {
 
             int x = 14 - i*4;
             int y = 14 + i;
-
             gui.drawText(new Position(x, y), entry, selected ? "#FFD700" : "#FFFFFF");
         }
     }

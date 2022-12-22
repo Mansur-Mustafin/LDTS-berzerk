@@ -25,40 +25,39 @@ public class Game {
     public void setOldState(State oldState) {
         this.oldState = oldState;
     }
-    public State getState(){
+    public State getState() {
         return state;
     }
 
     public void setState(State state) {
         this.state = state;
     }
-    public State getOldState(){
+    public State getOldState() {
         return oldState;
     }
 
-    public void setScore(int Score){
+    public void setScore(int Score) {
         this.Score = Score;
     }
-    public int getScore(){
+    public int getScore() {
         return Score;
     }
-    public void changeScoreBy(int x){
+    public void changeScoreBy(int x) {
         Score += x;
     }
 
     public void run() throws IOException {
         int frameTime = 1000 / 120;
-
         while (this.state != null) {
             long startTime = System.currentTimeMillis();
             state.step(this, gui, startTime);
-
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
 
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
-            } catch (InterruptedException e) {
+            }
+            catch (InterruptedException e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }

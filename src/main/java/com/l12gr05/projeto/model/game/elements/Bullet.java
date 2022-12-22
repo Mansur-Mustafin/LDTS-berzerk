@@ -8,16 +8,15 @@ public class Bullet extends Element {
     private final boolean heroBullet;
     private final char dir;
 
-    public Bullet(int x, int y, char dir, boolean heroBullet){
+    public Bullet(int x, int y, char dir, boolean heroBullet) {
         super(x,y);
         this.heroBullet = heroBullet;
         this.dir = dir;
     }
 
-    public Position move(){
+    public Position move() {
         int x = position.getX();
         int y = position.getY();
-
         switch (dir){
             case 'r':
                 return new Position(x + 1, y);
@@ -39,7 +38,7 @@ public class Bullet extends Element {
         return new Position(x , y);
     }
 
-    public void setPosition(Position position){
+    public void setPosition(Position position) {
         this.position = position;
     }
 

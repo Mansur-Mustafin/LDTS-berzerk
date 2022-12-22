@@ -17,7 +17,6 @@ public class PauseViewer extends Viewer<Pause> {
         for (int i = 0; i < numberEntries; i++) {
             String entry = getModel().getEntry(i);
             boolean selected = getModel().isSelected(i);
-
             gui.drawText(new Position(12, 12 + i), entry, selected ? "#FFD700" : "#FFFFFF");
         }
     }

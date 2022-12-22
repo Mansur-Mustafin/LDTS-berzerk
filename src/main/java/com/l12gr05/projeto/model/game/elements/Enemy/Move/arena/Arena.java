@@ -39,19 +39,18 @@ public class Arena {
     }
 
 
-    public boolean hasWalls(int x, int y){
-        if(x < 0 || y < 0 || x > 33 || y > 24){
+    public boolean hasWalls(int x, int y) {
+        if (x < 0 || y < 0 || x > 33 || y > 24) {
             return true;
         }
         return matrixOfWalls[x][y];
     }
 
-    private void createElements(){
+    private void createElements() {
         StringBuilder str = new StringBuilder();
         str.append("level");
         str.append(level);
         str.append(".txt");
-
         String arenaPath = str.toString();
 
         InputStream istream = ClassLoader.getSystemResourceAsStream(arenaPath);
@@ -93,27 +92,27 @@ public class Arena {
         }
     }
 
-    public void spawnMonster(){
+    public void spawnMonster() {
         monsters.add(new Monster(5,5));
         monsters.add(new Monster(20,20));
     }
-    public void eraseBullet(int index){
-        if(index < bullets.size()){
+    public void eraseBullet(int index) {
+        if (index < bullets.size()) {
             bullets.remove(index);
         }
     }
-    public void eraseMonster(int index){
-        if(index < monsters.size()){
+    public void eraseMonster(int index) {
+        if (index < monsters.size()) {
             monsters.remove(index);
         }
     }
-    public void eraseKing(int index){
-        if(index < kings.size()){
+    public void eraseKing(int index) {
+        if (index < kings.size()) {
             kings.remove(index);
         }
     }
-    public void eraseHealth(int index){
-        if(index < health.size()){
+    public void eraseHealth(int index) {
+        if (index < health.size()) {
             health.remove(index);
         }
     }
