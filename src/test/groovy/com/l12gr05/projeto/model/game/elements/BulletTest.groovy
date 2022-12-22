@@ -47,6 +47,7 @@ class BulletTest extends Specification{
         Bullet bullet6 = new Bullet(5, 5, 't' as char, b)
         Bullet bullet7 = new Bullet(5, 5, 'a' as char, b)
         Bullet bullet8 = new Bullet(5, 5, 'z' as char, b)
+        Bullet bullet9 = new Bullet(5, 5, 'h' as char, b)
 
         when:
         Position position1 = bullet1.move()
@@ -57,6 +58,7 @@ class BulletTest extends Specification{
         Position position6 = bullet6.move()
         Position position7 = bullet7.move()
         Position position8 = bullet8.move()
+        Position position9 = bullet9.move()
 
         then:
         position1.equals(new Position(6, 5))
@@ -67,5 +69,6 @@ class BulletTest extends Specification{
         position6.equals(new Position(6, 4))
         position7.equals(new Position(4, 6))
         position8.equals(new Position(6, 6))
+        position9.equals(new Position(5, 5))
     }
 }

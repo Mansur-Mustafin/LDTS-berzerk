@@ -1,6 +1,6 @@
 package com.l12gr05.projeto.viewer.gameViewer
 
-
+import com.l12gr05.projeto.model.game.Position
 import com.l12gr05.projeto.model.game.elements.Hero
 import com.l12gr05.projeto.graphics.GUILaterna
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena
@@ -44,7 +44,10 @@ class GameViewerTest extends Specification{
         1*gui.drawHero(hero.getPosition())
         1*gui.drawKing(king.getPosition())
         1*gui.drawText(_,_,_)
-        life*gui.drawHeart(_)
+        1 * gui.drawHeart(new Position(4, 0))
+        1 * gui.drawHeart(new Position(5, 0))
+        13*gui.drawHeart(_)
+
     }
 
     def 'draw elements lvl 6'(){
@@ -53,16 +56,18 @@ class GameViewerTest extends Specification{
         GameViewer gameViewer = new GameViewer(arena)
         gui = Mock(GUILaterna.class)
         Boss boss = arena.getBoss()
-        int life = boss.getEnergy()
 
-        when:
+
         when:
         gameViewer.drawElements(gui)
 
         then:
+
         17*gui.drawHeart(_)
         1*gui.drawBoss(boss.getPosition())
-        life*gui.drawHeartBoss(_)
+        1 * gui.drawHeartBoss(new Position(33, 0))
+        1 * gui.drawHeartBoss(new Position(32, 0))
+        10*gui.drawHeartBoss(_)
 
     }
 }

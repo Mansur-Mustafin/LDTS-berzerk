@@ -22,6 +22,17 @@ class SoundControlTest extends Specification{
         changeTab = Mock(SoundTrack.class)
     }
 
+
+    def 'get Instance'(){
+        given:
+        def s = new  SoundControl();
+        when:
+        def i = s.getInstance()
+        s.stopAll();
+        then:
+        i instanceof SoundControl
+    }
+
     def 'Play sound track'() {
         given:
         soundControl.setSoundTrack(soundtrack)

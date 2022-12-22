@@ -129,6 +129,7 @@ class ArenaTest extends Specification{
 
         when:
         arena.eraseBullet(0)
+        arena.eraseBullet(0)
 
         then:
         x == arena.getBullets().size()+1
@@ -140,6 +141,7 @@ class ArenaTest extends Specification{
 
         when:
         arena.eraseMonster(0)
+        arena.eraseMonster(arena.getMonsters().size())
 
         then:
         x == arena.getMonsters().size()+1
@@ -151,6 +153,7 @@ class ArenaTest extends Specification{
 
         when:
         arena.eraseKing(0)
+        arena.eraseKing(arena.getKings().size())
 
         then:
         x == arena.getKings().size()+1
@@ -165,6 +168,7 @@ class ArenaTest extends Specification{
         int x = arena.getHealth().size()
 
         when:
+        arena.eraseHealth(0)
         arena.eraseHealth(0)
 
         then:
@@ -184,6 +188,22 @@ class ArenaTest extends Specification{
         arena.notContainsWall(9,20,(char) 'l')
         arena.notContainsWall(5,17,(char) 'r')
 
+        arena.notContainsWall(0,0, (char)'r')
+        arena.notContainsWall(3,0, (char)'r')
+        arena.notContainsWall(34,0, (char)'r')
+        arena.notContainsWall(34,24, (char)'r')
+
+    }
+
+    def 'has Walls'(){
+        expect:
+        !arena.hasWalls(0,0);
+        arena.hasWalls(0,1);
+        !arena.hasWalls(1,0);
+        arena.hasWalls(33,1);
+        arena.hasWalls(1,24);
+        arena.hasWalls(-1 , -2)
+        arena.hasWalls(56 , 45)
     }
 
     def 'Shoot'(){

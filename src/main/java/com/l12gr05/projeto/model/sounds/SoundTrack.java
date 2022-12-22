@@ -26,7 +26,8 @@ public class SoundTrack {
 
             return soundClip;
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+            //e.printStackTrace();
         }
         return null;
     }
@@ -56,7 +57,8 @@ public class SoundTrack {
         try {
             Thread.sleep(5);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+            //e.printStackTrace();
         }
     }
 }

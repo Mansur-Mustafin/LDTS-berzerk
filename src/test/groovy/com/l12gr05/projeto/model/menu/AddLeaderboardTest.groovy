@@ -4,6 +4,32 @@ import spock.lang.Specification
 
 class AddLeaderboardTest extends Specification{
 
+
+    def'test open close print'(){
+        given:
+        def out = Mock(PrintWriter.class)
+        def addLeader = new AddToLeaderboard(10)
+        addLeader.setOut(out)
+        when:
+        addLeader.addScore()
+        then:
+        1 * out.println("Noname 10")
+        1 * out.close()
+    }
+
+    def'test open close print with name'(){
+        given:
+        def out = Mock(PrintWriter.class)
+        def addLeader = new AddToLeaderboard(10)
+        addLeader.setName('mans')
+        addLeader.setOut(out)
+        when:
+        addLeader.addScore()
+        then:
+        1 * out.println("mans 10")
+        1 * out.close()
+    }
+
     def 'Add Leader creation'() {
         given:
         AddToLeaderboard addLeader = new AddToLeaderboard(10)

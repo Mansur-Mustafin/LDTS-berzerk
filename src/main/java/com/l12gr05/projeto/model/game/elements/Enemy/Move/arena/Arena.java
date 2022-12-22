@@ -30,27 +30,18 @@ public class Arena {
     private List<Health> health = new ArrayList<>();
     private Boss boss;
     private int score;
-    private boolean[][] matrixOfWalls;
+    private final boolean[][] matrixOfWalls = new boolean[35][27];
     public Arena(int x, int y, int lvl) {
         width = x;
         height = y;
         level = lvl;
-        createMarix();
         createElements();
     }
 
-    private void createMarix(){
-        matrixOfWalls = new boolean[35][27];
-        for(int i = 0; i < 35; i++){
-            for(int j = 0; j < 27; j++){
-                matrixOfWalls[i][j] = false;
-            }
-        }
-    }
 
     public boolean hasWalls(int x, int y){
-        if(x < 0 || y < 0 || x > 33 || y > 23){
-            return false;
+        if(x < 0 || y < 0 || x > 33 || y > 24){
+            return true;
         }
         return matrixOfWalls[x][y];
     }
@@ -106,20 +97,25 @@ public class Arena {
         monsters.add(new Monster(5,5));
         monsters.add(new Monster(20,20));
     }
-
     public void eraseBullet(int index){
         if(index < bullets.size()){
             bullets.remove(index);
         }
     }
-
     public void eraseMonster(int index){
-        monsters.remove(index);
+        if(index < monsters.size()){
+            monsters.remove(index);
+        }
     }
     public void eraseKing(int index){
-        kings.remove(index);
+        if(index < kings.size()){
+            kings.remove(index);
+        }
     }
-    public void eraseHealth(int index){health.remove(index);
+    public void eraseHealth(int index){
+        if(index < health.size()){
+            health.remove(index);
+        }
     }
 
 

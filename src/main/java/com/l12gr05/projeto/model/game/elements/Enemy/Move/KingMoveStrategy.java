@@ -7,11 +7,11 @@ import java.util.*;
 
 public class KingMoveStrategy implements MoveStrategy {
 
-    boolean canMove(Position position){
+    public boolean canMove(Position position){
         return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= 33 && position.getY() <= 23;
     }
 
-    boolean contains(boolean[][] matrixOfWalls, Position position){
+    public boolean contains(boolean[][] matrixOfWalls, Position position){
         int x = position.getX();
         int y = position.getY();
         return matrixOfWalls[x][y];
@@ -45,11 +45,14 @@ public class KingMoveStrategy implements MoveStrategy {
         Queue<Position> q = new ArrayDeque<>();
         q.add(position);
 
+        /*
         for(int i = 0; i < 35; i++){
             for(int j = 0; j < 27; j++){
                 used[i][j] = false;
             }
         }
+
+         */
 
         int x = position.getX();
         int y = position.getY();

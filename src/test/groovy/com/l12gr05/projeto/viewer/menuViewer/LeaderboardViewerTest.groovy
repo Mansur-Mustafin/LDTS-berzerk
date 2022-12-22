@@ -28,6 +28,9 @@ class LeaderboardViewerTest extends Specification {
         leader_viewer.drawElements(gui)
 
         then:
-        n_of_players * gui.drawText(_,_,_)
+        1 * gui.drawText(new Position(5, 7), _, "#FFFFFF")
+        1 * gui.drawText(new Position(5, 8), _, "#FFFFFF")
+        (n_of_players - 2) * gui.drawText(_,_,_)
+
     }
 }

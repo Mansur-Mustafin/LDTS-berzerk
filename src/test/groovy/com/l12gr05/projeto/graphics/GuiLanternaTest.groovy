@@ -1,6 +1,6 @@
 package com.l12gr05.projeto.graphics
 
-
+import com.googlecode.lanterna.input.KeyStroke
 import com.l12gr05.projeto.model.game.Position
 import com.googlecode.lanterna.graphics.TextGraphics
 import com.googlecode.lanterna.input.KeyType
@@ -23,8 +23,6 @@ class GuiLanternaTest extends Specification{
         gui = new GUILaterna(screen)
         screen.newTextGraphics() >> tg
     }
-
-
 
     def 'Creation with screen'() {
         when:
@@ -172,11 +170,11 @@ class GuiLanternaTest extends Specification{
 
     def 'test getNextAction'(){
         given:
-        screen.pollInput() >> new com.googlecode.lanterna.input.KeyStroke(KeyType.ArrowDown)
+        screen.pollInput() >> new KeyStroke(KeyType.ArrowDown)
         when:
         def r = gui.getNextAction()
         then:
-        r instanceof com.googlecode.lanterna.input.KeyStroke
+        r instanceof KeyStroke
     }
 
     def 'test getNextAction 1'(){
@@ -198,11 +196,13 @@ class GuiLanternaTest extends Specification{
 
         then:
         s.isEmpty()
-        r instanceof com.googlecode.lanterna.input.KeyStroke
-        r2 instanceof com.googlecode.lanterna.input.KeyStroke
-        r3 instanceof com.googlecode.lanterna.input.KeyStroke
-        r4 instanceof com.googlecode.lanterna.input.KeyStroke
+        r instanceof KeyStroke
+        r2 instanceof KeyStroke
+        r3 instanceof KeyStroke
+        r4 instanceof KeyStroke
         r5 == null
     }
+
+
 
 }
