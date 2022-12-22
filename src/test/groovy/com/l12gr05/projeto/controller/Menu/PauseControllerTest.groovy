@@ -40,7 +40,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.Enter;
         pause.isSelectedExit() >> true
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
         then:
         1 * game.setState(null)
     }
@@ -50,7 +50,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.Enter;
         pause.isSelectedContinue() >> true
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
         then:
         2 * instance.start(_)
         1 * instance.stop(_)
@@ -62,7 +62,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.Enter;
         pause.isSelectedGoToMenu() >> true
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
         then:
         1 * instance.start(_)
         1 * instance.stop(_)
@@ -74,7 +74,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.Enter;
         pause.isSelectedNewGame() >> true
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
         then:
         2 * instance.start(_)
         1 * game.setState(_)
@@ -86,7 +86,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
         then:
         1 * game.setState(_)
     }
@@ -97,7 +97,7 @@ class PauseControllerTest extends Specification{
         key.getCharacter() >> 'q'
 
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
 
         then:
         1 * game.setState(_)
@@ -121,7 +121,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.ArrowUp;
 
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
 
         then:
         1*pause.previousEntry()
@@ -133,7 +133,7 @@ class PauseControllerTest extends Specification{
         key.getKeyType() >> KeyType.ArrowDown;
 
         when:
-        pauseController.notNullStep(game, key, time, instance)
+        pauseController.notNullStep(game, key, instance)
         then:
         1*pause.nextEntry()
     }

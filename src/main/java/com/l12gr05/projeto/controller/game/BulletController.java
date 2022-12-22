@@ -72,7 +72,7 @@ public class BulletController extends GameController{
         return false;
     }
 
-    public void stepMovimentBullet(Game game, KeyStroke key, SoundControl instance){
+    public void stepMovimentBullet(Game game, SoundControl instance){
         for (int i = 0; i < getModel().getBullets().size(); i++){
             Bullet bullet = getModel().getBullets().get(i);
 
@@ -124,7 +124,7 @@ public class BulletController extends GameController{
     public void step(Game game, KeyStroke key, long time) throws IOException {
         SoundControl instance = SoundControl.getInstance();
         if (time - lastMovementBullet > 30) {
-            stepMovimentBullet(game, key, instance);
+            stepMovimentBullet(game, instance);
             this.lastMovementBullet = time;
         }
     }

@@ -7,7 +7,7 @@ import java.util.List;
 public class Instruction {
     private final List<String> entries;
     private int currentEntry = 0;
-    public Instruction() throws IOException {
+    public Instruction() {
         this.entries = Arrays.asList("press enter to go back to the menu");
     }
 

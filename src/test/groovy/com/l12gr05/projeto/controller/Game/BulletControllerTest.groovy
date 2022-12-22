@@ -36,7 +36,7 @@ class BulletControllerTest extends Specification{
 
     def 'Has Walls'(){
         given:
-        Position position = new Position(0,7)
+        Position position = new Position(16,3)
         Position position1 = new Position(5, 5)
 
         when:
@@ -145,7 +145,7 @@ class BulletControllerTest extends Specification{
         arena.setBullets(list_b)
 
         when:
-        bulletController.stepMovimentBullet(game, key, instance)
+        bulletController.stepMovimentBullet(game, instance)
 
         then:
         arena.getBullets().size() == 0
@@ -159,7 +159,7 @@ class BulletControllerTest extends Specification{
         arena.setBullets(list_b)
 
         when:
-        bulletController.stepMovimentBullet(game, key, instance)
+        bulletController.stepMovimentBullet(game, instance)
 
         then:
         arena.getBullets().size() == 0
@@ -173,7 +173,7 @@ class BulletControllerTest extends Specification{
         arena.setBullets(list_b)
 
         when:
-        bulletController.stepMovimentBullet(game, key, instance)
+        bulletController.stepMovimentBullet(game, instance)
 
         then:
         arena.getBullets().size() == 0
@@ -188,7 +188,7 @@ class BulletControllerTest extends Specification{
         def energy = bulletController.getModel().getHero().getEnergy()
 
         when:
-        bulletController.stepMovimentBullet(game, key, instance)
+        bulletController.stepMovimentBullet(game, instance)
 
         then:
         arena.getBullets().size() == 0
@@ -208,7 +208,7 @@ class BulletControllerTest extends Specification{
         def energy = bulletController1.getModel().boss.energy
 
         when:
-        bulletController1.stepMovimentBullet(game, key, instance)
+        bulletController1.stepMovimentBullet(game, instance)
 
         then:
         arena1.getBullets().size() == 0

@@ -191,14 +191,14 @@ class ArenaTest extends Specification{
         Position position = new Position(5, 5)
 
         when:
-        arena.Shoot('r' as char, position, true)
-        arena.Shoot('l' as char, position, true)
-        arena.Shoot('d' as char, position, true)
-        arena.Shoot('u' as char, position, true)
-        arena.Shoot('q' as char, position, true)
-        arena.Shoot('t' as char, position, true)
-        arena.Shoot('a' as char, position, true)
-        arena.Shoot('z' as char, position, true)
+        arena.shoot('r' as char, position, true)
+        arena.shoot('l' as char, position, true)
+        arena.shoot('d' as char, position, true)
+        arena.shoot('u' as char, position, true)
+        arena.shoot('q' as char, position, true)
+        arena.shoot('t' as char, position, true)
+        arena.shoot('a' as char, position, true)
+        arena.shoot('z' as char, position, true)
         List<Bullet> bulletList = arena.getBullets()
 
         then:

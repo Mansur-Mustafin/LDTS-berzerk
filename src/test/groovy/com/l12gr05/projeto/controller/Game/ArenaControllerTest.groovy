@@ -63,10 +63,10 @@ class ArenaControllerTest extends Specification{
         hero.getPosition() >> pos
 
         when:
-        Acontrol.steplastBullet(game, key, instance)
+        Acontrol.steplastBullet(key, instance)
 
         then:
-        1 * arena.Shoot(_,_,_)
+        1 * arena.shoot(_,_,_)
         1 * instance.start(_)
     }
 
@@ -77,10 +77,10 @@ class ArenaControllerTest extends Specification{
         hero.getPosition() >> pos
 
         when:
-        Acontrol.steplastBullet(game, key, instance)
+        Acontrol.steplastBullet(key, instance)
 
         then:
-        1 * arena.Shoot(_,_,_)
+        1 * arena.shoot(_,_,_)
         1 * instance.start(_)
     }
 
@@ -93,10 +93,10 @@ class ArenaControllerTest extends Specification{
         hero.getPosition() >> pos
 
         when:
-        Acontrol.steplastBullet(game, key, instance)
+        Acontrol.steplastBullet(key, instance)
 
         then:
-        1 * arena.Shoot(_,_,_)
+        1 * arena.shoot(_,_,_)
         1 * instance.start(_)
     }
 
@@ -109,10 +109,10 @@ class ArenaControllerTest extends Specification{
         hero.getPosition() >> pos
 
         when:
-        Acontrol.steplastBullet(game, key, instance)
+        Acontrol.steplastBullet(key, instance)
 
         then:
-        1 * arena.Shoot(_,_,_)
+        1 * arena.shoot(_,_,_)
         1 * instance.start(_)
     }
 
@@ -234,7 +234,7 @@ class ArenaControllerTest extends Specification{
         Acontrol.stepNonVoid(game, key, time, instance)
 
         then:
-        0 * arena.Shoot(_,_,_)
+        0 * arena.shoot(_,_,_)
         1 * h_c.step(game, key, time);
         1 * e_c.step(game, key, time);
     }
@@ -254,7 +254,7 @@ class ArenaControllerTest extends Specification{
         Acontrol.stepNonVoid(game, key, 260, instance)
 
         then:
-        1 * arena.Shoot(_,_,_)
+        1 * arena.shoot(_,_,_)
         1 * h_c.step(game, key, time);
         1 * e_c.step(game, key, time);
     }
@@ -274,7 +274,7 @@ class ArenaControllerTest extends Specification{
         Acontrol.stepNonVoid(game, key, 260, instance)
 
         then:
-        0 * arena.Shoot(_,_,_)
+        0 * arena.shoot(_,_,_)
         1 * h_c.step(game, key, time);
         1 * e_c.step(game, key, time);
     }
@@ -314,7 +314,7 @@ class ArenaControllerTest extends Specification{
         arena.getKings() >> [new King(7,7)]
 
         when:
-        Acontrol.stepVoidKey(game, key, time, instance)
+        Acontrol.stepVoidKey(game, time)
 
         then:
         1 * h_c.step(game, null, time);

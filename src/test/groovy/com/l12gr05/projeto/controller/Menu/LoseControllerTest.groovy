@@ -53,7 +53,7 @@ class LoseControllerTest extends Specification{
         lose.isSelectedMenu() >> true
 
         when:
-        loseController.stepNotNull(game,key,time,instance)
+        loseController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
         1 * instance.stop(_)
@@ -66,7 +66,7 @@ class LoseControllerTest extends Specification{
         lose.isSelectedLeaderBoard() >> true
 
         when:
-        loseController.stepNotNull(game,key,time,instance)
+        loseController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
         1 * instance.stop(_)
@@ -79,7 +79,7 @@ class LoseControllerTest extends Specification{
         lose.isSelectedAddToLeaderBoard() >> true
 
         when:
-        loseController.stepNotNull(game,key,time,instance)
+        loseController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
         1 * instance.stop(_)
@@ -101,7 +101,7 @@ class LoseControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        loseController.stepNotNull(game,key,time,instance)
+        loseController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
     }
@@ -113,7 +113,7 @@ class LoseControllerTest extends Specification{
         key.getKeyType() >> KeyType.ArrowUp;
 
         when:
-        loseController1.stepNotNull(game,key,time,instance)
+        loseController1.stepNotNull(game,key,instance)
         then:
         x != loseController1.getModel().getCurrentEntry()
         loseController1.getModel().getCurrentEntry() == loseController1.getModel().getNumberEntries() - 1
@@ -126,7 +126,7 @@ class LoseControllerTest extends Specification{
         key.getKeyType() >> KeyType.ArrowDown;
 
         when:
-        loseController1.stepNotNull(game,key,time,instance)
+        loseController1.stepNotNull(game,key,instance)
         then:
         x != loseController1.getModel().getCurrentEntry()
         loseController1.getModel().getCurrentEntry() == 1

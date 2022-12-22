@@ -39,7 +39,7 @@
 > - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
 > - `BOSS` - We made a final boss consisting of 9 different PNG's 
 > - `SHOOT BEHIND WALLS` - If the player is hidden behind walls, the enemies will not try to shoot through them
-> - `PICK UP HEALTH`- On the final level, the player has the chance to restore health by picking hearts on the ground
+> - `PICK UP HEALTH` - On the final level, the player has the chance to restore health by picking hearts on the ground
 >
 &nbsp;
 

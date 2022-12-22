@@ -41,7 +41,7 @@ class WinControllerTest extends Specification{
         win.isSelectedMenu() >> true
 
         when:
-        winController.stepNotNull(game,key,time,instance)
+        winController.stepNotNull(game,key,instance)
         then:
         1 * instance.stop(_)
         1 * instance.start(_)
@@ -54,7 +54,7 @@ class WinControllerTest extends Specification{
         win.isSelectedLeaderBoard() >> true
 
         when:
-        winController.stepNotNull(game,key,time,instance)
+        winController.stepNotNull(game,key,instance)
         then:
         1 * instance.stop(_)
         1 * instance.start(_)
@@ -67,7 +67,7 @@ class WinControllerTest extends Specification{
         win.isSelectedAddToLeaderBoard() >> true
 
         when:
-        winController.stepNotNull(game,key,time,instance)
+        winController.stepNotNull(game,key,instance)
         then:
         1 * instance.stop(_)
         1 * instance.start(_)
@@ -90,7 +90,7 @@ class WinControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        winController.stepNotNull(game,key,time,instance)
+        winController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
     }

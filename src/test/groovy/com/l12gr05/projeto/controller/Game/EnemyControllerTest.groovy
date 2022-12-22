@@ -176,7 +176,7 @@ class EnemyControllerTest extends Specification{
         def i = enemyController2.getModel().getBullets().size()
 
         when:
-        enemyController2.stepMovementBoss(game,key, 200, instance)
+        enemyController2.stepMovementBoss(200, instance)
 
         then:
         x != enemyController2.getModel().getBoss().getPosition().getX() || y != enemyController2.getModel().getBoss().getPosition().getY()
@@ -192,7 +192,7 @@ class EnemyControllerTest extends Specification{
         def energy = enemyController2.getModel().getHero().getEnergy()
 
         when:
-        enemyController2.stepMovementBoss(game,key, 200, instance)
+        enemyController2.stepMovementBoss(200, instance)
 
         then:
         i + 8 == enemyController2.getModel().getBullets().size()
@@ -210,7 +210,7 @@ class EnemyControllerTest extends Specification{
         def energy = enemyController2.getModel().getHero().getEnergy()
 
         when:
-        enemyController2.stepMovementBoss(game,key, 200, instance)
+        enemyController2.stepMovementBoss(200, instance)
 
         then:
         i + 8 == enemyController2.getModel().getBullets().size()
@@ -270,7 +270,7 @@ class EnemyControllerTest extends Specification{
         game.getScore() >> 200
 
         when:
-        enemyController1.stepMovementEnemy(game, key, 500, instance)
+        enemyController1.stepMovementEnemy(game, instance)
 
         then:
         enemyController1.getModel().getScore() == 200
@@ -291,7 +291,7 @@ class EnemyControllerTest extends Specification{
         def N_of_bullts = enemyController1.getModel().getBullets().size()
 
         when:
-        enemyController1.stepMovementEnemy(game, key, 500, instance)
+        enemyController1.stepMovementEnemy(game, instance)
 
         then:
         enemyController1.getModel().getScore() == 200
@@ -309,7 +309,7 @@ class EnemyControllerTest extends Specification{
         enemyController1.getModel().getHero().setPosition(new Position(3,3))
 
         when:
-        enemyController1.stepMovementEnemy(game, key, 500, instance)
+        enemyController1.stepMovementEnemy(game, instance)
 
         then:
         enemyController1.getModel().getHero().getEnergy() == 10
@@ -324,7 +324,7 @@ class EnemyControllerTest extends Specification{
         enemyController1.getModel().getHero().setPosition(new Position(6,6))
 
         when:
-        enemyController1.stepMovementEnemy(game, key, 500, instance)
+        enemyController1.stepMovementEnemy(game, instance)
 
         then:
         enemyController1.getModel().getHero().getEnergy() == 15

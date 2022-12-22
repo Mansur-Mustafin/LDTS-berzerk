@@ -12,7 +12,7 @@ public class AddToLeaderboard {
     private int currentEntry = 0;
 
     private String Name = new String();
-    private int Score = 999;
+    private int Score;
     public AddToLeaderboard(int Score) {
         this.entries = Arrays.asList("menu", "leader board");
         this.Score = Score;

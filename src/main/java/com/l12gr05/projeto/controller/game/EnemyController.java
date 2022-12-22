@@ -48,6 +48,7 @@ public class EnemyController extends GameController {
         int y = position.getY();
         if(getModel().hasWalls(x,y)){
             return false;
+
         }
 
 
@@ -89,7 +90,7 @@ public class EnemyController extends GameController {
         return 'n';
     }
 
-    public void stepMovementEnemy(Game game, KeyStroke key, long time, SoundControl instance ){
+    public void stepMovementEnemy(Game game, SoundControl instance ){
         int score = game.getScore();
         getModel().setScore(score);
 
@@ -113,7 +114,7 @@ public class EnemyController extends GameController {
             if (c != 'n'){
                 instance.stop(Sound.SHOOTING);
                 instance.start(Sound.SHOOTING);
-                getModel().Shoot(c, pos, false);
+                getModel().shoot(c, pos, false);
 
             }
         }
@@ -139,7 +140,7 @@ public class EnemyController extends GameController {
     }
 
 
-    public void stepMovementBoss(Game game, KeyStroke key, long time, SoundControl instance){
+    public void stepMovementBoss(long time, SoundControl instance){
         Boss boss = getModel().getBoss();
         Position position = boss.move(getModel().getHero().position ,getModel().getMatrixOfWalls() );
         boss.setPosition(position);
@@ -149,14 +150,14 @@ public class EnemyController extends GameController {
             instance.start(Sound.HERODEATH);
             getModel().getHero().decreaseEnergy(7);
         }
-        getModel().Shoot('r', boss.position, false);
-        getModel().Shoot('l', boss.position, false);
-        getModel().Shoot('u', boss.position, false);
-        getModel().Shoot('d', boss.position, false);
-        getModel().Shoot('t', boss.position, false);
-        getModel().Shoot('q', boss.position, false);
-        getModel().Shoot('a', boss.position, false);
-        getModel().Shoot('z', boss.position, false);
+        getModel().shoot('r', boss.position, false);
+        getModel().shoot('l', boss.position, false);
+        getModel().shoot('u', boss.position, false);
+        getModel().shoot('d', boss.position, false);
+        getModel().shoot('t', boss.position, false);
+        getModel().shoot('q', boss.position, false);
+        getModel().shoot('a', boss.position, false);
+        getModel().shoot('z', boss.position, false);
         this.lastMovementBoss = time;
     }
 
@@ -166,12 +167,12 @@ public class EnemyController extends GameController {
         SoundControl instance = SoundControl.getInstance();
 
         if (time - lastMovementEnemy > 500) {
-            stepMovementEnemy(game, key, time, instance);
+            stepMovementEnemy(game,instance);
             this.lastMovementEnemy = time;
         }
 
         if (time - lastMovementBoss > 800 && getModel().getLevel() == 6) {
-            stepMovementBoss(game, key, time, instance);
+            stepMovementBoss(time, instance);
         }
         if (time - lastSpawn > 6000 && getModel().getLevel() == 6) {
             getModel().spawnMonster();

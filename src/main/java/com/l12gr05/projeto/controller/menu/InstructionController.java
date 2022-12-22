@@ -18,7 +18,7 @@ public class InstructionController extends Controller<Instruction> {
         super(instruction);
     }
 
-    public void stepNotNull(Game game, KeyStroke key, long time, SoundControl instance){
+    public void stepNotNull(Game game, KeyStroke key, SoundControl instance){
         switch (key.getKeyType()) {
             case Enter:
                 instance.start(Sound.CHANGETAB);
@@ -39,6 +39,6 @@ public class InstructionController extends Controller<Instruction> {
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) return;
         SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game, key, time, instance);
+        stepNotNull(game, key, instance);
     }
 }
