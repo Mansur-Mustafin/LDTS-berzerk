@@ -168,50 +168,50 @@ public class Arena {
 
         switch (dir){
             case 'r':
-                if(notContainsWall(x + 1,y, dir)){
-
+                boolean notContainsWall = notContainsWall(x + 1, y, dir);
+                if (notContainsWall) {
                     bullets.add(new Bullet(x + 1, y, dir ,hero));
                 }
                 break;
             case 'l':
-                if(notContainsWall(x - 1,y, dir)){
-
+                boolean notContainsWall1 = notContainsWall(x - 1, y, dir);
+                if (notContainsWall1) {
                     bullets.add(new Bullet(x - 1, y, dir, hero));
                 }
                 break;
             case 'd':
-                if(notContainsWall(x,y+1, dir)){
-
+                boolean notContainsWall2 = notContainsWall(x, y + 1, dir);
+                if (notContainsWall2) {
                     bullets.add(new Bullet(x , y + 1, dir, hero));
                 }
                 break;
             case 'u':
-                if(notContainsWall(x,y-1, dir)){
-
+                boolean notContainsWall3 = notContainsWall(x, y - 1, dir);
+                if (notContainsWall3) {
                     bullets.add(new Bullet( x , y - 1, dir, hero));
                 }
                 break;
             case 'q':
-                if(notContainsWall(x - 1,y - 1, dir)){
-
+                boolean notContainsWall4 = notContainsWall(x - 1, y - 1, dir);
+                if (notContainsWall4) {
                     bullets.add(new Bullet(x -1  , y - 1, dir, hero));
                 }
                 break;
             case 't':
-                if(notContainsWall(x + 1,y-1, dir)){
-
+                boolean notContainsWall5 = notContainsWall(x + 1, y - 1, dir);
+                if (notContainsWall5) {
                     bullets.add(new Bullet(x + 1,y-1, dir, hero));
                 }
                 break;
             case 'a':
-                if(notContainsWall(x - 1,y+1, dir)){
-
+                boolean notContainsWall6 = notContainsWall(x - 1, y + 1, dir);
+                if (notContainsWall6) {
                     bullets.add(new Bullet(x - 1, y + 1, dir, hero));
                 }
                 break;
             case 'z':
-                if(notContainsWall(x + 1,y+1, dir)){
-
+                boolean notContainsWall7 = notContainsWall(x + 1, y + 1, dir);
+                if (notContainsWall7) {
                     bullets.add(new Bullet(x + 1, y + 1, dir, hero));
                 }
                 break;
