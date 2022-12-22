@@ -6,7 +6,7 @@ import com.l12gr05.projeto.controller.game.BulletController
 import com.l12gr05.projeto.controller.game.EnemyController
 import com.l12gr05.projeto.controller.game.HeroController
 import com.l12gr05.projeto.model.game.Position
-import com.l12gr05.projeto.model.game.arena.Arena
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena
 import com.l12gr05.projeto.model.game.elements.Enemy.King
 import com.l12gr05.projeto.model.game.elements.Enemy.Monster
 import com.l12gr05.projeto.model.game.elements.Hero

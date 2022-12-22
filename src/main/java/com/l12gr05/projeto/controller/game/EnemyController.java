@@ -2,14 +2,13 @@ package com.l12gr05.projeto.controller.game;
 
 import com.l12gr05.projeto.Game;
 import com.l12gr05.projeto.model.game.Position;
-import com.l12gr05.projeto.model.game.arena.Arena;
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena;
 import com.l12gr05.projeto.model.game.elements.Enemy.Boss;
 import com.l12gr05.projeto.model.game.elements.Enemy.Enemy;
 import com.l12gr05.projeto.model.game.elements.Enemy.King;
 import com.l12gr05.projeto.model.game.elements.Enemy.Monster;
 import com.l12gr05.projeto.model.game.elements.Enemy.Move.KingMoveStrategy;
 import com.l12gr05.projeto.model.game.elements.Hero;
-import com.l12gr05.projeto.model.game.elements.Wall;
 
 import com.l12gr05.projeto.model.sounds.Sound;
 import com.l12gr05.projeto.model.sounds.SoundControl;
@@ -45,12 +44,12 @@ public class EnemyController extends GameController {
         if (position.getX() < 0 || position.getY() < 0 || position.getX() > 33 || position.getY() > 23)
             return false;
 
-
-        List<Wall> walls = getModel().getWalls();
-        for (Wall wall : walls) {
-            boolean equals = wall.getPosition().equals(position);
-            if (equals) return false;
+        int x = position.getX();
+        int y = position.getY();
+        if(getModel().hasWalls(x,y)){
+            return false;
         }
+
 
         List<Monster> monsters = getModel().getMonsters();
         for (Enemy enemy : monsters) {
@@ -98,7 +97,7 @@ public class EnemyController extends GameController {
         for (Enemy monster : monsters) {
             Position position;
             while (true) {
-                boolean monsterCanMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getWalls()));
+                boolean monsterCanMove = canMonsterMove(position = monster.move(getModel().getHero().position, getModel().getMatrixOfWalls()));
                 if (monsterCanMove) break;
             }
             monster.setPosition(position);
@@ -126,7 +125,7 @@ public class EnemyController extends GameController {
                 king.setMoveStrategy(new KingMoveStrategy());
             }
 
-            Position position = king.move(getModel().getHero().position ,getModel().getWalls() );
+            Position position = king.move(getModel().getHero().position ,getModel().getMatrixOfWalls() );
             king.setPosition(position);
 
             boolean kingHitsHero = position.equals(getModel().getHero().position);
@@ -142,7 +141,7 @@ public class EnemyController extends GameController {
 
     public void stepMovementBoss(Game game, KeyStroke key, long time, SoundControl instance){
         Boss boss = getModel().getBoss();
-        Position position = boss.move(getModel().getHero().position ,getModel().getWalls() );
+        Position position = boss.move(getModel().getHero().position ,getModel().getMatrixOfWalls() );
         boss.setPosition(position);
         boolean BossHitsHero = position.getDistance(getModel().getHero().position) < 2;
         if (BossHitsHero) {

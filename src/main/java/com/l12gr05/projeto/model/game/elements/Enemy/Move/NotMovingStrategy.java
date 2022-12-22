@@ -7,7 +7,7 @@ import java.util.List;
 
 public class NotMovingStrategy implements MoveStrategy {
     @Override
-    public Position move(Position position, Position position_hero , List<Wall> walls){
+    public Position move(Position position, Position position_hero , boolean[][] matrixOfWalls){
         return position;
     }
 }

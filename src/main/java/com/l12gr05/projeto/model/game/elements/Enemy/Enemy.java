@@ -43,8 +43,7 @@ public abstract class Enemy extends Element {
     protected abstract MoveStrategy generateMoveStrategy();
     protected abstract int generateEnergy();
 
-    public Position move(Position position_hero, List<Wall> walls){
-        Position move = this.move.move(position, position_hero, walls);
-        return move;
+    public Position move(Position position_hero, boolean[][] matrixOfWalls){
+        return this.move.move(position, position_hero, matrixOfWalls);
     }
 }

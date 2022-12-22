@@ -4,7 +4,7 @@ import com.l12gr05.projeto.Game;
 import com.l12gr05.projeto.model.game.elements.Hero;
 import com.l12gr05.projeto.state.*;
 import com.l12gr05.projeto.model.game.Position;
-import com.l12gr05.projeto.model.game.arena.Arena;
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena;
 import com.l12gr05.projeto.model.menu.Lose;
 import com.l12gr05.projeto.model.menu.Menu;
 import com.l12gr05.projeto.model.menu.Pause;
@@ -13,7 +13,6 @@ import com.l12gr05.projeto.model.sounds.Sound;
 import com.l12gr05.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
-import com.l12gr05.projeto.state.*;
 
 import java.io.IOException;
 
@@ -108,7 +107,7 @@ public class ArenaController extends GameController {
         boolean canGoToNextLevel = checkNextLvl(getModel().getHero().getPosition());
         if (canGoToNextLevel){
             int N_lvl = getModel().getLevel() + 1;
-            game.setState(new GameState(new Arena(34, 25, 6)));
+            game.setState(new GameState(new Arena(34, 25, N_lvl)));
         }
     }
 

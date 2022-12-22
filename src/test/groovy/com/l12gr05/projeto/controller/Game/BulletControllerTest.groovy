@@ -4,7 +4,7 @@ import com.l12gr05.projeto.Game
 import com.googlecode.lanterna.input.KeyStroke
 import com.l12gr05.projeto.controller.game.BulletController
 import com.l12gr05.projeto.model.game.Position
-import com.l12gr05.projeto.model.game.arena.Arena
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena
 import com.l12gr05.projeto.model.game.elements.Bullet
 import com.l12gr05.projeto.model.sounds.SoundControl
 import spock.lang.Specification

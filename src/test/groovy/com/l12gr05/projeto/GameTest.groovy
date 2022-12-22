@@ -5,7 +5,7 @@ import com.l12gr05.projeto.state.GameState
 import com.l12gr05.projeto.state.LoseState
 import com.l12gr05.projeto.state.MenuState
 import com.l12gr05.projeto.state.State
-import com.l12gr05.projeto.model.game.arena.Arena
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena
 import com.l12gr05.projeto.model.menu.Lose
 import spock.lang.Specification
 

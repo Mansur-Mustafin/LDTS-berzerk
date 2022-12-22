@@ -3,7 +3,7 @@ package com.l12gr05.projeto.controller.Game
 import com.l12gr05.projeto.Game
 import com.l12gr05.projeto.controller.game.HeroController
 import com.l12gr05.projeto.model.game.Position
-import com.l12gr05.projeto.model.game.arena.Arena
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena
 import com.l12gr05.projeto.model.sounds.SoundControl
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.input.KeyType

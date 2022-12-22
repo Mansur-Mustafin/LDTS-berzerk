@@ -2,8 +2,7 @@ package com.l12gr05.projeto.viewer.gameViewer;
 
 import com.l12gr05.projeto.graphics.GUI;
 import com.l12gr05.projeto.model.game.Position;
-import com.l12gr05.projeto.model.game.arena.Arena;
-import com.l12gr05.projeto.model.game.elements.*;
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena;
 import com.l12gr05.projeto.model.game.elements.*;
 import com.l12gr05.projeto.model.game.elements.Enemy.Boss;
 import com.l12gr05.projeto.model.game.elements.Enemy.King;

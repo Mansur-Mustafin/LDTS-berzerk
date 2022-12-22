@@ -15,8 +15,7 @@ public class Hero extends Element {
     }
 
     public int getX() {
-        int x = position.getX();
-        return x;
+        return position.getX();
     }
 
     public void setX(int x) {
@@ -24,8 +23,7 @@ public class Hero extends Element {
     }
 
     public int getY() {
-        int y = position.getY();
-        return y;
+        return position.getY();
     }
 
     public void setY(int y) {

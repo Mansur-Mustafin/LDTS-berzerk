@@ -2,19 +2,17 @@ package com.l12gr05.projeto.controller.game;
 
 import com.l12gr05.projeto.Game;
 import com.l12gr05.projeto.model.game.Position;
-import com.l12gr05.projeto.model.game.arena.Arena;
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena;
 import com.l12gr05.projeto.model.game.elements.Bullet;
 import com.l12gr05.projeto.model.game.elements.Enemy.Boss;
 import com.l12gr05.projeto.model.game.elements.Enemy.King;
 import com.l12gr05.projeto.model.game.elements.Enemy.Monster;
 import com.l12gr05.projeto.model.game.elements.Hero;
-import com.l12gr05.projeto.model.game.elements.Wall;
 import com.l12gr05.projeto.model.sounds.Sound;
 import com.l12gr05.projeto.model.sounds.SoundControl;
 import com.googlecode.lanterna.input.KeyStroke;
 
 import java.io.IOException;
-import java.util.List;
 
 public class BulletController extends GameController{
     private long lastMovementBullet;
@@ -29,12 +27,9 @@ public class BulletController extends GameController{
     }
 
     public boolean hasWalls(Position position){
-        List<Wall> walls = getModel().getWalls();
-        for (Wall wall : walls) {
-            boolean positionEquals = wall.getPosition().equals(position);
-            if (positionEquals) return true;
-        }
-        return false;
+        int x = position.getX();
+        int y = position.getY();
+        return getModel().hasWalls(x,y);
     }
 
     public boolean hasMonster(Position position, Game game, SoundControl instance) {

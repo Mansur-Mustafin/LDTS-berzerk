@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class MonsterMoveStrategy implements MoveStrategy {
     @Override
-    public Position move(Position position, Position position_hero , List<Wall> walls){
+    public Position move(Position position, Position position_hero , boolean[][] matrixOfWalls){
         Random random = new Random();
         int x = random.nextInt(3) - 1;
         int y = random.nextInt(3) - 1;

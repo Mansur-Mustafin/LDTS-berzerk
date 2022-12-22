@@ -11,17 +11,23 @@ public class KingMoveStrategy implements MoveStrategy {
         return position.getX() >= 0 && position.getY() >= 0 && position.getX() <= 33 && position.getY() <= 23;
     }
 
-    boolean contains(List<Wall> walls, Position position){
+    boolean contains(boolean[][] matrixOfWalls, Position position){
+        int x = position.getX();
+        int y = position.getY();
+        return matrixOfWalls[x][y];
+        /*
         for (Wall w: walls) {
             if (w.getPosition().getX() == position.getX() && w.getPosition().getY() == position.getY()) {
                 return true;
             }
         }
         return false;
+
+         */
     }
 
     @Override
-    public Position move(Position position, Position position_hero , List<Wall> walls){
+    public Position move(Position position, Position position_hero , boolean[][] matrixOfWalls){
 
         boolean equals = position.equals(position_hero);
         if (equals) {
@@ -55,7 +61,7 @@ public class KingMoveStrategy implements MoveStrategy {
                 Position tmp2 = tmp.add(step);
                 boolean canMove = canMove(tmp2);
                 if (canMove) {
-                    boolean contains = contains(walls, tmp2);
+                    boolean contains = contains(matrixOfWalls, tmp2);
                     if (!contains) {
                         if (!used[tmp2.getX()][tmp2.getY()]) {
                             used[tmp2.getX()][tmp2.getY()] = true;

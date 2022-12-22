@@ -3,7 +3,7 @@ package com.l12gr05.projeto.controller.Game
 import com.l12gr05.projeto.Game
 import com.l12gr05.projeto.controller.game.EnemyController
 import com.l12gr05.projeto.model.game.Position
-import com.l12gr05.projeto.model.game.arena.Arena
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena
 import com.l12gr05.projeto.model.game.elements.Enemy.Monster
 import com.l12gr05.projeto.model.game.elements.Wall
 import com.l12gr05.projeto.model.sounds.SoundControl
@@ -282,8 +282,9 @@ class EnemyControllerTest extends Specification{
         def monster = Mock(Monster.class)
         def listOfMonsters = new ArrayList();
         listOfMonsters.add(monster)
-        monster.move(_ as Position, _ as List<Wall>) >>> [ new Position(0,7), new Position(10,10)]
+        monster.move(_, _) >>> [ new Position(0,7), new Position(10,10)]
         monster.getPosition() >>> [new Position(7,7), new Position(10,10), new Position(10,10)]
+
 
         enemyController1.getModel().setMonsters(listOfMonsters)
         enemyController1.getModel().getHero().setPosition(new Position(10,10))

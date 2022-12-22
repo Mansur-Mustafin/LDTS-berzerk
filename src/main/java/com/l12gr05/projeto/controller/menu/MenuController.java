@@ -5,7 +5,7 @@ import com.l12gr05.projeto.state.GameState;
 import com.l12gr05.projeto.state.InstructionsState;
 import com.l12gr05.projeto.state.LeaderBoardState;
 import com.l12gr05.projeto.controller.Controller;
-import com.l12gr05.projeto.model.game.arena.Arena;
+import com.l12gr05.projeto.model.game.elements.Enemy.Move.arena.Arena;
 import com.l12gr05.projeto.model.menu.Instruction;
 import com.l12gr05.projeto.model.menu.Leaderboard;
 import com.l12gr05.projeto.model.menu.Menu;

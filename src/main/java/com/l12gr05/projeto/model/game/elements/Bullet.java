@@ -6,7 +6,7 @@ import com.l12gr05.projeto.model.game.elements.Enemy.Move.*;
 
 public class Bullet extends Element {
     private final boolean heroBullet;
-    private char dir;
+    private final char dir;
 
     public Bullet(int x, int y, char dir, boolean heroBullet){
         super(x,y);

@@ -1,4 +1,4 @@
-package com.l12gr05.projeto.model.game.arena;
+package com.l12gr05.projeto.model.game.elements.Enemy.Move.arena;
 
 import com.l12gr05.projeto.model.game.Position;
 import com.l12gr05.projeto.model.game.elements.Bullet;
@@ -29,28 +29,30 @@ public class Arena {
     private List<Bullet> bullets = new ArrayList<>();
     private List<Health> health = new ArrayList<>();
     private Boss boss;
-    private int Score ;
-    private boolean[][] MatrixOfWalls;
+    private int score;
+    private boolean[][] matrixOfWalls;
     public Arena(int x, int y, int lvl) {
         width = x;
         height = y;
         level = lvl;
-        createElements();
         createMarix();
+        createElements();
     }
 
     private void createMarix(){
-        MatrixOfWalls = new boolean[35][27];
+        matrixOfWalls = new boolean[35][27];
         for(int i = 0; i < 35; i++){
             for(int j = 0; j < 27; j++){
-                MatrixOfWalls[i][j] = false;
+                matrixOfWalls[i][j] = false;
             }
         }
-        for(Wall wall: walls){
-            int x = wall.position.getX();
-            int y = wall.position.getY();
-            MatrixOfWalls[x][y] = true;
+    }
+
+    public boolean hasWalls(int x, int y){
+        if(x < 0 || y < 0 || x > 33 || y > 23){
+            return false;
         }
+        return matrixOfWalls[x][y];
     }
 
     private void createElements(){
@@ -80,6 +82,7 @@ public class Arena {
                     }
                     if (c == 'w') {
                         walls.add(new Wall(j, i));
+                        matrixOfWalls[j][i] = true;
                     }
                     if (c == 'f') {
                         boss = new Boss(j,i);
@@ -119,12 +122,11 @@ public class Arena {
     public boolean notContainsWall(int x, int y, char dir){
         if(x < 0 || y < 0 ||x > 34 || y > 24){
             return false;
-
         }
         switch (dir){
             case'r':
                 while(x < hero.getX()){
-                    if(MatrixOfWalls[x][y]){
+                    if(matrixOfWalls[x][y]){
                         return false;
                     }
                     x++;
@@ -132,7 +134,7 @@ public class Arena {
                 break;
             case'l':
                 while(x > hero.getX()){
-                    if(MatrixOfWalls[x][y]){
+                    if(matrixOfWalls[x][y]){
                         return false;
                     }
                     x--;
@@ -140,7 +142,7 @@ public class Arena {
                 break;
             case'u':
                 while(y > hero.getY()){
-                    if(MatrixOfWalls[x][y]){
+                    if(matrixOfWalls[x][y]){
                         return false;
                     }
                     y--;
@@ -148,14 +150,14 @@ public class Arena {
                 break;
             case'd':
                 while(y < hero.getY()){
-                    if(MatrixOfWalls[x][y]){
+                    if(matrixOfWalls[x][y]){
                         return false;
                     }
                     y++;
                 }
                 break;
         }
-        return !MatrixOfWalls[x][y];
+        return !matrixOfWalls[x][y];
     }
 
     public void Shoot(char dir, Position position, boolean hero){
@@ -243,13 +245,13 @@ public class Arena {
         return width;
     }
     public int getScore() {
-        return Score;
+        return score;
     }
     public boolean[][] getMatrixOfWalls(){
-        return MatrixOfWalls;
+        return matrixOfWalls;
     }
     public void setScore(int score) {
-        Score = score;
+        this.score = score;
 
     }
     public void setMonsters(List<Monster> m){
