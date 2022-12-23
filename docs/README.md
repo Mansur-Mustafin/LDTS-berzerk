@@ -249,6 +249,7 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > 
 > Here´s a code smell that is currently present on our code:
 > - `Large Class`
+> - `Switch Statements`
 > 
 &nbsp;
 
@@ -274,6 +275,10 @@ Como temos dois métodos que são executados no arranque do programa, não conse
 `Keep Unit Interfaces Small` - We couldn't achieve this guideline because we use a method called `step()` that requires mandatorily 3 parameters. Since we implemented the Singleton Patter for sound management, we need to insert the sound instance into many methods to test it making, it impossible to reduce the number of parameters
 </br>
 `Couple Architecture Components Loosely` - Failing because we use the MVC pattern (Organize the project in different folders) </br>
+&nbsp;
+
+### ERROR-PRONE WARNINGS
+We have no error-prone warnings, we got rid of all of them </br>
 &nbsp;
 
 
