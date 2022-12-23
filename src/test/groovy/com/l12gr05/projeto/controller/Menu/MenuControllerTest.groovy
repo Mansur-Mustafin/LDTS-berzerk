@@ -41,7 +41,7 @@ class MenuControllerTest extends Specification{
         menu.isSelectedExit() >> true
 
         when:
-        menuController.stepNotNullLose(game,key,instance)
+        menuController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
     }
@@ -52,7 +52,7 @@ class MenuControllerTest extends Specification{
         menu.isSelectedStart() >> true
 
         when:
-        menuController.stepNotNullLose(game,key,instance)
+        menuController.stepNotNull(game,key,instance)
         then:
         2 * instance.start(_)
         1 * instance.stop(_)
@@ -66,7 +66,7 @@ class MenuControllerTest extends Specification{
         menu.isSelectedLeaderBoard() >> true
 
         when:
-        menuController.stepNotNullLose(game,key,instance)
+        menuController.stepNotNull(game,key,instance)
         then:
         1 * instance.stop(_)
         1 * instance.start(_)
@@ -79,7 +79,7 @@ class MenuControllerTest extends Specification{
         menu.isSelectedInstructions() >> true
 
         when:
-        menuController.stepNotNullLose(game,key,instance)
+        menuController.stepNotNull(game,key,instance)
         then:
 
         1 * instance.stop(_)
@@ -92,7 +92,7 @@ class MenuControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        menuController.stepNotNullLose(game,key,instance)
+        menuController.stepNotNull(game,key,instance)
         then:
         1 * instance.stopAll()
         1 * game.setState(_)
