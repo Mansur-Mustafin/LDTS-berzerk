@@ -249,6 +249,7 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > 
 > Here´s a code smell that is currently present on our code:
 > - `Large Class`
+> - `Switch Statements`
 > 
 &nbsp;
 
@@ -275,6 +276,9 @@ Como temos dois métodos que são executados no arranque do programa, não conse
 </br>
 `Couple Architecture Components Loosely` - Failing because we use the MVC pattern (Organize the project in different folders) </br>
 &nbsp;
+
+### ERROR-PRONE WARNINGS
+We have no error-prone warnings, we got rid of all of them
 
 
 ### SELF-EVALUATION
