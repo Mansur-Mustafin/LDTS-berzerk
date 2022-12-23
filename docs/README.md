@@ -265,13 +265,13 @@ Como temos dois métodos que são executados no arranque do programa, não conse
 ### BETTER CODE HUB
 ![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/BetterCodeHub.png) 
 
-**Result of the analysis:** 6/10
+**Result of the analysis:** 7/10
 
 **Failed guidelines:** </br>
 `Automate Tests` - Failing the software can't calculate assert density while we are using Spock to make our tests </br>
-`Keep Unit Interfaces Small` </br>
+`Keep Unit Interfaces Small` - We couldn't achieve this guideline because we use a method called `step()` that requires mandatorily 3 parameters and since we use the Singleton Pattern for sound management we need to insert the sound instance into many methods making it impossible to reduce the number of parameters
+</br>
 `Couple Architecture Components Loosely` - Failing because we use the MVC pattern (Organize the project in different folders) </br>
-`Write Code Once` </br>
 &nbsp;
 
 
