@@ -34,7 +34,7 @@
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
-> - `FRIENDLY FIRE`- Enemies can kill each other
+> - `FRIENDLY FIRE` - Enemies can kill each other
 > - `DODGE` - Enemies have a low chance of dodging player bullets
 > - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
 > - `BOSS` - We made a final boss consisting of 9 different PNG's 
