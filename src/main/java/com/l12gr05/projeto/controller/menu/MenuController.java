@@ -50,7 +50,7 @@ public class MenuController extends Controller<Menu> {
                 boolean selectedStart = getModel().isSelectedStart();
                 if (selectedStart) {
                     newGameMusic(instance);
-                    game.setState(new GameState(new Arena(34, 24, 1)));
+                    game.setState(new GameState(new Arena(34, 24, 6)));
                     game.setScore(0);
                 }
                 boolean selectedLeaderBoard = getModel().isSelectedLeaderBoard();

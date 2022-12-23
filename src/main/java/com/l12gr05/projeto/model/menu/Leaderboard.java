@@ -8,16 +8,15 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-public class Leaderboard {
+public class Leaderboard extends MenuManager{
     private final List<Player> players = new ArrayList<>();
 
     public List<Player> getPlayers() {
         return players;
     }
-    private final List<String> entries;
 
     public Leaderboard() throws IOException {
-        this.entries = List.of("press enter to back menu");
+        super(List.of("press enter to back menu"));
         File file = new File("src/main/resources/Leaders");
         Scanner sc = new Scanner(file, UTF_8);
             String line;
@@ -60,11 +59,6 @@ public class Leaderboard {
     public int getNumberOfplayers() {
         return players.size();
     }
-
-    public String getEntry(int i) {
-        return entries.get(i);
-    }
-
     public boolean isSelectedEnter() {
         return true;
     }
