@@ -278,7 +278,8 @@ Como temos dois métodos que são executados no arranque do programa, não conse
 &nbsp;
 
 ### ERROR-PRONE WARNINGS
-We have no error-prone warnings, we got rid of all of them
+We have no error-prone warnings, we got rid of all of them </br>
+&nbsp;
 
 
 ### SELF-EVALUATION
