@@ -240,7 +240,8 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > - `Decompose Conditional`
 > - `Consolidate Duplicate Conditional Fragments`
 > - `Inline Method`
->
+> - `Extract Superclass`
+> 
 &nbsp;
 
 ## CODE SMELLS
