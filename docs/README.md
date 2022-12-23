@@ -263,7 +263,7 @@ Como temos dois métodos que são executados no arranque do programa, não conse
 
 
 ### BETTER CODE HUB
-![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/BetterCodeHub.jpg) 
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/BetterCodeHub.png) 
 
 **Result of the analysis:** 6/10
 
