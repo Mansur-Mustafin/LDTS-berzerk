@@ -1,7 +1,6 @@
 package com.l12gr05.projeto.model.sounds;
 
 public class SoundControl {
-
     private SoundTrack soundTrack;
     private SoundTrack shooting;
     private SoundTrack menuMusic;
@@ -39,24 +38,48 @@ public class SoundControl {
     }
 
     public void start(Sound sound) {
-        switch (sound) {
-            case SOUNDTRACK -> soundTrack.playLoop();
-            case SHOOTING -> shooting.play();
-            case MENUMUSIC -> menuMusic.playLoop();
-            case HERODEATH -> heroDeath.play();
-            case ENEMYDEATH -> enemyDeath.play();
-            case CHANGETAB -> changeTab.play();
+        switch (sound){
+            case SOUNDTRACK:
+                soundTrack.playLoop();
+                break;
+            case SHOOTING:
+                shooting.play();
+                break;
+            case MENUMUSIC:
+                menuMusic.playLoop();
+                break;
+            case HERODEATH:
+                heroDeath.play();
+                break;
+            case ENEMYDEATH:
+                enemyDeath.play();
+                break;
+            case CHANGETAB:
+                changeTab.play();
+                break;
         }
     }
 
     public void stop(Sound sound){
-        switch (sound) {
-            case SOUNDTRACK -> soundTrack.stop();
-            case SHOOTING -> shooting.stop();
-            case MENUMUSIC -> menuMusic.stop();
-            case HERODEATH -> heroDeath.stop();
-            case ENEMYDEATH -> enemyDeath.stop();
-            case CHANGETAB -> changeTab.stop();
+        switch (sound){
+            case SOUNDTRACK:
+                soundTrack.stop();
+                break;
+            case SHOOTING:
+                shooting.stop();
+                break;
+            case MENUMUSIC:
+                menuMusic.stop();
+                break;
+            case HERODEATH:
+                heroDeath.stop();
+                break;
+            case ENEMYDEATH:
+                enemyDeath.stop();
+                break;
+            case CHANGETAB:
+                changeTab.stop();
+                break;
         }
     }
 

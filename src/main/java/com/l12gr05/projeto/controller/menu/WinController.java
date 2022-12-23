@@ -62,7 +62,7 @@ public class WinController extends Controller<Win> {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) return;
-        SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game,key,instance);
+        SoundControl instanceWin = SoundControl.getInstance();
+        stepNotNull(game,key,instanceWin);
     }
 }

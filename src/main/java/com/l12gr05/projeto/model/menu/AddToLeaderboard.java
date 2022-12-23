@@ -99,10 +99,10 @@ public class AddToLeaderboard {
 
     private void addScore(PrintWriter out) {
         if (name.isEmpty()){
-            out.println("Noname " + Score);
+            out.println("Noname;" + Score);
         }
         else {
-            out.println( name + " " + Score);
+            out.println( name + ";" + Score);
         }
     }
 }

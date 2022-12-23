@@ -6,34 +6,36 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class Leaderboard {
     private final List<Player> players = new ArrayList<>();
 
     public List<Player> getPlayers() {
         return players;
     }
-    private List<String> entries;
+    private final List<String> entries;
 
     public Leaderboard() throws IOException {
-        this.entries = Arrays.asList("press enter to back menu");
+        this.entries = List.of("press enter to back menu");
         File file = new File("src/main/resources/Leaders");
-        Scanner sc = new Scanner(file);
+        Scanner sc = new Scanner(file, UTF_8);
             String line;
             while (sc.hasNextLine()) {
                 line = sc.nextLine();
-                String[] words = line.split("\\s");
-                Player p = new Player (words[0], words[1]);
+                List<String> words = List.of(line.split(";"));
+                Player p = new Player (words.get(0), words.get(1));
                 boolean contains = contains(players, p);
                 if (contains) {
                     int index = index(players, p);
-                    players.get(index).setScore(words[1]);
+                    players.get(index).setScore(words.get(1));
                 }
                 else {
                     players.add(p);
                 }
             }
         sc.close();
-        Collections.sort(players, new SortByScore());
+        players.sort(new SortByScore());
     }
 
     public int index(List<Player> lst, Player p) {
@@ -69,7 +71,7 @@ public class Leaderboard {
 }
 
 class SortByScore implements Comparator<Player> {
-    public int compare(Player a, Player b) {
+    @Override public int compare(Player a, Player b) {
         return Integer.parseInt(b.getScore()) - Integer.parseInt(a.getScore());
     }
 }

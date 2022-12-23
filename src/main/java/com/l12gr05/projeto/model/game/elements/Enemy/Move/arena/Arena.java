@@ -59,15 +59,16 @@ public class Arena {
         try {
             int i = 0;
             for (String line; (line = reader.readLine()) != null; i++) {
-                int j = 0;
-                readMap(i, line, j);
+
+                readMap(i, line);
             }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    private void readMap(int i, String line, int j) {
+    private void readMap(int i, String line) {
+        int j = 0;
         for (char c: line.toCharArray()) {
             if (c == 'h') {
                 hero = new Hero(j,i);
@@ -118,7 +119,9 @@ public class Arena {
     }
 
 
-    public boolean notContainsWall(int x, int y, char dir){
+    public boolean notContainsWall(Position position, char dir){
+        int x = position.getX();
+        int y = position.getY();
         if(x < 0 || y < 0 ||x > 34 || y > 24){
             return false;
         }
@@ -165,52 +168,40 @@ public class Arena {
 
         switch (dir){
             case 'r':
-                boolean notContainsWall = notContainsWall(x + 1, y, dir);
+                boolean notContainsWall = notContainsWall(new Position(x + 1, y), dir);
                 if (notContainsWall) {
                     bullets.add(new Bullet(x + 1, y, dir ,hero));
                 }
                 break;
             case 'l':
-                boolean notContainsWall1 = notContainsWall(x - 1, y, dir);
+                boolean notContainsWall1 = notContainsWall(new Position(x - 1, y), dir);
                 if (notContainsWall1) {
                     bullets.add(new Bullet(x - 1, y, dir, hero));
                 }
                 break;
             case 'd':
-                boolean notContainsWall2 = notContainsWall(x, y + 1, dir);
+                boolean notContainsWall2 = notContainsWall(new Position(x , y + 1), dir);
                 if (notContainsWall2) {
                     bullets.add(new Bullet(x , y + 1, dir, hero));
                 }
                 break;
             case 'u':
-                boolean notContainsWall3 = notContainsWall(x, y - 1, dir);
+                boolean notContainsWall3 = notContainsWall(new Position(x , y - 1), dir);
                 if (notContainsWall3) {
                     bullets.add(new Bullet( x , y - 1, dir, hero));
                 }
                 break;
             case 'q':
-                boolean notContainsWall4 = notContainsWall(x - 1, y - 1, dir);
-                if (notContainsWall4) {
-                    bullets.add(new Bullet(x -1  , y - 1, dir, hero));
-                }
+                bullets.add(new Bullet(x -1  , y - 1, dir, hero));
                 break;
             case 't':
-                boolean notContainsWall5 = notContainsWall(x + 1, y - 1, dir);
-                if (notContainsWall5) {
-                    bullets.add(new Bullet(x + 1,y-1, dir, hero));
-                }
+                bullets.add(new Bullet(x + 1,y-1, dir, hero));
                 break;
             case 'a':
-                boolean notContainsWall6 = notContainsWall(x - 1, y + 1, dir);
-                if (notContainsWall6) {
-                    bullets.add(new Bullet(x - 1, y + 1, dir, hero));
-                }
+                bullets.add(new Bullet(x - 1, y + 1, dir, hero));
                 break;
             case 'z':
-                boolean notContainsWall7 = notContainsWall(x + 1, y + 1, dir);
-                if (notContainsWall7) {
-                    bullets.add(new Bullet(x + 1, y + 1, dir, hero));
-                }
+                bullets.add(new Bullet(x + 1, y + 1, dir, hero));
                 break;
         }
     }

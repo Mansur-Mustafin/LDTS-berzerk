@@ -38,7 +38,7 @@ class AddLeaderboardControllerTest extends Specification{
         given:
         key.getKeyType() >> KeyType.Enter;
         when:
-        leaderController.stepNotNull(game,key,instance)
+        leaderController.stepNotNullLose(game,key,instance)
         then:
         1 * game.setState(_)
         1 * addLeader.addScore()

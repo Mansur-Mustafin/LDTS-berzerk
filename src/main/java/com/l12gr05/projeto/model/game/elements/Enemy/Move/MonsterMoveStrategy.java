@@ -10,6 +10,10 @@ public class MonsterMoveStrategy implements MoveStrategy {
     @Override
     public Position move(Position position, Position position_hero , boolean[][] matrixOfWalls) {
         Random random = new Random();
+        return getPositionFromRandom(random, position);
+    }
+
+    public Position getPositionFromRandom(Random random, Position position){
         int x = random.nextInt(3) - 1;
         int y = random.nextInt(3) - 1;
         int xPos = position.getX() + x;

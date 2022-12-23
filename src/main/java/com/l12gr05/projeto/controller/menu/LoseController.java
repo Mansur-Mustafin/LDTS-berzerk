@@ -35,7 +35,7 @@ public class LoseController extends Controller<Lose> {
         instance.start(Sound.CHANGETAB);
     }
 
-    public void stepNotNull(Game game, KeyStroke key, SoundControl instance) throws IOException {
+    public void stepNotNullLose(Game game, KeyStroke key, SoundControl instance) throws IOException {
         switch (key.getKeyType()) {
             case ArrowUp:
                 getModel().previousEntry();
@@ -74,7 +74,7 @@ public class LoseController extends Controller<Lose> {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) return;
-        SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game, key, instance);
+        SoundControl instanceLose = SoundControl.getInstance();
+        stepNotNullLose(game, key, instanceLose);
     }
 }

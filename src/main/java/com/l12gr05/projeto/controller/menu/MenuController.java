@@ -78,7 +78,7 @@ public class MenuController extends Controller<Menu> {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) return;
-        SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game, key, instance);
+        SoundControl instanceMenu = SoundControl.getInstance();
+        stepNotNull(game, key, instanceMenu);
     }
 }

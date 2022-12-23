@@ -38,7 +38,7 @@ public class InstructionController extends Controller<Instruction> {
     @Override
     public void step(Game game, KeyStroke key, long time) throws IOException {
         if (key == null) return;
-        SoundControl instance = SoundControl.getInstance();
-        stepNotNull(game, key, instance);
+        SoundControl instanceInstruction = SoundControl.getInstance();
+        stepNotNull(game, key, instanceInstruction);
     }
 }

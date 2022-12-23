@@ -42,7 +42,7 @@ class InstructionControllerTest extends Specification{
         instructionController.getModel() >> instruction
         instruction.isSelectedEnter() >> true
         when:
-        instructionController.stepNotNull(game,key,instance)
+        instructionController.stepNotNullLose(game,key,instance)
         then:
         1*instance.start(_)
         1 * game.setState(_)
@@ -53,7 +53,7 @@ class InstructionControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        instructionController.stepNotNull(game,key,instance)
+        instructionController.stepNotNullLose(game,key,instance)
         then:
         1 * game.setState(_)
     }

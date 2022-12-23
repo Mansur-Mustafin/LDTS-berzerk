@@ -13,7 +13,7 @@ class AddLeaderboardTest extends Specification{
         when:
         addLeader.addScore()
         then:
-        1 * out.println("Noname 10")
+        1 * out.println("Noname;10")
         1 * out.close()
     }
 
@@ -26,7 +26,7 @@ class AddLeaderboardTest extends Specification{
         when:
         addLeader.addScore()
         then:
-        1 * out.println("mans 10")
+        1 * out.println("mans;10")
         1 * out.close()
     }
 
