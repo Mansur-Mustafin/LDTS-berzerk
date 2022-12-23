@@ -122,9 +122,21 @@ public class HeroController extends GameController {
     }
 
     private void keyStep(KeyStroke key) {
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'w') moveHeroUp();
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'd') moveHeroRight();
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 's') moveHeroDown();
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'a') moveHeroLeft();
+        if(key.getKeyType() == KeyType.Character){
+            switch (key.getCharacter()){
+                case'w':
+                    moveHeroUp();
+                    break;
+                case'd':
+                    moveHeroRight();
+                    break;
+                case's':
+                    moveHeroDown();
+                    break;
+                case'a':
+                    moveHeroLeft();
+                    break;
+            }
+        }
     }
 }

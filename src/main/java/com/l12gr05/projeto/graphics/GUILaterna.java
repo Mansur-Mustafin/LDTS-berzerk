@@ -200,7 +200,7 @@ public class GUILaterna implements GUI {
     @Override
     public KeyStroke getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
-        if (keyStroke == null && !pressedKeys.isEmpty()) {
+        if (keyStroke == null) {
             if (pressedKeys.contains(1)) {
                 pressedKeys.remove(1);
                 return new KeyStroke(KeyType.ArrowLeft);

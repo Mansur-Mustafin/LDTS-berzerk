@@ -52,22 +52,12 @@ public class ArenaController extends GameController {
 
     public void steplastBullet(KeyStroke key, SoundControl instance){
         Position position = getModel().getHero().getPosition();
-
-        if (key.getKeyType() == KeyType.ArrowUp) {
-            ShootSound(instance);
-            getModel().shoot('u', position, true);
-        }
-        if (key.getKeyType() == KeyType.ArrowDown) {
-            ShootSound(instance);
-            getModel().shoot('d', position, true);
-        }
-        if (key.getKeyType() == KeyType.ArrowRight) {
-            ShootSound(instance);
-            getModel().shoot('r', position, true);
-        }
-        if (key.getKeyType() == KeyType.ArrowLeft) {
-            ShootSound(instance);
-            getModel().shoot('l', position, true);
+        switch (key.getKeyType()){
+            case ArrowUp: getModel().shoot('u', position, true);ShootSound(instance); break;
+            case ArrowDown: getModel().shoot('d', position, true);ShootSound(instance); break;
+            case ArrowLeft: getModel().shoot('l', position, true);ShootSound(instance); break;
+            case ArrowRight: getModel().shoot('r', position, true);ShootSound(instance); break;
+            default:break;
         }
     }
 

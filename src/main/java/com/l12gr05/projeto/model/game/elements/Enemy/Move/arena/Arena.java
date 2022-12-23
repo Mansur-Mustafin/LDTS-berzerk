@@ -70,24 +70,13 @@ public class Arena {
     private void readMap(int i, String line) {
         int j = 0;
         for (char c: line.toCharArray()) {
-            if (c == 'h') {
-                hero = new Hero(j,i);
-            }
-            if (c == 'm') {
-                monsters.add(new Monster(j, i));
-            }
-            if (c == 'k') {
-                kings.add(new King(j, i));
-            }
-            if (c == 'w') {
-                walls.add(new Wall(j, i));
-                matrixOfWalls[j][i] = true;
-            }
-            if (c == 'f') {
-                boss = new Boss(j,i);
-            }
-            if (c == 'J') {
-                health.add(new Health(j,i));
+            switch (c){
+                case'h': hero = new Hero(j,i); break;
+                case'm': monsters.add(new Monster(j, i)); break;
+                case'k': kings.add(new King(j, i)); break;
+                case'w': walls.add(new Wall(j, i)); matrixOfWalls[j][i] = true; break;
+                case'f': boss = new Boss(j,i); break;
+                case'J': health.add(new Health(j,i)); break;
             }
             j++;
         }

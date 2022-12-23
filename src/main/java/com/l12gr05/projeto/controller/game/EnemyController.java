@@ -88,10 +88,26 @@ public class EnemyController extends GameController {
         return 'n';
     }
 
-    public void stepMovementEnemy(Game game, SoundControl instance ) {
-        int score = game.getScore();
-        getModel().setScore(score);
+    public void stepMovementKing(SoundControl instance ){
+        List<King> kings = getModel().getKings();
+        for (Enemy king : kings) {
+            double kingHeroDistance = king.position.getDistance(getModel().getHero().position);
+            if (kingHeroDistance < 20) {
+                king.setMoveStrategy(new KingMoveStrategy());
+            }
+            Position position = king.move(getModel().getHero().position ,getModel().getMatrixOfWalls() );
+            king.setPosition(position);
+            boolean kingHitsHero = position.equals(getModel().getHero().position);
+            if (kingHitsHero) {
+                instance.stop(Sound.HERODEATH);
+                instance.start(Sound.HERODEATH);
+                Hero hero = getModel().getHero();
+                hero.decreaseEnergy(5);
+            }
+        }
+    }
 
+    public void stepMovementMonster(SoundControl instance){
         List<Monster> monsters = getModel().getMonsters();
         for (Enemy monster : monsters) {
             Position position;
@@ -116,23 +132,13 @@ public class EnemyController extends GameController {
 
             }
         }
+    }
 
-        List<King> kings = getModel().getKings();
-        for (Enemy king : kings) {
-            double kingHeroDistance = king.position.getDistance(getModel().getHero().position);
-            if (kingHeroDistance < 20) {
-                king.setMoveStrategy(new KingMoveStrategy());
-            }
-            Position position = king.move(getModel().getHero().position ,getModel().getMatrixOfWalls() );
-            king.setPosition(position);
-            boolean kingHitsHero = position.equals(getModel().getHero().position);
-            if (kingHitsHero) {
-                instance.stop(Sound.HERODEATH);
-                instance.start(Sound.HERODEATH);
-                Hero hero = getModel().getHero();
-                hero.decreaseEnergy(5);
-            }
-        }
+    public void stepMovementEnemy(Game game, SoundControl instance ) {
+        int score = game.getScore();
+        getModel().setScore(score);
+        stepMovementMonster( instance);
+        stepMovementKing( instance);
     }
 
 
@@ -167,12 +173,14 @@ public class EnemyController extends GameController {
             this.lastMovementEnemy = time;
         }
 
-        if (time - lastMovementBoss > 800 && getModel().getLevel() == 6) {
-            stepMovementBoss(time, instance);
-        }
-        if (time - lastSpawn > 6000 && getModel().getLevel() == 6) {
-            getModel().spawnMonster();
-            lastSpawn = time;
+        if(getModel().getLevel() == 6){
+            if (time - lastMovementBoss > 800) {
+                stepMovementBoss(time, instance);
+            }
+            if (time - lastSpawn > 6000) {
+                getModel().spawnMonster();
+                lastSpawn = time;
+            }
         }
     }
 }

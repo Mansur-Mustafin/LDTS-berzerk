@@ -80,6 +80,9 @@ public class PauseController extends Controller<Pause> {
                 if (key.getCharacter() == 'q') {
                     game.setState(new MenuState(new Menu()));
                 }
+                break;
+            default:
+                break;
         }
     }
 
