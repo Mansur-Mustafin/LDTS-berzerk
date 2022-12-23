@@ -178,21 +178,20 @@ class ArenaTest extends Specification{
     def 'Not contains wall'(){
 
         expect:
-        !arena.notContainsWall(-12, 2, (char)'l')
-        !arena.notContainsWall(12, -2, (char)'l')
-        !arena.notContainsWall(36, 2, (char)'l')
-        !arena.notContainsWall(-12, 26, (char)'l')
-        !arena.notContainsWall(0,2, (char)'l')
-        arena.notContainsWall(7,17,(char) 'u')
-        arena.notContainsWall(7,22,(char) 'd')
-        arena.notContainsWall(9,20,(char) 'l')
-        arena.notContainsWall(5,17,(char) 'r')
+        !arena.notContainsWall(new Position(-12, 2), (char)'l')
+        !arena.notContainsWall(new Position(12, -2), (char)'l')
+        !arena.notContainsWall(new Position(36, 2), (char)'l')
+        !arena.notContainsWall(new Position(-12, 26), (char)'l')
+        !arena.notContainsWall(new Position(0,2), (char)'l')
+        arena.notContainsWall(new Position(7,17),(char) 'u')
+        arena.notContainsWall(new Position(7,22),(char) 'd')
+        arena.notContainsWall(new Position(9,20),(char) 'l')
+        arena.notContainsWall(new Position(5,17),(char) 'r')
 
-        arena.notContainsWall(0,0, (char)'r')
-        arena.notContainsWall(3,0, (char)'r')
-        arena.notContainsWall(34,0, (char)'r')
-        arena.notContainsWall(34,24, (char)'r')
-
+        arena.notContainsWall(new Position(0,0), (char)'r')
+        arena.notContainsWall(new Position(3,0), (char)'r')
+        arena.notContainsWall(new Position(34,0), (char)'r')
+        arena.notContainsWall(new Position(34,24), (char)'r')
     }
 
     def 'has Walls'(){

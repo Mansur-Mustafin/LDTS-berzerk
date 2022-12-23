@@ -41,7 +41,7 @@ class LeaderboardControllerTest extends Specification{
         leader.isSelectedEnter() >> true
 
         when:
-        leaderController.stepNotNullLose(game,key,instance)
+        leaderController.stepNotNull(game,key,instance)
 
         then:
         1 * game.setState(_)
@@ -55,7 +55,7 @@ class LeaderboardControllerTest extends Specification{
         key.getKeyType() >>> KeyType.Enter;
 
         when:
-        leaderController.stepNotNullLose(game,key,instance)
+        leaderController.stepNotNull(game,key,instance)
         then:
         1 * game.setScore(_)
         1 * instance.stop(_)
@@ -67,7 +67,7 @@ class LeaderboardControllerTest extends Specification{
         key.getKeyType() >>> KeyType.Enter;
 
         when:
-        leaderController.stepNotNullLose(game,key,instance)
+        leaderController.stepNotNull(game,key,instance)
         then:
         1 * game.setScore(_)
 
@@ -78,7 +78,7 @@ class LeaderboardControllerTest extends Specification{
         key.getKeyType() >> KeyType.Character;
         key.getCharacter() >> 'e'
         when:
-        leaderController.stepNotNullLose(game,key,instance)
+        leaderController.stepNotNull(game,key,instance)
         then:
         1 * game.setState(_)
     }
