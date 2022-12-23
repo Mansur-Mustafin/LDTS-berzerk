@@ -34,12 +34,13 @@
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
-> - `FRIENDLY FIRE`- Enemies can kill each other
+> - `FRIENDLY FIRE` - Enemies can kill each other
 > - `DODGE` - Enemies have a low chance of dodging player bullets
 > - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
 > - `BOSS` - We made a final boss consisting of 9 different PNG's 
 > - `SHOOT BEHIND WALLS` - If the player is hidden behind walls, the enemies will not try to shoot through them
 > - `PICK UP HEALTH` - On the final level, the player has the chance to restore health by picking hearts on the ground
+> - `LEADERBOARD` - The player can check the current top 10 players. After dying/concluding the game, the player has the chance of entering the leaderboard by inserting their name
 >
 &nbsp;
 
@@ -240,7 +241,8 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 > - `Decompose Conditional`
 > - `Consolidate Duplicate Conditional Fragments`
 > - `Inline Method`
->
+> - `Extract Superclass`
+> 
 &nbsp;
 
 ## CODE SMELLS
@@ -263,15 +265,15 @@ Como temos dois métodos que são executados no arranque do programa, não conse
 
 
 ### BETTER CODE HUB
-![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/BetterCodeHub.jpg) 
-
-**Result of the analysis:** 6/10
+![img](https://github.com/FEUP-LDTS-2022/project-l12gr05/blob/master/docs/Screenshots/BetterCodeHub.png) </br>
+**Result of the analysis:** 7/10
 
 **Failed guidelines:** </br>
+
 `Automate Tests` - Failing the software can't calculate assert density while we are using Spock to make our tests </br>
-`Keep Unit Interfaces Small` </br>
+`Keep Unit Interfaces Small` - We couldn't achieve this guideline because we use a method called `step()` that requires mandatorily 3 parameters. Since we implemented the Singleton Patter for sound management, we need to insert the sound instance into many methods to test it making, it impossible to reduce the number of parameters
+</br>
 `Couple Architecture Components Loosely` - Failing because we use the MVC pattern (Organize the project in different folders) </br>
-`Write Code Once` </br>
 &nbsp;
 
 

@@ -34,12 +34,13 @@
 > - `SCORE` - The player's score increases depending on the type of enemy eliminated
 > - `LEVELS` - The player has the option to return to the previous level or advance to the next one
 > - `BULLET COLLISION` - When a bullet hits an element it disappears
-> - `FRIENDLY FIRE`- Enemies can kill each other
+> - `FRIENDLY FIRE` - Enemies can kill each other
 > - `DODGE` - Enemies have a low chance of dodging player bullets
 > - `A SOUND SYSTEM` - Implemented sounds for changing tabs, taking damage and eliminating enemies 
 > - `BOSS` - We made a final boss consisting of 9 different PNG's 
 > - `SHOOT BEHIND WALLS` - If the player is hidden behind walls, the enemies will not try to shoot through them
 > - `PICK UP HEALTH` - On the final level, the player has the chance to restore health by picking hearts on the ground
+> - `LEADERBOARD` - The player can check the current top 10 players. After dying/concluding the game, the player has the chance of entering the leaderboard by inserting their name
 >
 &nbsp;
                                                                                                                 
