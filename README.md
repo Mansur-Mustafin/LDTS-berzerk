@@ -40,7 +40,7 @@
 > - `BOSS` - We made a final boss consisting of 9 different PNG's 
 > - `SHOOT BEHIND WALLS` - If the player is hidden behind walls, the enemies will not try to shoot through them
 > - `PICK UP HEALTH` - On the final level, the player has the chance to restore health by picking hearts on the ground
-> - `LEADERBOARD` - The player can check the current top 10 players. After dying/concluding the game, the player has the chance of entering the leaderboard by entering their name
+> - `LEADERBOARD` - The player can check the current top 10 players. After dying/concluding the game, the player has the chance of entering the leaderboard by inserting their name
 >
 &nbsp;
                                                                                                                 
