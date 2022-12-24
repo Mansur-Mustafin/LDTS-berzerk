@@ -26,7 +26,7 @@
 > - `KING MOVIMENTATION` - King has an inteligent movementation (finds the shortest way to hero by dodging walls)
 > - `MAP CREATION` - We are able to use custom made maps with the support of a wall and enemies tracking system
 > - `EXTERNAL FONT` - We can use our own font in the game
-> - `HEALTH BAR` - The player has an amount of health that decreases every time he has contact with an enemy
+> - `HEALTH BAR` - The player has an amount of health that decreases every time he has contact with an enemy or gets hit by a bullet
 > - `GAME OVER` - When the player's energy gets to 0, a Game Over screen containing the options Menu, See LeaderBoard and Add name to leaderBoard is displayed
 > - `CHARACTERS` - We designed the characters manually
 > - `INSTRUCTIONS` - In the menu the player has the option to se an instructions screen
@@ -272,7 +272,7 @@ Como temos dois métodos que são executados no arranque do programa, não conse
 **Failed guidelines:** </br>
 
 `Automate Tests` - Failing the software can't calculate assert density while we are using Spock to make our tests </br>
-`Keep Unit Interfaces Small` - We couldn't achieve this guideline because we use a method called `step()` that requires mandatorily 3 parameters. Since we implemented the Singleton Patter for sound management, we need to insert the sound instance into many methods to test it making, it impossible to reduce the number of parameters
+`Keep Unit Interfaces Small` - We couldn't achieve this guideline because we use a method called `step()` that requires mandatorily 3 parameters. Since we implemented the Singleton Pattern for sound management, we need to insert the sound instance into many methods to test it making, it impossible to reduce the number of parameters
 </br>
 `Couple Architecture Components Loosely` - Failing because we use the MVC pattern (Organize the project in different folders) </br>
 &nbsp;
