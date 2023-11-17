@@ -12,9 +12,9 @@
 ### GROUP COMPOSITION:
 > 
 > **This project was developed by:**
-> - > Mansur (up202102355@up.pt)
-> - > Ian Beltrão (up202102360@up.pt)
-> - > Rafael Teixeira (up202108831@up.pt)
+> - > [Mansur Mustafin](https://github.com/Mansur-Mustafin)
+> - > [Ian Beltrão]()
+> - > [Rafael Teixeira]()
 > 
 &nbsp;
 
@@ -95,10 +95,5 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 >
 &nbsp;
 
-## Contributors
-
-* [Mansur Mustafin](https://github.com/Mansur-Mustafin) 
-* []()
-* []()
-
+---
 Grade 19.3 / 20
