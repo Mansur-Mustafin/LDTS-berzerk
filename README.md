@@ -95,9 +95,10 @@ We used 9 different PNG's to create the Boss, that combined looks like this:
 >
 &nbsp;
 
-### SELF-EVALUATION
-> 
-> Mansur: 33.3%</br>
-> Ian: 33.3%</br>
-> Rafael: 33.3%</br>
-> 
+## Contributors
+
+* [Mansur Mustafin](https://github.com/Mansur-Mustafin) 
+* []()
+* []()
+
+Grade 19.3 / 20
