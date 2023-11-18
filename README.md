@@ -14,7 +14,7 @@
 > **This project was developed by:**
 > - > [Mansur Mustafin](https://github.com/Mansur-Mustafin)
 > - > [Ian Beltrão]()
-> - > [Rafael Teixeira]()
+> - > [Rafael Teixeira](https://github.com/RafaelNTeixeira)
 > 
 &nbsp;
 
