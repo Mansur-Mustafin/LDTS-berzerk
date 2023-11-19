@@ -13,7 +13,7 @@
 > 
 > **This project was developed by:**
 > - > [Mansur Mustafin](https://github.com/Mansur-Mustafin)
-> - > [Ian Beltrão]()
+> - > [Ian Beltrão](https://github.com/ianbeltrao)
 > - > [Rafael Teixeira](https://github.com/RafaelNTeixeira)
 > 
 &nbsp;
